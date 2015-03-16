@@ -278,11 +278,11 @@ arrl_ld = wibox.widget.imagebox()
 arrl_ld:set_image(beautiful.arrl_ld)
 
 -- Create a wibox for each screen and add it
-mywibox = {}
 mywiboxleft = {}
 mywiboxright = {}
 mywiboxcenter = {}
 mywiboxcenter2 = {}
+mywibox = {}
 mypromptbox = {}
 mylayoutbox = {}
 mytaglist = {}
@@ -487,22 +487,19 @@ globalkeys = awful.util.table.join(
 
     -- Show/Hide Wibox
     awful.key({ modkey }, "b", function ()
-        mywibox[mouse.screen].visible = not mywibox[mouse.screen].visible
+        mywiboxleft[mouse.screen].visible = not mywiboxleft[mouse.screen].visible
+        mywiboxcenter[mouse.screen].visible = not mywiboxcenter[mouse.screen].visible
+        mywiboxcenter2[mouse.screen].visible = not mywiboxcenter2[mouse.screen].visible
+        mywiboxright[mouse.screen].visible = not mywiboxright[mouse.screen].visible
     end),
 
     -- Layout manipulation
     awful.key({ modkey, "Shift"   }, "l", function () awful.client.swap.bydirection("right")    end),
-    -- awful.key({ modkey, "Shift"   }, "Right", function () awful.client.swap.bydirection("right")    end),
     awful.key({ modkey, "Shift"   }, "h", function () awful.client.swap.bydirection("left")    end),
-    -- awful.key({ modkey, "Shift"   }, "Left", function () awful.client.swap.bydirection("left")    end),
     awful.key({ modkey, "Shift"   }, "k", function () awful.client.swap.bydirection("up")    end),
-    -- awful.key({ modkey, "Shift"   }, "Up", function () awful.client.swap.bydirection("up")    end),
     awful.key({ modkey, "Shift"   }, "j", function () awful.client.swap.bydirection("down")    end),
-    -- awful.key({ modkey, "Shift"   }, "Down", function () awful.client.swap.bydirection("down")    end),
     awful.key({ modkey, "Control" }, "h", function () awful.screen.focus_relative( 1) end),
-    -- awful.key({ modkey, "Control" }, "Left", function () awful.screen.focus_relative( 1) end),
     awful.key({ modkey, "Control" }, "l", function () awful.screen.focus_relative(-1) end),
-    -- awful.key({ modkey, "Control" }, "Right", function () awful.screen.focus_relative(-1) end),
     awful.key({ modkey,           }, "u", awful.client.urgent.jumpto),
     awful.key({ modkey,           }, "Tab",
         function ()
@@ -512,17 +509,13 @@ globalkeys = awful.util.table.join(
             end
         end),
     awful.key({ altkey, "Shift"   }, "l",      function () awful.tag.incmwfact( 0.05)     end),
-    -- awful.key({ altkey, "Shift"   }, "Right",      function () awful.tag.incmwfact( 0.05)     end),
     awful.key({ altkey, "Shift"   }, "h",      function () awful.tag.incmwfact(-0.05)     end),
-    -- awful.key({ altkey, "Shift"   }, "Left",      function () awful.tag.incmwfact(-0.05)     end),
+		awful.key({ altkey, "Shift"   }, "j",      function () awful.client.incwfact(-.1)     end),
+    awful.key({ altkey, "Shift"   }, "k",      function () awful.client.incwfact( .1)     end),
     awful.key({ modkey, altkey   }, "k",      function () awful.tag.incnmaster(-1)       end),
-    -- awful.key({ modkey, altkey   }, "Up",      function () awful.tag.incnmaster(-1)       end),
     awful.key({ modkey, altkey   }, "j",      function () awful.tag.incnmaster( 1)       end),
-    -- awful.key({ modkey, altkey   }, "Down",      function () awful.tag.incnmaster( 1)       end),
     awful.key({ modkey, "Control" }, "l",      function () awful.tag.incncol(-1)          end),
-    -- awful.key({ modkey, "Control" }, "Right",      function () awful.tag.incncol( 1)          end),
     awful.key({ modkey, "Control" }, "h",      function () awful.tag.incncol( 1)          end),
-    -- awful.key({ modkey, "Control" }, "Left",      function () awful.tag.incncol( 1)          end),
     awful.key({ modkey,           }, "space",  function () awful.layout.inc(1)  end),
     awful.key({ modkey, "Shift"   }, "space",  function () awful.layout.inc(-1)  end),
     awful.key({ modkey, "Control" }, "n",      awful.client.restore),
@@ -723,9 +716,9 @@ client.connect_signal("manage", function (c, startup)
 
     if not startup and not c.size_hints.user_position
        and not c.size_hints.program_position then
-        awful.placement.no_overlap(c)
+				--awful.placement.no_overlap(c)
         awful.placement.no_offscreen(c)
-      --      awful.placement.under_mouse(c)
+				awful.placement.under_mouse(c)
     end
 
     local titlebars_enabled = false

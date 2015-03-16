@@ -1,0 +1,17 @@
+let mapleader=","
+nnoremap ; :
+nnoremap <S-j> :back<CR>
+nnoremap <S-k> :forward<CR>
+nnoremap <S-h> :tabprevious<CR>
+nnoremap <S-l> :tabnext<CR>
+nmap x :tabclose<CR>
+nmap <S-x> :undo<CR>
+nmap <Leader>s :source ~/.vimperatorrc<CR>
+nmap <Leader>/ :nohlsearch<CR>
+
+set hintchars=fjdkslaghrueiwovncm
+set followhints=0
+set animations=true
+set gui=nonavigation,nobookmarks,nomenu,noaddons,tabs
+
+let smoozie_scroll_interval="100"

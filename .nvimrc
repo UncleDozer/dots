@@ -34,7 +34,7 @@ Plugin 'jelera/vim-javascript-syntax'
 Plugin 'othree/javascript-libraries-syntax.vim'
 
 " Bracket/tag/etc completion
-Plugin 'tpope/vim-surround'
+Plugin 'tpope/vim-sleuth'
 
 " HTML and PHP
 Plugin 'othree/html5.vim'
@@ -64,7 +64,8 @@ Plugin 'vim-scripts/colorsupport.vim'
 Plugin 'dag/vim-fish'
 
 " CSS Color Highlighting
-Plugin 'ap/vim-css-color'
+"Plugin 'ap/vim-css-color'
+Plugin 'chrisbra/colorizer'
 
 " Vim Powerline
 Plugin 'bling/vim-airline'
@@ -78,9 +79,8 @@ Plugin 'Align'
 " CtrlP fuzzy file finder
 Plugin 'kien/ctrlp.vim'
 
-" Auto Completion Plugin
-"Plugin 'valloric/youcompleteme'
-
+" Undo history visualizer
+Plugin 'sjl/gundo.vim'
 "}}}
 
 " All of your Plugins must be added before the following line
@@ -374,8 +374,8 @@ vnoremap ; :
 nnoremap <S-h> :bn<CR>
 
 "Imap movement
-inoremap <c-l> <Esc>ea
-inoremap <c-h> <Esc>bi
+"inoremap <c-l> <Esc>ea
+"inoremap <c-h> <Esc>bi
 
 " Next Buffer
 nnoremap <S-l> :bn<CR>
@@ -439,7 +439,7 @@ nnoremap <leader>c mzVy`z:delmarks z<CR>
 nnoremap <leader>d mzVyp`z:delmarks z<CR>
 
 " Sudo Save
-command W :execute ':silent w !sudo tee % > /dev/null'
+command! W :execute ':silent w !sudo tee % > /dev/null'
 
 "Fold Keys
 nmap <leader>fm :AutoCloseToggle<CR>i{{{<ESC>c,<space>:AutoCloseToggle<CR>
@@ -476,6 +476,7 @@ let &t_EI .= "\<Esc>[2 q"
 au BufRead,BufNewFile *.md set filetype=markdown
 au BufRead,BufNewFile *.nvim set filetype=vim
 au BufRead,BufNewFile *.nvimrc set filetype=vim
+au BufRead,BufNewFile *.vimperarotrc set filetype=vim
 "au BufRead,BufNewFile *.scss set filetype=css.scss
 "au BufRead,BufNewFile *.php set filetype=html.php
 "}}}

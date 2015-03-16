@@ -6,10 +6,10 @@ set fish_path $HOME/.oh-my-fish
 
 # Which plugins would you like to load? (plugins can be found in ~/.oh-my-fish/plugins/*)
 # Custom plugins may be added to ~/.oh-my-fish/custom/plugins/
-set fish_plugins localhost node gem jump extract
+set fish_plugins node jump extract theme
 
 # Path to your custom folder (default path is $FISH/custom)
-set fish_custom $HOME/dotfiles/oh-my-fish
+set fish_custom $HOME/.oh-my-fish
 
 # Load oh-my-fish configuration.
 . $fish_path/oh-my-fish.fish
@@ -27,11 +27,14 @@ set -x EDITOR 'nvim'
 set -U SCRIPTS $HOME/.scripts
 #set -U TERM 'xterm-256color'
 
+#alias try='theme'
+alias nd='nextd'
+alias pd='prevd'
 alias vim='nvim'
 alias terminal='urxvtc'
 alias reload_profile='source ~/.config/fish/config.fish'
 alias aur='yaourt'
-alias compy='compton -b --unredir-if-possible --paint-on-overlay --vsync opengl --config /home/uncledozer/.config/compton.conf'
+alias compy='pkill compton; compton -b --unredir-if-possible --paint-on-overlay --vsync opengl --config /home/uncledozer/.config/compton.conf'
 alias clocky='tty-clock -cC 1'
 alias ll='ls --format single-column'
 alias la='ls -lA'
