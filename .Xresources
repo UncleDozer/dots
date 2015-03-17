@@ -1,11 +1,11 @@
 !scrollbar style - rxvt (default), plain (most compact), next, false, or xterm
-URxvt.scrollBar: false
+*scrollBar: false
 
 ! FONT SETTINGS
 !{{{
-URxvt*font          : xft:lemon:style=regular:antialias=false:pixelsize=10
-URxvt*boldFont:
-URxvt*letterSpace   : 0
+*font          : xft:lemon:style=regular:antialias=false:pixelsize=10
+*boldFont:
+*letterSpace   : 0
 
 Xft.dpi             : 98
 
@@ -56,43 +56,43 @@ URxvt*skipBuiltinGlyphs   : true
 ! COLORS
 !!! Phallus Custom Colorscheme
 !! black
-URxvt*color15          : #66666A
-URxvt*color7           : #30303A
+*color15          : #66666A
+*color7           : #34444D
 
 !!! red
-URxvt*color1           : #DA637E
-URxvt*color9           : #F0A3A3
+*color1           : #DA637E
+*color9           : #F0A3A3
 
 !! yellow/orange
-URxvt*color3           : #AB93B9
-URxvt*color11          : #CBB6D7
+*color3           : #AB93B9
+*color11          : #CBB6D7
 
 !! purple
-URxvt*color5           : #AC8AC1
-URxvt*color13          : #D2BBE4
+*color5           : #AC8AC1
+*color13          : #D2BBE4
 
 !! blue
-URxvt*color4           : #7787A3
-URxvt*color12          : #A8C9EB
+*color4           : #6F8BBD
+*color12          : #8CB4FA
 
 !! green
-URxvt*color2           : #B1B792
-URxvt*color10          : #C7E6B8
+*color2           : #B1B792
+*color10          : #C7E6B8
 
 !! cyan
-URxvt*color6           : #63918B
-URxvt*color14          : #92B5B0
+*color6           : #63918B
+*color14          : #92B5B0
 
 !! white
-URxvt*color0           : #B1B8C3
-URxvt*color8           : #CDCDCD
+*color0           : #DEE7F5
+*color8           : #F7F7F7
 
-URxvt*background       : #20202F
-URxvt*foreground       : #BDBDC3
-!URxvt*tint             : #7787A3
-URxvt*cursorColor      : #F0A3A3
-URxvt*internalBorder   : 10
-URxvt*borderColor      : #20202F
+*background       : #263238
+!*background       : #20202F
+*foreground       : #DEE7F5
+*cursorColor      : #00BCD4
+*internalBorder   : 10
+*borderColor      : #263238
 
 
 ! OPTIONAL SETTINGS

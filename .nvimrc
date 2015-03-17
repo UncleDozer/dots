@@ -44,6 +44,8 @@ Plugin 'vim-scripts/php.vim-html-enhanced'
 " AutoClose HTML Tags
 Plugin 'vim-scripts/HTML-AutoCloseTag'
 
+" Vimperator Syntax
+"Plugin ''
 "}}}
 
 "--------------------------
@@ -250,7 +252,7 @@ let g:airline_left_sep                            = '⮀'
 let g:airline_left_alt_sep       = '⮁'
 let g:airline_right_sep                           = '⮂'
 let g:airline_right_alt_sep      = '⮃'
-let g:airline_theme                               = 'lucius'
+let g:airline_theme                               = 'bubblegum'
 let g:airline_toggle_whitespace                   = 1
 let g:airline#extensions#tabline#enabled          = 1
 let g:airline#extensions#tabline#show_buffers     = 1
@@ -476,7 +478,7 @@ let &t_EI .= "\<Esc>[2 q"
 au BufRead,BufNewFile *.md set filetype=markdown
 au BufRead,BufNewFile *.nvim set filetype=vim
 au BufRead,BufNewFile *.nvimrc set filetype=vim
-au BufRead,BufNewFile *.vimperarotrc set filetype=vim
+autocmd BufRead,BufNewFile vimperratorrc set filetype=vim
 "au BufRead,BufNewFile *.scss set filetype=css.scss
 "au BufRead,BufNewFile *.php set filetype=html.php
 "}}}
@@ -500,7 +502,7 @@ hi StatusLine cterm=none ctermfg=0 ctermbg=7
 hi StatusLineNC cterm=none ctermfg=235 ctermbg=235
 hi Normal ctermfg=0 ctermbg=none
 hi Directory ctermfg=4 cterm=none
-hi Folded cterm=none ctermfg=7 ctermbg=none
+hi Folded cterm=none ctermfg=4 ctermbg=none
 hi SpecialKey ctermfg=7
 hi Nontext ctermfg=7
 hi TagbarIcon ctermfg=red cterm=none

@@ -7,18 +7,18 @@
 
 -- {{{ Required libraries
 local gears     = require("gears")
--- local vain = require("vain")
+-- local vain   = require("vain")
 local awful     = require("awful")
 awful.rules     = require("awful.rules")
                   require("awful.autofocus")
---awful.screen = require("awful.screen")
+--awful.screen  = require("awful.screen")
 local wibox     = require("wibox")
 local beautiful = require("beautiful")
 local naughty   = require("naughty")
 local scratch   = require("scratch")
 local lain      = require("lain")
 local minitray  = require("minitray")
-local hints = require("hints")
+local hints     = require("hints")
 
 -- }}}
 -- {{{ Error handling
@@ -65,37 +65,37 @@ hints.init()
 run_once("nitrogen --restore")
 
 -- common
-modkey     = "Mod4"
-altkey     = "Mod1"
-terminal   = "urxvtc"
-editor     = os.getenv("EDITOR") or "nano" or "vi"
-newvim     = "urxvtc -cd (pwd) -e vim"
-editor_cmd = terminal .. " -e " .. editor
+modkey          = "Mod4"
+altkey          = "Mod1"
+terminal        = "urxvtc"
+editor          = os.getenv("EDITOR") or "nvim" or "vim"
+newvim          = "urxvtc -cd (pwd) -e vim"
+editor_cmd      = terminal .. " -e " .. editor
 
 -- user defined
-browser    = "firefox-developer"
-browser2   = "chromium --show-app-list --disable-app-list-dismiss-on-blur"
-graphics   = "gimp"
-gui_editor = terminal .. " urxvtc -cd (pwd) --hold -e vim"
-notes      = browser .. " -new-window keep.google.com "
-mail       = browser .. " -new-window inbox.google.com "
-iptraf     = terminal .. " -g 180x54-20+34 -e sudo iptraf-ng -i all "
-musicplr   = terminal .. " -g 130x34-320+16 -e ncmpcpp "
-spotify = "spotify"
-colors = "gcolor3"
+browser         = "firefox-developer"
+browser2        = "chromium --show-app-list --disable-app-list-dismiss-on-blur"
+graphics        = "gimp"
+gui_editor      = terminal .. " urxvtc -cd (pwd) --hold -e nvim"
+notes           = browser .. " -new-window keep.google.com "
+mail            = browser .. " -new-window inbox.google.com "
+iptraf          = terminal .. " -g 180x54-20+34 -e sudo iptraf-ng -i all "
+musicplr        = terminal .. " -g 130x34-320+16 -e ncmpcpp "
+spotify         = "spotify"
+colors          = "gcolor3"
 
---naughty.config.defaults.height = 100
---naughty.config.defaults.width = 250
-naughty.config.defaults.border = 1
-naughty.config.padding = 30
---naughty.config.spacing = 30
---naughty.config.gap = 30
+--naughty.config.defaults.height  = 100
+--naughty.config.defaults.width   = 250
+naughty.config.defaults.border    = 3
+naughty.config.padding            = 30
+--naughty.config.spacing          = 30
+--naughty.config.gap              = 30
 naughty.config.defaults.icon_size = 85
-naughty.config.defaults.margin = 20
-naughty.config.defaults.font = "lemon"
+naughty.config.defaults.margin    = 20
+naughty.config.defaults.font      = "Bebas Neue Bold 14"
 
 awful.layout.layouts = {
-    awful.layout.suit.floating,
+    lain.layout.uselesstile,
     lain.layout.uselesstile,
     lain.layout.uselessfair.horizontal,
     lain.layout.uselessfair,
@@ -111,7 +111,7 @@ awful.layout.layouts = {
 
 -- {{{ Tags
 tags = {
-    names = { " ⮼ ", " ⮗ ", " ⮣ ", " ⮕ " },
+    names = { " ⚫ ", " ⚫ ", " ⚫ ", " ⚫ " },
     layout = { awful.layout.layouts[1], awful.layout.layouts[2], awful.layout.layouts[2], awful.layout.layouts[2] }
 }
 for s = 1, screen.count() do
@@ -138,54 +138,10 @@ markup = lain.util.markup
 
 -- Textclock
 clockicon = wibox.widget.textbox(beautiful.widget_clock)
-mytextclock = awful.widget.textclock(" %a %d %b  %H:%M")
+mytextclock = awful.widget.textclock(" %a, %d %b  %H:%M")
 
--- calendar
+-- Calendar
 lain.widgets.calendar:attach(mytextclock, { font_size = 10 })
-
--- Mail IMAP check
-mailicon = wibox.widget.textbox(beautiful.widget_mail)
-mailicon:buttons(awful.util.table.join(awful.button({ }, 1, function () awful.util.spawn(mail) end)))
---[[ commented because it needs to be set before use
-mailwidget = wibox.widget.background(lain.widgets.imap({
-    timeout  = 180,
-    server   = "server",
-    mail     = "mail",
-    password = "keyring get mail",
-    settings = function()
-        if mailcount > 0 then
-            widget:set_text(" " .. mailcount .. " ")
-            mailicon:set_image(beautiful.widget_mail_on)
-        else
-            widget:set_text("")
-            mailicon:set_image(beautiful.widget_mail)
-        end
-    end
-}), "#0A0F14")
-]]
-
--- MPD
--- mpdicon = wibox.widget.imagebox(beautiful.widget_music)
--- mpdicon:buttons(awful.util.table.join(awful.button({ }, 1, function () awful.util.spawn_with_shell(musicplr) end)))
--- mpdwidget = lain.widgets.mpd({
---     settings = function()
---         if mpd_now.state == "play" then
---             artist = " " .. mpd_now.artist .. " "
---             title  = mpd_now.title  .. " "
---             mpdicon:set_image(beautiful.widget_music_on)
---         elseif mpd_now.state == "pause" then
---             artist = " mpd "
---             title  = "paused "
---         else
---             artist = ""
---             title  = ""
---             mpdicon:set_image(beautiful.widget_music)
---         end
-
---         widget:set_markup(markup("#EA6F81", artist) .. title)
---     end
--- })
--- mpdwidgetbg = wibox.widget.background(mpdwidget, "#0E151B")
 
 -- MEM
 memicon = wibox.widget.textbox(beautiful.widget_mem)
@@ -201,7 +157,7 @@ cpuwidget = wibox.widget.background(lain.widgets.cpu({
     settings = function()
         widget:set_text(" " .. cpu_now.usage .. "% ")
     end
-}), "#20202F")
+}), "#1976D2")
 
 -- Coretemp
 tempicon = wibox.widget.textbox(beautiful.widget_temp)
@@ -218,26 +174,7 @@ fswidget = lain.widgets.fs({
         widget:set_text(" " .. fs_now.used .. "% ")
     end
 })
-fswidgetbg = wibox.widget.background(fswidget, "#20202F")
-
--- Battery
--- baticon = wibox.widget.textbox(beautiful.widget_battery)
--- batwidget = lain.widgets.bat({
---     settings = function()
---         if bat_now.perc == "N/A" then
---             widget:set_markup(" AC ")
---             baticon:set_image(beautiful.widget_ac)
---             return
---         elseif tonumber(bat_now.perc) <= 5 then
---             baticon:set_image(beautiful.widget_battery_empty)
---         elseif tonumber(bat_now.perc) <= 15 then
---             baticon:set_image(beautiful.widget_battery_low)
---         else
---             baticon:set_image(beautiful.widget_battery)
---         end
---         widget:set_markup(" " .. bat_now.perc .. "% ")
---     end
--- })
+fswidgetbg = wibox.widget.background(fswidget, "#1976D2")
 
 -- ALSA volume
 volicon = wibox.widget.textbox(beautiful.widget_vol)
@@ -262,14 +199,14 @@ neticon = wibox.widget.textbox(beautiful.widget_net)
 neticon:buttons(awful.util.table.join(awful.button({ }, 1, function () awful.util.spawn_with_shell(iptraf) end)))
 netwidget = wibox.widget.background(lain.widgets.net({
     settings = function()
-        widget:set_markup(markup("#20202F", " " .. net_now.received)
+        widget:set_markup(markup("#1976D2", " " .. net_now.received)
                           .. " " ..
-                          markup("#20202F", " " .. net_now.sent .. " "))
+                          markup("#1976D2", " " .. net_now.sent .. " "))
     end
-}), "#20202F")
+}), "#1976D2")
 
 -- Separators
-spr = wibox.widget.textbox(' ')
+spr = wibox.widget.textbox('  ')
 arrl = wibox.widget.imagebox()
 arrl:set_image(beautiful.arrl)
 arrl_dl = wibox.widget.imagebox()
@@ -278,10 +215,6 @@ arrl_ld = wibox.widget.imagebox()
 arrl_ld:set_image(beautiful.arrl_ld)
 
 -- Create a wibox for each screen and add it
-mywiboxleft = {}
-mywiboxright = {}
-mywiboxcenter = {}
-mywiboxcenter2 = {}
 mywibox = {}
 mypromptbox = {}
 mylayoutbox = {}
@@ -349,10 +282,8 @@ for s = 1, screen.count() do
     mytasklist[s] = awful.widget.tasklist(s, awful.widget.tasklist.filter.currenttags, mytasklist.buttons)
 
     -- Create the wibox
-    mywiboxleft[s] = awful.wibox({ position = 'top', screen = s, height = 18, width =  "15%", align = "left", border_width = 10, border_color = "#20202F" })
-		mywiboxright[s] = awful.wibox({ position = 'top', screen = s, height = 18, width = "15%", align = "right", border_width = 10, border_color = "#20202F" })
-		mywiboxcenter[s] = awful.wibox({ position = 'top', screen = 1, height = 18, width = "15%", align = "center", border_width = 10, border_color = "#20202F" })
-		mywiboxcenter2[s] = awful.wibox({ position = 'top', screen = 2, height = 18, width = "15%", align = "center", border_width = 10, border_color = "#20202F" })
+    mywibox[s] = awful.wibox({ position = 'top', screen = s, height = 18, width =  "100%", align = "center", border_width = 5, border_color = "#1976D2" })
+
     -- Widgets that are aligned to the upper left
     local left_layout = wibox.layout.fixed.horizontal()
     left_layout:add(spr)
@@ -396,19 +327,15 @@ for s = 1, screen.count() do
     right_layout:add(spr)
     -- right_layout:add(spr)
     -- right_layout:add(arrl_ld)
-    right_layout:add(mylayoutbox[s])
+    --right_layout:add(mylayoutbox[s])
 
-		local center_layout2 = wibox.layout.fixed.horizontal()
-		center_layout2:add(mytextclock)
+    local center_layout = wibox.layout.align.horizontal()
     -- Now bring it all together (with the tasklist in the middle)
     local layout = wibox.layout.align.horizontal()
     layout:set_left(left_layout)
     layout:set_middle(mytasklist[s])
     layout:set_right(right_layout)
-    mywiboxleft[s]:set_widget(left_layout)
-		mywiboxright[s]:set_widget(right_layout)
-		mywiboxcenter[s]:set_widget(mytasklist[1])
-		mywiboxcenter2[s]:set_widget(center_layout2)
+    mywibox[s]:set_widget(layout)
 
 end
 -- }}}
@@ -487,10 +414,7 @@ globalkeys = awful.util.table.join(
 
     -- Show/Hide Wibox
     awful.key({ modkey }, "b", function ()
-        mywiboxleft[mouse.screen].visible = not mywiboxleft[mouse.screen].visible
-        mywiboxcenter[mouse.screen].visible = not mywiboxcenter[mouse.screen].visible
-        mywiboxcenter2[mouse.screen].visible = not mywiboxcenter2[mouse.screen].visible
-        mywiboxright[mouse.screen].visible = not mywiboxright[mouse.screen].visible
+        mywibox[mouse.screen].visible = not mywibox[mouse.screen].visible
     end),
 
     -- Layout manipulation
@@ -660,42 +584,42 @@ awful.rules.rules = {
     -- All clients will match this rule.
     { rule = { },
       properties = { border_width = beautiful.border_width,
-                     border_color = beautiful.border_normal,
-                     focus = true,
-                     keys = clientkeys,
-                     buttons = clientbuttons,
-	                   size_hints_honor = false } },
+                     border_color     = beautiful.border_normal,
+                     focus            = true,
+                     keys             = clientkeys,
+                     buttons          = clientbuttons,
+                     size_hints_honor = false } },
     { rule = { class = "roxterm" },
           properties = { opacity = 0.99 } },
 
     { rule = { class = "MPlayer" },
           properties = { floating = true } },
 
-    {rule = { class = "Skype" },
+    { rule = { class = "Skype" },
           properties = { floating = true } },
 
-          { rule = { class = "Odeskteam-qt4"},
-            properties = { floating = true } },
+    { rule = { class = "Odeskteam-qt4"},
+          properties = { floating = true } },
 
     { rule = { instance = "chrome_app_list"},
-  properties = { floating = true } },
+          properties = { floating = true } },
 
-  { rule = { instance = "crx_hmjkmjkepdijhoojdojkdfohbdgmmhki" },
-    properties = { floating = true } },
+    { rule = { instance = "crx_hmjkmjkepdijhoojdojkdfohbdgmmhki" },
+          properties = { floating = true } },
 
-{rule = {class = "Spotify"},
-    properties = {tag = tags[1][4] } },
-    -- { rule = { class = "Dwb" },
-          -- properties = { tag = tags[1][1] } },
+    {rule = {class = "Spotify"},
+          properties = {tag = tags[1][4] } },
+  --{ rule = { class = "Dwb" },
+        -- properties = { tag = tags[1][1] } },
 
-    -- { rule = { class = "Iron" },
-          -- properties = { tag = tags[1][1] } },
+  --{ rule = { class = "Iron" },
+        -- properties = { tag = tags[1][1] } },
 
-    -- { rule = { instance = "plugin-container" },
-          -- properties = { tag = tags[1][1] } },
+  --{ rule = { instance = "plugin-container" },
+        -- properties = { tag = tags[1][1] } },
 
-	  -- { rule = { class = "Gimp" },
-     	    -- properties = { tag = tags[1][4] } },
+  --{ rule = { class = "Gimp" },
+        -- properties = { tag = tags[1][4] } },
 
     { rule = { class = "Gimp", role = "gimp-image-window" },
           properties = { maximized_horizontal = true,
