@@ -48,6 +48,11 @@ alias tm='tmux'
 # Author: UncleDozer
 # 2015
 
+function aurs
+  aura -Ss $argv
+  aura -As $argv
+end
+
 # Start Netflix Chrome App in FullScreen
 function flix
   setsid /opt/google/chrome-unstable/google-chrome-unstable --user-data-dir=/home/uncledozer/.config/google-chrome-unstable "--profile-directory=Profile 1" --app-id=deceagebecbceejblnlcjooeohmmeldh ^^ /dev/null

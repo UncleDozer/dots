@@ -14,7 +14,7 @@ set followhints=0
 set animations=false
 set gui=nonavigation,nobookmarks,nomenu,noaddons,tabs
 
-autocmd LocationChange .* :extdisable Reddit Enhancement Suite
-autocmd LocationChange .*\reddit.com\.* :extenable Reddit Enhancement Suite
+"autocmd LocationChange .* :extdisable Reddit Enhancement Suite
+"autocmd LocationChange .*\reddit.com\.* :extenable Reddit Enhancement Suite
 
 let smoozie_scroll_interval="100"
