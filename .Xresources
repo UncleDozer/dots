@@ -7,7 +7,7 @@
 *boldFont:
 *letterSpace   : 0
 
-Xft.dpi             : 98
+Xft.dpi             : 96
 
 Xft.autohint        : 0
 Xft.lcdfilter       : lcddefault
@@ -40,17 +40,18 @@ URxvt.clipboard.autocopy  : false
 ! General Settings
 URxvt*termName            : xterm-256color
 URxvt*loginShell          : true
-!URxvt*skipScroll          : true
+URxvt*skipScroll          : false
 !URxvt*geometry            : 90x65
 URxvt*scrollTtyOutput     : false
 URxvt*scrollTtyKeypress   : true
 URxvt*scrollWithBuffer    : false
-UURxvt*saveLines          : 1500
+URxvt*buffered            : false
+UURxvt*saveLines          : 100
 URxvt*urgentOnBell        : false
 URxvt*cursorBlink         : 0
 
 URxvt*skipBuiltinGlyphs   : true
-!URxvt*transparent        : false
+URxvt*transparent        : false
 !URxvt*inheritPixmap      : true
 
 ! COLORS

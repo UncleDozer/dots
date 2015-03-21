@@ -52,7 +52,6 @@ function run_once(cmd)
   awful.util.spawn_with_shell("pgrep -u $USER -x " .. findme .. " > /dev/null || (" .. cmd .. ")")
 end
 
-run_once("unclutter")
 -- }}}
 
 -- {{{ Variable definitions
@@ -76,23 +75,19 @@ editor_cmd      = terminal .. " -e " .. editor
 browser         = "firefox-developer"
 browser2        = "chromium --show-app-list --disable-app-list-dismiss-on-blur"
 graphics        = "gimp"
-gui_editor      = terminal .. " urxvtc -cd (pwd) --hold -e nvim"
-notes           = browser .. " -new-window keep.google.com "
-mail            = browser .. " -new-window inbox.google.com "
-iptraf          = terminal .. " -g 180x54-20+34 -e sudo iptraf-ng -i all "
-musicplr        = terminal .. " -g 130x34-320+16 -e ncmpcpp "
 spotify         = "spotify"
 colors          = "gcolor3"
+gui_editor      = terminal .. " urxvtc -cd (pwd) --hold -e nvim"
+notes           = browser  .. " -new-window keep.google.com "
+mail            = browser  .. " -new-window inbox.google.com "
+iptraf          = terminal .. " -g 180x54-20+34 -e sudo iptraf-ng -i all "
+musicplr        = terminal .. " -g 130x34-320+16 -e ncmpcpp "
 
---naughty.config.defaults.height  = 100
---naughty.config.defaults.width   = 250
 naughty.config.defaults.border    = 3
 naughty.config.padding            = 30
---naughty.config.spacing          = 30
---naughty.config.gap              = 30
 naughty.config.defaults.icon_size = 85
 naughty.config.defaults.margin    = 20
-naughty.config.defaults.font      = "Bebas Neue Bold 14"
+naughty.config.defaults.font      = "Bebas Neue 14"
 
 awful.layout.layouts = {
     lain.layout.uselesstile,

@@ -4,21 +4,8 @@
 
 theme = {}
 
-theme.font                = "Bebas Neue Bold 13"
-theme.font_alt            = "Bebas Neue Bold 13"
-
---theme.bg_normal         = "#20202f"
---theme.bg_focus          = "#20202f"
---theme.bg_urgent         = "#20202f"
---theme.bg_minimize       = "#20202f"
---theme.bg_special        = "#30303a"
---theme.fg_normal         = "#FAFAFA"
---theme.fg_focus          = "#FAFAFA"
---theme.fg_urgent         = "#FAFAFA"
---theme.fg_minimize       = "#eeeeee"
---theme.fg_systray        = "#b4b4b4"
---theme.tasklist_fg_focus = "#ac8ac1"
---theme.taglist_fg_normal = "#ac8ac1"
+theme.font                = "Noto Sans Regular 10"
+theme.font_alt            = "Noto Sans Bold 10"
 
 theme.bg_normal           = "#1976D2"
 theme.bg_focus            = theme.bg_normal
@@ -68,50 +55,19 @@ theme.menu_bg_focus                    = theme.bg_focus
 -- you wish and access them by using
 -- beautiful.variable in your rc.lua
 theme.bg_widget                        = theme.bg_normal
-
 theme.useless_gap_width                = 60
-theme.lower_window_height              = 124
-theme.vertical_resolution              = 1080
 theme.vertical_border                  = 2
-theme.outer_padding                    = 12
+theme.outer_padding                    = 145
 
-
--- Define the image to load
---theme.titlebar_close_button_normal              = os.getenv("HOME") .. "/.config/awesome/themes/benis/titlebar/close_normal.png"
---theme.titlebar_close_button_focus               = os.getenv("HOME") .. "/.config/awesome/themes/benis/titlebar/close_focus.png"
-
---theme.titlebar_ontop_button_normal_inactive     = os.getenv("HOME") .. "/.config/awesome/themes/benis/titlebar/ontop_normal_inactive.png"
---theme.titlebar_ontop_button_focus_inactive      = os.getenv("HOME") .. "/.config/awesome/themes/benis/titlebar/ontop_focus_inactive.png"
---theme.titlebar_ontop_button_normal_active       = os.getenv("HOME") .. "/.config/awesome/themes/benis/titlebar/ontop_normal_active.png"
---theme.titlebar_ontop_button_focus_active        = os.getenv("HOME") .. "/.config/awesome/themes/benis/titlebar/ontop_focus_active.png"
-
---theme.titlebar_sticky_button_normal_inactive    = os.getenv("HOME") .. "/.config/awesome/themes/benis/titlebar/sticky_normal_inactive.png"
---theme.titlebar_sticky_button_focus_inactive     = os.getenv("HOME") .. "/.config/awesome/themes/benis/titlebar/sticky_focus_inactive.png"
---theme.titlebar_sticky_button_normal_active      = os.getenv("HOME") .. "/.config/awesome/themes/benis/titlebar/sticky_normal_active.png"
---theme.titlebar_sticky_button_focus_active       = os.getenv("HOME") .. "/.config/awesome/themes/benis/titlebar/sticky_focus_active.png"
-
---theme.titlebar_floating_button_normal_inactive  = os.getenv("HOME") .. "/.config/awesome/themes/benis/titlebar/floating_normal_inactive.png"
---theme.titlebar_floating_button_focus_inactive   = os.getenv("HOME") .. "/.config/awesome/themes/benis/titlebar/floating_focus_inactive.png"
---theme.titlebar_floating_button_normal_active    = os.getenv("HOME") .. "/.config/awesome/themes/benis/titlebar/floating_normal_active.png"
---theme.titlebar_floating_button_focus_active     = os.getenv("HOME") .. "/.config/awesome/themes/benis/titlebar/floating_focus_active.png"
-
---theme.titlebar_maximized_button_normal_inactive = os.getenv("HOME") .. "/.config/awesome/themes/benis/titlebar/maximized_normal_inactive.png"
---theme.titlebar_maximized_button_focus_inactive  = os.getenv("HOME") .. "/.config/awesome/themes/benis/titlebar/maximized_focus_inactive.png"
---theme.titlebar_maximized_button_normal_active   = os.getenv("HOME") .. "/.config/awesome/themes/benis/titlebar/maximized_normal_active.png"
---theme.titlebar_maximized_button_focus_active    = os.getenv("HOME") .. "/.config/awesome/themes/benis/titlebar/maximized_focus_active.png"
-
---theme.wallpaper                                 = os.getenv("HOME") .. "/img/wallpapers/scenery/bokeh - winter.jpg"
-
--- You can use your own layout icons like this:
 
 -- {{{ Widgets
-theme.widget_mem                    = " mem "
-theme.widget_cpu                    = " cpu "
-theme.widget_hdd                    = " hdd "
-theme.widget_vol                    = " vol "
-theme.widget_vol_low                = " vol "
-theme.widget_vol_no                 = " vol "
-theme.widget_vol_mute               = " mute "
+theme.widget_mem                    = " MEM "
+theme.widget_cpu                    = " CPU "
+theme.widget_hdd                    = " HDD "
+theme.widget_vol                    = " VOL "
+theme.widget_vol_low                = " VOL "
+theme.widget_vol_no                 = " VOL "
+theme.widget_vol_mute               = " MUTE "
 
 --theme.widget_mem                    = os.getenv("HOME") .. "/.config/awesome/themes/benis/icons/mem.png"
 --theme.widget_cpu                    = os.getenv("HOME") .. "/.config/awesome/themes/benis/icons/cpu.png"

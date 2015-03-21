@@ -158,8 +158,6 @@ set shiftround     " Round up using tabstop
 
 set smarttab
 
-set softtabstop=2
-
 set noexpandtab
 
 set list "Show Whitespace and Tabs
@@ -171,6 +169,7 @@ set listchars=tab:▸\ ,trail:·
 "--------------------------
  "{{{
 set undofile                   " Save a file with undo history
+set undodir="~/.nvim/undo"
 
 set hlsearch                   " Highlight Searches
 
@@ -352,11 +351,11 @@ set completeopt=longest,menuone
 
 set wildignore=*/.git/*,*/node_modules/*,*/dist/*
 
-inoremap <expr> <CR> pumvisible() ? "\<C-y>" : "\<C-g>u\<CR>"
-inoremap <expr> <C-n> pumvisible() ? '<C-n>' :
-  \ '<C-n><C-r>=pumvisible() ? "\<lt>Down>" : ""<CR>'
-inoremap <expr> <M-,> pumvisible() ? '<C-n>' :
-  \ '<C-x><C-o><C-n><C-p><C-r>=pumvisible() ? "\<lt>Down>
+"inoremap <expr> <CR> pumvisible() ? "\<C-y>" : "\<C-g>u\<CR>"
+"inoremap <expr> <C-n> pumvisible() ? '<C-n>' :
+  "\ '<C-n><C-r>=pumvisible() ? "\<lt>Down>" : ""<CR>'
+"inoremap <expr> <M-,> pumvisible() ? '<C-n>' :
+  "\ '<C-x><C-o><C-n><C-p><C-r>=pumvisible() ? "\<lt>Down>
 "}}}
 "----------------------------------------------------
 "}}}
@@ -373,7 +372,7 @@ nnoremap ; :
 vnoremap ; :
 
 " Prev Buffer
-nnoremap <S-h> :bn<CR>
+nnoremap <S-h> :bp<CR>
 
 "Imap movement
 "inoremap <c-l> <Esc>ea
@@ -478,6 +477,7 @@ let &t_EI .= "\<Esc>[2 q"
 au BufRead,BufNewFile *.md set filetype=markdown
 au BufRead,BufNewFile *.nvim set filetype=vim
 au BufRead,BufNewFile *.nvimrc set filetype=vim
+au BufRead, BufNewFile *.note set filetype=markdown
 autocmd BufRead,BufNewFile vimperratorrc set filetype=vim
 "au BufRead,BufNewFile *.scss set filetype=css.scss
 "au BufRead,BufNewFile *.php set filetype=html.php

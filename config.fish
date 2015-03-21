@@ -48,11 +48,6 @@ alias tm='tmux'
 # Author: UncleDozer
 # 2015
 
-function aurs
-  aura -Ss $argv
-  aura -As $argv
-end
-
 # Start Netflix Chrome App in FullScreen
 function flix
   setsid /opt/google/chrome-unstable/google-chrome-unstable --user-data-dir=/home/uncledozer/.config/google-chrome-unstable "--profile-directory=Profile 1" --app-id=deceagebecbceejblnlcjooeohmmeldh ^^ /dev/null
@@ -116,7 +111,7 @@ end
 
 
 #set -x PANEL_FIFO "/tmp/panel-fifo";
-set -x PATH $PATH /usr/local/bin /usr/bin /bin /usr/local/sbin /usr/sbin /sbin /usr/share/awesome/themes /opt/awemenugen /usr/bin /home/uncledozer/.gem/ruby/2.2.0/bin /home/uncledozer/.config/bspwm /usr/share/awesome /home/uncledozer/.gem/ruby/2.1.0/bin /etc/php /home/uncledozer/public_html/webapps/phpMyAdmin /opt/android-sdk/platform-tools $SCRIPTS /usr/lib/python2.7
+set -x PATH $PATH /usr/local/bin  /usr/bin /bin /usr/local/sbin /usr/sbin /sbin /usr/share/awesome/themes /opt/awemenugen /usr/bin /home/uncledozer/.gem/ruby/2.2.0/bin /home/uncledozer/.config/bspwm /usr/share/awesome /home/uncledozer/.gem/ruby/2.1.0/bin /etc/php /home/uncledozer/public_html/webapps/phpMyAdmin /opt/android-sdk/platform-tools $SCRIPTS /usr/lib/python2.7 /usr/bin/core_perl
 set -x STEAM_FRAME_FORCE_CLOSE 1;
 set -x fish_color_command blue -bold
 #set -x fish_color_search_match black -bold
