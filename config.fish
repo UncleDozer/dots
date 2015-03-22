@@ -11,6 +11,9 @@ set fish_plugins node jump extract theme
 # Path to your custom folder (default path is $FISH/custom)
 set fish_custom $HOME/.oh-my-fish
 
+function fish_title
+end
+
 # Load oh-my-fish configuration.
 . $fish_path/oh-my-fish.fish
 

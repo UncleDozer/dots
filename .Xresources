@@ -55,6 +55,7 @@ URxvt*transparent        : false
 !URxvt*inheritPixmap      : true
 
 ! COLORS
+! {{{
 !!! Phallus Custom Colorscheme
 !! black
 *color15          : #66666A
@@ -88,13 +89,13 @@ URxvt*transparent        : false
 *color0           : #DEE7F5
 *color8           : #F7F7F7
 
-*background       : #263238
-!*background       : #20202F
+*background       : #111D2E
 *foreground       : #DEE7F5
 *cursorColor      : #00BCD4
 *internalBorder   : 10
-*borderColor      : #263238
+*borderColor      : #111D2E
 
+! }}}
 
 ! OPTIONAL SETTINGS
 

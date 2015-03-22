@@ -44,8 +44,9 @@ Plugin 'vim-scripts/php.vim-html-enhanced'
 " AutoClose HTML Tags
 Plugin 'vim-scripts/HTML-AutoCloseTag'
 
-" Vimperator Syntax
-"Plugin ''
+" i3 Config Syntax
+Plugin 'PotatoesMaster/i3-vim-syntax'
+
 "}}}
 
 "--------------------------
@@ -168,8 +169,8 @@ set listchars=tab:▸\ ,trail:·
 " Search/Undo/ETC
 "--------------------------
  "{{{
+ set undodir="//~/.nvim/undo//"
 set undofile                   " Save a file with undo history
-set undodir="~/.nvim/undo"
 
 set hlsearch                   " Highlight Searches
 

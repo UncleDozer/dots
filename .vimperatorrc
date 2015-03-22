@@ -9,6 +9,7 @@ nmap <S-x> :undo<CR>
 nmap <Leader>s :source ~/.vimperatorrc<CR>
 nmap <Leader>/ :nohlsearch<CR>
 
+set focuscontent
 set hintchars=fjdkslaghrueiwovncm
 set followhints=0
 set animations=false
@@ -18,3 +19,7 @@ set gui=nonavigation,nobookmarks,nomenu,noaddons,tabs
 "autocmd LocationChange .*\reddit.com\.* :extenable Reddit Enhancement Suite
 
 let smoozie_scroll_interval="100"
+
+highlight HintElem background-color: #333333; color: white;
+highlight HintActive background-color: #5BFA92; color: white; text-shadow: 0 2px rgba(0,0,0,.4);
+highlight Hint font-family: monospace; font-size: 10px; font-weight: bold; text-transform: uppercase; color: white; background-color: #5B92FA; border-color: ButtonShadow; border-width: 0px; border-style: solid; padding: 0px 3px 0px 3px; text-shadow: 0 2px rgba(0,0,0,.3);
