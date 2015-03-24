@@ -13,7 +13,7 @@ set $music "spotify"
 set $terminal "urxvtc"
 set $run exec python ~/.i3/runorfocus.py
 set $default_gaps_inner 45
-set $default_gaps_outer 70
+set $default_gaps_outer 125
 
 #}}}
 

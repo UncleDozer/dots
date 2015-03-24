@@ -1,9 +1,9 @@
 :root{
-	--main-fg-color: #BDBDC3;
-	--sel-bg-color: #20202F;
-	--sel-fg-color: #ac8ac1;
-	--norm-bg-color: #7787A3;
-	--norm-fg-color: #30303a;
+   --main-fg-color: #F7F7F7;
+   --sel-bg-color: #00AFFF;
+   --sel-fg-color: #F7F7F7;
+   --norm-bg-color: #262E38;
+   --norm-fg-color: #F7F7F7;
 }
 
 #urlbar{
@@ -14,14 +14,14 @@
 
 #PopupAutoCompleteRichResult{
    color: var(--main-fg-color);
-	 background-color: var(--main-bg-color) !important;
+   background-color: var(--main-bg-color) !important;
    font-size: 10px;
    font-family: "lemon", "Terminus";
    /*font-style: regular;*/
 }
 
 #panel{
-	background-color: var(--main-bg-color) !important;
+   background-color: var(--main-bg-color) !important;
 }
 
 .autocomplete-richlistitem[current], .autocomplete-richlistitem:active:hover, .autocomplete-richlistitem:active{
@@ -34,14 +34,14 @@
 .tabbrowser-tab[active], .tabbrowser-tab[selected] > *{
    box-shadow: none;
    color: var(--sel-fg-color);
-	 background-color: var(--sel-bg-color);
-	 font-family: "lemon" !important;
-	 font-size: 10px !important;
+   background-color: var(--sel-bg-color);
+   font-family: "lemon" !important;
+   font-size: 10px !important;
 }
 
 .tab-browser-tab, tab-browser-tab > *{
-	font-family: "lemon" !important;
-	font-size: 10px !important;
+   font-family: "lemon" !important;
+   font-size: 10px !important;
 }
 
 .devtools-monospace, #editor-tools * {
@@ -62,7 +62,7 @@
 
 radio.devtools-tab, hbox#toolbox-tab{
    height: 20px !important;
-	 font-family: "lemon";
+   font-family: "lemon";
 }
 
 description{
@@ -80,8 +80,8 @@ description{
 
 :root {
     /* TAB VARIABLES */
-    --bg-light: #20202F; --bg-dark: #30303a;
-    --fg-light: #ac8ac1; --fg-dark: #7787a3;
+    --bg-light: #3C5069; --bg-dark: #262E38;
+    --fg-light: #00AFFF; --fg-dark: #808080;
     /*--bg-light: #FFF; --bg-dark: #222326;
     --fg-light: #333; --fg-dark: #AAA;*/
     --tab-height: 20px; /*--tab-triangle-correction: -1px;*/ --tab-strip-margin: -12px;
@@ -103,12 +103,12 @@ description{
     .tab-drop-indicator { margin-bottom: 0 !important; }
 
     #nav-bar {
-/*         position: var(--url-position) !important; bottom: 0 !important; */
+        /*position: var(--url-position) !important; bottom: 0 !important;*/
         width: 100% !important; height: var(--url-height); /*min-height: var(--url-height) !important; max-height: var(--url-height) !important;*/
-/*         margin: 0 0 0 0 !important; */
+        /*margin: 0 0 0 0 !important;*/
         transition: all .1s !important;
         /* --- Uncomment the line below to attach the url-bar to the tab-bar [EXPERIMENTAL] (Require a line in "#TabsToolbar" below) --- */
-/*         position: fixed !important; top: 0 !important; left: 0 !important; width: 300px !important; max-width: 300px !important;
+        /*position: fixed !important; top: 0 !important; left: 0 !important; width: 300px !important; max-width: 300px !important;*/
 
         */
     }

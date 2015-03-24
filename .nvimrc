@@ -505,6 +505,8 @@ hi Normal ctermfg=0 ctermbg=none
 hi Directory ctermfg=4 cterm=none
 hi Folded cterm=none ctermfg=4 ctermbg=none
 hi SpecialKey ctermfg=7
+hi Special ctermfg=121
+hi Title ctermfg=blue cterm=bold
 hi Nontext ctermfg=7
 hi TagbarIcon ctermfg=red cterm=none
 hi TagbarHighlight ctermfg=red ctermbg=none
@@ -524,5 +526,6 @@ if has("autocmd")
 	augroup myvimrchooks
 		au!
 		autocmd bufwritepost .nvimrc source ~/.nvimrc
+		autocmd bufwritepost .nvimrc AirlineToggle
 	augroup END
 endif

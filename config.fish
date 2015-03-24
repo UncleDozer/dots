@@ -31,6 +31,7 @@ set -U SCRIPTS $HOME/.scripts
 #set -U TERM 'xterm-256color'
 
 #alias try='theme'
+alias j='jump'
 alias nd='nextd'
 alias pd='prevd'
 alias vim='nvim'
