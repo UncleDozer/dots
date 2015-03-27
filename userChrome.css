@@ -80,7 +80,7 @@ description{
 
 :root {
     /* TAB VARIABLES */
-    --bg-light: #3C5069; --bg-dark: #262E38;
+    --bg-light: #262E38; --bg-dark: #262E38;
     --fg-light: #00AFFF; --fg-dark: #808080;
     /*--bg-light: #FFF; --bg-dark: #222326;
     --fg-light: #333; --fg-dark: #AAA;*/

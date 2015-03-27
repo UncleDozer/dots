@@ -13,7 +13,7 @@ set $music "spotify"
 set $terminal "urxvtc"
 set $run exec python ~/.i3/runorfocus.py
 set $default_gaps_inner 45
-set $default_gaps_outer 125
+set $default_gaps_outer 100
 
 #}}}
 
@@ -136,16 +136,23 @@ mode "resize" {
         # Pressing right will grow the window’s width.
         # Pressing up will shrink the window’s height.
         # Pressing down will grow the window’s height.
-        bindsym h resize shrink width 5 px or 5 ppt
-        bindsym j resize grow height 5 px or 5 ppt
-        bindsym k resize shrink height 5 px or 5 ppt
-        bindsym l resize grow width 5 px or 5 ppt
+        bindsym l resize shrink width 5 px or 5 ppt
+        bindsym k resize grow height 5 px or 5 ppt
+        bindsym j resize shrink height 5 px or 5 ppt
+        bindsym h resize grow width 5 px or 5 ppt
 
         # same bindings, but for the arrow keys
         bindsym Left resize shrink width 5 px or 5 ppt
         bindsym Down resize grow height 5 px or 5 ppt
         bindsym Up resize shrink height 5 px or 5 ppt
         bindsym Right resize grow width 5 px or 5 ppt
+
+        bindsym $mod+j gaps outer current plus 5
+        bindsym $mod+k gaps outer current minus 5
+        bindsym $mod+l gaps inner current plus 5
+        bindsym $mod+h gaps inner current minus 5
+        bindsym $mod+plus gaps inner current set $default_gaps_inner
+        bindsym $mod+minus gaps outer current set $default_gaps_outer
 
         # back to normal: Enter or Escape
         bindsym Return mode "default"
@@ -203,7 +210,8 @@ bindsym $mod+n scratchpad show
 # {{{
 
 bindsym $mod+v exec "urxvt -name scratchpad"
-for_window [instance="scratchpad"] move scratchpad
+for_window  [instance="scratchpad"] floating enable;
+for_window  [instance="scratchpad"] move scratchpad; [instance="scratchpad"] scratchpad show; move position 740px 340px; resize grow height 200px; resize shrink width 55px; move scratchpad
 bindsym $mod+x [instance="scratchpad"] scratchpad show
 
 #}}}
@@ -212,7 +220,8 @@ bindsym $mod+x [instance="scratchpad"] scratchpad show
 #{{{
 
 bindsym $mod+Shift+z exec "urxvt -name dropdown"
-for_window [instance="dropdown"] move scratchpad
+for_window  [instance="dropdown"] floating enable;
+for_window  [instance="dropdown"] move scratchpad; [instance="dropdown"] scratchpad show; move position 660px 25px; resize shrink height 50px; resize grow width 150px; move scratchpad
 bindsym $mod+z [instance="dropdown"] scratchpad show
 
 #}}}

@@ -375,10 +375,6 @@ vnoremap ; :
 " Prev Buffer
 nnoremap <S-h> :bp<CR>
 
-"Imap movement
-"inoremap <c-l> <Esc>ea
-"inoremap <c-h> <Esc>bi
-
 " Next Buffer
 nnoremap <S-l> :bn<CR>
 
@@ -424,6 +420,10 @@ nmap <leader>at :AutoCloseToggle<CR>
 
 "Paste From System Clipboard
 nmap <leader>p "*p
+
+"Jump to either end or beginning of the line
+nnoremap <leader>e $
+nnoremap <leader>b ^
 
 " Yank (or copy) Text to System Clipboard
 vmap <leader>y "*y
