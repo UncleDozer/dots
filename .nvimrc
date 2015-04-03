@@ -101,7 +101,7 @@ filetype plugin indent on    " required
 "--------------------------
 "{{{
 set ttyfast           " Faster Character Drawing
-set lazyredraw        " Only Redraw When Needed
+"set lazyredraw        " Only Redraw When Needed
 
 syntax enable         " Enable Syntax Highlighting
 

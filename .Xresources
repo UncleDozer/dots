@@ -3,10 +3,9 @@
 ! FONT SETTINGS
 !{{{
 
-*font          : xft:lemon:style=regular:antialias=false:pixelsize=10
-
-*boldFont:
-*letterSpace   : 0
+URxvt*font     : xft:lemon:style=regular:antialias=false:pixelsize=10
+URxvt*boldFont :
+URxvt*letterSpace   : 0
 
 ! :Bind C-0, C-+ and C-= to activate small, medium, and big font size resp.
 URxvt.keysym.C-0: command:\033]710;-*-terminesspowerline-*-*-*-*-12-*-*-*-*-*-*-*\007

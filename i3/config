@@ -20,6 +20,9 @@ set $default_gaps_outer 100
 # Font
 font pango:lemon, Icons 10
 
+# Smart Borders
+smart_borders on
+
 # Hotkeys
 #{{{
 floating_modifier $mod
@@ -174,7 +177,7 @@ bar {
   position top
   tray_output DVI-0
   id bar-1
-  tray_output none
+  #tray_output none
   mode dock
 
   colors {

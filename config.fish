@@ -54,7 +54,7 @@ alias tm='tmux'
 
 # Start Netflix Chrome App in FullScreen
 function flix
-  setsid /opt/google/chrome-unstable/google-chrome-unstable --user-data-dir=/home/uncledozer/.config/google-chrome-unstable "--profile-directory=Profile 1" --app-id=deceagebecbceejblnlcjooeohmmeldh ^^ /dev/null
+  setsid /opt/google/chrome-unstable/google-chrome-unstable --user-data-dir=/home/uncledozer/.config/google-chrome-unstable "--profile-directory=Profile 1" --app-id=deceagebecbceejblnlcjooeohmmeldh
 end
 
 # Skype with alsa fix
