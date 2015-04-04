@@ -20,40 +20,20 @@ set gui=nonavigation,nobookmarks,nomenu,noaddons,tabs
 
 let smoozie_scroll_interval="100"
 
-highlight HintElem background-color: #333333; color: white;
-highlight HintActive background-color: #5BFA92; color: white; text-shadow: 0 2px rgba(0,0,0,.4);
-highlight Hint font-family: monospace; font-size: 10px; font-weight: bold; text-transform: uppercase; color: white; background-color: #5B92FA; border-color: ButtonShadow; border-width: 0px; border-style: solid; padding: 0px 3px 0px 3px; text-shadow: 0 2px rgba(0,0,0,.3);
+hi clear
+hi HintElem background-color: #1a1a1a; color: white;
+hi HintActive background-color: #ace594;
+hi Hint font-family: monospace; font-size: 10px; font-weight: bold; text-transform: uppercase; color: white; background-color: #5B92FA; border-color: ButtonShadow; border-width: 0px; border-style: solid; padding: 0px 3px 0px 3px; text-shadow: 0 2px rgba(0,0,0,.3);
+hi CmdLine background-color: #1a1a1a; color: #f1f3f4; font-weight: 500;
+hi CompGroup background-color: #1a1a1a; color: #f1f3f4; font-weight: 500;
+hi CompItem background-color: #1a1a1a; color: #f1f3f4; font-weight: 500;
+hi CompItem[selected] color: #2eb9ff !important;
+hi CompTitle background-color: #1a1a1a; color: #a1ff7a; font-weight: 800; text-shadow: 0 2px rgba(0,0,0,.3); border-width: 0px;
+hi ErrorMsg background-color: #ff2e4c; color: #f1f3f4; font-weight: 800;
+hi Filter background-color: none; color: #2eb9ff;
+hi StatusLine background-color: #1a1a1a; color: #ace594; border-color: #1a1a1a;
+hi URL color: #ace594;
+hi Normal background-color: #1a1a1a; color: #ace594; border-top: 1px solid #1a1a1a;
+hi LineNr color: #b3bdc2;
 
-"javascript to hide statusbar
-"noremap <silent> <F8> :js toggle_bottombar()<CR>
-"noremap ; :js toggle_bottombar('on')<CR>:
-"noremap : :js toggle_bottombar('on')<CR>:
-"noremap o :js toggle_bottombar('on')<CR>o
-"noremap O :js toggle_bottombar('on')<CR>O
-"noremap t :js toggle_bottombar('on')<CR>t
-"noremap T :js toggle_bottombar('on')<CR>T
-"noremap / :js toggle_bottombar('on')<CR>/
-"cnoremap <CR> <CR>:js toggle_bottombar('off')<CR>
-"cnoremap <Esc> <Esc>:js toggle_bottombar('off')<CR>
-
-":js << EOF
-"function toggle_bottombar(p) {
-    "var bb = document.getElementById('liberator-bottombar');
-    "if (!bb)
-        "return;
-    "if (p == 'on'){
-        "bb.style.height = '';
-        "bb.style.overflow = '';
-        "return;
-    "}
-    "if (p == 'off'){
-        "bb.style.height = '0px';
-        "bb.style.overflow = 'hidden';
-        "return;
-    "}
-    "bb.style.height = (bb.style.height == '') ? '0px' : '';
-    "bb.style.overflow = (bb.style.height == '') ? '' : 'hidden';
-"}
-"toggle_bottombar();
-"EOF
 " vim:filetype=vim

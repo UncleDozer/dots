@@ -81,7 +81,7 @@
     # Don't remove messages, if the user is idle (no mouse or keyboard input)
     # for longer than idle_threshold seconds.
     # Set to 0 to disable.
-    idle_threshold = 120
+    idle_threshold = 1800
 
     # Which monitor should the notifications be displayed on.
     monitor = 0
@@ -97,7 +97,7 @@
     #
     # If this option is set to mouse or keyboard, the monitor option
     # will be ignored.
-    #follow = mouse
+    # follow = mouse
 
     # Should a notification popped up from history be sticky or timeout
     # as if it would normally do.
@@ -156,7 +156,7 @@
 
 [frame]
     width = 1
-    color = "#0088CC"
+    color = "#2eb9ff"
 
 [shortcuts]
 
@@ -182,18 +182,18 @@
 [urgency_low]
     # IMPORTANT: colors have to be defined in quotation marks.
     # Otherwise the "#" and following would be interpreted as a comment.
-    background = "#1d1F21"
-    foreground = "#00AFFF"
+    background = "#1a1a1a"
+    foreground = "#f1f3f4"
     timeout = 5
 
 [urgency_normal]
-    background = "#282A2E"
-    foreground = "#ffffff"
+    background = "#1a1a1a"
+    foreground = "#ff2e4c"
     timeout = 10
 
 [urgency_critical]
-    background = "#900000"
-    foreground = "#ffffff"
+    background = "#ff2e4c"
+    foreground = "#f1f3f4"
     timeout = 0
 
 

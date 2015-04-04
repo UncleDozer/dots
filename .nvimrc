@@ -105,10 +105,8 @@ set ttyfast           " Faster Character Drawing
 
 syntax enable         " Enable Syntax Highlighting
 
-"colorscheme glacier  " Colorscheme Set
-
 set background=dark   " Let Vim Choose Good Colors for Dark BG
-"set background
+
 set number            " Line Numbering
 
 set nowrap            " No Text Wrap
@@ -128,7 +126,7 @@ set autoindent
 set smartindent
 
 set scrolloff=20      " How Many Lines at Bottom or Top of buffer
-set sidescrolloff=25
+set sidescrolloff=10
 set sidescroll=1
 
 set showmatch         " Highlight Brackets
@@ -352,11 +350,11 @@ set completeopt=longest,menuone
 
 set wildignore=*/.git/*,*/node_modules/*,*/dist/*
 
-"inoremap <expr> <CR> pumvisible() ? "\<C-y>" : "\<C-g>u\<CR>"
-"inoremap <expr> <C-n> pumvisible() ? '<C-n>' :
-  "\ '<C-n><C-r>=pumvisible() ? "\<lt>Down>" : ""<CR>'
-"inoremap <expr> <M-,> pumvisible() ? '<C-n>' :
-  "\ '<C-x><C-o><C-n><C-p><C-r>=pumvisible() ? "\<lt>Down>
+inoremap <expr> <CR> pumvisible() ? "\<C-y>" : "\<C-g>u\<CR>"
+inoremap <expr> <C-n> pumvisible() ? '<C-n>' :
+	\ '<C-n><C-r>=pumvisible() ? "\<lt>Down>" : ""<CR>'
+inoremap <expr> <M-,> pumvisible() ? '<C-n>' :
+	\ '<C-x><C-o><C-n><C-p><C-r>=pumvisible() ? "\<lt>Down>
 "}}}
 "----------------------------------------------------
 "}}}
@@ -491,7 +489,7 @@ autocmd BufRead,BufNewFile vimperratorrc set filetype=vim
 hi CursorLine ctermbg=7 cterm=none
 hi Search term=reverse cterm=reverse gui=reverse ctermfg=none ctermbg=none
 hi CursorLineNr cterm=bold ctermfg=1 ctermbg=235
-hi LineNr ctermfg=15
+hi LineNr ctermfg=240
 hi Constant ctermfg=2
 hi Statement ctermfg=1
 hi MatchParen cterm=bold ctermfg=8 ctermbg=15
@@ -501,7 +499,7 @@ hi TabLineSel ctermfg=1 ctermbg=none cterm=bold
 hi VertSplit ctermfg=235 ctermbg=235 cterm=none
 hi StatusLine cterm=none ctermfg=0 ctermbg=7
 hi StatusLineNC cterm=none ctermfg=235 ctermbg=235
-hi Normal ctermfg=0 ctermbg=none
+hi Normal ctermfg=8 ctermbg=none
 hi Directory ctermfg=4 cterm=none
 hi Folded cterm=none ctermfg=4 ctermbg=none
 hi SpecialKey ctermfg=7

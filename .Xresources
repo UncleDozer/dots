@@ -62,42 +62,42 @@ URxvt*transparent       : false
 ! COLORS
 ! {{{
 !! black
-*color15          : #66666A
-*color7           : #34444D
+*color7           : #2a2a2a
+*color15          : #1a1a1a
 
 !!! red
-*color1           : #DA637E
-*color9           : #F0A3A3
+*color1           : #b63e50
+*color9           : #ff2e4c
 
 !! yellow/orange
-*color3           : #AB93B9
-*color11          : #CBB6D7
+*color3           : #db9f62
+*color11          : #ffa03d
 
 !! purple
-*color5           : #AC8AC1
-*color13          : #D2BBE4
+*color5           : #d3649d
+*color13          : #ff91c9
 
 !! blue
-*color4           : #6F8BBD
-*color12          : #8CB4FA
+*color4           : #60a8cd
+*color12          : #2eb9ff
 
 !! green
-*color2           : #B1B792
-*color10          : #C7E6B8
+*color2           : #ace594
+*color10          : #a1ff7a
 
 !! cyan
-*color6           : #63918B
-*color14          : #92B5B0
+*color6           : #3ad9c2
+*color14          : #8fffee
 
 !! white
-*color0           : #DEE7F5
-*color8           : #F7F7F7
+*color0           : #b3bdc2
+*color8           : #f1f3f4
 
-*background       : #262E38
-*foreground       : #DEE7F5
-*cursorColor      : #00BCD4
+*background       : #1a1a1a
+*foreground       : #f1f3f4
+*cursorColor      : #3ad9c2
 *internalBorder   : 10
-*borderColor      : #262E38
+*borderColor      : #1a1a1a
 
 ! }}}
 

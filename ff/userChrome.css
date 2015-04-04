@@ -1,9 +1,9 @@
 :root{
-   --main-fg-color: #F7F7F7;
-   --sel-bg-color: #00AFFF;
-   --sel-fg-color: #F7F7F7;
-   --norm-bg-color: #262E38;
-   --norm-fg-color: #F7F7F7;
+   --main-fg-color: #f1f3f4;
+   --sel-bg-color: #1a1a1a;
+   --sel-fg-color: #2eb9ff;
+   --norm-bg-color: #1a1a1a;
+   --norm-fg-color: #f1f3f4;
 }
 
 #urlbar{
@@ -80,10 +80,9 @@ description{
 
 :root {
     /* TAB VARIABLES */
-    --bg-light: #262E38; --bg-dark: #262E38;
-    --fg-light: #00AFFF; --fg-dark: #808080;
-    /*--bg-light: #FFF; --bg-dark: #222326;
-    --fg-light: #333; --fg-dark: #AAA;*/
+    --bg-light: var(--sel-bg-color); --bg-dark: var(--norm-bg-color);
+    --fg-light: var(--sel-fg-color); --fg-dark: var(--norm-fg-color);
+
     --tab-height: 20px; /*--tab-triangle-correction: -1px;*/ --tab-strip-margin: -12px;
     --tab-fonts: "lemon"; --tab-font-size: 10pt;
     --tab-triangle: block; /* block | none */
