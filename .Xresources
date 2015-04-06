@@ -95,7 +95,7 @@ URxvt*transparent       : false
 
 *background       : #1a1a1a
 *foreground       : #f1f3f4
-*cursorColor      : #3ad9c2
+*cursorColor      : #ff2e4c
 *internalBorder   : 10
 *borderColor      : #1a1a1a
 

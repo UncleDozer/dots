@@ -47,6 +47,9 @@ Plugin 'vim-scripts/HTML-AutoCloseTag'
 " i3 Config Syntax
 Plugin 'PotatoesMaster/i3-vim-syntax'
 
+" Todo Syntax
+Plugin 'todo.vim'
+
 "}}}
 
 "--------------------------
@@ -72,9 +75,10 @@ Plugin 'chrisbra/colorizer'
 
 " Vim Powerline
 Plugin 'bling/vim-airline'
+"Plugin 'powerline/powerline'
 
 " Vimbed for Pterosaur (firefox vim)
-Plugin 'ardagnir/vimbed'
+"Plugin 'ardagnir/vimbed'
 
 " Alignment
 Plugin 'Align'
@@ -477,7 +481,8 @@ au BufRead,BufNewFile *.md set filetype=markdown
 au BufRead,BufNewFile *.nvim set filetype=vim
 au BufRead,BufNewFile *.nvimrc set filetype=vim
 au BufRead, BufNewFile *.note set filetype=markdown
-autocmd BufRead,BufNewFile vimperratorrc set filetype=vim
+autocmd filetype * setlocal fo-=cro
+autocmd BufRead,BufNewFile *.vimperratorrc set filetype=vim
 "au BufRead,BufNewFile *.scss set filetype=css.scss
 "au BufRead,BufNewFile *.php set filetype=html.php
 "}}}
@@ -524,6 +529,6 @@ if has("autocmd")
 	augroup myvimrchooks
 		au!
 		autocmd bufwritepost .nvimrc source ~/.nvimrc
-		autocmd bufwritepost .nvimrc AirlineToggle
+		autocmd BufRead *.todo set filetype=todo
 	augroup END
 endif

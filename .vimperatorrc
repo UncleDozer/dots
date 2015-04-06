@@ -9,6 +9,7 @@ nmap <S-x> :undo<CR>
 nmap <Leader>s :source ~/.vimperatorrc<CR>
 nmap <Leader>/ :nohlsearch<CR>
 
+set defsearch=duckduckgo
 set focuscontent
 set hintchars=fjdkslaghrueiwovncm
 set followhints=0

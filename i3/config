@@ -16,24 +16,33 @@ set $default_gaps_inner 45
 set $default_gaps_outer 100
 
 
-set $black #1a1a1a
-set $blue #2eb9ff
-set $white #f1f3f4
-set $green #a1ff7a
-set $red #ff2e4c
-set $yellow #ffa03d
-set $magenta #ff91c9
-set $cyan #8fffee
+set $black       #1a1a1a
+set $blue        #2eb9ff
+set $white       #f1f3f4
+set $green       #a1ff7a
+set $red         #ff2e4c
+set $yellow      #ffa03d
+set $magenta     #ff91c9
+set $cyan        #8fffee
 
-set $dim_blue #60a8cd
-set $dim_green #ace594
-set $dim_red #b63e50
-set $dim_yellow #db9f62
+set $dim_blue    #60a8cd
+set $dim_green   #ace594
+set $dim_red     #b63e50
+set $dim_yellow  #db9f62
 set $dim_magenta #d3649d
-set $grey #b3bdc2
-set $dim_cyan #3ad9c2
-set $dim_grey #2a2a2a
+set $grey        #b3bdc2
+set $dim_cyan    #3ad9c2
+set $dim_grey    #2a2a2a
+
+set $ws1 "1:"
+set $ws2 "2:"
+set $ws3 "3:"
+set $ws4 "4:"
+set $ws5 "5:"
 #}}}
+
+# Settings
+workspace_auto_back_and_forth yes
 
 # Font
 font pango:lemon, Icons 10
@@ -113,26 +122,33 @@ bindsym $mod+space focus mode_toggle
 bindsym $mod+a focus parent
 
 # focus the child container
-#bindsym $mod+d focus child
+bindsym $mod+Shift+a focus child
 
 # switch to workspace
-bindsym $mod+1 workspace 1
-bindsym $mod+2 workspace 2
-bindsym $mod+3 workspace 3
-bindsym $mod+4 workspace 4
-bindsym $mod+5 workspace 5
+bindsym $mod+1 workspace $ws1
+bindsym $mod+2 workspace $ws2
+bindsym $mod+3 workspace $ws3
+bindsym $mod+4 workspace $ws4
+bindsym $mod+5 workspace $ws5
 bindsym $mod+6 workspace 6
 bindsym $mod+7 workspace 7
 bindsym $mod+8 workspace 8
 bindsym $mod+9 workspace 9
 bindsym $mod+0 workspace 10
+bindsym $mod+Tab workspace back_and_forth
+workspace $ws5 output HDMI0
+workspace $ws1 output DVI0
+workspace $ws2 output DVI0
+workspace $ws3 output DVI0
+workspace $ws4 output DVI0
+
 
 # move focused container to workspace
-bindsym $mod+Shift+1 move container to workspace 1
-bindsym $mod+Shift+2 move container to workspace 2
-bindsym $mod+Shift+3 move container to workspace 3
-bindsym $mod+Shift+4 move container to workspace 4
-bindsym $mod+Shift+5 move container to workspace 5
+bindsym $mod+Shift+1 move container to workspace $ws1
+bindsym $mod+Shift+2 move container to workspace $ws2
+bindsym $mod+Shift+3 move container to workspace $ws3
+bindsym $mod+Shift+4 move container to workspace $ws4
+bindsym $mod+Shift+5 move container to workspace $ws5
 bindsym $mod+Shift+6 move container to workspace 6
 bindsym $mod+Shift+7 move container to workspace 7
 bindsym $mod+Shift+8 move container to workspace 8
@@ -150,7 +166,7 @@ bindsym $mod+Shift+q exec "i3-nagbar -t warning -m 'You pressed the exit shortcu
 #{{{
 
 # resize window (you can also use the mouse for that)
-mode "resize" {
+mode "" {
         # These bindings trigger as soon as you enter the resize mode
 
         # Pressing left will shrink the window’s width.
@@ -180,7 +196,7 @@ mode "resize" {
         bindsym Escape mode "default"
 }
 
-bindsym $mod+$alt+r mode "resize"
+bindsym $mod+$alt+r mode ""
 
 #}}}
 #}}}
@@ -192,19 +208,21 @@ bindsym $mod+$alt+r mode "resize"
 bar {
   font pango:Lato, Icons 10
   status_command i3status -c ~/.i3/i3status.conf
+  strip_workspace_numbers yes
+  height 25
   position top
   tray_output DVI-0
   id bar-1
-  #tray_output none
+  #tray_output nne
   mode dock
 
   colors {
-    separator $magenta
+    separator $green
     background $black
     statusline $blue
-    focused_workspace $blue $blue $white
+    focused_workspace $green $green $black
     active_workspace $dim_grey $dim_grey $dim_blue
-    inactive_workspace $dim_grey $dim_grey $grey
+    inactive_workspace $black $black $grey
     urgent_workspace $red $red $black
   }
 }
@@ -258,8 +276,7 @@ bindsym $mod+d [instance="colorgrab"] scratchpad show
 
 # Create a spotify window in tab 3
 bindsym $mod+Shift+m $run "Spotify" spotify
-#for_window [instance="spotify"] move music
-
+assign [class="(?i)spotify"] $ws3
 #}}}
 
 #Colors
@@ -275,3 +292,4 @@ client.urgent $red $red #ffffff #900000
 #}}}
 
 # vim:filetype=i3
+# vim:commentstring=#%s
