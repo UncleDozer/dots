@@ -207,7 +207,7 @@ bindsym $mod+$alt+r mode ""
 
 bar {
   font pango:Lato, Icons 10
-  status_command i3status -c ~/.i3/i3status.conf
+  status_command py3status -c ~/.i3/i3status.conf
   strip_workspace_numbers yes
   height 25
   position top
@@ -235,7 +235,6 @@ bar {
 # Remove titlebar unless in stacking or tabbed mode
 for_window [class="^.*"] border pixel 1
 
-
 # Scratchpad and Dropdown Config
 #{{{
 
@@ -246,48 +245,34 @@ bindsym $mod+m move scratchpad
 bindsym $mod+n scratchpad show
 
 # Create a scratchpad terminal
-# {{{
-
-bindsym $mod+v exec "urxvt -name scratchpad"
+bindsym     $mod+v exec "urxvt -name scratchpad"
 for_window  [instance="scratchpad"] floating enable;
 for_window  [instance="scratchpad"] move scratchpad; [instance="scratchpad"] scratchpad show; move position 740px 340px; resize grow height 200px; resize shrink width 55px; move scratchpad
-bindsym $mod+x [instance="scratchpad"] scratchpad show
-
-#}}}
+bindsym     $mod+x [instance="scratchpad"] scratchpad show
 
 # Create a dropdown terminal
-#{{{
-
-bindsym $mod+Shift+z exec "urxvt -name dropdown"
+bindsym     $mod+Shift+z exec "urxvt -name dropdown"
 for_window  [instance="dropdown"] floating enable;
 for_window  [instance="dropdown"] move scratchpad; [instance="dropdown"] scratchpad show; move position 660px 25px; resize shrink height 50px; resize grow width 150px; move scratchpad
-bindsym $mod+z [instance="dropdown"] scratchpad show
-
-#}}}
+bindsym     $mod+z [instance="dropdown"] scratchpad show
 
 # Create a dropin color grabber
-#{{{
-
-bindsym $mod+Shift+d exec "colorgrab"
+bindsym    $mod+Shift+d exec "colorgrab"
 for_window [instance="colorgrab"] move scratchpad
-bindsym $mod+d [instance="colorgrab"] scratchpad show
-
-#}}}
+bindsym    $mod+d [instance="colorgrab"] scratchpad show
 
 # Create a spotify window in tab 3
 bindsym $mod+Shift+m $run "Spotify" spotify
-assign [class="(?i)spotify"] $ws3
-#}}}
+assign  [class="(?i)spotify"] $ws3
+
+# Floaters
+for_window [class="(?i)skype"] floating enable;
 
 #Colors
-#{{{
-
 client.focused $blue $blue $green $red
 client.focused_inactive $black $black #888888 #292d2e
 client.unfocused $black $black #888888 #292d2e
 client.urgent $red $red #ffffff #900000
-
-#}}}
 
 #}}}
 

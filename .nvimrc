@@ -1,23 +1,17 @@
 set nocompatible
 
-filetype off
-
-" Bash Shell for Vundle Compatibility
-set shell=sh
+" SH Shell
+"set shell=sh
+filetype plugin on
+filetype plugin indent on
 
 "------------------------------------------
-"VUNDLE PLUGIN MANAGER CONFIG
+"PLUGINS CONFIG
 "------------------------------------------
 "{{{
 
-" Set the runtime path to include Vundle and initialize
-set rtp+=~/.nvim/bundle/Vundle.vim
-
-" Vundle Install Path
-call vundle#begin('~/.nvim/bundle')
-
-" Let Vundle manage Vundle, required
-Plugin 'gmarik/Vundle.vim'
+" Start Vim-Plug
+call plug#begin('~/.nvim/bundle')
 
 "--------------------------
 "Syntax Specific Plugins
@@ -25,30 +19,30 @@ Plugin 'gmarik/Vundle.vim'
 "{{{
 
 " Scss Syntax Highlighting
-Plugin 'cakebaker/scss-syntax.vim'
+Plug 'cakebaker/scss-syntax.vim', {'for': 'scss'}
 
 " Javascript Syntax Highlighting
-Plugin 'jelera/vim-javascript-syntax'
+Plug 'jelera/vim-javascript-syntax', {'for': 'js'}
 
 " Javascript Libraries Syntax
-Plugin 'othree/javascript-libraries-syntax.vim'
+Plug 'othree/javascript-libraries-syntax.vim', {'for': 'js'}
 
-" Bracket/tag/etc completion
-Plugin 'tpope/vim-sleuth'
+" AutoIndent
+Plug 'tpope/vim-sleuth'
 
 " HTML and PHP
-Plugin 'othree/html5.vim'
-Plugin 'joshtronic/php.vim'
-Plugin 'vim-scripts/php.vim-html-enhanced'
+Plug 'othree/html5.vim'
+Plug 'joshtronic/php.vim', {'for': 'php'}
+Plug 'vim-scripts/php.vim-html-enhanced', {'for': 'php'}
 
 " AutoClose HTML Tags
-Plugin 'vim-scripts/HTML-AutoCloseTag'
+Plug 'vim-scripts/HTML-AutoCloseTag'
 
 " i3 Config Syntax
-Plugin 'PotatoesMaster/i3-vim-syntax'
+Plug 'PotatoesMaster/i3-vim-syntax'
 
 " Todo Syntax
-Plugin 'todo.vim'
+Plug 'todo.vim'
 
 "}}}
 
@@ -57,42 +51,39 @@ Plugin 'todo.vim'
 "--------------------------
 "{{{
 
+" Git Gutter
+Plug 'vim-gitgutter'
+
 " Vim AutoClose
-Plugin 'Townk/vim-autoclose'
+Plug 'Townk/vim-autoclose'
 
 " Auto Commenting
-Plugin 'The-NERD-Commenter'
+Plug 'The-NERD-Commenter'
 
 " Gvim color support for color terminals
-Plugin 'vim-scripts/colorsupport.vim'
+Plug 'vim-scripts/colorsupport.vim'
 
 " Fish Syntax
-Plugin 'dag/vim-fish'
+Plug 'dag/vim-fish'
 
 " CSS Color Highlighting
-"Plugin 'ap/vim-css-color'
-Plugin 'chrisbra/colorizer'
+"Plug 'ap/vim-css-color'
+Plug 'chrisbra/colorizer'
 
 " Vim Powerline
-Plugin 'bling/vim-airline'
-"Plugin 'powerline/powerline'
-
-" Vimbed for Pterosaur (firefox vim)
-"Plugin 'ardagnir/vimbed'
+Plug 'bling/vim-airline'
 
 " Alignment
-Plugin 'Align'
+Plug 'Align'
 
 " CtrlP fuzzy file finder
-Plugin 'kien/ctrlp.vim'
+Plug 'kien/ctrlp.vim'
 
 " Undo history visualizer
-Plugin 'sjl/gundo.vim'
+Plug 'sjl/gundo.vim'
 "}}}
 
-" All of your Plugins must be added before the following line
-call vundle#end()            " required
-filetype plugin indent on    " required
+call plug#end()
 "------------------------------------------
 "}}}
 
@@ -203,8 +194,6 @@ set viminfo='10,\"100,:20,%,n~/.viminfo'"Set Nifty Stuff
 "Plugin Settings
 "--------------------------
  "{{{
-let g:rainbow_active = 0 " Enable Rainbow Highlighting
-
 let g:used_javascript_libs = 'jquery' " Jquery Syntax Highlighting
 
 if has('mouse') "Enable The Mouse
@@ -223,27 +212,6 @@ autocmd BufReadPost *
 	\ endif
 
 
-" Hilight Current Line Number
-"hi clear CursorLine
-"augroup CLClear
-  "autocmd! ColorScheme * hi clear CursorLine
-"augroup END
-
-"augroup CLNRSet
-  "autocmd! ColorScheme * hi CursorLineNR cterm=bold ctermfg=5
-"augroup END
-
-
-"Syntax Check
-"set statusline+=%#warningmsg#
-"set statusline+=%{SyntasticStatuslineFlag()}
-"set statusline+=%*
-
-"let g:syntastic_always_populate_loc_list = 1
-"let g:syntastic_auto_loc_list            = 1
-"let g:syntastic_check_on_open            = 1
-"let g:syntastic_check_on_wq              = 0
-
 "--------------------------
 "Airline Settings
 "--------------------------
@@ -254,7 +222,7 @@ let g:airline_left_sep                            = '⮀'
 let g:airline_left_alt_sep       = '⮁'
 let g:airline_right_sep                           = '⮂'
 let g:airline_right_alt_sep      = '⮃'
-let g:airline_theme                               = 'bubblegum'
+let g:airline_theme                               = 'lucius'
 let g:airline_toggle_whitespace                   = 1
 let g:airline#extensions#tabline#enabled          = 1
 let g:airline#extensions#tabline#show_buffers     = 1
@@ -302,29 +270,6 @@ let g:airline_symbols.whitespace = 'Ξ'
 "let g:airline_symbols.readonly  = ''
 "let g:airline_symbols.linenr    = ''
 
-" old vim-powerline symbols
-
-
-" Airline Pallette function
-" 2=foreground
-" 3=background
-"let g:airline_theme_patch_func = 'AirlineThemePatch'
-"function! AirlineThemePatch(palette)
-	"for colors in values(a:palette.inactive)
-		"let colors[3] = 7
-		"let colors[2] = 15
-		"let colors[1] = 2
-	"endfor
-	"for colors in values(a:palette.normal)
-		"let colors[3] = 7
-		"let colors[2] = 13
-		"let colors[1] = 10
-	"endfor
-"endfunction
-
-" Readable Highlighting
-"hi Visual ctermbg=Green ctermfg=Black
-
 " Php Syntax Highlighting
 let g:php_htmlInStrings = 1
 
@@ -332,11 +277,24 @@ let g:php_htmlInStrings = 1
 let g:ctrlp_switch_buffer = 1
 let g:ctrlp_working_path_mode = 0
 "}}}
+
 "--------------------------
-" Fix for esc and autoclose & ycm
+" YouCompleteMe
 "--------------------------
  "{{{
+
+" Fix for esc and autoclose & ycm
 let g:AutoClosePumvisible = {"ENTER": "<C-Y>", "ESC": "<ESC>"}
+
+" Allow ycm to complete inside comments and strings
+let g:ycm_complete_in_comments = 1
+let g:ycm_complete_in_strings  = 1
+let g:ycm_collect_identifiers_from_comments_and_strings = 1
+
+" Complete Identifiers with syntax
+let g:ycm_seed_identifiers_with_syntax = 1
+
+let g:ycm_autoclose_preview_window_after_completion = 1
 "}}}
 "----------------------------------------------------
 "}}}
@@ -346,11 +304,12 @@ let g:AutoClosePumvisible = {"ENTER": "<C-Y>", "ESC": "<ESC>"}
 "--------------------------
 "{{{
 set wildmenu
+set wildchar=<TAB>
 
-set wildmode=list:longest
+set wildmode=list:full
 
 " Auto Completion Vim Popup
-set completeopt=longest,menuone
+set completeopt=longest,menuone,preview
 
 set wildignore=*/.git/*,*/node_modules/*,*/dist/*
 
@@ -473,62 +432,75 @@ let &t_EI .= "\<Esc>[2 q"
 "------------------------------------------
 
 "------------------------------------------
-"OTHER SETTINGS
-"------------------------------------------
-"{{{
-" Set Extra File Types
-au BufRead,BufNewFile *.md set filetype=markdown
-au BufRead,BufNewFile *.nvim set filetype=vim
-au BufRead,BufNewFile *.nvimrc set filetype=vim
-au BufRead, BufNewFile *.note set filetype=markdown
-autocmd filetype * setlocal fo-=cro
-autocmd BufRead,BufNewFile *.vimperratorrc set filetype=vim
-"au BufRead,BufNewFile *.scss set filetype=css.scss
-"au BufRead,BufNewFile *.php set filetype=html.php
-"}}}
-
-"------------------------------------------
 " Colors
 "------------------------------------------
 "{{{
+
+" Line Highlighting
 hi CursorLine ctermbg=7 cterm=none
-hi Search term=reverse cterm=reverse gui=reverse ctermfg=none ctermbg=none
 hi CursorLineNr cterm=bold ctermfg=1 ctermbg=235
 hi LineNr ctermfg=240
-hi Constant ctermfg=2
-hi Statement ctermfg=1
-hi MatchParen cterm=bold ctermfg=8 ctermbg=15
+hi StatusLine cterm=none ctermfg=0 ctermbg=7
+hi StatusLineNC cterm=none ctermfg=235 ctermbg=235
 hi TabLineFill term=bold cterm=bold ctermbg=7 ctermfg=15
 hi TabLine ctermfg=4 ctermbg=7 cterm=none
 hi TabLineSel ctermfg=1 ctermbg=none cterm=bold
+
+" Gui Highlighting
+hi Search term=reverse cterm=reverse gui=reverse ctermfg=none ctermbg=none
+hi MatchParen cterm=bold ctermfg=8 ctermbg=15
 hi VertSplit ctermfg=235 ctermbg=235 cterm=none
-hi StatusLine cterm=none ctermfg=0 ctermbg=7
-hi StatusLineNC cterm=none ctermfg=235 ctermbg=235
-hi Normal ctermfg=8 ctermbg=none
 hi Directory ctermfg=4 cterm=none
-hi Folded cterm=none ctermfg=4 ctermbg=none
 hi SpecialKey ctermfg=7
-hi Special ctermfg=121
-hi Title ctermfg=blue cterm=bold
+hi Special ctermfg=green
 hi Nontext ctermfg=7
+hi Visual ctermbg=3 ctermfg=16
+hi Pmenu ctermfg=8 ctermbg=3
+hi Pmenusel cterm=bold ctermfg=16 ctermbg=1
+hi Number cterm=bold ctermfg=red
+
+" Syntax Highlighting
+hi Statement ctermfg=1
+hi Constant ctermfg=2
+hi Folded cterm=none ctermfg=4 ctermbg=none
+hi Title ctermfg=blue cterm=bold
 hi TagbarIcon ctermfg=red cterm=none
 hi TagbarHighlight ctermfg=red ctermbg=none
 hi TagbarScope ctermfg=blue ctermbg=none cterm=none
 hi TagbarKind ctermfg=blue ctermbg=none cterm=none
 hi TagbarNestedKind ctermbg=blue ctermbg=none cterm=none
-hi Visual ctermbg=3 ctermfg=16
-hi Pmenu ctermfg=8 ctermbg=3
-hi Pmenusel cterm=bold ctermfg=16 ctermbg=1
-hi Number cterm=bold ctermfg=red
 hi Comment cterm=NONE term=NONE gui=NONE ctermfg=4
 hi String ctermfg=5
 "}}}
 
+"------------------------------------------
+"OTHER SETTINGS
+"------------------------------------------
+"{{{
+
 " Source the vimrc file after saving it. This way, you don't have to reload Vim to see the changes.
 if has("autocmd")
-	augroup myvimrchooks
-		au!
-		autocmd bufwritepost .nvimrc source ~/.nvimrc
-		autocmd BufRead *.todo set filetype=todo
-	augroup END
+  augroup myvimrchooks
+    au!
+    "autocmd bufwritepost .nvimrc source ~/.nvimrc
+  augroup END
 endif
+
+" Set File Types
+if has("autocmd")
+  augroup autofiletypes
+    au!
+    au filetype *. setlocal fo-=cro
+    au FileType php so ~/.vim/ftplugin/html_autoclosetag.vim
+    au BufRead *.todo set filetype=todo
+    au BufRead,BufNewFile *.md set filetype=markdown
+    au BufRead,BufNewFile *.nvim set filetype=vim
+    au BufRead,BufNewFile *.nvimrc set filetype=vim
+    au BufRead, BufNewFile *.note set filetype=markdown
+    au BufRead,BufNewFile *.vimperratorrc set filetype=vim
+    "au BufRead,BufNewFile *.scss set filetype=css.scss
+    "au BufRead,BufNewFile *.php set filetype=html.php
+  augroup END
+endif
+
+"}}}

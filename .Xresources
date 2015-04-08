@@ -44,16 +44,16 @@ URxvt.clipboard.autocopy  : false
 URxvt*termName          : xterm-256color
 URxvt*loginShell        : true
 URxvt*skipScroll        : false
-!URxvt*geometry         : 90x65
 URxvt*scrollTtyOutput   : false
 URxvt*scrollTtyKeypress : true
 URxvt*scrollWithBuffer  : false
-URxvt*buffered          : false
-UURxvt*saveLines        : 100
+URxvt*buffered          : true
+!URxvt*buffered          : false
+UURxvt*saveLines        : 1500
 URxvt*urgentOnBell      : false
 URxvt*cursorBlink       : 0
 
-URxvt*skipBuiltinGlyphs : true
+URxvt*skipBuiltinGlyphs : false
 URxvt*transparent       : false
 !URxvt*inheritPixmap    : true
 
@@ -96,7 +96,7 @@ URxvt*transparent       : false
 *background       : #1a1a1a
 *foreground       : #f1f3f4
 *cursorColor      : #ff2e4c
-*internalBorder   : 10
+*internalBorder   : 15
 *borderColor      : #1a1a1a
 
 ! }}}
