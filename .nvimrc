@@ -1,8 +1,5 @@
 set nocompatible
 
-" SH Shell
-"set shell=sh
-filetype plugin on
 filetype plugin indent on
 
 "------------------------------------------
@@ -28,15 +25,15 @@ Plug 'jelera/vim-javascript-syntax', {'for': 'js'}
 Plug 'othree/javascript-libraries-syntax.vim', {'for': 'js'}
 
 " AutoIndent
-Plug 'tpope/vim-sleuth'
+Plug 'vim-scripts/Smart-Tabs'
 
 " HTML and PHP
-Plug 'othree/html5.vim'
-Plug 'joshtronic/php.vim', {'for': 'php'}
+Plug 'othree/html5.vim', {'for': ['html', 'php']}
+Plug 'joshtronic/php.vim', {'for': ['html', 'php']}
 Plug 'vim-scripts/php.vim-html-enhanced', {'for': 'php'}
 
 " AutoClose HTML Tags
-Plug 'vim-scripts/HTML-AutoCloseTag'
+Plug 'vim-scripts/HTML-AutoCloseTag', {'for': ['html', 'php']}
 
 " i3 Config Syntax
 Plug 'PotatoesMaster/i3-vim-syntax'
@@ -51,24 +48,14 @@ Plug 'todo.vim'
 "--------------------------
 "{{{
 
-" Git Gutter
-Plug 'vim-gitgutter'
-
 " Vim AutoClose
 Plug 'Townk/vim-autoclose'
 
 " Auto Commenting
 Plug 'The-NERD-Commenter'
 
-" Gvim color support for color terminals
-Plug 'vim-scripts/colorsupport.vim'
-
 " Fish Syntax
 Plug 'dag/vim-fish'
-
-" CSS Color Highlighting
-"Plug 'ap/vim-css-color'
-Plug 'chrisbra/colorizer'
 
 " Vim Powerline
 Plug 'bling/vim-airline'
@@ -79,8 +66,9 @@ Plug 'Align'
 " CtrlP fuzzy file finder
 Plug 'kien/ctrlp.vim'
 
-" Undo history visualizer
-Plug 'sjl/gundo.vim'
+" Editor Config
+Plug 'editorconfig/editorconfig-vim'
+
 "}}}
 
 call plug#end()
@@ -96,7 +84,7 @@ call plug#end()
 "--------------------------
 "{{{
 set ttyfast           " Faster Character Drawing
-"set lazyredraw        " Only Redraw When Needed
+set lazyredraw        " Only Redraw When Needed
 
 syntax enable         " Enable Syntax Highlighting
 
@@ -117,9 +105,6 @@ set hidden            " Hide Closed Buffers
 set showcmd           " Show The Last Command
 set showtabline=2     " Always Show Tab Line
 
-set autoindent
-set smartindent
-
 set scrolloff=20      " How Many Lines at Bottom or Top of buffer
 set sidescrolloff=10
 set sidescroll=1
@@ -135,7 +120,10 @@ set noerrorbells
 set t_vb=
 set tm=500
 
-set lines=65 columns=80
+let g:plug_window='top new'
+
+"set lines=65
+"set columns=80
 
 set foldmethod=marker
 "}}}
@@ -144,20 +132,26 @@ set foldmethod=marker
 "--------------------------
  "{{{
 
-set tabstop=2      " Tabs are 2 characters long and are not spaces
+set tabstop=4    " Tabs are 2 characters long and are not spaces
 
-set shiftwidth=2   " Use Tabstop when indenting
 
-set shiftround     " Round up using tabstop
+set shiftwidth=3 " Use Tabstop when indenting
+
+set shiftround   " Round up using tabstop
 
 set smarttab
 
 set noexpandtab
 
-set list "Show Whitespace and Tabs
+set autoindent
+
+set smartindent
+
+set list         " Show Whitespace and Tabs
 set listchars=tab:▸\ ,trail:·
 
 "}}}
+
 "--------------------------
 " Search/Undo/ETC
 "--------------------------
@@ -185,8 +179,6 @@ set nobackup                   " Disable Vim Backup
 
 set formatoptions=qn1
 
-set formatoptions-=cro
-
 set viminfo='10,\"100,:20,%,n~/.viminfo'"Set Nifty Stuff
 "}}}
 
@@ -200,7 +192,6 @@ if has('mouse') "Enable The Mouse
 	set mouse=a
 endif
 
-
 " When editing a file, always jump to the last known cursor position.
 " Don't do it when the position is invalid or when inside an event handler
 " (happens when dropping a file on gvim).
@@ -211,17 +202,16 @@ autocmd BufReadPost *
 	\   exe "normal! g`\"" |
 	\ endif
 
-
 "--------------------------
 "Airline Settings
 "--------------------------
  "{{{
-let g:airline_symbols = {}
+let g:airline_symbols                             = {}
 let g:airline_powerline_fonts                     = 1
 let g:airline_left_sep                            = '⮀'
-let g:airline_left_alt_sep       = '⮁'
+let g:airline_left_alt_sep                        = '⮁'
 let g:airline_right_sep                           = '⮂'
-let g:airline_right_alt_sep      = '⮃'
+let g:airline_right_alt_sep                       = '⮃'
 let g:airline_theme                               = 'lucius'
 let g:airline_toggle_whitespace                   = 1
 let g:airline#extensions#tabline#enabled          = 1
@@ -229,9 +219,9 @@ let g:airline#extensions#tabline#show_buffers     = 1
 let g:airline#extensions#tabline#show_tabs        = 1
 let g:airline#extensions#tabline#formatter        = 'unique_tail_improved'
 let g:airline#extensions#tabline#buffer_min_count = 0
-let g:airline_symbols.branch     = '⭠'
-let g:airline_symbols.readonly   = '⭤'
-"let g:airline_symbols.linenr    = '⭡'
+let g:airline_symbols.branch                      = '⭠'
+let g:airline_symbols.readonly                    = '⭤'
+"let g:airline_symbols.linenr                     = '⭡'
 
 let g:airline_mode_map = {
 		\ '__' : '-',
@@ -270,12 +260,6 @@ let g:airline_symbols.whitespace = 'Ξ'
 "let g:airline_symbols.readonly  = ''
 "let g:airline_symbols.linenr    = ''
 
-" Php Syntax Highlighting
-let g:php_htmlInStrings = 1
-
-" CtrlP Settings
-let g:ctrlp_switch_buffer = 1
-let g:ctrlp_working_path_mode = 0
 "}}}
 
 "--------------------------
@@ -296,6 +280,13 @@ let g:ycm_seed_identifiers_with_syntax = 1
 
 let g:ycm_autoclose_preview_window_after_completion = 1
 "}}}
+
+" Php Syntax Highlighting
+let g:php_htmlInStrings = 1
+
+" CtrlP Settings
+let g:ctrlp_switch_buffer = 1
+let g:ctrlp_working_path_mode = 0
 "----------------------------------------------------
 "}}}
 
@@ -303,6 +294,7 @@ let g:ycm_autoclose_preview_window_after_completion = 1
 " Popup Menu Settings
 "--------------------------
 "{{{
+
 set wildmenu
 set wildchar=<TAB>
 
@@ -318,20 +310,62 @@ inoremap <expr> <C-n> pumvisible() ? '<C-n>' :
 	\ '<C-n><C-r>=pumvisible() ? "\<lt>Down>" : ""<CR>'
 inoremap <expr> <M-,> pumvisible() ? '<C-n>' :
 	\ '<C-x><C-o><C-n><C-p><C-r>=pumvisible() ? "\<lt>Down>
-"}}}
 "----------------------------------------------------
+"}}}
 "}}}
 
 "------------------------------------------
 " KEY COMMANDS
 "------------------------------------------
 "{{{
+
 " Remap Leader Key
 let mapleader=","
 
 " Remap command key for faster commands
 nnoremap ; :
 vnoremap ; :
+
+" Move Line Up or down
+nnoremap <A-j> :m .+1<CR>==
+nnoremap <A-k> :m .-2<CR>==
+vnoremap <a-j> <esc>:m .+1<cr>gv=gv
+vnoremap <a-k> <esc>:m .-2<cr>gv=gv
+
+"Fold Keys
+nmap <leader>fm :AutoCloseToggle<CR>i{{{<ESC>c,<space>:AutoCloseToggle<CR>
+nmap <leader>fn :AutoCloseToggle<CR>i}}}<ESC>c,<space>:AutoCloseToggle<CR>
+nmap <leader>fd za
+nmap <leader>fa zA
+
+" Clear Search Highlight
+nnoremap <silent><Leader>/ :nohlsearch<CR>
+
+" Fast Save
+nnoremap <leader>w :w<CR>
+
+" AutoClose Toggle
+noremap <leader>at :AutoCloseToggle<CR>
+
+" Paste From System Clipboard
+nmap <leader>p "*p
+
+" Jump to either end or beginning of the line
+nnoremap <leader>e $
+nnoremap <leader>b ^
+
+" Align
+nnoremap <leader>a :Align
+vnoremap <leader>a :Align
+
+" Remove Search highlight
+nnoremap <ESC> :nohlsearch<CR>
+
+" Copy Line
+nnoremap <leader>c mzVy`z:delmarks z<CR>
+
+" Copy and Past Line
+nnoremap <leader>d mzVyp`z:delmarks z<CR>
 
 " Prev Buffer
 nnoremap <S-h> :bp<CR>
@@ -345,70 +379,24 @@ nnoremap <leader>x :bd<CR>
 " Reopen Prev. Closed Buffer
 nnoremap <leader>t <C-^>
 
-" Close Tab
-"nnoremap <C-x> :tabclose<CR>
-
 " Enter Key in Normal mode
 nnoremap <CR> o<ESC>
 nnoremap <leader><CR> O<ESC>
 
-" Undo Insert Mode
-imap <C-z> <C-o>:u<CR>
-
-" Save Insert Mode
-imap <C-s> <C-o>:w<CR>
-
 " Exit Insert Mode
-imap jk <ESC>:nohlsearch<CR>
-
-" Remove Search highlight
-nmap <ESC> :nohlsearch<CR>
+inoremap jk <ESC>:nohlsearch<CR>
 
 " Comment Insert Mode
 imap  <C-o>,c<space>
 
-" Paste Toggle For Insert Mode Pasting
-set pastetoggle=<f2>
-
-" Clear Search Highlight
-nmap <silent><Leader>/ :nohlsearch<CR>
-
-" Fast Save
-nmap <leader>w :w<CR>
-
-" AutoClose Toggle
-nmap <leader>at :AutoCloseToggle<CR>
-
-"Paste From System Clipboard
-nmap <leader>p "*p
-
-"Jump to either end or beginning of the line
-nnoremap <leader>e $
-nnoremap <leader>b ^
-
 " Yank (or copy) Text to System Clipboard
 vmap <leader>y "*y
 
-" Move Line Up or down
-nnoremap <A-j> :m .+1<CR>==
-nnoremap <A-k> :m .-2<CR>==
-vnoremap <A-j> <Esc>:m .+1<CR>gv=gv
-vnoremap <A-k> <Esc>:m .-2<CR>gv=gv
-
-" Copy Line
-nnoremap <leader>c mzVy`z:delmarks z<CR>
-
-" Copy and Past Line
-nnoremap <leader>d mzVyp`z:delmarks z<CR>
+" Paste Toggle For Insert Mode Pasting
+set pastetoggle=<f2>
 
 " Sudo Save
 command! W :execute ':silent w !sudo tee % > /dev/null'
-
-"Fold Keys
-nmap <leader>fm :AutoCloseToggle<CR>i{{{<ESC>c,<space>:AutoCloseToggle<CR>
-nmap <leader>fn :AutoCloseToggle<CR>i}}}<ESC>c,<space>:AutoCloseToggle<CR>
-nmap <leader>fd za
-nmap <leader>fa zA
 "------------------------------------------
 "}}}
 
@@ -428,8 +416,8 @@ let &t_SI .= "\<Esc>[5 q"
 
 " Normal Mode
 let &t_EI .= "\<Esc>[2 q"
-"}}}
 "------------------------------------------
+"}}}
 
 "------------------------------------------
 " Colors
@@ -455,9 +443,12 @@ hi SpecialKey ctermfg=7
 hi Special ctermfg=green
 hi Nontext ctermfg=7
 hi Visual ctermbg=3 ctermfg=16
+hi Number cterm=bold ctermfg=red
+
+" Menu Highlighting
 hi Pmenu ctermfg=8 ctermbg=3
 hi Pmenusel cterm=bold ctermfg=16 ctermbg=1
-hi Number cterm=bold ctermfg=red
+hi wildmenu ctermfg=16 ctermbg=1
 
 " Syntax Highlighting
 hi Statement ctermfg=1
@@ -471,6 +462,7 @@ hi TagbarKind ctermfg=blue ctermbg=none cterm=none
 hi TagbarNestedKind ctermbg=blue ctermbg=none cterm=none
 hi Comment cterm=NONE term=NONE gui=NONE ctermfg=4
 hi String ctermfg=5
+"------------------------------------------
 "}}}
 
 "------------------------------------------
@@ -482,7 +474,8 @@ hi String ctermfg=5
 if has("autocmd")
   augroup myvimrchooks
     au!
-    "autocmd bufwritepost .nvimrc source ~/.nvimrc
+    autocmd BufRead .nvimrc :AirlineToggle
+    autocmd bufwritepost .nvimrc source ~/.nvimrc
   augroup END
 endif
 
@@ -490,17 +483,14 @@ endif
 if has("autocmd")
   augroup autofiletypes
     au!
-    au filetype *. setlocal fo-=cro
-    au FileType php so ~/.vim/ftplugin/html_autoclosetag.vim
+    au FileType * set formatoptions-=cro
     au BufRead *.todo set filetype=todo
     au BufRead,BufNewFile *.md set filetype=markdown
     au BufRead,BufNewFile *.nvim set filetype=vim
     au BufRead,BufNewFile *.nvimrc set filetype=vim
-    au BufRead, BufNewFile *.note set filetype=markdown
+    au BufRead,BufNewFile *.note set filetype=markdown
     au BufRead,BufNewFile *.vimperratorrc set filetype=vim
-    "au BufRead,BufNewFile *.scss set filetype=css.scss
-    "au BufRead,BufNewFile *.php set filetype=html.php
   augroup END
 endif
-
+"------------------------------------------
 "}}}
