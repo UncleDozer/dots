@@ -37,7 +37,6 @@ URxvt.clipboard.autocopy  : false
 
 ! }}}
 
-
 ! URxvt Settings
 ! {{{
 
@@ -62,42 +61,42 @@ URxvt*transparent       : false
 ! COLORS
 ! {{{
 !! black
-*color7           : #2a2a2a
-*color15          : #1a1a1a
+*color7           : #424242
+*color15          : #7D7D7D
 
 !!! red
-*color1           : #b63e50
-*color9           : #ff2e4c
+*color1           : #B63E50
+*color9           : #FF2E4C
 
 !! yellow/orange
-*color3           : #db9f62
-*color11          : #ffa03d
+*color3           : #DB9F62
+*color11          : #FFA03D
 
 !! purple
-*color5           : #d3649d
-*color13          : #ff91c9
+*color5           : #853F63
+*color13          : #FF91C9
 
 !! blue
-*color4           : #60a8cd
-*color12          : #2eb9ff
+*color4           : #31789C
+*color12          : #2EB9FF
 
 !! green
-*color2           : #ace594
-*color10          : #a1ff7a
+*color2           : #6B8F5C
+*color10          : #ACE594
 
 !! cyan
-*color6           : #3ad9c2
-*color14          : #8fffee
+*color6           : #007866
+*color14          : #2DFADB
 
 !! white
-*color0           : #b3bdc2
-*color8           : #f1f3f4
+*color0           : #8D9599
+*color8           : #F1F3F4
 
-*background       : #1a1a1a
-*foreground       : #f1f3f4
-*cursorColor      : #ff2e4c
+*borderColor      : #1A1A1A
+*background       : #1A1A1A
+*foreground       : #F1F3F4
+*cursorColor      : #FF2E4C
 *internalBorder   : 15
-*borderColor      : #1a1a1a
 
 ! }}}
 

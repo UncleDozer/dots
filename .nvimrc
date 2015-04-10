@@ -97,6 +97,12 @@ Plug 'editorconfig/editorconfig-vim'
 " Temporary CapsLock
 Plug 'tpope/vim-capslock'
 
+"Fuzzy Finder
+Plug 'FuzzyFinder'
+
+" L9 Vim-Script Library
+Plug 'L9'
+
 "}}}
 
 call plug#end()
@@ -447,14 +453,14 @@ let &t_EI .= "\<Esc>[2 q"
 "{{{
 
 " Line Highlighting
-hi CursorLine ctermbg=7 cterm=none
-hi CursorLineNr cterm=bold ctermfg=1 ctermbg=235
-hi LineNr ctermfg=240
-hi StatusLine cterm=none ctermfg=0 ctermbg=7
-hi StatusLineNC cterm=none ctermfg=235 ctermbg=235
-hi TabLineFill term=bold cterm=bold ctermbg=7 ctermfg=15
-hi TabLine ctermfg=4 ctermbg=7 cterm=none
-hi TabLineSel ctermfg=1 ctermbg=none cterm=bold
+hi CursorLine ctermbg=235 cterm=italic
+hi CursorLineNr cterm=bold ctermfg=1 ctermbg=234
+hi LineNr ctermfg=7
+hi StatusLine cterm=none ctermfg=0 ctermbg=235
+hi StatusLineNC cterm=none ctermfg=7 ctermbg=236
+hi TabLineFill term=bold cterm=bold ctermbg=235 ctermfg=0
+hi TabLine ctermfg=2 ctermbg=235 cterm=none
+hi TabLineSel ctermfg=10 ctermbg=7 cterm=bold
 
 " Gui Highlighting
 hi Search term=reverse cterm=reverse gui=reverse ctermfg=none ctermbg=none
@@ -462,28 +468,28 @@ hi MatchParen cterm=bold ctermfg=8 ctermbg=15
 hi VertSplit ctermfg=235 ctermbg=235 cterm=none
 hi Directory ctermfg=4 cterm=none
 hi SpecialKey ctermfg=7
-hi Special ctermfg=green
+hi Special ctermfg=2
 hi Nontext ctermfg=7
 hi Visual ctermbg=3 ctermfg=16
-hi Number cterm=bold ctermfg=red
+hi Number cterm=bold ctermfg=3
 
 " Menu Highlighting
-hi Pmenu ctermfg=8 ctermbg=3
-hi Pmenusel cterm=bold ctermfg=16 ctermbg=1
-hi wildmenu ctermfg=16 ctermbg=1
+hi Pmenu ctermfg=8 ctermbg=4
+hi Pmenusel cterm=bold ctermfg=4 ctermbg=8
+hi WildMenu ctermfg=7 ctermbg=12
 
 " Syntax Highlighting
-hi Statement ctermfg=1
-hi Constant ctermfg=2
-hi Folded cterm=none ctermfg=4 ctermbg=none
-hi Title ctermfg=blue cterm=bold
+hi Statement ctermfg=9
+hi Constant ctermfg=5
+hi Folded cterm=none ctermfg=4 ctermbg=234
+hi Title ctermfg=12 cterm=bold
 hi TagbarIcon ctermfg=red cterm=none
 hi TagbarHighlight ctermfg=red ctermbg=none
 hi TagbarScope ctermfg=blue ctermbg=none cterm=none
 hi TagbarKind ctermfg=blue ctermbg=none cterm=none
 hi TagbarNestedKind ctermbg=blue ctermbg=none cterm=none
-hi Comment cterm=NONE term=NONE gui=NONE ctermfg=4
-hi String ctermfg=5
+hi Comment ctermfg=4
+hi String ctermfg=14
 "------------------------------------------
 "}}}
 
