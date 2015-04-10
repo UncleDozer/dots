@@ -35,8 +35,6 @@ set -x fish_color_search_match green -bold
 set -x fish_color_redirection magenta -bold
 
 # Newest Chrome Unstable fix
-set -x MESA_GL_VERSION_OVERRIDE 3.3
-set -x MESA_GLSL_VERSION_OVERRIDE 330
 
 # Aliases
 alias j='jump'
@@ -54,6 +52,13 @@ alias cd.='cd ../'
 alias cd..='cd ../../'
 alias cd...='cd ../../../'
 alias tm='tmux'
+
+# Chrome Fixes
+function chrome
+    set MESA_GL_VERSION_OVERRIDE 3.3
+    set MESA_GLSL_VERSION_OVERRIDE 330
+    google-chrome-unstable --force-device-scale-factor=1
+end
 
 # Start Netflix Chrome App in FullScreen
 function flix

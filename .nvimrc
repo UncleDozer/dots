@@ -63,6 +63,9 @@ Plug 'PotatoesMaster/i3-vim-syntax'
 " Todo Syntax
 Plug 'todo.vim'
 
+" Vim Surround
+Plug 'tpope/vim-surround'
+
 "}}}
 
 "--------------------------
@@ -90,6 +93,9 @@ Plug 'kien/ctrlp.vim'
 
 " Editor Config
 Plug 'editorconfig/editorconfig-vim'
+
+" Temporary CapsLock
+Plug 'tpope/vim-capslock'
 
 "}}}
 
@@ -122,7 +128,7 @@ set laststatus=2      " Show Status Line
 
 set ruler             " Show Line and Column Position
 
-set hidden            " Hide Closed Buffers
+set nohidden          " UnHide Closed Buffers
 
 set showcmd           " Show The Last Command
 set showtabline=2     " Always Show Tab Line
@@ -148,28 +154,17 @@ let g:plug_window='top new'
 "set columns=80
 
 set foldmethod=marker
+
 "}}}
 "--------------------------
 " Tab Stuff
 "--------------------------
  "{{{
 
-set tabstop=4    " Tabs are 2 characters long and are not spaces
-
-
-set shiftwidth=3 " Use Tabstop when indenting
-
-set shiftround   " Round up using tabstop
-
-set smarttab
-
-set noexpandtab
-
 set autoindent
-
 set smartindent
 
-set list         " Show Whitespace and Tabs
+set list          " Show Whitespace and Tabs
 set listchars=tab:▸\ ,trail:·
 
 "}}}
@@ -178,7 +173,9 @@ set listchars=tab:▸\ ,trail:·
 " Search/Undo/ETC
 "--------------------------
  "{{{
- set undodir="//~/.nvim/undo//"
+
+set undodir="~/.nvim/undo"
+
 set undofile                   " Save a file with undo history
 
 set hlsearch                   " Highlight Searches
@@ -201,7 +198,7 @@ set nobackup                   " Disable Vim Backup
 
 set formatoptions=qn1
 
-set viminfo='10,\"100,:20,%,n~/.viminfo'"Set Nifty Stuff
+set viminfo='10,\"100,:20,%,n~/.viminfo'
 "}}}
 
 "--------------------------
@@ -240,10 +237,13 @@ let g:airline#extensions#tabline#enabled          = 1
 let g:airline#extensions#tabline#show_buffers     = 1
 let g:airline#extensions#tabline#show_tabs        = 1
 let g:airline#extensions#tabline#formatter        = 'unique_tail_improved'
-let g:airline#extensions#tabline#buffer_min_count = 0
+let g:airline#extensions#tabline#tab_nr_type      = 1 " splits and tab number
 let g:airline_symbols.branch                      = '⭠'
+let g:airline#extensions#tabline#buffer_min_count = 0
+let g:airline#extensions#tabline#show_close_button = 0
 let g:airline_symbols.readonly                    = '⭤'
 "let g:airline_symbols.linenr                     = '⭡'
+let g:airline#extensions#capslock#enabled = 1
 
 let g:airline_mode_map = {
 		\ '__' : '-',
@@ -505,7 +505,9 @@ endif
 if has("autocmd")
   augroup autofiletypes
     au!
-    au FileType * set formatoptions-=cro
+    au FileType * set formatoptions-=c
+    au FileType * set formatoptions-=r
+    au FileType * set formatoptions-=o
     au BufRead *.todo set filetype=todo
     au BufRead,BufNewFile *.md set filetype=markdown
     au BufRead,BufNewFile *.nvim set filetype=vim

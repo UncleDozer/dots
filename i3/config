@@ -247,13 +247,13 @@ bindsym $mod+n scratchpad show
 # Create a scratchpad terminal
 bindsym     $mod+v exec "urxvt -name scratchpad"
 for_window  [instance="scratchpad"] floating enable;
-for_window  [instance="scratchpad"] move scratchpad; [instance="scratchpad"] scratchpad show; move position 740px 340px; resize grow height 200px; resize shrink width 55px; move scratchpad
+for_window  [instance="scratchpad"] move scratchpad; [instance="scratchpad"] scratchpad show; move position 725px 250px; resize shrink height 10000px; resize grow height 500px; resize shrink width 10000px; resize grow width 350px; move scratchpad
 bindsym     $mod+x [instance="scratchpad"] scratchpad show
 
 # Create a dropdown terminal
 bindsym     $mod+Shift+z exec "urxvt -name dropdown"
 for_window  [instance="dropdown"] floating enable;
-for_window  [instance="dropdown"] move scratchpad; [instance="dropdown"] scratchpad show; move position 660px 25px; resize shrink height 50px; resize grow width 150px; move scratchpad
+for_window  [instance="dropdown"] move scratchpad; [instance="dropdown"] scratchpad show; move position 600px 30px; resize shrink height 10000px; resize grow height 120px; resize shrink width 10000px; resize grow width 600px; move scratchpad
 bindsym     $mod+z [instance="dropdown"] scratchpad show
 
 # Create a dropin color grabber
