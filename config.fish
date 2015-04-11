@@ -7,15 +7,13 @@ set fish_plugins node jump extract theme gi
 # Path to your custom folder (default path is $FISH/custom)
 set fish_custom $HOME/.oh-my-fish
 
-# Powerline Support for Fish
-
 function fish_title
 end
 
 # Load oh-my-fish configuration.
 . $fish_path/oh-my-fish.fish
 
-# Change Fish Greeting
+# Clear Fish Greeting
 set fish_greeting
 
 # User Variables
@@ -34,8 +32,6 @@ set -x fish_color_autosuggestion magenta
 set -x fish_color_search_match green -bold
 set -x fish_color_redirection magenta -bold
 
-# Newest Chrome Unstable fix
-
 # Aliases
 alias j='jump'
 alias nd='nextd'
@@ -53,7 +49,7 @@ alias cd..='cd ../../'
 alias cd...='cd ../../../'
 alias tm='tmux'
 
-# Chrome Fixes
+# Google Chrome Fixes
 function chrome
     set MESA_GL_VERSION_OVERRIDE 3.3
     set MESA_GLSL_VERSION_OVERRIDE 330
@@ -62,17 +58,17 @@ end
 
 # Start Netflix Chrome App in FullScreen
 function flix
-    setsid /opt/google/chrome-unstable/google-chrome-unstable --user-data-dir=/home/uncledozer/.config/google-chrome-unstable "--profile-directory=Profile 1" --app-id=deceagebecbceejblnlcjooeohmmeldh
+    setsid /opt/google/chrome-unstable/google-chrome-unstable --user-data-dir=/home/uncledozer/.config/google-chrome-unstable "--profile-directory=Profile 1" --app-id=deceagebecbceejblnlcjooeohmmeldh ^^ /dev/null
 end
 
 # Skype with alsa fix
 function skype
-    setsid apulse32 skype-with-poll-fix &
+    setsid apulse32 skype-with-poll-fix ^^ /dev/null &
 end
 
 # Run speedcrunch
 function calc
-    speedcrunch &
+    setsid speedcrunch &
 end
 
 # Update Vundle Plugins for Vim
@@ -80,7 +76,7 @@ function upvim
     nvim +PlugUpgrade +PlugInstall +PlugClean +qall
 end
 
-# Resource Fish File
+# Re-Source Fish File
 function repro
     source $HOME/.config/fish/config.fish
 end
@@ -112,9 +108,16 @@ end
     #urxvtc --hold -cd $tpath -e $EDITOR
 #end
 
-# Grab .editorconfig
+# Link my root .editorconfig
 function edconf
     ln $dots/.editorconfig (pwd)
+end
+
+# Vim autodownloads via curl when supplied a url
+# How Cool is THAT?!
+function vimhub
+    set githuburl https://raw.githubusercontent.com/$argv
+    nvim githuburl
 end
 
 # Set Brightness of screens
