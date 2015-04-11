@@ -2,7 +2,7 @@
 set fish_path $HOME/.oh-my-fish
 
 # Custom plugins may be added to ~/.oh-my-fish/custom/plugins/
-set fish_plugins node jump extract theme
+set fish_plugins node jump extract theme gi
 
 # Path to your custom folder (default path is $FISH/custom)
 set fish_custom $HOME/.oh-my-fish

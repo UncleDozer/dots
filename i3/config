@@ -15,6 +15,9 @@ set $run exec python ~/.i3/runorfocus.py
 set $default_gaps_inner 45
 set $default_gaps_outer 100
 
+set $volup
+set $voldown
+
 
 set $black       #1a1a1a
 set $blue        #2eb9ff

@@ -10,7 +10,7 @@
 "   \\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\|
 "    ---------------------------------------------------
 "
-"   ıllıllııllıllı   Outside The Box   ıllıllııllıllııllı
+"   ıllıllııllıllı    Out Of The Box    ıllıllııllıllııllı
 
 "---------------------------------------------------
 " Author              : Kristopher Watts (UncleDozer)
@@ -103,6 +103,9 @@ Plug 'FuzzyFinder'
 " L9 Vim-Script Library
 Plug 'L9'
 
+" Fast Fold
+Plug 'Konfekt/FastFold'
+
 "}}}
 
 call plug#end()
@@ -113,11 +116,14 @@ call plug#end()
 "GENERAL SETTINGS
 "------------------------------------------
 "{{{
+
 "--------------------------
 "UI Settings
 "--------------------------
 "{{{
+
 set ttyfast           " Faster Character Drawing
+
 set lazyredraw        " Only Redraw When Needed
 
 syntax enable         " Enable Syntax Highlighting
@@ -161,7 +167,22 @@ let g:plug_window='top new'
 
 set foldmethod=marker
 
+if has('mouse') "Enable The Mouse
+	set mouse=a
+endif
+
+" When editing a file, always jump to the last known cursor position.
+" Don't do it when the position is invalid or when inside an event handler
+" (happens when dropping a file on gvim).
+" Also don't do it when the mark is in the first line, that is the default
+" position when opening a file.
+autocmd BufReadPost *
+	\ if line("'\"") > 1 && line("'\"") <= line("$") |
+	\   exe "normal! g`\"" |
+	\ endif
+
 "}}}
+
 "--------------------------
 " Tab Stuff
 "--------------------------
@@ -210,22 +231,12 @@ set viminfo='10,\"100,:20,%,n~/.viminfo'
 "--------------------------
 "Plugin Settings
 "--------------------------
- "{{{
-let g:used_javascript_libs = 'jquery' " Jquery Syntax Highlighting
+"{{{
 
-if has('mouse') "Enable The Mouse
-	set mouse=a
-endif
+let g:used_javascript_libs  = 'jquery' " Jquery Syntax Highlighting
 
-" When editing a file, always jump to the last known cursor position.
-" Don't do it when the position is invalid or when inside an event handler
-" (happens when dropping a file on gvim).
-" Also don't do it when the mark is in the first line, that is the default
-" position when opening a file.
-autocmd BufReadPost *
-	\ if line("'\"") > 1 && line("'\"") <= line("$") |
-	\   exe "normal! g`\"" |
-	\ endif
+let g:NERDRemoveExtraSpaces = 1
+let g:NERDSpaceDelims       = 1
 
 "--------------------------
 "Airline Settings
@@ -310,10 +321,10 @@ let g:ycm_autoclose_preview_window_after_completion = 1
 "}}}
 
 " Php Syntax Highlighting
-let g:php_htmlInStrings = 1
+let g:php_htmlInStrings       = 1
 
 " CtrlP Settings
-let g:ctrlp_switch_buffer = 1
+let g:ctrlp_switch_buffer     = 1
 let g:ctrlp_working_path_mode = 0
 "----------------------------------------------------
 "}}}
@@ -343,48 +354,51 @@ inoremap <expr> <M-,> pumvisible() ? '<C-n>' :
 "}}}
 
 "------------------------------------------
-" KEY COMMANDS
+" KEY MAPPINGS
 "------------------------------------------
 "{{{
 
 " Remap Leader Key
 let mapleader=","
 
+"--------------------------
+" Normal/Visual/Operator Mode
+"--------------------------
+"{{{
+
 " Remap command key for faster commands
-nnoremap ; :
-vnoremap ; :
+noremap ; :
 
 " Move Line Up or down
-nnoremap <A-j> :m .+1<CR>==
-nnoremap <A-k> :m .-2<CR>==
-vnoremap <a-j> <esc>:m .+1<cr>gv=gv
-vnoremap <a-k> <esc>:m .-2<cr>gv=gv
+noremap <A-j> :m .+1<CR>==
+noremap <A-k> :m .-2<CR>==
+"vnoremap <A-j> <esc>:m .+1<cr>gv=gv
+"vnoremap <A-k> <esc>:m .-2<cr>gv=gv
 
 "Fold Keys
-nmap <leader>fm :AutoCloseToggle<CR>i{{{<ESC>c,<space>:AutoCloseToggle<CR>
-nmap <leader>fn :AutoCloseToggle<CR>i}}}<ESC>c,<space>:AutoCloseToggle<CR>
-nmap <leader>fd za
-nmap <leader>fa zA
+noremap <leader>fm :AutoCloseToggle<CR>i{{{<ESC>c,<space>:AutoCloseToggle<CR>
+noremap <leader>fn :AutoCloseToggle<CR>i}}}<ESC>c,<space>:AutoCloseToggle<CR>
+noremap <leader>fd za
+noremap <leader>fa zA
 
 " Clear Search Highlight
-nnoremap <silent><Leader>/ :nohlsearch<CR>
+noremap <silent><Leader>/ :nohlsearch<CR>
 
 " Fast Save
-nnoremap <leader>w :w<CR>
+noremap <leader>w :w<CR>
 
 " AutoClose Toggle
 noremap <leader>at :AutoCloseToggle<CR>
 
 " Paste From System Clipboard
-nmap <leader>p "*p
+noremap <leader>p "*p
 
 " Jump to either end or beginning of the line
-nnoremap <leader>e $
-nnoremap <leader>b ^
+noremap <leader>e $
+noremap <leader>b ^
 
 " Align
-nnoremap <leader>a :Align
-vnoremap <leader>a :Align
+noremap <leader>a :Align
 
 " Remove Search highlight
 nnoremap <ESC> :nohlsearch<CR>
@@ -393,7 +407,7 @@ nnoremap <ESC> :nohlsearch<CR>
 nnoremap <leader>c mzVy`z:delmarks z<CR>
 
 " Copy and Past Line
-nnoremap <leader>d mzVyp`z:delmarks z<CR>
+noremap <leader>d mzVyp`z:delmarks z<CR>
 
 " Prev Buffer
 nnoremap <S-h> :bp<CR>
@@ -411,20 +425,38 @@ nnoremap <leader>t <C-^>
 nnoremap <CR> o<ESC>
 nnoremap <leader><CR> O<ESC>
 
+" Increment Up
+nnoremap <C-j> <C-x>
+
+" Increment Down
+nnoremap <C-k> <C-a>
+" }}}
+
+"--------------------------
+" Insert Mode
+"--------------------------
+
 " Exit Insert Mode
 inoremap jk <ESC>:nohlsearch<CR>
 
 " Comment Insert Mode
-imap  <C-o>,c<space>
+inoremap  <C-o>,c<space>
+
+" CapsLock Toggle
+imap <C-L> <Plug>CapsLockToggle
 
 " Yank (or copy) Text to System Clipboard
-vmap <leader>y "*y
+vnoremap <leader>y "*y
+
+" Exit Visual Mode
+vnoremap <CR> <ESC>
 
 " Paste Toggle For Insert Mode Pasting
 set pastetoggle=<f2>
 
 " Sudo Save
 command! W :execute ':silent w !sudo tee % > /dev/null'
+"}}}
 "------------------------------------------
 "}}}
 
@@ -500,10 +532,12 @@ hi String ctermfg=14
 
 " Source the vimrc file after saving it. This way, you don't have to reload Vim to see the changes.
 if has("autocmd")
-  augroup myvimrchooks
+  augroup mynvimrchooks
     au!
     autocmd BufRead .nvimrc :AirlineToggle
-    autocmd bufwritepost .nvimrc source ~/.nvimrc
+    autocmd bufwritepost .nvimrc
+        \ source ~/.nvimrc |
+        \ :YCMRestartServer |
   augroup END
 endif
 
@@ -514,6 +548,7 @@ if has("autocmd")
     au FileType * set formatoptions-=c
     au FileType * set formatoptions-=r
     au FileType * set formatoptions-=o
+    au FileType *.md set wrap linebreak nolist
     au BufRead *.todo set filetype=todo
     au BufRead,BufNewFile *.md set filetype=markdown
     au BufRead,BufNewFile *.nvim set filetype=vim
