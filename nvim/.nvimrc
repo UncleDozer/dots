@@ -226,10 +226,6 @@ set nobackup                    " Disable Vim Backup
 
 set formatoptions=qn1           " Text Formatting
 
-set formatoptions-=c            " Remove Automatic Comment Insertion
-set formatoptions-=r
-set formatoptions-=o
-
 " Persistent Info
 set viminfo='10,\"100,:20,%,n~/.nviminfo'
 
@@ -563,12 +559,10 @@ endif
 if has("autocmd")
   augroup autofiletypes
     au!
-    " Kill Auto Insert Comments
+    " Vim
     au BufRead * set formatoptions-=c
     au BufRead * set formatoptions-=r
     au BufRead * set formatoptions-=o
-
-    " Vim
     au BufRead,BufNewFile *.nvim          set filetype   =vim
     au BufRead,BufNewFile *.nvimrc        set filetype   =vim
     au BufRead,BufNewFile *.vimperratorrc set filetype   =vim
