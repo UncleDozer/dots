@@ -1,0 +1,65 @@
+/*===============================================
+=                  Fix #2                       =
+===============================================*/
+
+/*input,*/
+/*textarea,*/
+/*select {*/
+  /*border-width: 1px;*/
+  /*border-radius: 2px;*/
+  /*background-color: white;*/
+  /*color: #333333;*/
+  /*[>box-shadow: inset 2px 2px 0px rgba(0,0,0,0.3);<]*/
+  /*-moz-appearance: none;*/
+/*}*/
+
+/*button,*/
+/*input[type="reset"],*/
+/*input[type="button"],*/
+/*input[type="submit"],*/
+/*input[type="radio"],*/
+/*input[type="checkbox"] {*/
+  /*border-right-width: 1px;*/
+  /*border-width: 1px;*/
+  /*border-radius: 2px;*/
+  /*background-color: white;*/
+  /*color: #333333;*/
+  /*-moz-appearance: none !important;*/
+/*}*/
+
+/*button,*/
+/*input,*/
+/*textarea,*/
+/*[>select,<]*/
+/*input[type="button"],*/
+/*input[type="submit"],*/
+/*input[type="reset"],*/
+/*input[type="radio"],*/
+/*input[type="checkbox"] {*/
+	/*border-width: 1px;*/
+	/*border-right-width: 1px;*/
+	/*border-left-width: 1px;*/
+	/*border-top-width: 1px;*/
+	/*border-bottom-width: 1px;*/
+	/*border-right-color: #9a9a9a;*/
+	/*border-left-color: #9a9a9a;*/
+	/*border-bottom-color: #9a9a9a;*/
+	/*border-top-color: #9a9a9a;*/
+  /*background-color: white;*/
+  /*-moz-appearance: none !important;*/
+/*}*/
+
+/*button,*/
+/*input[type="button"],*/
+/*input[type="submit"]{*/
+	/*[>box-shadow: 4px 4px 0px rgba(0, 0, 0, .2);<]*/
+/*}*/
+
+/*/*html, html a {*/
+  /*-moz-osx-font-smoothing: grayscale;*/
+  /*-webkit-font-smoothing: antialiased;*/
+  /*-moz-font-smoothing: antialiased;*/
+  /*font-smoothing: antialiased;*/
+  /*text-shadow: 1px 1px 1px rgba(0,0,0,0.004);*/
+/*}*/
+/**/*/

@@ -1,0 +1,130 @@
+@namespace url(http://www.mozilla.org/keymaster/gatekeeper/there.is.only.xul);
+
+#urlbar{
+   color: #ac8ac1 !important;
+   font-family: "lemon" !important;
+   font-size: 10px !important;
+}
+
+#PopupAutoCompleteRichResult{
+   color: #ac8ac1 !important;
+   font-size: 10px !important;
+   font-family: "lemon", "Terminus" !important;
+/*    font-style: regular !important; */
+}
+
+.autocomplete-richlistitem[current], .autocomplete-richlistitem:active:hover, .autocomplete-richlistitem:active{
+   background: #20202f !important;
+   color: #f0a3a3 !important;
+   box-shadow: 0 0 5px 5px rgba(0,0,0,.5) !important;
+}
+
+
+.tabbrowser-tab[active], .tabbrowser-tab[selected] > *{
+   box-shadow: none;
+   color: #f0a3a3 !important;
+}
+
+
+.devtools-monospace, #editor-tools * {
+   font-family: "lemon", "Terminus" !important;
+   font-size: 10px !important;
+}
+
+.CodeMirror, #stylish-edit {
+   font-family: "Terminus" !important;
+/*    font-size: 12px !important; */
+}
+
+#addons-page{
+   font-family: "Terminus";
+   font-size: 12px !important;
+}
+
+richlistitem{
+/*    font-size: .8em !important; */
+   max-height: 50px !important;
+   background: #14171A;
+/*    color: #ac8ac1; */
+}
+
+.category[selected]{
+   background: #14171a;
+   color: #ac8ac1;
+}
+
+.addon[selected]{
+   background: #005080;
+   color: #14171a;
+}
+
+.category:hover{
+   color: #005080;
+}
+
+#addon-list, #search-filter, richlistbox, #search-list{
+   background: #14171a;
+   color: #ac8ac1;
+}
+
+.addon{
+   padding: 0px;
+}
+
+#urlbar::-moz-selection{
+   background: #ac8ac1;
+/*    color: #0a0f14; */
+   color: #ac8ac1 !important;
+}
+
+.detail-view-container, .main-content, #tabsElement, #tabsElement > tab{
+   background: #14171a;
+   border-color: #f0a3a3;
+}
+
+.main-content > *{
+   font-family: "lemon";
+   font-size: 10px;
+}
+
+/* textbox, */ menulist, checkbox, radio, #browserStartupPage button{
+   border-color: #ac8ac1;
+   background: #070b0e;
+   
+}
+
+#detail-view > hbox{
+   background: #14171a;
+}
+
+/* textbox{ */
+/*    color: #ac8ac1 !important; */
+/* } */
+
+treechildren, treechildren > *, menuitem, menuitem>label, treerows{
+   color: #f0a3a3 !important;
+   background: #20202f;
+   font-size: 10px;
+   box-shadow: inset 1px 1px black;
+}
+
+label#sidebar-search-label, button#viewButton, toolbarbutton.subviewbutton{
+   color: #ac8ac1;
+   font-family: "lemon";
+   font-size: 10px;
+}
+
+radio.devtools-tab, hbox#toolbox-tab{
+   height: 20px !important;
+}
+
+description{
+   color: #ac8ac1;
+}
+
+.badged-button{
+   height: 10px !important;
+/*    width: 5px !important; */
+   z-index: 99999999 !important;
+}
+

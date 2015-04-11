@@ -1,0 +1,35 @@
+disk / {
+    format = "%avail"
+}
+
+volume master {
+    mixer_idx = "0"
+    format = "  %volume"
+    device = "default"
+    mixer = "Master"
+    format_muted = " %volume"
+}
+
+order += "volume master"
+order += "disk /"
+order += "load"
+order += "tztime local"
+
+load {
+    format = "%1min"
+}
+
+general {
+    output_format = "i3bar"
+    color_degraded = "#FFFF00"
+    color_bad = "#CC444D"
+    color_good = "#24C263"
+    colors = "true"
+    interval = "1"
+    color_separator = "#333333"
+}
+
+tztime local {
+    format = "%A %B %d   %H:%M:%S"
+}
+

@@ -1,0 +1,28 @@
+#!/bin/sh
+# reload-browser - an xdotool wrapper for reloading the current browser tab
+# Eric Radman, 2014, Kristopher Watts, 2015
+# http://entrproject.org/
+
+usage() {
+    # xdotool uses regular expressions
+    echo "Usage: $(basename $0) Firefox [Chrome ...]"
+    exit 1
+}
+[ $# -lt 1 ] && usage
+
+for app in "$@"
+do
+    case `uname` in
+    *)
+        CURRENT_WINDOW=$(xdotool getactivewindow)
+        xdotool search --onlyvisible --class "$app" windowfocus key \
+            --window %@ 'ctrl+r' || {
+            1>&2 echo "unable to signal an application named \"$app\""
+        }
+        xdotool windowfocus --sync ${CURRENT_WINDOW}
+        xdotool windowactivate --sync ${CURRENT_WINDOW}
+        ;;
+    esac
+done
+
+#vim:filetype=sh

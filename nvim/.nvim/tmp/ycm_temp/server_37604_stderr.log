@@ -1,0 +1,67 @@
+2015-04-07 20:54:46,993 - INFO - Received event notification
+2015-04-07 20:54:47,100 - INFO - Received event notification
+2015-04-07 20:54:47,102 - INFO - Adding buffer identifiers for file: /home/uncledozer/.dots/.nvimrc
+2015-04-07 20:55:33,325 - INFO - Received health request
+2015-04-07 20:55:33,331 - INFO - Received event notification
+2015-04-07 20:55:33,332 - INFO - Adding ONE buffer identifier for file: /home/uncledozer/.dots/.nvimrc
+2015-04-07 20:56:41,777 - INFO - Received completion request
+2015-04-07 20:56:42,247 - INFO - Received event notification
+2015-04-07 20:56:42,248 - INFO - Adding buffer identifiers for file: /home/uncledozer/.dots/.nvimrc
+2015-04-07 20:56:42,261 - INFO - Received event notification
+2015-04-07 20:56:42,262 - INFO - Adding ONE buffer identifier for file: /home/uncledozer/.dots/.nvimrc
+2015-04-07 20:56:43,405 - INFO - Received event notification
+2015-04-07 20:56:43,406 - INFO - Adding buffer identifiers for file: /home/uncledozer/.dots/.nvimrc
+2015-04-07 20:56:47,752 - INFO - Received event notification
+2015-04-07 20:56:47,754 - INFO - Adding ONE buffer identifier for file: /home/uncledozer/.dots/.nvimrc
+2015-04-07 20:57:07,906 - INFO - Received event notification
+2015-04-07 20:57:07,907 - INFO - Adding buffer identifiers for file: /home/uncledozer/.dots/.nvimrc
+2015-04-07 20:57:07,917 - INFO - Received event notification
+2015-04-07 20:57:07,917 - INFO - Adding ONE buffer identifier for file: /home/uncledozer/.dots/.nvimrc
+2015-04-07 20:57:09,143 - INFO - Received event notification
+2015-04-07 20:57:09,144 - INFO - Adding buffer identifiers for file: /home/uncledozer/.dots/.nvimrc
+2015-04-07 20:57:11,952 - INFO - Received completion request
+2015-04-07 20:57:12,994 - INFO - Received event notification
+2015-04-07 20:57:12,995 - INFO - Adding buffer identifiers for file: /home/uncledozer/.dots/.nvimrc
+2015-04-07 20:57:13,004 - INFO - Received event notification
+2015-04-07 20:57:13,004 - INFO - Adding ONE buffer identifier for file: /home/uncledozer/.dots/.nvimrc
+2015-04-07 20:57:14,501 - INFO - Received event notification
+2015-04-07 20:57:14,503 - INFO - Adding buffer identifiers for file: /home/uncledozer/.dots/.nvimrc
+2015-04-07 20:57:16,457 - INFO - Received event notification
+2015-04-07 20:57:16,458 - INFO - Adding ONE buffer identifier for file: /home/uncledozer/.dots/.nvimrc
+2015-04-07 20:57:18,397 - INFO - Received event notification
+2015-04-07 20:57:18,398 - INFO - Adding buffer identifiers for file: /home/uncledozer/.dots/.nvimrc
+2015-04-07 20:57:19,818 - INFO - Received event notification
+2015-04-07 20:57:19,819 - INFO - Adding buffer identifiers for file: /home/uncledozer/.dots/.nvimrc
+2015-04-07 20:57:23,508 - INFO - Received event notification
+2015-04-07 20:57:23,509 - INFO - Adding ONE buffer identifier for file: /home/uncledozer/.dots/.nvimrc
+2015-04-07 20:57:30,337 - INFO - Received event notification
+2015-04-07 20:57:30,338 - INFO - Adding buffer identifiers for file: /home/uncledozer/.dots/.nvimrc
+2015-04-07 20:57:31,899 - INFO - Received event notification
+2015-04-07 20:57:31,899 - INFO - Adding buffer identifiers for file: /home/uncledozer/.dots/.nvimrc
+2015-04-07 20:57:38,394 - INFO - Received event notification
+2015-04-07 20:57:38,395 - INFO - Adding buffer identifiers for file: /home/uncledozer/.dots/.nvimrc
+2015-04-07 20:57:42,462 - INFO - Received event notification
+2015-04-07 20:57:42,462 - INFO - Adding ONE buffer identifier for file: /home/uncledozer/.dots/.nvimrc
+2015-04-07 20:57:46,451 - INFO - Received event notification
+2015-04-07 20:57:46,452 - INFO - Adding buffer identifiers for file: /home/uncledozer/.dots/.nvimrc
+2015-04-07 20:57:48,372 - INFO - Received event notification
+2015-04-07 20:57:48,373 - INFO - Adding buffer identifiers for file: /home/uncledozer/.dots/.nvimrc
+2015-04-07 20:57:49,389 - INFO - Received event notification
+2015-04-07 20:57:49,390 - INFO - Adding buffer identifiers for file: /home/uncledozer/.dots/.nvimrc
+2015-04-07 20:57:53,008 - INFO - Received event notification
+2015-04-07 20:57:53,010 - INFO - Adding buffer identifiers for file: /home/uncledozer/.dots/.nvimrc
+2015-04-07 20:57:54,648 - INFO - Received completion request
+2015-04-07 20:57:54,979 - INFO - Received completion request
+2015-04-07 20:57:55,080 - INFO - Received completion request
+2015-04-07 20:57:55,584 - INFO - Received completion request
+2015-04-07 20:57:55,823 - INFO - Received completion request
+2015-04-07 20:57:55,996 - INFO - Received completion request
+2015-04-07 20:57:56,135 - INFO - Received completion request
+2015-04-07 20:57:57,186 - INFO - Received event notification
+2015-04-07 20:57:57,187 - INFO - Adding buffer identifiers for file: /home/uncledozer/.dots/.nvimrc
+2015-04-07 20:57:57,196 - INFO - Received event notification
+2015-04-07 20:57:57,197 - INFO - Adding ONE buffer identifier for file: /home/uncledozer/.dots/.nvimrc
+2015-04-07 20:57:57,882 - INFO - Received event notification
+2015-04-07 20:57:57,883 - INFO - Adding buffer identifiers for file: /home/uncledozer/.dots/.nvimrc
+2015-04-07 20:58:06,624 - INFO - Received event notification
+2015-04-07 20:58:06,625 - INFO - Adding buffer identifiers for file: /home/uncledozer/.dots/.nvimrc

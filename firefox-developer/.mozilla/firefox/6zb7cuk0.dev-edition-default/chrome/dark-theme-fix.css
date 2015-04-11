@@ -1,0 +1,70 @@
+input {
+border: 2px inset white;
+border-bottom-color:white;
+border-top-color: white;
+border-left-color: white;
+border-right-color: white;
+background-color: white;
+color: black;
+-moz-appearance: none !important;
+}
+
+textarea {
+border: 2px inset white;
+border-bottom-color:white;
+border-top-color: white;
+border-left-color: white;
+border-right-color: white;
+background-color: white;
+color: black;
+-moz-appearance: none !important;
+}
+
+select {
+border: 2px inset white;
+border-bottom-color:white;
+border-top-color: white;
+border-left-color: white;
+border-right-color: white;
+background-color: white;
+color: black;
+-moz-appearance: none !important;
+}
+
+input[type="radio"],
+input[type="checkbox"] {
+border: 2px inset white ! important;
+border-bottom-color:white;
+border-top-color: white;
+border-left-color: white;
+border-right-color: white;
+background-color: white ! important;
+color: ThreeDFace ! important;
+-moz-appearance: none !important;
+}
+
+*|*::-moz-radio {
+background-color: white;
+-moz-appearance: none !important;
+}
+button,
+input[type="reset"],
+input[type="button"],
+input[type="submit"] {
+border: 2px outset white;
+border-bottom-color:white;
+border-top-color: white;
+border-left-color: white;
+border-right-color: white;
+background-color: #eeeeee;
+color: black;
+-moz-appearance: none !important;
+}
+
+body {
+background-color: white;
+color: black;
+display: block;
+/*margin: 8px;*/
+-moz-appearance: none !important;
+}
