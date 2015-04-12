@@ -16,10 +16,9 @@
 "
 "---------------------------------------------------
 " Author              : Kristopher Watts (UncleDozer)
-" Email               : Kristopher.A.Watts@gmail.com
+" Email               : Kristopher.A.Watts@Gmail.com
 " Github              : https://github.com/UncleDozer/
 " Website             : http://www.webtastic-development.net
-" Date                : April 09, 2015
 " I'm new to VIM, so any suggestions or improvements would be greatly
 " appreciated. Thanks!
 "---------------------------------------------------
