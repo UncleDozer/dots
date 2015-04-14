@@ -7,4 +7,7 @@
 Session.vim
 .netrwhist
 *~
-fish_history
+fish/.config/fish/fishd.The_Arch
+fish/.config/fish/fish_read_history
+fish/.config/fish/generated_completions
+fish/.config/fish/fish_history

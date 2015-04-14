@@ -49,9 +49,6 @@ Plug 'jelera/vim-javascript-syntax', {'for': 'js'}
 " Javascript Libraries Syntax
 Plug 'othree/javascript-libraries-syntax.vim', {'for': 'js'}
 
-" AutoIndent
-Plug 'vim-scripts/Smart-Tabs'
-
 " HTML and PHP
 Plug 'othree/html5.vim', {'for': ['html', 'php']}
 Plug 'joshtronic/php.vim', {'for': ['html', 'php']}
@@ -85,20 +82,11 @@ Plug 'The-NERD-Commenter'
 " Fish Syntax
 Plug 'dag/vim-fish'
 
-" Vim Powerline
-Plug 'bling/vim-airline'
-
 " Alignment
 Plug 'Align'
 
 " CtrlP fuzzy file finder
 Plug 'kien/ctrlp.vim'
-
-" Editor Config
-Plug 'editorconfig/editorconfig-vim'
-
-" Temporary CapsLock
-Plug 'tpope/vim-capslock'
 
 "Fuzzy Finder
 Plug 'FuzzyFinder'
@@ -109,6 +97,9 @@ Plug 'L9'
 " Fast Fold
 Plug 'Konfekt/FastFold'
 
+" Lightline (Airline Replacement)
+Plug 'itchyny/lightline.vim'
+
 "}}}
 
 call plug#end()
@@ -118,6 +109,9 @@ call plug#end()
 " GENERAL SETTINGS
 "------------------------------------------
 "{{{
+
+set encoding=utf-8
+scriptencoding utf-8
 
 "--------------------------
 " UI Settings
@@ -171,22 +165,27 @@ let g:plug_window='top new' " Force Vim-Plug to split horizontally instead of Ve
 set foldmethod=marker " Use Default Fold Marker
 
 if has('mouse') "Enable The Mouse
-	set mouse=a
+    set mouse=a
 endif
 
 " When Editing A File, Always Jump to the Last Known Cursor Position
 " Unless Cursor Position is Invalid or the First Line
 autocmd BufReadPost *
-	\ if line("'\"") > 1 && line("'\"") <= line("$") |
-	\   exe "normal! g`\"" |
-	\ endif
+    \ if line("'\"") > 1 && line("'\"") <= line("$") |
+    \   exe "normal! g`\"" |
+    \ endif
 
 "}}}
 
 "--------------------------
 " Tab Stuff
 "--------------------------
- "{{{
+"{{{
+
+set expandtab
+set tabstop=4
+set shiftwidth=4
+set shiftround
 
 set smartindent " Auto Indenting
 set autoindent
@@ -199,31 +198,31 @@ set listchars=tab:▸\ ,trail:·
 "--------------------------
 " Search/Undo/ETC
 "--------------------------
- "{{{
+"{{{
 
-set undodir=".,~/.nvim/undo,~/" " Storage for Undo Files
+set undofile                   " Save a File With Undo History
 
-set undofile                    " Save a File With Undo History
+set undodir='/home/uncledozer/.nvim/tmp'
 
-set hlsearch                    " Highlight Searches
+set hlsearch                   " Highlight Searches
 
-set incsearch                   " Enable Incremental Searching
+set incsearch                  " Enable Incremental Searching
 
-set ignorecase                  " Ignore Uppercase When Typing all Lower Case
+set ignorecase                 " Ignore Uppercase When Typing all Lower Case
 
-set smartcase                   " Unless an Uppercase Character is Typed
+set smartcase                  " Unless an Uppercase Character is Typed
 
-set backspace=indent,eol,start  " Allow Deletion of Lines etc
+set backspace=indent,eol,start " Allow Deletion of Lines etc
 
-set timeoutlen=550              " Timeout for Commands
+set timeoutlen=550             " Timeout for Commands
 
-set history=1000                " Loads of History
-set undolevels=1000             " And Undo
+set history=1000               " Loads of History
+set undolevels=1000            " And Undo
 
-set noswapfile                  " Disable Vim Swap
-set nobackup                    " Disable Vim Backup
+set noswapfile                 " Disable Vim Swap
+set nobackup                   " Disable Vim Backup
 
-set formatoptions=qn1           " Text Formatting
+set formatoptions=qn1          " Text Formatting
 
 " Persistent Info
 set viminfo='10,\"100,:20,%,n~/.nviminfo'
@@ -246,79 +245,51 @@ let g:NERDSpaceDelims       = 1
 let g:ctrlp_switch_buffer     = 1
 let g:ctrlp_working_path_mode = 0
 
+let g:html5_event_handler_attributes_complete = 0
+let g:html5_rdfa_attributes_complete = 0
+let g:html5_aria_attributes_complete = 0
+
 "--------------------------
-" Airline Settings
+" Lightline Settings
 "--------------------------
- "{{{
+" {{{
 
-let g:airline_theme              = 'lucius'
+let g:lightline = {
+            \ 'colorscheme': 'wombat',
+            \ 'active': {
+            \     'left': [ [ 'mode' ], [ 'filename' ] ]
+            \ },
+            \ 'component_function': {
+            \     'modified': 'MyModified',
+            \     'filename': 'MyFilename'
+            \ },
+            \ 'separator': { 'left': '', 'right': '' },
+            \ 'subseparator': { 'left': '', 'right': '' }
+            \ }
 
-" Symbols
-let g:airline_symbols            = {}
-" let g:airline_powerline_fonts  = 1
-let g:airline_left_sep          = '»'
-let g:airline_left_alt_sep      = '▶'
-let g:airline_right_sep           = '«'
-let g:airline_right_alt_sep       = '◀'
-let g:airline_symbols.linenr     = '␊'
-let g:airline_symbols.paste      = 'ρ'
-let g:airline_symbols.whitespace = 'Ξ'
-let g:airline_symbols.linenr     = '¶'
+function! MyModified()
+    if &filetype == "help"
+        return ""
+    elseif &modified
+        return "[+]"
+    elseif &modifiable
+        return ""
+    else
+        return ""
+    endif
+endfunction
 
-" Sections
-let g:airline_toggle_whitespace          = 1
-let g:airline#extensions#tabline#enabled = 1
+function! MyFilename()
+    return ('' != expand('%:t') ? expand('%:t') : '[No Name]') .
+         \ ('' != MyModified() ? ' ' . MyModified() : '' )
+endfunction
 
-" Tab Line
-let g:airline#extensions#tabline#show_buffers      = 1
-let g:airline#extensions#tabline#show_tabs         = 1
-let g:airline#extensions#tabline#tab_nr_type       = 1
-let g:airline#extensions#tabline#buffer_min_count  = 0
-let g:airline#extensions#tabline#show_close_button = 0
-let g:airline#extensions#tabline#formatter         = 'unique_tail_improved'
-
-" Plugin Integration
-let g:airline#extensions#capslock#enabled          = 1
-
-" Mode Mappings
-let g:airline_mode_map = {
-		\ '__' : '-',
-		\ 'n'  : 'N',
-		\ 'i'  : 'I',
-		\ 'R'  : 'R',
-		\ 'c'  : 'C',
-		\ 'v'  : 'V',
-		\ 'V'  : '-V-',
-		\ '' : '[V]',
-		\ 's'  : 'S',
-		\ 'S'  : 'S',
-		\ '' : 'S',
-		\ }
-
-" More Symbols for Reference ---{{{
-" let g:airline_left_sep           = '⮀'
-" let g:airline_left_alt_sep       = '⮁'
-" let g:airline_right_sep          = '⮂'
-" let g:airline_right_alt_sep      = '⮃'
-" let g:airline_symbols.branch     = '⭠'
-" let g:airline_symbols.readonly   = '⭤'
-" let g:airline_left_sep          = '»'
-" let g:airline_left_sep          = '▶'
-" let g:airline_right_sep         = '«'
-" let g:airline_right_sep         = '◀'
-" let g:airline_symbols.linenr    = '␊'
-" let g:airline_symbols.linenr    = '␤'
-" let g:airline_symbols.branch    = '⎇'
-" let g:airline_symbols.paste     = 'Þ'
-" let g:airline_symbols.paste     = '∥'
-" ---}}}
-
-"}}}
+" }}}
 
 "--------------------------
 " YouCompleteMe
 "--------------------------
- "{{{
+"{{{
 
 " Fix for esc and Autoclose
 let g:AutoClosePumvisible                               = {"ENTER": "<C-Y>", "ESC": "<ESC>"}
@@ -355,9 +326,9 @@ set wildignore=*/.git/*,*/node_modules/*,*/dist/*
 
 inoremap <expr> <CR> pumvisible() ? "\<C-y>" : "\<C-g>u\<CR>"
 inoremap <expr> <C-n> pumvisible() ? '<C-n>' :
-	\ '<C-n><C-r>=pumvisible() ? "\<lt>Down>" : ""<CR>'
+            \ '<C-n><C-r>=pumvisible() ? "\<lt>Down>" : ""<CR>'
 inoremap <expr> <M-,> pumvisible() ? '<C-n>' :
-	\ '<C-x><C-o><C-n><C-p><C-r>=pumvisible() ? "\<lt>Down>
+            \ '<C-x><C-o><C-n><C-p><C-r>=pumvisible() ? "\<lt>Down>
 
 "}}}
 
@@ -378,6 +349,10 @@ let mapleader=","
 
 " Remap Command key for Faster Commands
 noremap ; :
+
+" Treat Linebreaks as Seperate Lines
+noremap j gj
+noremap k gk
 
 " Move Line Up or Down
 noremap <A-j> :m .+1<CR>==
@@ -461,9 +436,6 @@ vnoremap <leader>y "*y
 " Exit Visual Mode
 vnoremap <CR> <ESC>
 
-" Paste Toggle For Insert Mode Pasting
-set pastetoggle=<f2>
-
 " Sudo Save
 command! W :execute ':silent w !sudo tee % > /dev/null'
 
@@ -545,33 +517,31 @@ hi String ctermfg=13
 " Re-Source Vimrc on save
 " Toggle YCM and Airline on .nvimrc (They Break After Sourcing)
 if has("autocmd")
-  augroup mynvimrchooks
-    au!
-    autocmd BufRead .nvimrc :AirlineToggle
-    autocmd bufwritepost .nvimrc
-        \ source ~/.nvimrc |
-        \ :YCMRestartServer |
-  augroup END
+    augroup mynvimrchooks
+        au!
+        " autocmd BufRead .nvimrc :AirlineToggle
+        autocmd bufwritepost .nvimrc
+                    \ source ~/.nvimrc |
+    augroup END
 endif
 
 " Filetype Commands
 if has("autocmd")
-  augroup autofiletypes
-    au!
-    " Vim
-    au BufRead * set formatoptions-=c
-    au BufRead * set formatoptions-=r
-    au BufRead * set formatoptions-=o
-    au BufRead,BufNewFile *.nvim          set filetype   =vim
-    au BufRead,BufNewFile *.nvimrc        set filetype   =vim
-    au BufRead,BufNewFile *.vimperratorrc set filetype   =vim
-
-    " Markdown
-    au BufRead,BufNewFile *.md            set filetype   =markdown
-    au FileType           *.md            set wrap linebreak nolist
-    au BufRead,BufNewFile *.note          set filetype   =markdown
-    au BufRead            *.todo          set filetype   =todo
-  augroup END
+    augroup autofiletypes
+        au!
+        au BufRead * set formatoptions-=c
+        au BufRead * set formatoptions-=r
+        au BufRead * set formatoptions-=o
+        au BufRead,BufNewFile *.html          set filetype   =html5
+        au BufRead,BufNewFile *.nvim          set filetype   =vim
+        au BufRead,BufNewFile *.nvimrc        set filetype   =vim
+        au BufRead,BufNewFile *.vimperratorrc set filetype   =vim
+        au BufRead,BufNewFile *.md            set filetype   =markdown
+        au BufRead,BufNewFile *.txt           set filetype   =markdown
+        au BufRead,BufNewFile *.note          set filetype   =markdown
+        au BufRead            *.todo          set filetype   =todo
+        au FileType           *.markdown      set wrap linebreak nolist
+    augroup END
 endif
 
 "}}}
