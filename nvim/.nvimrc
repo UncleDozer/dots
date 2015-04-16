@@ -510,9 +510,9 @@ set statusline+=%{GetModified()}      " If file has been modified, change color 
 
 set statusline+=%-4{GetMode()}%6*▓▒░  " Set Mode name and color
 
-set statusline+=%1*\ \ \              " Spacer
+set statusline+=%1*\ \              " Spacer
 
-set statusline+=%.20t%m               " Tail of the file name and the modified tag
+set statusline+=%.10t%m               " Tail of the file name and the modified tag
 
 " ----------}}}
 
@@ -522,7 +522,7 @@ set statusline+=%= " Switch to the right side
 
 set statusline+=%9*                           " Set Color for clock
 
-set statusline+=%25.25{CurrentTime()}         " Get The Current Time
+set statusline+=%-15.15{CurrentTime()}         " Get The Current Time
 
 set statusline+=%5*                           " Color scheme User5
 
