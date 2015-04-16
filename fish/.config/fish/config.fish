@@ -14,7 +14,10 @@ end
 . $fish_path/oh-my-fish.fish
 
 # Clear Fish Greeting
-set fish_greeting
+function fish_greeting
+    set_color blue --bold 
+    echo ' ¸.·´¯`·.´¯`·.¸¸.·´¯`·.¸><(((º> '
+end
 
 # User Variables
 set -x PATH $PATH /usr/local/bin /usr/bin /bin /usr/local/sbin /usr/sbin /sbin /usr/share/awesome/themes /opt/awemenugen /usr/bin /home/uncledozer/.gem/ruby/2.2.0/bin /home/uncledozer/.config/bspwm /usr/share/awesome /home/uncledozer/.gem/ruby/2.1.0/bin /etc/php /home/uncledozer/public_html/webapps/phpMyAdmin /opt/android-sdk/platform-tools $SCRIPTS /usr/lib/python2.7 /usr/bin/core_perl
@@ -29,11 +32,13 @@ set -x STEAM_FRAME_FORCE_CLOSE 1
 set -x fish_color_command blue --bold
 set -x fish_color_search_match green --bold
 set -x fish_color_autosuggestion magenta
+set -x fish_color_redirection magenta --bold
+set -x fish_color_param green --bold
+
 set -x fish_color_search_match white --bold --background=blue --bold
 set -x fish_pager_color_progress blue
 set -x fish_pager_color_description magenta
 set -x fish_pager_color_prefix green --bold
-set -x fish_color_redirection magenta --bold
 
 # Aliases
 alias j='jump'
@@ -41,7 +46,6 @@ alias nd='nextd'
 alias pd='prevd'
 alias vim='nvim'
 alias terminal='urxvtc'
-alias reload_profile='source ~/.config/fish/config.fish'
 alias aur='yaourt'
 alias compy='pkill compton; compton -b --unredir-if-possible --paint-on-overlay --vsync opengl --config /home/uncledozer/.config/compton.conf'
 alias clocky='tty-clock -cC 1'
@@ -51,6 +55,11 @@ alias cd.='cd ../'
 alias cd..='cd ../../'
 alias cd...='cd ../../../'
 alias tm='tmux'
+
+# Resource fish profile
+function repro
+    source ~/.config/fish/config.fish
+end
 
 # Google Chrome Fixes
 function chrome
@@ -99,25 +108,12 @@ function newvim
     urxvtc --hold -e $EDITOR $argv
 end
 
-# Start work apps ## NO LONGER IN USE
-#function work
-    #set tpath $HOME/public_html/$argv
-    #urxvtc --hold -cd $tpath -e grunt server
-    #urxvtc --hold -cd $tpath -e grunt php server
-    #echo "Grunt PHP server started at $tpath"
-    #echo "Grunt Watch started at $tpath"
-    #urxvtc --hold -cd $tpath -e $EDITOR
-    #urxvtc -cd $tpath
-    #urxvtc --hold -cd $tpath -e $EDITOR
-#end
-
 # Link my root .editorconfig
 function edconf
     ln $dots/.editorconfig (pwd)
 end
 
 # Vim autodownloads via curl when supplied a url
-# How Cool is THAT?!
 function vimhub
     set githuburl https://raw.githubusercontent.com/$argv
     nvim githuburl

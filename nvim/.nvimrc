@@ -51,17 +51,12 @@ Plug 'othree/javascript-libraries-syntax.vim', {'for': 'js'}
 
 " HTML and PHP
 Plug 'othree/html5.vim', {'for': ['html', 'php']}
-Plug 'joshtronic/php.vim', {'for': ['html', 'php']}
-Plug 'vim-scripts/php.vim-html-enhanced', {'for': 'php'}
 
 " AutoClose HTML Tags
 Plug 'vim-scripts/HTML-AutoCloseTag', {'for': ['html', 'php']}
 
 " i3 Config Syntax
 Plug 'PotatoesMaster/i3-vim-syntax'
-
-" Todo Syntax
-Plug 'todo.vim'
 
 " Vim Surround
 Plug 'tpope/vim-surround'
@@ -97,8 +92,8 @@ Plug 'L9'
 " Fast Fold
 Plug 'Konfekt/FastFold'
 
-" Lightline (Airline Replacement)
-Plug 'itchyny/lightline.vim'
+" Buftabline
+Plug 'ap/vim-buftabline'
 
 "}}}
 
@@ -111,7 +106,6 @@ call plug#end()
 "{{{
 
 set encoding=utf-8
-scriptencoding utf-8
 
 "--------------------------
 " UI Settings
@@ -120,7 +114,7 @@ scriptencoding utf-8
 
 set ttyfast           " Faster Character Drawing
 
-set lazyredraw        " Only Redraw When Needed
+" set lazyredraw        " Only Redraw When Needed
 
 syntax enable         " Enable Syntax Highlighting
 
@@ -136,7 +130,7 @@ set laststatus=2      " Show Status Line
 
 set ruler             " Show Line and Column Position
 
-set nohidden          " UnHide Closed Buffers
+set hidden            " UnHide Closed Buffers
 
 set showcmd           " Show The Last Command
 
@@ -171,9 +165,9 @@ endif
 " When Editing A File, Always Jump to the Last Known Cursor Position
 " Unless Cursor Position is Invalid or the First Line
 autocmd BufReadPost *
-    \ if line("'\"") > 1 && line("'\"") <= line("$") |
-    \   exe "normal! g`\"" |
-    \ endif
+            \ if line("'\"") > 1 && line("'\"") <= line("$") |
+            \   exe "normal! g`\"" |
+            \ endif
 
 "}}}
 
@@ -229,85 +223,6 @@ set viminfo='10,\"100,:20,%,n~/.nviminfo'
 
 "}}}
 
-"--------------------------
-" Plugin Settings
-"--------------------------
-"{{{
-
-" Jquery Syntax Highlighting
-let g:used_javascript_libs  = 'jquery'
-
-" Nerd Commenter
-let g:NERDRemoveExtraSpaces = 1
-let g:NERDSpaceDelims       = 1
-
-" CtrlP Settings
-let g:ctrlp_switch_buffer     = 1
-let g:ctrlp_working_path_mode = 0
-
-let g:html5_event_handler_attributes_complete = 0
-let g:html5_rdfa_attributes_complete = 0
-let g:html5_aria_attributes_complete = 0
-
-"--------------------------
-" Lightline Settings
-"--------------------------
-" {{{
-
-let g:lightline = {
-            \ 'colorscheme': 'wombat',
-            \ 'active': {
-            \     'left': [ [ 'mode' ], [ 'filename' ] ]
-            \ },
-            \ 'component_function': {
-            \     'modified': 'MyModified',
-            \     'filename': 'MyFilename'
-            \ },
-            \ 'separator': { 'left': '', 'right': '' },
-            \ 'subseparator': { 'left': '', 'right': '' }
-            \ }
-
-function! MyModified()
-    if &filetype == "help"
-        return ""
-    elseif &modified
-        return "[+]"
-    elseif &modifiable
-        return ""
-    else
-        return ""
-    endif
-endfunction
-
-function! MyFilename()
-    return ('' != expand('%:t') ? expand('%:t') : '[No Name]') .
-         \ ('' != MyModified() ? ' ' . MyModified() : '' )
-endfunction
-
-" }}}
-
-"--------------------------
-" YouCompleteMe
-"--------------------------
-"{{{
-
-" Fix for esc and Autoclose
-let g:AutoClosePumvisible                               = {"ENTER": "<C-Y>", "ESC": "<ESC>"}
-
-" Allow YCM to Complete Inside Comments and Strings
-let g:ycm_complete_in_comments                          = 1
-let g:ycm_complete_in_strings                           = 1
-let g:ycm_collect_identifiers_from_comments_and_strings = 1
-
-" Complete Identifiers With Syntax
-let g:ycm_seed_identifiers_with_syntax                  = 1
-
-" Close YCM Menu After a Completion
-let g:ycm_autoclose_preview_window_after_completion     = 1
-
-"}}}
-
-"}}}
 
 "--------------------------
 " Popup Menu Settings
@@ -329,6 +244,52 @@ inoremap <expr> <C-n> pumvisible() ? '<C-n>' :
             \ '<C-n><C-r>=pumvisible() ? "\<lt>Down>" : ""<CR>'
 inoremap <expr> <M-,> pumvisible() ? '<C-n>' :
             \ '<C-x><C-o><C-n><C-p><C-r>=pumvisible() ? "\<lt>Down>
+
+"}}}
+
+"}}}
+
+"--------------------------
+" Plugin Settings
+"--------------------------
+"{{{
+
+" Jquery Syntax Highlighting
+let g:used_javascript_libs  = 'jquery'
+
+" Nerd Commenter
+let g:NERDRemoveExtraSpaces = 1
+let g:NERDSpaceDelims       = 1
+
+" CtrlP Settings
+let g:ctrlp_switch_buffer     = 1
+let g:ctrlp_working_path_mode = 0
+
+let g:html5_event_handler_attributes_complete = 0
+let g:html5_rdfa_attributes_complete = 0
+let g:html5_aria_attributes_complete = 0
+
+let g:PHP_outdentphpescape = 0
+let g:PHP_BracesAtCodeLevel = 0
+
+"--------------------------
+" YouCompleteMe
+"--------------------------
+"{{{
+
+" Fix for esc and Autoclose
+let g:AutoClosePumvisible                               = {"ENTER": "<C-Y>", "ESC": "<ESC>"}
+
+" Allow YCM to Complete Inside Comments and Strings
+let g:ycm_complete_in_comments                          = 1
+let g:ycm_complete_in_strings                           = 1
+let g:ycm_collect_identifiers_from_comments_and_strings = 1
+
+" Complete Identifiers With Syntax
+let g:ycm_seed_identifiers_with_syntax                  = 1
+
+" Close YCM Menu After a Completion
+let g:ycm_autoclose_preview_window_after_completion     = 1
 
 "}}}
 
@@ -359,38 +320,38 @@ noremap <A-j> :m .+1<CR>==
 noremap <A-k> :m .-2<CR>==
 
 " Fold Keys
-noremap <leader>fm :AutoCloseToggle<CR>i{{{<ESC>c,<space>:AutoCloseToggle<CR>
-noremap <leader>fn :AutoCloseToggle<CR>i}}}<ESC>c,<space>:AutoCloseToggle<CR>
-noremap <leader>fd za
-noremap <leader>fa zA
+noremap <Leader>fm :AutoCloseToggle<CR>i{{{<ESC><plug>NERDComenterComment:AutoCloseToggle<CR>
+noremap <Leader>fn :AutoCloseToggle<CR>i}}}<ESC><plug>NERDComenterComment:AutoCloseToggle<CR>
+noremap <Leader>fd za
+noremap <Leader>fa zA
 
 " Clear Search Highlight
 noremap <silent><Leader>/ :nohlsearch<CR>
 
 " Fast Save
-noremap <leader>w :w<CR>
+noremap <silent><Leader>w :w<CR>
 
 " AutoClose Toggle
-noremap <leader>at :AutoCloseToggle<CR>
+noremap <Leader>at :AutoCloseToggle<CR>
 
 " Paste From System Clipboard
-noremap <leader>p "*p
+noremap <Leader>p "*p
 
 " Jump to Either end or Beginning of the Line
-noremap <leader>e $
-noremap <leader>b ^
+noremap <Leader>e g_
+noremap <Leader>b _
 
 " Quick Align
-noremap <leader>a :Align =
+noremap <Leader>a :Align<Space>
 
 " Remove Search Highlight
 nnoremap <ESC> :nohlsearch<CR>
 
 " Copy Line and Return to Cursor Position
-nnoremap <leader>c mzVy`z:delmarks z<CR>
+nnoremap <Leader>c mzVy`z:delmarks z<CR>
 
 " Copy and Past Line and Return to Cursor Position
-noremap <leader>d mzVyp`z:delmarks z<CR>
+noremap <Leader>d mzVyp`z:delmarks z<CR>
 
 " Prev Buffer
 nnoremap <S-h> :bp<CR>
@@ -399,20 +360,26 @@ nnoremap <S-h> :bp<CR>
 nnoremap <S-l> :bn<CR>
 
 " Close Buffer
-nnoremap <leader>x :bd<CR>
+nnoremap <Leader>x :bd<CR>
 
 " Reopen Prev. Closed Buffer
-nnoremap <leader>t <C-^>
+nnoremap <Leader>t <C-^>
 
 " Use Enter, Tab, Space Keys in Normal Mode
 nnoremap <CR> o<ESC>
-nnoremap <leader><CR> O<ESC>
 nnoremap <TAB> i<TAB><ESC>
+nnoremap <Leader><CR> O<ESC>
 nnoremap <SPACE> i<SPACE><ESC>
 
 " Increment Interger Up
 nnoremap <C-j> <C-x>
 nnoremap <C-k> <C-a>
+
+" Load ~/.nvimrc for editing
+nnoremap <Leader>ev :w<CR>:e $MYVIMRC<CR>
+
+" Source .nvimrc
+nnoremap <Leader>sov :source $MYVIMRC<CR>
 
 " }}}
 
@@ -431,7 +398,7 @@ inoremap  <C-o>,c<space>
 imap <C-L> <Plug>CapsLockToggle
 
 " Yank (or Copy) Text to System Clipboard
-vnoremap <leader>y "*y
+vnoremap <Leader>y "*y
 
 " Exit Visual Mode
 vnoremap <CR> <ESC>
@@ -488,6 +455,7 @@ hi Special ctermfg=2
 hi Nontext ctermfg=7
 hi Visual ctermbg=3 ctermfg=16
 hi Number cterm=bold ctermfg=3
+hi Error ctermfg=8 cterm=bold
 
 " Menu Highlighting
 hi Pmenu ctermfg=8 ctermbg=4
@@ -510,18 +478,145 @@ hi String ctermfg=13
 "}}}
 
 "------------------------------------------
+" STATUSLINE
+"------------------------------------------
+"{{{
+
+hi User1 ctermbg=235 ctermfg=12
+
+hi User2 ctermbg=235 ctermfg=11
+
+hi User3 ctermfg=8 ctermbg=4
+
+hi User4 ctermbg=235 ctermfg=4
+
+hi User5 ctermbg=235 ctermfg=4
+
+hi User6 ctermfg=4 ctermbg=235
+
+hi User7 ctermbg=235 ctermfg=13
+
+hi User8 ctermbg=235 ctermfg=10
+
+hi User9 ctermbg=235 ctermfg=12
+
+" Left--------{{{
+
+set statusline=                       " Clear Statusline
+
+set statusline=%3*                    " Set Color
+
+set statusline+=%{GetModified()}      " If file has been modified, change color of file name
+
+set statusline+=%-4{GetMode()}%6*▓▒░  " Set Mode name and color
+
+set statusline+=%1*\ \ \              " Spacer
+
+set statusline+=%.20t%m               " Tail of the file name and the modified tag
+
+" ----------}}}
+
+set statusline+=%= " Switch to the right side
+
+" Right--------{{{
+
+set statusline+=%9*                           " Set Color for clock
+
+set statusline+=%25.25{CurrentTime()}         " Get The Current Time
+
+set statusline+=%5*                           " Color scheme User5
+
+set statusline+=\ %5.5Y                       " Filetype
+
+set statusline+=%{GetFileType()}              " Change color scheme based on filetype (just for some added pizzaz)
+
+set statusline+=%7*                           " Color Scheme User4
+
+set statusline+=%5{''}\ %8*%03.04l\ %7*%02.02c\ \  " Show line and column numbers
+
+set statusline+=%*                            " Return to statusline colors
+
+" ----------}}}
+
+function! GetModified()
+    if &modifiable
+        if &modified
+            hi! User1 ctermfg=11
+            return ''
+        else
+            hi! User1 ctermfg=12
+            return ''
+        endif
+    elseif !&modifiable
+        hi User1 ctermfg=1
+        return ''
+    endif
+endfunction
+
+function! GetMode()
+    if mode() ==# 'n'
+        hi! User3 ctermfg=8 ctermbg=4
+        hi! User6 ctermfg=4 ctermbg=235
+        return '  N'
+    elseif mode() ==# 'i'
+        hi! User3 ctermfg=4 ctermbg=8
+        hi! User6 ctermfg=8 ctermbg=235
+        return '  I'
+    elseif mode() ==# 'R'
+        hi! User3 ctermfg=8 ctermbg=1
+        hi! User6 ctermfg=1 ctermbg=235
+        return '  R'
+    elseif mode() ==# 'r'
+        hi! User3 ctermfg=8 ctermbg=1
+        hi! User6 ctermfg=1 ctermbg=235
+        return '  r'
+    elseif mode() ==# 'v'
+        hi! User3 ctermfg=7 ctermbg=10
+        hi! User6 ctermfg=10 ctermbg=235
+        return '  V'
+    elseif mode() ==# 'V'
+        hi! User3 ctermfg=7 ctermbg=10
+        hi! User6 ctermfg=10 ctermbg=235
+        return '  -V-'
+    elseif visualmode() ==? "\<C-v>"
+        hi! User3 ctermfg=7 ctermbg=10
+        hi! User6 ctermfg=10 ctermbg=235
+        return '  [V]'
+    endif
+endfunction
+
+function! GetFileType()
+    if &filetype == 'vim'
+        hi! User5 ctermfg=10
+    elseif &filetype == 'php'
+        hi! User5 ctermfg=13
+    elseif &filetype == 'html'
+        hi! User5 ctermfg=6
+    elseif &filetype == 'javascript'
+        hi! User5 ctermfg=1
+    elseif &filetype == ''
+        hi! User5 ctermfg=4
+    endif
+    return ''
+endfunction
+
+function! CurrentTime()
+    return strftime("%H:%M")
+endfunction
+
+"}}}
+
+"------------------------------------------
 " AUTO COMMANDS
 "------------------------------------------
 "{{{
 
 " Re-Source Vimrc on save
-" Toggle YCM and Airline on .nvimrc (They Break After Sourcing)
 if has("autocmd")
     augroup mynvimrchooks
         au!
-        " autocmd BufRead .nvimrc :AirlineToggle
-        autocmd bufwritepost .nvimrc
-                    \ source ~/.nvimrc |
+        autocmd BufWrite .nvimrc source $MYVIMRC
+        autocmd BufWritePost .nvimrc silent YcmRestartServer
     augroup END
 endif
 
@@ -529,18 +624,42 @@ endif
 if has("autocmd")
     augroup autofiletypes
         au!
-        au BufRead * set formatoptions-=c
-        au BufRead * set formatoptions-=r
-        au BufRead * set formatoptions-=o
+        au BufRead,BufNewFile * set formatoptions-=c
+        au BufRead,BufNewFile * set formatoptions-=r
+        au BufRead,BufNewFile * set formatoptions-=o
         au BufRead,BufNewFile *.html          set filetype   =html5
         au BufRead,BufNewFile *.nvim          set filetype   =vim
         au BufRead,BufNewFile *.nvimrc        set filetype   =vim
         au BufRead,BufNewFile *.vimperratorrc set filetype   =vim
-        au BufRead,BufNewFile *.md            set filetype   =markdown
-        au BufRead,BufNewFile *.txt           set filetype   =markdown
-        au BufRead,BufNewFile *.note          set filetype   =markdown
-        au BufRead            *.todo          set filetype   =todo
-        au FileType           *.markdown      set wrap linebreak nolist
+    augroup END
+endif
+
+" Markdown Specific
+if has ("autocmd")
+    augroup mdsettings
+        au!
+        au FileType markdown setlocal wrap linebreak nolist
+        au BufRead,BufNewFile *.md   set filetype=markdown
+        au BufRead,BufNewFile *.txt  set filetype=markdown
+        au BufRead,BufNewFile *.note set filetype=markdown
+        au BufRead,BufNewFile *.todo set filetype=markdown
+    augroup END
+endif
+
+" PHP Specific
+if has ("autocmd")
+    augroup phpsettings
+        au!
+        au BufRead,Bufnewfile *.php nnoremap <buffer><Leader>ph li<?php  ?><ESC>F<Space>i
+        au BufReadPost,BufNewFile *.php set autoindent smartindent
+    augroup END
+endif
+
+" Help Specific
+if has ("autocmd")
+    augroup helpsettings
+        au!
+        au FileType help setlocal nowrap
     augroup END
 endif
 
