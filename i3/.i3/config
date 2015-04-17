@@ -6,42 +6,46 @@
 # Variables
 #{{{
 
-set $mod Mod4
-set $alt Mod1
-set $browser "firefox-developer"
-set $music "spotify"
+set $mod       Mod4
+set $alt       Mod1
+set $run       exec python ~/.i3/runorfocus.py
+set $music    "spotify"
+set $browser  "firefox-developer"
 set $terminal "urxvtc"
-set $run exec python ~/.i3/runorfocus.py
+
 set $default_gaps_inner 45
 set $default_gaps_outer 100
 
-set $volup
-set $voldown
-
-
-set $black       #1a1a1a
+set $red         #ff2e4c
 set $blue        #2eb9ff
+set $cyan        #8fffee
+set $black       #1a1a1a
 set $white       #f1f3f4
 set $green       #a1ff7a
-set $red         #ff2e4c
 set $yellow      #ffa03d
 set $magenta     #ff91c9
-set $cyan        #8fffee
 
-set $dim_blue    #60a8cd
-set $dim_green   #ace594
+set $grey        #b3bdc2
 set $dim_red     #b63e50
+set $dim_grey    #2a2a2a
+set $dim_blue    #60a8cd
+set $dim_cyan    #3ad9c2
+set $dim_green   #ace594
 set $dim_yellow  #db9f62
 set $dim_magenta #d3649d
-set $grey        #b3bdc2
-set $dim_cyan    #3ad9c2
-set $dim_grey    #2a2a2a
 
 set $ws1 "1:"
 set $ws2 "2:"
 set $ws3 "3:"
 set $ws4 "4:"
 set $ws5 "5:"
+
+set $col_width      "155px"
+set $col_height     "225px"
+set $drop_width     "600px"
+set $drop_height    "120px"
+set $scratch_width  "375px"
+set $scratch_height "525px"
 #}}}
 
 # Settings
@@ -59,7 +63,6 @@ floating_modifier $mod
 
 # Terminal
 bindsym $mod+Return exec $terminal
-
 
 # Run Browser
 bindsym $mod+q exec $browser
@@ -236,43 +239,43 @@ bar {
 #{{{
 
 # Remove titlebar unless in stacking or tabbed mode
-for_window [class="^.*"] border pixel 1
+for_window  [class="^.*"] border pixel 1
 
 # Scratchpad and Dropdown Config
 #{{{
 
 # Move focused window to scratchpad
-bindsym $mod+m move scratchpad
+bindsym     $mod+m move scratchpad
 
 # Toggle scratchpad
-bindsym $mod+n scratchpad show
+bindsym     $mod+n scratchpad show
 
 # Create a scratchpad terminal
 bindsym     $mod+v exec "urxvt -name scratchpad"
 for_window  [instance="scratchpad"] floating enable;
-for_window  [instance="scratchpad"] move scratchpad; [instance="scratchpad"] scratchpad show; move position 725px 250px; resize shrink height 10000px; resize grow height 500px; resize shrink width 10000px; resize grow width 350px; move scratchpad
+for_window  [instance="scratchpad"] move scratchpad; [instance="scratchpad"] scratchpad show; move position 725px 250px; resize shrink height 10000px; resize grow height $scratch_height; resize shrink width 10000px; resize grow width $scratch_width; move scratchpad
 bindsym     $mod+x [instance="scratchpad"] scratchpad show
 
 # Create a dropdown terminal
 bindsym     $mod+Shift+z exec "urxvt -name dropdown"
 for_window  [instance="dropdown"] floating enable;
-for_window  [instance="dropdown"] move scratchpad; [instance="dropdown"] scratchpad show; move position 600px 30px; resize shrink height 10000px; resize grow height 120px; resize shrink width 10000px; resize grow width 600px; move scratchpad
+for_window  [instance="dropdown"] move scratchpad; [instance="dropdown"] scratchpad show; move position 600px 30px; resize shrink height 10000px; resize grow height $drop_height; resize shrink width 10000px; resize grow width $drop_width; move scratchpad
 bindsym     $mod+z [instance="dropdown"] scratchpad show
 
 # Create a dropin color grabber
-bindsym    $mod+Shift+d exec "colorgrab"
-for_window [instance="colorgrab"] move scratchpad
-bindsym    $mod+d [instance="colorgrab"] scratchpad show
+bindsym     $mod+Shift+d exec "colorgrab"
+for_window  [instance="colorgrab"] move scratchpad; [instance="colorgrab"] scratchpad show; move position 75px 75px; resize shrink height 10000px; resize grow height $col_height; resize shrink width 10000px; resize grow width $col_width; move scratchpad
+bindsym     $mod+d [instance="colorgrab"] scratchpad show
 
 # Create a spotify window in tab 3
-bindsym $mod+Shift+m $run "Spotify" spotify
-assign  [class="(?i)spotify"] $ws3
+bindsym     $mod+Shift+m $run "Spotify" spotify
+assign      [class="(?i)spotify"] $ws3
 
 # Set speedcrunch (calculator) to floating
-for_window [class="(?i)speedcrunch"] floating enable;
+for_window  [class="(?i)speedcrunch"] floating enable;
 
 # Floaters
-for_window [class="(?i)skype"] floating enable;
+for_window  [class="(?i)skype"] floating enable;
 
 #Colors
 client.focused $blue $blue $green $red

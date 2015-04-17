@@ -25,6 +25,7 @@
 "}}}
 
 set nocompatible
+syntax enable         " Enable Syntax Highlighting
 filetype plugin indent on
 
 "------------------------------------------
@@ -117,9 +118,8 @@ set encoding=utf-8
 
 set ttyfast           " Faster Character Drawing
 
-" set lazyredraw        " Only Redraw When Needed
+" set lazyredraw       " Only Redraw When Needed
 
-syntax enable         " Enable Syntax Highlighting
 
 set background=dark   " Let Vim Choose Good Colors for Dark BG
 
@@ -155,9 +155,6 @@ set t_vb=
 set tm=500
 
 let g:plug_window='top new' " Force Vim-Plug to split horizontally instead of Vertically
-
-"set lines=65
-"set columns=80
 
 set foldmethod=marker " Use Default Fold Marker
 
@@ -204,7 +201,7 @@ set listchars=tab:▸\ ,trail:·
 
 set undofile                   " Save a File With Undo History
 
-set undodir='/home/uncledozer/.nvim/tmp'
+set undodir=$HOME/.dots/nvim/.nvim/undo
 
 set hlsearch                   " Highlight Searches
 
@@ -220,6 +217,7 @@ set timeoutlen=550             " Timeout for Commands
 
 set history=1000               " Loads of History
 set undolevels=1000            " And Undo
+set undoreload=1000
 
 set noswapfile                 " Disable Vim Swap
 set nobackup                   " Disable Vim Backup
@@ -230,7 +228,6 @@ set formatoptions=qn1          " Text Formatting
 set viminfo='10,\"100,:20,%,n~/.nviminfo'
 
 "}}}
-
 
 "--------------------------
 " Popup Menu Settings
@@ -643,9 +640,6 @@ endif
 if has("autocmd")
     augroup autofiletypes
         au!
-        au BufReadPost,BufNewFile * set formatoptions-=c
-        au BufReadPost,BufNewFile * set formatoptions-=r
-        au BufReadPost,BufNewFile * set formatoptions-=o
         au BufReadPost,BufNewFile *.html set filetype=html5
         au BufRead,BufNewFile *.nvim set filetype=vim
         au BufRead,BufNewFile *.nvimrc set filetype=vim
@@ -657,11 +651,10 @@ endif
 if has ("autocmd")
     augroup mdsettings
         au!
-        au FileType markdown setlocal wrap linebreak nolist
-        au BufRead,BufNewFile *.md   set filetype=markdown
-        au BufRead,BufNewFile *.txt  set filetype=markdown
-        au BufRead,BufNewFile *.note set filetype=markdown
-        au BufRead,BufNewFile *.todo set filetype=markdown
+        au BufRead,BufNewFile *.md   setlocal filetype=markdown
+        au BufRead,BufNewFile *.txt  setlocal filetype=markdown
+        au BufRead,BufNewFile *.note setlocal filetype=markdown
+        au BufRead,BufNewFile *.todo setlocal filetype=markdown
     augroup END
 endif
 
@@ -670,15 +663,7 @@ if has ("autocmd")
     augroup phpsettings
         au!
         au BufRead,Bufnewfile *.php nnoremap <buffer><Leader>ph li<?php  ?><ESC>F<Space>i
-        au BufReadPost,BufNewFile *.php set autoindent smartindent
-    augroup END
-endif
-
-" Help Specific
-if has ("autocmd")
-    augroup helpsettings
-        au!
-        au FileType help setlocal nowrap
+        au BufReadPost,BufNewFile *.php 
     augroup END
 endif
 
