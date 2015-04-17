@@ -95,6 +95,9 @@ Plug 'Konfekt/FastFold'
 " Buftabline
 Plug 'ap/vim-buftabline'
 
+" YouCompleteMe
+Plug 'Valloric/YouCompleteMe'
+
 "}}}
 
 call plug#end()
@@ -164,10 +167,15 @@ endif
 
 " When Editing A File, Always Jump to the Last Known Cursor Position
 " Unless Cursor Position is Invalid or the First Line
-autocmd BufReadPost *
+if has('autocmd')
+    augroup jump
+        au!
+        autocmd BufReadPost *
             \ if line("'\"") > 1 && line("'\"") <= line("$") |
             \   exe "normal! g`\"" |
             \ endif
+    augroup END
+endif
 
 "}}}
 
@@ -235,23 +243,17 @@ set wildchar=<TAB>
 set wildmode=list:full
 
 " Auto Completion Vim Popup
-set completeopt=longest,menuone,preview
+set completeopt=longest,menu,preview
 
 set wildignore=*/.git/*,*/node_modules/*,*/dist/*
 
-inoremap <expr> <CR> pumvisible() ? "\<C-y>" : "\<C-g>u\<CR>"
-inoremap <expr> <C-n> pumvisible() ? '<C-n>' :
-            \ '<C-n><C-r>=pumvisible() ? "\<lt>Down>" : ""<CR>'
-inoremap <expr> <M-,> pumvisible() ? '<C-n>' :
-            \ '<C-x><C-o><C-n><C-p><C-r>=pumvisible() ? "\<lt>Down>
-
 "}}}
 
 "}}}
 
-"--------------------------
-" Plugin Settings
-"--------------------------
+"------------------------------------------
+" PLUGIN SETTINGS
+"------------------------------------------
 "{{{
 
 " Jquery Syntax Highlighting
@@ -265,12 +267,19 @@ let g:NERDSpaceDelims       = 1
 let g:ctrlp_switch_buffer     = 1
 let g:ctrlp_working_path_mode = 0
 
+" HTML5 and PHP syntax settings
 let g:html5_event_handler_attributes_complete = 0
 let g:html5_rdfa_attributes_complete = 0
 let g:html5_aria_attributes_complete = 0
 
 let g:PHP_outdentphpescape = 0
 let g:PHP_BracesAtCodeLevel = 0
+
+" FastFold Settings
+let g:fastfold_savehook = 1
+let g:fastfold_fold_command_suffixes = ['x','X','a','A','o','O','c','C']
+let g:fastfold_fold_movement_commands = [']z', '[z','zj','zk']
+
 
 "--------------------------
 " YouCompleteMe
@@ -312,18 +321,18 @@ let mapleader=","
 noremap ; :
 
 " Treat Linebreaks as Seperate Lines
-noremap j gj
 noremap k gk
+noremap j gj
 
 " Move Line Up or Down
 noremap <A-j> :m .+1<CR>==
 noremap <A-k> :m .-2<CR>==
 
 " Fold Keys
-noremap <Leader>fm :AutoCloseToggle<CR>i{{{<ESC><plug>NERDComenterComment:AutoCloseToggle<CR>
-noremap <Leader>fn :AutoCloseToggle<CR>i}}}<ESC><plug>NERDComenterComment:AutoCloseToggle<CR>
-noremap <Leader>fd za
-noremap <Leader>fa zA
+nnoremap <Leader>fm :AutoCloseToggle<CR>i{{{<ESC><plug>NERDComenterComment:AutoCloseToggle<CR>
+nnoremap <Leader>fn :AutoCloseToggle<CR>i}}}<ESC><plug>NERDComenterComment:AutoCloseToggle<CR>
+nnoremap <Leader>fd za
+nnoremap <Leader>fa zA
 
 " Clear Search Highlight
 noremap <silent><Leader>/ :nohlsearch<CR>
@@ -376,7 +385,7 @@ nnoremap <C-j> <C-x>
 nnoremap <C-k> <C-a>
 
 " Load ~/.nvimrc for editing
-nnoremap <Leader>ev :w<CR>:e $MYVIMRC<CR>
+nnoremap <Leader>av :w<CR>:e $MYVIMRC<CR>
 
 " Source .nvimrc
 nnoremap <Leader>sov :source $MYVIMRC<CR>
@@ -407,6 +416,13 @@ vnoremap <CR> <ESC>
 command! W :execute ':silent w !sudo tee % > /dev/null'
 
 "}}}
+
+"--------------------------
+" Paste From Registers
+"--------------------------
+" {{{
+
+" }}}
 
 "}}}
 
@@ -510,9 +526,9 @@ set statusline+=%{GetModified()}      " If file has been modified, change color 
 
 set statusline+=%-4{GetMode()}%6*▓▒░  " Set Mode name and color
 
-set statusline+=%1*\ \              " Spacer
+set statusline+=%1*\ \                " Spacer
 
-set statusline+=%.10t%m               " Tail of the file name and the modified tag
+set statusline+=%12.12t%m             " Tail of the file name and the modified tag
 
 " ----------}}}
 
@@ -520,21 +536,21 @@ set statusline+=%= " Switch to the right side
 
 " Right--------{{{
 
-set statusline+=%9*                           " Set Color for clock
+set statusline+=%9*                                " Set Color for clock
 
-set statusline+=%-15.15{CurrentTime()}         " Get The Current Time
+set statusline+=%-15.15{CurrentTime()}             " Get The Current Time
 
-set statusline+=%5*                           " Color scheme User5
+set statusline+=%5*                                " Color scheme User5
 
-set statusline+=\ %5.5Y                       " Filetype
+set statusline+=\ %5.5Y                            " Filetype
 
-set statusline+=%{GetFileType()}              " Change color scheme based on filetype (just for some added pizzaz)
+set statusline+=%{GetFileType()}                   " Change color scheme based on filetype (just for some added pizzaz)
 
-set statusline+=%7*                           " Color Scheme User4
+set statusline+=%7*                                " Color Scheme User4
 
-set statusline+=%5{''}\ %8*%03.04l\ %7*%02.02c\ \  " Show line and column numbers
+set statusline+=%5{''}\ %8*%03.04l\ %7*%02.02c\ \ " Show line and column numbers
 
-set statusline+=%*                            " Return to statusline colors
+set statusline+=%*                                 " Return to statusline colors
 
 " ----------}}}
 
@@ -582,6 +598,9 @@ function! GetMode()
         hi! User3 ctermfg=7 ctermbg=10
         hi! User6 ctermfg=10 ctermbg=235
         return '  [V]'
+    elseif mode() ==# '?'
+        hi! User3 ctermfg=235 ctermbg=13
+        hi! User6 ctermfg=13  ctermbg=235
     endif
 endfunction
 
@@ -624,13 +643,13 @@ endif
 if has("autocmd")
     augroup autofiletypes
         au!
-        au BufRead,BufNewFile * set formatoptions-=c
-        au BufRead,BufNewFile * set formatoptions-=r
-        au BufRead,BufNewFile * set formatoptions-=o
-        au BufRead,BufNewFile *.html          set filetype   =html5
-        au BufRead,BufNewFile *.nvim          set filetype   =vim
-        au BufRead,BufNewFile *.nvimrc        set filetype   =vim
-        au BufRead,BufNewFile *.vimperratorrc set filetype   =vim
+        au BufReadPost,BufNewFile * set formatoptions-=c
+        au BufReadPost,BufNewFile * set formatoptions-=r
+        au BufReadPost,BufNewFile * set formatoptions-=o
+        au BufReadPost,BufNewFile *.html set filetype=html5
+        au BufRead,BufNewFile *.nvim set filetype=vim
+        au BufRead,BufNewFile *.nvimrc set filetype=vim
+        au BufRead,BufNewFile *.vimperratorrc set filetype=vim
     augroup END
 endif
 

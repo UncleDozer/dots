@@ -4,19 +4,31 @@ nnoremap <S-j> :back<CR>
 nnoremap <S-k> :forward<CR>
 nnoremap <S-h> :tabprevious<CR>
 nnoremap <S-l> :tabnext<CR>
-nmap x :tabclose<CR>
-nmap <S-x> :undo<CR>
-nmap <Leader>s :source ~/.vimperatorrc<CR>
-nmap <Leader>/ :nohlsearch<CR>
-nmap <Leader>r :extenenable Reddit Enhancement Suite<CR>r
-nmap <Leader>t :extdisable Reddit Enhancement Suite<CR>
+nnoremap x :tabclose<CR>
+nnoremap <S-x> :undo<CR>
+nnoremap <Leader>sov :source ~/.vimperatorrc<CR>
+nnoremap <Leader>/ :nohlsearch<CR>
+nnoremap <Leader>> ]]
+nnoremap <Leader>< [[
+nnoremap <Leader>t :set gui=invtabs<CR>
+nnoremap <Leader>us :set invusermode<CR>
+inoremap jk <ESC>
+inoremap <C-e> <C-i>
 
 set defsearch=google
+set ignorecase
+set smartcase
+set suggestengines=google
 set focuscontent
 set hintchars=fjdkslaghrueiwovncm
+set hinttimeout=500
 set followhints=0
-set animations=true
-set gui=nonavigation,nobookmarks,nomenu,noaddons,tabs
+set animations
+set gui=none
+set status=tabcount,input,location,bookmark,history,position
+set complete=slShbt
+set verbose=5
+set editor='gvim\ -f'
 
 let smoozie_scroll_interval="100"
 

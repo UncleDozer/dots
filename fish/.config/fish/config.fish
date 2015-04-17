@@ -15,8 +15,7 @@ end
 
 # Clear Fish Greeting
 function fish_greeting
-    set_color blue --bold 
-    echo ' ¸.·´¯`·.´¯`·.¸¸.·´¯`·.¸><(((º> '
+    echo ''
 end
 
 # User Variables
@@ -35,7 +34,7 @@ set -x fish_color_autosuggestion magenta
 set -x fish_color_redirection magenta --bold
 set -x fish_color_param green --bold
 
-set -x fish_color_search_match white --bold --background=blue --bold
+set -x fish_color_search_match grey --bold --background=blue --bold
 set -x fish_pager_color_progress blue
 set -x fish_pager_color_description magenta
 set -x fish_pager_color_prefix green --bold
@@ -85,7 +84,7 @@ end
 
 # Update Vundle Plugins for Vim
 function upvim
-    nvim +PlugUpgrade +PlugInstall +PlugClean +qall
+    nvim +PlugUpgrade +PlugInstall +PlugClean
 end
 
 # Re-Source Fish File

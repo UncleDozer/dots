@@ -48,7 +48,7 @@ set $ws5 "5:"
 workspace_auto_back_and_forth yes
 
 # Font
-font pango:lemon, Icons 10
+font pango:Terminess Powerline, Icons 10
 
 # Smart Borders
 smart_borders on
@@ -267,6 +267,9 @@ bindsym    $mod+d [instance="colorgrab"] scratchpad show
 # Create a spotify window in tab 3
 bindsym $mod+Shift+m $run "Spotify" spotify
 assign  [class="(?i)spotify"] $ws3
+
+# Set speedcrunch (calculator) to floating
+for_window [class="(?i)speedcrunch"] floating enable;
 
 # Floaters
 for_window [class="(?i)skype"] floating enable;
