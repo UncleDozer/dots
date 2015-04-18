@@ -99,6 +99,9 @@ Plug 'ap/vim-buftabline'
 " YouCompleteMe
 Plug 'Valloric/YouCompleteMe'
 
+" Fugitive Git Wrapper
+Plug 'tpope/vim-fugitive'
+
 "}}}
 
 call plug#end()
@@ -128,6 +131,7 @@ set number            " Line Numbering
 set nowrap            " No Text Wrap
 
 set autoread          " Auto Reload File
+set autowriteall
 
 set laststatus=2      " Show Status Line
 
@@ -159,19 +163,19 @@ let g:plug_window='top new' " Force Vim-Plug to split horizontally instead of Ve
 set foldmethod=marker " Use Default Fold Marker
 
 if has('mouse') "Enable The Mouse
-    set mouse=a
+  set mouse=a
 endif
 
 " When Editing A File, Always Jump to the Last Known Cursor Position
 " Unless Cursor Position is Invalid or the First Line
 if has('autocmd')
-    augroup jump
-        au!
-        autocmd BufReadPost *
-            \ if line("'\"") > 1 && line("'\"") <= line("$") |
-            \   exe "normal! g`\"" |
-            \ endif
-    augroup END
+  augroup jump
+    au!
+    autocmd BufReadPost *
+          \ if line("'\"") > 1 && line("'\"") <= line("$") |
+          \   exe "normal! g`\"" |
+          \ endif
+  augroup END
 endif
 
 "}}}
@@ -183,7 +187,7 @@ endif
 
 set expandtab
 set tabstop=4
-set shiftwidth=4
+set shiftwidth=2
 set shiftround
 
 set smartindent " Auto Indenting
@@ -238,6 +242,10 @@ set wildmenu
 set wildchar=<TAB>
 
 set wildmode=list:full
+
+let g:ctrlp_show_hidden = 1
+
+let g:ctrlp_max_files = 2000
 
 " Auto Completion Vim Popup
 set completeopt=longest,menu,preview
@@ -317,6 +325,9 @@ let mapleader=","
 " Remap Command key for Faster Commands
 noremap ; :
 
+" Get Filepath relative to working dir
+nnoremap <leader>en :echo @%<CR>
+
 " Treat Linebreaks as Seperate Lines
 noremap k gk
 noremap j gj
@@ -382,7 +393,7 @@ nnoremap <C-j> <C-x>
 nnoremap <C-k> <C-a>
 
 " Load ~/.nvimrc for editing
-nnoremap <Leader>av :w<CR>:e $MYVIMRC<CR>
+nnoremap <Leader>av :e<CR>$MYVIMRC<CR>
 
 " Source .nvimrc
 nnoremap <Leader>sov :source $MYVIMRC<CR>
@@ -499,7 +510,7 @@ hi User1 ctermbg=235 ctermfg=12
 
 hi User2 ctermbg=235 ctermfg=11
 
-hi User3 ctermfg=8 ctermbg=4
+hi User3 ctermfg=235 ctermbg=4
 
 hi User4 ctermbg=235 ctermfg=4
 
@@ -523,9 +534,13 @@ set statusline+=%{GetModified()}      " If file has been modified, change color 
 
 set statusline+=%-4{GetMode()}%6*▓▒░  " Set Mode name and color
 
-set statusline+=%1*\ \                " Spacer
+set statusline+=%1*\                  " Spacer
 
-set statusline+=%12.12t%m             " Tail of the file name and the modified tag
+set statusline+=%-5.15t               " Tail of the file name and the modified tag
+
+set statusline+=%1*\                  " Spacer
+
+set statusline+=%-5{fugitive#statusline()}%m
 
 " ----------}}}
 
@@ -535,13 +550,13 @@ set statusline+=%= " Switch to the right side
 
 set statusline+=%9*                                " Set Color for clock
 
-set statusline+=%-15.15{CurrentTime()}             " Get The Current Time
+set statusline+=%-7{CurrentTime()}             " Get The Current Time
 
 set statusline+=%5*                                " Color scheme User5
 
 set statusline+=\ %5.5Y                            " Filetype
 
-set statusline+=%{GetFileType()}                   " Change color scheme based on filetype (just for some added pizzaz)
+set statusline+=%-5.20{GetFileType()}                   " Change color scheme based on filetype (just for some added pizzaz)
 
 set statusline+=%7*                                " Color Scheme User4
 
@@ -552,72 +567,75 @@ set statusline+=%*                                 " Return to statusline colors
 " ----------}}}
 
 function! GetModified()
-    if &modifiable
-        if &modified
-            hi! User1 ctermfg=11
-            return ''
-        else
-            hi! User1 ctermfg=12
-            return ''
-        endif
-    elseif !&modifiable
-        hi User1 ctermfg=1
-        return ''
+  if &modifiable
+    if &modified
+      hi! User1 ctermfg=11
+      return ''
+    else
+      hi! User1 ctermfg=12
+      return ''
     endif
+  elseif !&modifiable
+    hi User1 ctermfg=1
+    return ''
+  endif
 endfunction
 
 function! GetMode()
-    if mode() ==# 'n'
-        hi! User3 ctermfg=8 ctermbg=4
-        hi! User6 ctermfg=4 ctermbg=235
-        return '  N'
-    elseif mode() ==# 'i'
-        hi! User3 ctermfg=4 ctermbg=8
-        hi! User6 ctermfg=8 ctermbg=235
-        return '  I'
-    elseif mode() ==# 'R'
-        hi! User3 ctermfg=8 ctermbg=1
-        hi! User6 ctermfg=1 ctermbg=235
-        return '  R'
-    elseif mode() ==# 'r'
-        hi! User3 ctermfg=8 ctermbg=1
-        hi! User6 ctermfg=1 ctermbg=235
-        return '  r'
-    elseif mode() ==# 'v'
-        hi! User3 ctermfg=7 ctermbg=10
-        hi! User6 ctermfg=10 ctermbg=235
-        return '  V'
-    elseif mode() ==# 'V'
-        hi! User3 ctermfg=7 ctermbg=10
-        hi! User6 ctermfg=10 ctermbg=235
-        return '  -V-'
-    elseif visualmode() ==? "\<C-v>"
-        hi! User3 ctermfg=7 ctermbg=10
-        hi! User6 ctermfg=10 ctermbg=235
-        return '  [V]'
-    elseif mode() ==# '?'
-        hi! User3 ctermfg=235 ctermbg=13
-        hi! User6 ctermfg=13  ctermbg=235
-    endif
+  if mode() ==# 'n' " Normal
+    hi! User3 ctermfg=235 ctermbg=4
+    hi! User6 ctermfg=4 ctermbg=235
+    return '  N '
+  elseif mode() ==# 'i' " Insert
+    hi! User3 ctermfg=235 ctermbg=8
+    hi! User6 ctermfg=8 ctermbg=235
+    return '  I '
+  elseif mode() ==# 'R' " Replace All
+    hi! User3 ctermfg=235 ctermbg=1
+    hi! User6 ctermfg=1 ctermbg=235
+    return '  R '
+  elseif mode() ==# 'r' " Replace Selection
+    hi! User3 ctermfg=235 ctermbg=1
+    hi! User6 ctermfg=1 ctermbg=235
+    return '  r '
+  elseif mode() ==# 'v' " Visual
+    hi! User3 ctermfg=235 ctermbg=10
+    hi! User6 ctermfg=10 ctermbg=235
+    return '  V '
+  elseif mode() ==# 'V' " Visual Line
+    hi! User3 ctermfg=235 ctermbg=10
+    hi! User6 ctermfg=10 ctermbg=235
+    return '  -V- '
+  elseif mode() ==# "" " Visual Block
+    hi! User3 ctermfg=235 ctermbg=10
+    hi! User6 ctermfg=10 ctermbg=235
+    return '  [V] '
+  elseif mode() ==# 'c' " Search
+    hi! User3 ctermfg=235 ctermbg=13
+    hi! User6 ctermfg=13  ctermbg=235
+    return '  / '
+  else
+    return mode()
+  endif
 endfunction
 
 function! GetFileType()
-    if &filetype == 'vim'
-        hi! User5 ctermfg=10
-    elseif &filetype == 'php'
-        hi! User5 ctermfg=13
-    elseif &filetype == 'html'
-        hi! User5 ctermfg=6
-    elseif &filetype == 'javascript'
-        hi! User5 ctermfg=1
-    elseif &filetype == ''
-        hi! User5 ctermfg=4
-    endif
-    return ''
+  if &filetype == 'vim'
+    hi! User5 ctermfg=10
+  elseif &filetype == 'php'
+    hi! User5 ctermfg=13
+  elseif &filetype == 'html'
+    hi! User5 ctermfg=6
+  elseif &filetype == 'javascript'
+    hi! User5 ctermfg=1
+  elseif &filetype == ''
+    hi! User5 ctermfg=4
+  endif
+  return ''
 endfunction
 
 function! CurrentTime()
-    return strftime("%H:%M")
+  return strftime("%H:%M")
 endfunction
 
 "}}}
@@ -629,42 +647,47 @@ endfunction
 
 " Re-Source Vimrc on save
 if has("autocmd")
-    augroup mynvimrchooks
-        au!
-        autocmd BufWrite .nvimrc source $MYVIMRC
-        autocmd BufWritePost .nvimrc silent YcmRestartServer
-    augroup END
+  augroup mynvimrchooks
+    au!
+    autocmd BufWrite .nvimrc source $MYVIMRC
+    autocmd BufWritePost .nvimrc silent YcmRestartServer
+  augroup END
 endif
 
 " Filetype Commands
 if has("autocmd")
-    augroup autofiletypes
-        au!
-        au BufReadPost,BufNewFile *.html set filetype=html5
-        au BufRead,BufNewFile *.nvim set filetype=vim
-        au BufRead,BufNewFile *.nvimrc set filetype=vim
-        au BufRead,BufNewFile *.vimperratorrc set filetype=vim
-    augroup END
+  augroup autofiletypes
+    au!
+    au BufRead,BufNewFile *.nvim set filetype=vim
+    au BufRead,BufNewFile *.nvimrc set filetype=vim
+    au BufReadPost,BufNewFile *.html set filetype=html
+    au BufReadPost,BufNewFile *.php set filetype=php.html
+    au BufReadPost,BufNewFile *.js set filetype=javascript
+    au BufRead,BufNewFile *.vimperratorrc set filetype=vim
+  augroup END
 endif
 
 " Markdown Specific
 if has ("autocmd")
-    augroup mdsettings
-        au!
-        au BufRead,BufNewFile *.md   setlocal filetype=markdown
-        au BufRead,BufNewFile *.txt  setlocal filetype=markdown
-        au BufRead,BufNewFile *.note setlocal filetype=markdown
-        au BufRead,BufNewFile *.todo setlocal filetype=markdown
-    augroup END
+  augroup mdsettings
+    au!
+    au BufRead,BufNewFile *.md   setlocal filetype=markdown
+    au BufRead,BufNewFile *.txt  setlocal filetype=markdown
+    au BufRead,BufNewFile *.note setlocal filetype=markdown
+    au BufRead,BufNewFile *.todo setlocal filetype=markdown
+    au BufRead,BufNewFile vimp*.tmp setlocal filetype=markdown
+  augroup END
 endif
 
-" PHP Specific
-if has ("autocmd")
-    augroup phpsettings
-        au!
-        au BufRead,Bufnewfile *.php nnoremap <buffer><Leader>ph li<?php  ?><ESC>F<Space>i
-        au BufReadPost,BufNewFile *.php 
-    augroup END
+if has("autocmd")
+  augroup filemappings
+    au!
+    au BufRead,BufNewFile *.php iabbrev <buffer> <?i <?php  ?><ESC>2hi
+    au BufRead,BufNewFile *.php iabbrev <buffer> <?o <?php<CR><CR>?><ESC>ki
+    au BufRead,BufNewFile *.php noremap <buffer> <Leader>flo <ESC>i<?php<CR><CR>?><ESC>k
+    au BufRead,BufNewFile *.php noremap <buffer> <Leader>fli <ESC>i<?php  ?><ESC>2hi
+    au BufRead,BufNewFile *.php noremap <buffer> <Leader>ch <ESC>i<!--  --!><ESC>4hi
+  augroup END
 endif
 
 "}}}

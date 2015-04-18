@@ -5,15 +5,17 @@ nnoremap <S-j> :back<CR>
 nnoremap <S-k> :forward<CR>
 nnoremap <S-h> :tabprevious<CR>
 nnoremap <S-l> :tabnext<CR>
+nnoremap <Leader>x :tabclose<CR>
 nnoremap x :tabclose<CR>
 nnoremap <S-x> :undo<CR>
-nnoremap <Leader>sov :source ~/.vimperatorrc<CR>:echo "Sourced ~/.vimperatorrc"<CR>
+nnoremap <Leader>sov :source ~/.vimperatorrc<CR>
 nnoremap <Leader>/ :nohlsearch<CR>
 nnoremap <Leader>> ]]
 nnoremap <Leader>< [[
 nnoremap <Leader>t :set gui=invtabs<CR>
-nnoremap <Leader>us :set invusermode<CR>
-inoremap jk <ESC>
+nnoremap <C-t> :tabgroups switch<Space><TAB>
+nnoremap <Leader>ps :tabgroups switch<Space><TAB>
+nnoremap <Leader>us :set invusermode<CR>:style -append usermodestyle<CR>
 inoremap <C-e> <C-i>
 
 " Options
@@ -30,12 +32,12 @@ set gui=none
 set status=tabcount,input,location,bookmark,history,position
 set complete=slShbt
 set verbose=5
-set editor='gvim\ -f'
+set editor=urxvt\ -e\ nvim
 
 let smoozie_scroll_interval="100"
 
 " Colors
-hi clear
+hi! clear
 hi HintElem background-color: #1a1a1a; color: white;
 hi HintActive background-color: #ace594;
 hi Hint font-family: monospace; font-size: 10px; font-weight: bold; text-transform: uppercase; color: white; background-color: #5B92FA; border-color: ButtonShadow; border-width: 0px; border-style: solid; padding: 0px 3px 0px 3px; text-shadow: 0 2px rgba(0,0,0,.3);
@@ -51,5 +53,6 @@ hi URL color: #ace594;
 hi Normal background-color: #1a1a1a; color: #ace594; border-top: 1px solid #1a1a1a;
 hi LineNr color: #b3bdc2;
 hi ContentSeparator display:none;
+hi Message background-color: #1a1a1a
 
 " vim:filetype=vim

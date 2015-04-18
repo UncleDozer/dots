@@ -15,7 +15,6 @@ end
 
 # Clear Fish Greeting
 function fish_greeting
-    echo ''
 end
 
 # User Variables
@@ -57,71 +56,88 @@ alias tm='tmux'
 
 # Resource fish profile
 function repro
-    source ~/.config/fish/config.fish
+  source ~/.config/fish/config.fish
 end
 
 # Google Chrome Fixes
 function chrome
-    set MESA_GL_VERSION_OVERRIDE 3.3
-    set MESA_GLSL_VERSION_OVERRIDE 330
-    google-chrome-unstable --force-device-scale-factor=1
+  set MESA_GL_VERSION_OVERRIDE 3.3
+  set MESA_GLSL_VERSION_OVERRIDE 330
+  google-chrome-unstable --force-device-scale-factor=1
 end
 
 # Start Netflix Chrome App in FullScreen
 function flix
-    setsid /opt/google/chrome-unstable/google-chrome-unstable --user-data-dir=/home/uncledozer/.config/google-chrome-unstable "--profile-directory=Profile 1" --app-id=deceagebecbceejblnlcjooeohmmeldh ^^ /dev/null
+  setsid /opt/google/chrome-unstable/google-chrome-unstable --user-data-dir=/home/uncledozer/.config/google-chrome-unstable "--profile-directory=Profile 1" --app-id=deceagebecbceejblnlcjooeohmmeldh ^^ /dev/null
 end
 
 # Skype with alsa fix
 function skype
-    setsid apulse32 skype-with-poll-fix ^^ /dev/null &
+  setsid apulse32 skype-with-poll-fix ^^ /dev/null &
 end
 
 # Run speedcrunch
 function calc
-    setsid speedcrunch &
+  setsid speedcrunch &
 end
 
 # Update Vundle Plugins for Vim
 function upvim
-    nvim +PlugUpgrade +PlugInstall +PlugClean
+  nvim +PlugUpgrade +PlugInstall +PlugClean
 end
 
 # Re-Source Fish File
 function repro
-    source $HOME/.config/fish/config.fish
+  source $HOME/.config/fish/config.fish
 end
 
 # Run Filemanager at Location
 function files
-    setsid rox (pwd) &
+  setsid rox (pwd) &
 end
 
 # Change rm to trash-cli
 function rm
-    trash $argv
+  trash $argv
 end
 
 # Run Vim in a new window
 function newvim
-    urxvtc --hold -e $EDITOR $argv
+  urxvtc --hold -e $EDITOR $argv
 end
 
 # Link my root .editorconfig
 function edconf
-    ln $dots/.editorconfig (pwd)
+  ln $dots/.editorconfig (pwd)
 end
 
 # Vim autodownloads via curl when supplied a url
 function vimhub
-    set githuburl https://raw.githubusercontent.com/$argv
-    nvim githuburl
+  set githuburl https://raw.githubusercontent.com/$argv
+  nvim githuburl
 end
 
 # Set Brightness of screens
 function xbright
-    xrandr --output DVI-0 --brightness $argv &
-    xrandr --output HDMI-0 --brightness .9 &
+  xrandr --output DVI-0 --brightness $argv &
+  xrandr --output HDMI-0 --brightness .9 &
+end
+
+# Run Multiples of a program
+function run
+  switch (count $argv)
+    case 2
+      for i in (seq $argv[1] -1 1); eval $argv[2]; end
+  end
+end
+
+function multiterm
+  switch (count $argv)
+    case 1
+      run $argv "urxvtc -hold -cd (pwd)"
+    case 2
+      run $argv[1] "urxvtc -hold -cd $argv[2]"
+  end
 end
 
 # Source Home Profile
