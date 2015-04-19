@@ -131,6 +131,7 @@ function run
   end
 end
 
+# Multiple Terminals
 function multiterm
   switch (count $argv)
     case 1
