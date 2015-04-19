@@ -1,6 +1,0 @@
-#!/usr/bin/bash
-#
-# Fix /etc/awesome permissions
-#
-#
-sudo chown -R uncledozer:uncledozer /usr/share/awesome
