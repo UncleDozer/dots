@@ -2,7 +2,7 @@
 set fish_path $HOME/.oh-my-fish
 
 # Custom plugins may be added to ~/.oh-my-fish/custom/plugins/
-set fish_plugins node jump extract theme gi
+set fish_plugins jump extract
 
 # Path to your custom folder (default path is $FISH/custom)
 set fish_custom $HOME/.oh-my-fish
@@ -18,7 +18,7 @@ function fish_greeting
 end
 
 # User Variables
-set -x PATH $PATH /usr/local/bin /usr/bin /bin /usr/local/sbin /usr/sbin /sbin /usr/share/awesome/themes /opt/awemenugen /usr/bin /home/uncledozer/.gem/ruby/2.2.0/bin /home/uncledozer/.config/bspwm /usr/share/awesome /home/uncledozer/.gem/ruby/2.1.0/bin /etc/php /home/uncledozer/public_html/webapps/phpMyAdmin /opt/android-sdk/platform-tools $SCRIPTS /usr/lib/python2.7 /usr/bin/core_perl
+set -x PATH $PATH /usr/local/bin /usr/bin /bin /usr/local/sbin /usr/sbin /sbin /usr/bin /home/uncledozer/.gem/ruby/2.2.0/bin /home/uncledozer/.config/bspwm /usr/share/awesome /home/uncledozer/.gem/ruby/2.1.0 /etc/php /home/uncledozer/public_html/webapps/phpMyAdmin /opt/android-sdk/platform-tools /usr/lib/python2.7 /usr/bin/core_perl /usr/bin/site_perl /usr/bin/vendor_perl /usr/lib /usr/lib/php /usr/lib/php/modules $SCRIPTS
 set -x BROWSER 'firefox-developer'
 set -x TERMINAL 'urxvt'
 set -x QT_X11_NO_MITSHM 1
@@ -140,6 +140,19 @@ function multiterm
       run $argv[1] "urxvtc -hold -cd $argv[2]"
   end
 end
+
+# Change Font size in urxvtc
+set -x def_size 14
+set -x cur_size 14
+set -x font_step 1
+set -x cur_font terminesspowerline
+
+function fontup
+    set -x cur_size $cur_size + $font_step
+    echo -e "\033]710;-*-terminesspowerline-bold-*-*-*-$new_size-*-*-*-*-*-*-*\033\\"
+end
+
+
 
 # Source Home Profile
 . ~/.profile &

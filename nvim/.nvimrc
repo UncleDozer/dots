@@ -79,7 +79,7 @@ Plug 'The-NERD-Commenter'
 Plug 'Align', { 'on': 'Align' }
 
 " CtrlP fuzzy file finder
-Plug 'kien/ctrlp.vim'
+Plug 'ctrlpvim/ctrlp.vim'
 
 " Fast Fold
 Plug 'Konfekt/FastFold'
@@ -95,6 +95,10 @@ Plug 'junegunn/goyo.vim', { 'on': 'Goyo' }
 
 " Vim Surround
 Plug 'tpope/vim-surround'
+
+" Vim Session
+Plug 'tpope/vim-obsession'
+Plug 'dhruvasagar/vim-prosession'
 
 "}}}
 
@@ -114,9 +118,11 @@ set encoding=utf-8
 "--------------------------
 "{{{
 
+set background=dark
+
 set ttyfast           " Faster Character Drawing
 
-" set lazyredraw        " Only Redraw When Needed
+" set lazyredraw      " Only Redraw When Needed
 
 set number            " Line Numbering
 
@@ -284,7 +290,7 @@ let g:fastfold_fold_movement_commands         = [']z', '[z','zj','zk']
 " Goyo Settings
 let g:goyo_width                              = 90
 let g:goyo_margin_top                         = 0
-let g:goyo_margin_bottom                      = 1
+let g:goyo_margin_bottom                      = 0
 let g:goyo_linenr                             = 1
 
 function! s:goyo_enter()
@@ -294,7 +300,9 @@ function! s:goyo_enter()
     set linebreak
     set wrap
     set numbers
-    set tabline=\ 
+    set tabline
+    noremap <Leader>e g$
+    noremap <Leader>b g0
 endfunction
 
 function! s:goyo_leave()
@@ -307,6 +315,8 @@ function! s:goyo_leave()
     set scrolloff=20
     highlight! clear
     source $MYVIMRC
+    noremap <Leader>e g_
+    noremap <Leader>b _
 endfunction
 
 "--------------------------
@@ -351,6 +361,8 @@ noremap ; :
 " Get Filepath relative to working dir
 nnoremap <leader>en :echo @%<CR>
 
+nnoremap <leader>scr :e $HOME/.note/scratch.note<CR>ggVGdP
+
 " Treat Linebreaks as Seperate Lines
 noremap k gk
 noremap j gj
@@ -378,7 +390,7 @@ noremap <silent><Leader>w :w<CR>
 noremap <Leader>at :AutoCloseToggle<CR>
 
 " Paste From System Clipboard
-noremap <Leader>p "*p
+noremap <Leader>p "+p
 
 " Jump to Either end or Beginning of the Line
 noremap <Leader>e g_
@@ -405,17 +417,17 @@ nnoremap <S-l> :bn<CR>
 " Close Buffer
 nnoremap <Leader>x :bd<CR>
 
-" Reopen Prev. Closed Buffer
+" Switch to Previous Buffer
 nnoremap <Leader>t <C-^>
 
-" Toggle Goyo
+" Toggle Goyo for Nice Reading
 nnoremap <Leader>g :Goyo<CR>
 
 " Use Enter, Tab, Space Keys in Normal Mode
-nnoremap <CR> o<ESC>
-nnoremap <TAB> i<TAB><ESC>
-nnoremap <Leader><CR> O<ESC>
-nnoremap <SPACE> i<SPACE><ESC>
+noremap <CR> o<ESC>
+noremap <TAB> i<TAB><ESC>
+noremap <Leader><CR> O<ESC>
+noremap <SPACE> i<SPACE><ESC>
 
 " Increment Interger Up
 nnoremap <C-j> <C-x>
@@ -427,7 +439,74 @@ nnoremap <Leader>av :e $MYVIMRC<CR>
 " Source .nvimrc
 nnoremap <Leader>sov :source $MYVIMRC<CR>
 
+" Unmap Arrow Keys
+nnoremap Ïa <nop>
+nnoremap Ïd <nop>
+nnoremap Ïb <nop>
+nnoremap Ïc <nop>
+" nnoremap <C-Up> <nop>
+" nnoremap <C-Down> <nop>
+nnoremap <C-Left> <nop>
+nnoremap <C-Right> <nop>
+
+" Change Fonts and Font Sizes on The Fly
+" Urxvt Tested Only
+
+" Define The Default Font Style
+function! FontChange()
+
+    let g:FontDefault = {
+                \ "name": 'terminesspowerline',
+                \ "size": 32,
+                \ "style": 'bold',
+                \ "xft": 0,
+                \ "xfont": 1,
+                \ }
+
+    function! GetFontString()
+        if (g:FontDefault.xft)
+            let g:FontString = join(['xft:',g:FontDefault.name,'pixelsize:',g:FontDefault,'style:',g:FontDefault.style],'')
+
+        elseif (g:FontDefault.xfont)
+            let l:FontString = join(['-*-',g:FontDefault.name,'-',g:FontDefault.style,'-*-*-*-',g:FontDefault.size,'-*-*-*-*-*-*-*'],'')
+
+        else " Default to xfont for safety
+            let l:FontString = join(['-*-',g:FontDefault.name,'-',g:FontDefault.style,'-*-*-*-',g:FontDefault.size,'-*-*-*-*-*-*-*'],'')
+        endif
+
+        let g:FontDefault.fontstring = l:FontString
+    endfunction
+
+    function! GetTermFontEsc()
+        call GetFontString()
+        let l:escst = '"\033]710;'
+        let l:esced = '\033\\"'
+        let l:termescape = join([l:escst,g:FontDefault.fontstring,l:esced],'')
+        let g:FontDefault.termescape = l:termescape
+    endfunction
+
+    call GetTermFontEsc()
+
+    "Echo the escape code in terminal
+    let g:EchoMe = join(['echo -e ',g:FontDefault.termescape],'')
+    let g:EchoMe = g:EchoMe
+    execute ':terminal ' . g:EchoMe
+
+endfunction
+
 " }}}
+
+"--------------------------
+" EX: Mappings
+"--------------------------
+"{{{
+
+" Sudo Save
+command! W :execute ':silent w !sudo tee % > /dev/null'
+
+" 
+
+"}}}
 
 "--------------------------
 " Insert Mode
@@ -444,22 +523,19 @@ inoremap  <C-o>,c<space>
 imap <C-L> <Plug>CapsLockToggle
 
 " Yank (or Copy) Text to System Clipboard
-vnoremap <Leader>y "*y
+vnoremap <Leader>y "+y
 
 " Exit Visual Mode
 vnoremap <CR> <ESC>
-
-" Sudo Save
-command! W :execute ':silent w !sudo tee % > /dev/null'
 
 "}}}
 
 "--------------------------
 " Paste From Registers
 "--------------------------
-" {{{
+"{{{
 
-" }}}
+"}}}
 
 "}}}
 
@@ -488,35 +564,33 @@ let &t_EI .= "\<Esc>[2 q"
 "------------------------------------------
 "{{{
 
-set background=dark
-
 " Line Highlighting
 hi CursorLine ctermbg=235 cterm=italic
-hi CursorLineNr cterm=bold ctermfg=1 ctermbg=234
-hi LineNr ctermfg=7
+hi CursorLineNr ctermfg=9 ctermbg=234
+hi LineNr ctermfg=0
 hi StatusLine cterm=none ctermfg=0 ctermbg=235
 hi StatusLineNC cterm=none ctermfg=7 ctermbg=236
 hi TabLineFill term=bold cterm=bold ctermbg=none ctermfg=0
 hi TabLine ctermfg=2 ctermbg=235 cterm=none
-hi TabLineSel ctermfg=10 ctermbg=none cterm=bold
+hi TabLineSel ctermfg=10 ctermbg=none cterm=none
 
 " UI Highlighting
-hi Search term=reverse cterm=reverse gui=reverse ctermfg=none ctermbg=none
+hi Search cterm=reverse ctermfg=none ctermbg=none
 hi MatchParen cterm=bold ctermfg=8 ctermbg=15
 hi VertSplit ctermfg=235 ctermbg=235 cterm=none
 hi Directory ctermfg=4 cterm=none
 hi SpecialKey ctermfg=7
 hi Special ctermfg=2
 hi Nontext ctermfg=7
-hi Visual ctermbg=3 ctermfg=16
+hi Visual ctermbg=3 ctermfg=15
 hi Number cterm=bold ctermfg=3
-hi Error ctermfg=8 cterm=bold
-hi ErrorMsg ctermbg=9 ctermfg=8 cterm=bold
+hi Error ctermfg=15 ctermbg=9 cterm=bold
+hi ErrorMsg ctermbg=9 ctermfg=15 cterm=bold
 
 " Menu Highlighting
-hi Pmenu ctermfg=8 ctermbg=4
-hi Pmenusel cterm=bold ctermfg=4 ctermbg=8
-hi WildMenu ctermfg=7 ctermbg=12
+hi Pmenu ctermfg=15 ctermbg=4
+hi Pmenusel cterm=bold ctermfg=15 ctermbg=12
+hi WildMenu ctermfg=16 ctermbg=12
 
 " Syntax Highlighting
 hi Statement ctermfg=9
@@ -541,10 +615,10 @@ hi String ctermfg=13
 
 hi User1 ctermbg=235 ctermfg=12
 hi User2 ctermbg=235 ctermfg=11
-hi User3 ctermfg=235 ctermbg=4
-hi User4 ctermbg=235 ctermfg=4
-hi User5 ctermbg=235 ctermfg=4
-hi User6 ctermfg=4 ctermbg=235
+hi User3 ctermfg=235 ctermbg=12
+hi User4 ctermbg=235 ctermfg=12
+hi User5 ctermbg=235 ctermfg=12
+hi User6 ctermfg=12 ctermbg=235
 hi User7 ctermbg=235 ctermfg=13
 hi User8 ctermbg=235 ctermfg=10
 hi User9 ctermbg=235 ctermfg=12
@@ -606,8 +680,8 @@ endfunction
 
 function! GetMode()
     if mode() ==# 'n' " Normal
-        hi! User3 ctermfg=235 ctermbg=4
-        hi! User6 ctermfg=4 ctermbg=235
+        hi! User3 ctermfg=235 ctermbg=12
+        hi! User6 ctermfg=12 ctermbg=235
         return '  N '
     elseif mode() ==# 'i' " Insert
         hi! User3 ctermfg=235 ctermbg=8
@@ -714,6 +788,8 @@ if has("autocmd")
         au! User GoyoLeave
         au  User GoyoEnter nested call <SID>goyo_enter()
         au  User GoyoLeave nested call <SID>goyo_leave()
-    endif
+    augroup END
+
+endif
 
 "}}}

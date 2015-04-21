@@ -15,7 +15,7 @@ nnoremap <Leader>< [[
 nnoremap <Leader>t :set gui=invtabs<CR>
 nnoremap <C-t> :tabgroups switch<Space><TAB>
 nnoremap <Leader>ps :tabgroups switch<Space><TAB>
-nnoremap <Leader>us :set invusermode<CR>:styletoggle *<CR>
+nnoremap <Leader>us :set invusermode<CR>:styletoggle -name usermodestyle<CR>
 inoremap <C-e> <C-i>
 
 " Options
@@ -54,5 +54,9 @@ hi Normal background-color: #1a1a1a; color: #ace594; border-top: 1px solid #1a1a
 hi LineNr color: #b3bdc2;
 hi ContentSeparator display:none;
 hi Message background-color: #1a1a1a
+
+" On startup, define my usermode stylesheet
+style -name usermodestyle file:,file*,file:*,http*,https* body{ margin:40px auto; max-width:650px; line-height:1.6; font-size:1.3em; color:#F1F3F4; padding:0 10px; background: #1A1A1A; } a{ color:#2EB9FF !important; } a:visited{color:#31789C !important;} h1, h2, h3, h4, h5, h6{ line-height:1.2; } pre{max-width: 650px !important;}
+styledisable -name usermodestyle
 
 " vim:filetype=vim
