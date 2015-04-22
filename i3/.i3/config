@@ -52,7 +52,7 @@ set $scratch_height "525px"
 workspace_auto_back_and_forth yes
 
 # Font
-font pango:Terminess Powerline, Icons 10
+font pango:Office Code Pro, Icons 10
 
 # Smart Borders
 smart_borders on
@@ -212,7 +212,7 @@ bindsym $mod+$alt+r mode ""
 #{{{
 
 bar {
-  font pango:Lato, Icons 10
+  font pango:Office Code Pro, Icons 11
   status_command py3status -c ~/.i3/i3status.conf
   strip_workspace_numbers yes
   height 25

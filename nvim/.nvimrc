@@ -195,7 +195,7 @@ set smartindent " Auto Indenting
 set autoindent
 
 set list          " Show Whitespace and Tabs
-set listchars=tab:▸\ ,trail:·
+set listchars=tab:⇒\ ,trail:•
 
 "}}}
 
@@ -219,7 +219,7 @@ set smartcase                  " Unless an Uppercase Character is Typed
 set backspace=indent,eol,start " Allow Deletion of Lines etc
 
 set timeoutlen=250             " Timeout for Commands
-set ttimeoutlen=50             " Timeout for Commands
+set ttimeoutlen=250             " Timeout for Commands
 
 set history=1000               " Loads of History
 set undolevels=1000            " And Undo
@@ -293,14 +293,15 @@ let g:goyo_margin_top                         = 0
 let g:goyo_margin_bottom                      = 0
 let g:goyo_linenr                             = 1
 
+
 function! s:goyo_enter()
     set noshowmode
     set noshowcmd
     set scrolloff=5
     set linebreak
     set wrap
+    set tabline = %!buftabline#render()
     set numbers
-    set tabline
     noremap <Leader>e g$
     noremap <Leader>b g0
 endfunction
@@ -311,7 +312,6 @@ function! s:goyo_leave()
     set showmode
     set showcmd
     set tabline
-    set notabline = 0
     set scrolloff=20
     highlight! clear
     source $MYVIMRC
@@ -453,6 +453,7 @@ nnoremap <C-Right> <nop>
 " Urxvt Tested Only
 
 " Define The Default Font Style
+" Does not work
 function! FontChange()
 
     let g:FontDefault = {
@@ -516,12 +517,6 @@ command! W :execute ':silent w !sudo tee % > /dev/null'
 " Exit Insert Mode
 inoremap jk <ESC>:nohlsearch<CR>
 
-" Comment Insert Mode
-inoremap  <C-o>,c<space>
-
-" CapsLock Toggle
-imap <C-L> <Plug>CapsLockToggle
-
 " Yank (or Copy) Text to System Clipboard
 vnoremap <Leader>y "+y
 
@@ -534,6 +529,16 @@ vnoremap <CR> <ESC>
 " Paste From Registers
 "--------------------------
 "{{{
+
+" Paste from numbered registers
+noremap <Leader>4p "4p
+noremap <Leader>0p "0p
+noremap <Leader>1p "1p
+noremap <Leader>2p "2p
+noremap <Leader>3p "3p
+noremap <Leader>4p "4p
+noremap <Leader>5p "5p
+
 
 "}}}
 
@@ -635,7 +640,7 @@ set statusline+=%-4{GetMode()}%6*▓▒░  " Set Mode name and color
 
 set statusline+=%1*\                  " Spacer
 
-set statusline+=%-25t%m               " Tail of the file name and the modified tag
+set statusline+=%-t%m               " Tail of the file name and the modified tag
 
 set statusline+=%1*\                  " Spacer
 
@@ -669,7 +674,7 @@ function! GetModified()
             hi! User1 ctermfg=11
             return ''
         else
-            hi! User1 ctermfg=12
+            hi! User1 ctermfg=10
             return ''
         endif
     elseif !&modifiable
@@ -684,8 +689,8 @@ function! GetMode()
         hi! User6 ctermfg=12 ctermbg=235
         return '  N '
     elseif mode() ==# 'i' " Insert
-        hi! User3 ctermfg=235 ctermbg=8
-        hi! User6 ctermfg=8 ctermbg=235
+        hi! User3 ctermfg=235 ctermbg=14
+        hi! User6 ctermfg=14 ctermbg=235
         return '  I '
     elseif mode() ==# 'R' " Replace All
         hi! User3 ctermfg=235 ctermbg=1
@@ -757,7 +762,7 @@ if has("autocmd")
         au BufRead,BufNewFile *.nvim set filetype=vim
         au BufRead,BufNewFile *.nvimrc set filetype=vim
         au BufReadPost,BufNewFile *.html set filetype=html
-        au BufReadPost,BufNewFile *.php set filetype=php.html
+        au BufReadPost,BufNewFile *.php set filetype=php
         au BufReadPost,BufNewFile *.js set filetype=javascript
         au BufRead,BufNewFile *.vimperratorrc set filetype=vim
     augroup END

@@ -1,5 +1,6 @@
-
 # name: RobbyRussel
+# Modified by: Kristopher Watts <kristopher.a.watts@gmail.com>
+
 function _git_branch_name
   echo (command git symbolic-ref HEAD ^/dev/null | sed -e 's|^refs/heads/||')
 end
@@ -12,7 +13,7 @@ function fish_prompt
   set -l last_status $status
   set -l cyan (set_color -o cyan)
   set -l yellow (set_color -o yellow)
-  set -l red (set_color -o red)
+  set -l red (set_color -o red --bold)
   set -l blue (set_color -o blue)
   set -l green (set_color -o green)
   set -l normal (set_color normal)
@@ -20,7 +21,7 @@ function fish_prompt
   if test $last_status = 0
       set arrow "$blue➜ "
   else
-      set arrow "$red# "
+      set arrow "$redp‼ "
   end
   set -l cwd $cyan(basename (prompt_pwd))
 

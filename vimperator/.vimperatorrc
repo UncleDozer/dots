@@ -1,3 +1,20 @@
+" Options
+set gui=none
+set defsearch=google
+set ignorecase
+set smartcase
+set suggestengines=google
+set focuscontent
+set hintchars=fjdkslaghrueiwovncm
+set hinttimeout=500
+set followhints=0
+set animations
+set status=tabcount,input,location,bookmark,history,position
+set complete=slShbt
+set verbose=5
+set editor=urxvtc\ -e\ nvim
+
+let smoozie_scroll_interval="100"
 " Mappings
 let mapleader=","
 nnoremap ; :
@@ -18,23 +35,6 @@ nnoremap <Leader>ps :tabgroups switch<Space><TAB>
 nnoremap <Leader>us :set invusermode<CR>:styletoggle -name usermodestyle<CR>
 inoremap <C-e> <C-i>
 
-" Options
-set defsearch=google
-set ignorecase
-set smartcase
-set suggestengines=google
-set focuscontent
-set hintchars=fjdkslaghrueiwovncm
-set hinttimeout=500
-set followhints=0
-set animations
-set gui=none
-set status=tabcount,input,location,bookmark,history,position
-set complete=slShbt
-set verbose=5
-set editor=urxvt\ -e\ nvim
-
-let smoozie_scroll_interval="100"
 
 " Colors
 hi! clear

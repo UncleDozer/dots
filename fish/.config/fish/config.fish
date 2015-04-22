@@ -113,8 +113,8 @@ end
 
 # Vim autodownloads via curl when supplied a url
 function vimhub
-  set githuburl https://raw.githubusercontent.com/$argv
-  nvim githuburl
+  set -l githuburl https://raw.githubusercontent.com/$argv
+  nvim $githuburl
 end
 
 # Set Brightness of screens
@@ -142,15 +142,15 @@ function multiterm
 end
 
 # Change Font size in urxvtc
-set -x def_size 14
-set -x cur_size 14
-set -x font_step 1
-set -x cur_font terminesspowerline
+# set -x def_size 14
+# set -x cur_size 14
+# set -x font_step 1
+# set -x cur_font terminesspowerline
 
-function fontup
-    set -x cur_size $cur_size + $font_step
-    echo -e "\033]710;-*-terminesspowerline-bold-*-*-*-$new_size-*-*-*-*-*-*-*\033\\"
-end
+# function fontup
+    # set -x cur_size $cur_size + $font_step
+    # echo -e "\033]710;-*-terminesspowerline-bold-*-*-*-$new_size-*-*-*-*-*-*-*\033\\"
+# end
 
 
 
