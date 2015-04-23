@@ -19,8 +19,7 @@
 " Email               : Kristopher.A.Watts@Gmail.com
 " Github              : https://github.com/UncleDozer/
 " Website             : http://www.webtastic-development.net
-" I'm new to VIM, so any suggestions or improvements would be greatly
-" appreciated. Thanks!
+" I'm new to VIM, so any suggestions or improvements would be greatly appreciated. Thanks!
 "---------------------------------------------------
 "}}}
 
@@ -61,6 +60,10 @@ Plug 'PotatoesMaster/i3-vim-syntax'
 
 " Fish Syntax
 Plug 'dag/vim-fish', { 'for': 'fish' }
+
+" Markdown
+Plug 'tpope/vim-markdown', { 'for' : [ 'markdown', 'md' ] }
+Plug 'jtratner/vim-flavored-markdown', { 'for' : [ 'markdown', 'md' ] }
 
 "}}}
 
@@ -142,9 +145,9 @@ set showcmd           " Show The Last Command
 
 set showtabline=2     " Always Show Tab Line
 
-set scrolloff=20      " How Many Lines visible before scrolling of buffer
+set scrolloff=5      " How Many Lines visible before scrolling of buffer
 
-set sidescrolloff=10
+set sidescrolloff=5
 
 set sidescroll=1
 
@@ -262,6 +265,10 @@ set wildignore=*/.git/*,*/node_modules/*,*/dist/*
 " PLUGIN SETTINGS
 "------------------------------------------
 "{{{
+
+" Markdown
+let g:vim_mardown_folding_disabled=1
+
 
 " Jquery Syntax Highlighting
 let g:used_javascript_libs                    = 'jquery'
@@ -421,7 +428,7 @@ nnoremap <Leader>x :bd<CR>
 nnoremap <Leader>t <C-^>
 
 " Toggle Goyo for Nice Reading
-nnoremap <Leader>g :Goyo<CR>
+nnoremap <Leader>g :Goyo<CR>:e<CR>:set tabline:%!buftabline#render()<CR>
 
 " Use Enter, Tab, Space Keys in Normal Mode
 noremap <CR> o<ESC>
@@ -770,11 +777,11 @@ if has("autocmd")
     " Markdown Specific
     augroup mdsettings
         au!
-        au BufRead,BufNewFile *.md   setlocal filetype=markdown
-        au BufRead,BufNewFile *.txt  setlocal filetype=markdown
-        au BufRead,BufNewFile *.note setlocal filetype=markdown
-        au BufRead,BufNewFile *.todo setlocal filetype=markdown
-        au BufRead,BufNewFile vimp*.tmp setlocal filetype=markdown
+        au BufRead,BufNewFile *.md   setlocal filetype=ghmarkdown
+        au BufRead,BufNewFile *.txt  setlocal filetype=ghmarkdown
+        au BufRead,BufNewFile *.note setlocal filetype=ghmarkdown
+        au BufRead,BufNewFile *.todo setlocal filetype=ghmarkdown
+        au BufRead,BufNewFile vimp*.tmp setlocal filetype=ghmarkdown
     augroup END
 
     " Filetype Specific Mappings

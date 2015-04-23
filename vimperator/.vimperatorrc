@@ -6,7 +6,7 @@ set smartcase
 set suggestengines=google
 set focuscontent
 set hintchars=fjdkslaghrueiwovncm
-set hinttimeout=500
+set hinttimeout=1500
 set followhints=0
 set animations
 set status=tabcount,input,location,bookmark,history,position
@@ -15,6 +15,7 @@ set verbose=5
 set editor=urxvtc\ -e\ nvim
 
 let smoozie_scroll_interval="100"
+
 " Mappings
 let mapleader=","
 nnoremap ; :

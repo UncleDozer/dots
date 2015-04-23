@@ -48,7 +48,7 @@ alias aur='yaourt'
 alias compy='pkill compton; compton -b --unredir-if-possible --paint-on-overlay --vsync opengl --config /home/uncledozer/.config/compton.conf'
 alias clocky='tty-clock -cC 1'
 alias ll='ls -A --format single-column'
-alias la='ls -lA'
+alias la='ls -lhAogZ'
 alias cd.='cd ../'
 alias cd..='cd ../../'
 alias cd...='cd ../../../'
@@ -140,19 +140,6 @@ function multiterm
       run $argv[1] "urxvtc -hold -cd $argv[2]"
   end
 end
-
-# Change Font size in urxvtc
-# set -x def_size 14
-# set -x cur_size 14
-# set -x font_step 1
-# set -x cur_font terminesspowerline
-
-# function fontup
-    # set -x cur_size $cur_size + $font_step
-    # echo -e "\033]710;-*-terminesspowerline-bold-*-*-*-$new_size-*-*-*-*-*-*-*\033\\"
-# end
-
-
 
 # Source Home Profile
 . ~/.profile &
