@@ -14,14 +14,15 @@ function fish_prompt
   set -l cyan (set_color -o cyan)
   set -l yellow (set_color -o yellow)
   set -l red (set_color -o red --bold)
-  set -l blue (set_color -o blue)
+  set -l blue (set_color -o blue --bold)
   set -l green (set_color -o green)
+  set -l bgreen (set_color -o green --bold)
   set -l normal (set_color normal)
 
   if test $last_status = 0
-      set arrow "$blue➜ "
+      set arrow "$blue❱$green❱$yellow❱ "
   else
-      set arrow "$redp‼ "
+      set arrow "$red❱❱❱ "
   end
   set -l cwd $cyan(basename (prompt_pwd))
 
@@ -35,5 +36,5 @@ function fish_prompt
     end
   end
 
-  echo -n -s $arrow $cwd $git_info $normal ' '
+  echo -n -s $cwd $git_info $normal\  $arrow ' '
 end
