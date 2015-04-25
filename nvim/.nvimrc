@@ -407,7 +407,7 @@ noremap <Leader>b _
 noremap <Leader>a :Align<Space>
 
 " Remove Search Highlight
-nnoremap <ESC> :nohlsearch<CR>
+nnoremap <silent><ESC> :nohlsearch<CR>
 
 " Copy Line and Return to Cursor Position
 nnoremap <Leader>c mzVy`z:delmarks z<CR>
@@ -522,7 +522,7 @@ command! W :execute ':silent w !sudo tee % > /dev/null'
 "{{{
 
 " Exit Insert Mode
-inoremap jk <ESC>:nohlsearch<CR>
+inoremap <silent>jk <ESC>:nohlsearch<CR>
 
 " Yank (or Copy) Text to System Clipboard
 vnoremap <Leader>y "+y
@@ -577,46 +577,51 @@ let &t_EI .= "\<Esc>[2 q"
 "{{{
 
 " Line Highlighting
-hi CursorLine ctermbg=235 cterm=italic
-hi CursorLineNr ctermfg=9 ctermbg=234
-hi LineNr ctermfg=0
-hi StatusLine cterm=none ctermfg=0 ctermbg=235
-hi StatusLineNC cterm=none ctermfg=7 ctermbg=236
-hi TabLineFill term=bold cterm=bold ctermbg=none ctermfg=0
+hi clear
+
+" Kill the CursorLine Underline
+hi CursorLine cterm=italic ctermbg=0
+hi CursorLineNr ctermfg=9 ctermbg=0
+hi LineNr ctermfg=237
+hi StatusLine cterm=none ctermfg=7 ctermbg=0
+hi StatusLineNC cterm=none ctermfg=7 ctermbg=0
+hi TabLineFill ctermbg=none ctermfg=0
 hi TabLine ctermfg=2 ctermbg=235 cterm=none
-hi TabLineSel ctermfg=10 ctermbg=none cterm=none
+hi TabLineSel ctermfg=10 ctermbg=0
 
 " UI Highlighting
 hi Search cterm=reverse ctermfg=none ctermbg=none
-hi MatchParen cterm=bold ctermfg=8 ctermbg=15
-hi VertSplit ctermfg=235 ctermbg=235 cterm=none
-hi Directory ctermfg=4 cterm=none
+hi MatchParen ctermfg=10
+hi VertSplit ctermfg=15 ctermbg=0
+hi Directory ctermfg=4
 hi SpecialKey ctermfg=7
 hi Special ctermfg=2
 hi Nontext ctermfg=7
-hi Visual ctermbg=3 ctermfg=15
-hi Number cterm=bold ctermfg=3
-hi Error ctermfg=15 ctermbg=9 cterm=bold
-hi ErrorMsg ctermbg=9 ctermfg=15 cterm=bold
+hi Visual ctermbg=2 ctermfg=0
+hi Number ctermfg=11
+hi Error ctermfg=15 ctermbg=9
+hi ErrorMsg ctermbg=9 ctermfg=15
+hi ToDo ctermbg=11 ctermfg=7
 
 " Menu Highlighting
 hi Pmenu ctermfg=15 ctermbg=4
-hi Pmenusel cterm=bold ctermfg=15 ctermbg=12
+hi Pmenusel ctermfg=15 ctermbg=12
 hi WildMenu ctermfg=16 ctermbg=12
 
 " Syntax Highlighting
 hi Statement ctermfg=9
-hi Constant ctermfg=5
-hi Folded cterm=none ctermfg=4 ctermbg=234
-hi Title ctermfg=12 cterm=bold
-hi TagbarIcon ctermfg=red cterm=none
-hi TagbarHighlight ctermfg=red ctermbg=none
-hi TagbarScope ctermfg=blue ctermbg=none cterm=none
-hi TagbarKind ctermfg=blue ctermbg=none cterm=none
-hi TagbarNestedKind ctermbg=blue ctermbg=none cterm=none
+hi Constant ctermfg=11
+hi Folded ctermfg=4 ctermbg=0
+hi Title ctermfg=12
+hi TagbarIcon ctermfg=9
+hi TagbarHighlight ctermfg=9
+hi TagbarScope ctermfg=12 ctermbg=none cterm=none
+hi TagbarKind ctermfg=12 ctermbg=none cterm=none
+hi TagbarNestedKind ctermbg=12 ctermbg=none cterm=none
 hi Comment ctermfg=4
-hi String ctermfg=13
-
+hi String ctermfg=10
+hi Type ctermfg=14
+hi PreProc ctermfg=11
 
 "}}}
 

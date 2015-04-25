@@ -18,24 +18,23 @@ function fish_greeting
 end
 
 # User Variables
-set -x PATH $PATH /usr/local/bin /usr/bin /bin /usr/local/sbin /usr/sbin /sbin /usr/bin /home/uncledozer/.gem/ruby/2.2.0/bin /home/uncledozer/.config/bspwm /usr/share/awesome /home/uncledozer/.gem/ruby/2.1.0 /etc/php /home/uncledozer/public_html/webapps/phpMyAdmin /opt/android-sdk/platform-tools /usr/lib/python2.7 /usr/bin/core_perl /usr/bin/site_perl /usr/bin/vendor_perl /usr/lib /usr/lib/php /usr/lib/php/modules $SCRIPTS
 set -x BROWSER 'firefox-developer'
 set -x TERMINAL 'urxvt'
 set -x QT_X11_NO_MITSHM 1
 set -x EDITOR 'nvim'
 set -x SCRIPTS $HOME/.scripts
 set -x STEAM_FRAME_FORCE_CLOSE 1
+set -x PATH $PATH /usr/local/bin /usr/bin /bin /usr/local/sbin /usr/sbin /sbin /usr/bin /home/uncledozer/.gem/ruby/2.2.0/bin /home/uncledozer/.config/bspwm /usr/share/awesome /home/uncledozer/.gem/ruby/2.1.0 /etc/php /home/uncledozer/public_html/webapps/phpMyAdmin /opt/android-sdk/platform-tools /usr/lib/python2.7 /usr/bin/core_perl /usr/bin/site_perl /usr/bin/vendor_perl /usr/lib /usr/lib/php /usr/lib/php/modules $SCRIPTS $SCRIPTS/colorscripts
 
 # Fish Colors
 set -x fish_color_command blue --bold
-set -x fish_color_search_match green --bold
 set -x fish_color_autosuggestion magenta
 set -x fish_color_redirection magenta --bold
 set -x fish_color_param green --bold
 
-set -x fish_color_search_match grey --bold --background=blue --bold
-set -x fish_pager_color_progress blue
-set -x fish_pager_color_description magenta
+set -x fish_color_search_match --background=blue --bold
+set -x fish_pager_color_progress magenta --bold
+set -x fish_pager_color_description green --bold
 set -x fish_pager_color_prefix green --bold
 
 # Aliases

@@ -70,7 +70,7 @@ bindsym $mod+Return exec $terminal
 bindsym $mod+q exec $browser
 
 # start dmenu (a program launcher)
-bindsym $mod+r exec dmenu_run -y 24 -q -i -l 20 -uh 2 -p "^_" -sb "$blue" -uc "$green" -nf "$white" -nb "$black" -sf "#fff" -fn 'Office Code Pro-14'
+bindsym $mod+r exec dmenu_run -y 24 -q -i -l 10 -uh 2 -p "^_" -sb "$blue" -uc "$green" -nf "$white" -nb "$black" -sf "#fff" -fn 'Office Code Pro Medium-14'
 # bindsym $mod+r exec --no-startup-id i3-dmenu-desktop
 
 gaps inner $default_gaps_inner
@@ -244,6 +244,9 @@ bar {
 for_window  [class="^.*"] border pixel 1
 for_window  [class="(?i)urxvt"] border pixel 0
 for_window  [class="(?i)urxvtc"] border pixel 0
+
+# Let Dying Light start in floating mode
+for_window  [class="(?idying)"] floating enable
 
 # Scratchpad and Dropdown Config
 #{{{
