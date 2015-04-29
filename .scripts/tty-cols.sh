@@ -21,3 +21,4 @@ if [ "$TERM" = "linux" ]; then
   # get rid of artifacts
   clear
 fi
+     1	#263238

@@ -595,7 +595,7 @@ hi MatchParen ctermfg=10
 hi VertSplit ctermfg=15 ctermbg=0
 hi Directory ctermfg=4
 hi SpecialKey ctermfg=7
-hi Special ctermfg=2
+hi Special ctermfg=10
 hi Nontext ctermfg=7
 hi Visual ctermbg=2 ctermfg=0
 hi Number ctermfg=11
@@ -618,10 +618,11 @@ hi TagbarHighlight ctermfg=9
 hi TagbarScope ctermfg=12 ctermbg=none cterm=none
 hi TagbarKind ctermfg=12 ctermbg=none cterm=none
 hi TagbarNestedKind ctermbg=12 ctermbg=none cterm=none
-hi Comment ctermfg=4
+hi Comment ctermfg=7
 hi String ctermfg=10
 hi Type ctermfg=14
 hi PreProc ctermfg=11
+hi Identifier ctermfg=12
 
 "}}}
 

@@ -245,9 +245,6 @@ for_window  [class="^.*"] border pixel 1
 for_window  [class="(?i)urxvt"] border pixel 0
 for_window  [class="(?i)urxvtc"] border pixel 0
 
-# Let Dying Light start in floating mode
-for_window  [class="(?idying)"] floating enable
-
 # Scratchpad and Dropdown Config
 #{{{
 
