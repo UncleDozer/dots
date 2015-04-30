@@ -7,6 +7,11 @@
 URxvt*font        : -*-terminesspowerline-bold-*-*-*-14-*-*-*-*-*-*-*
 URxvt*boldFont    :
 URxvt*letterSpace : 0
+Xft.dpi           : 96
+Xft.antialias     : true
+Xft.rgba          : rgba
+Xft.hinting       : true
+Xft.hintstyle     : hintfull
 
 !}}}
 
