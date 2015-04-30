@@ -51,6 +51,7 @@ Plug 'othree/javascript-libraries-syntax.vim', { 'for': 'js' }
 
 " HTML and PHP
 Plug 'othree/html5.vim', { 'for': [ 'html', 'php' ] }
+Plug 'nicklasos/vimphphtml', { 'for': [ 'html', 'php' ] }
 
 " AutoClose HTML Tags
 Plug 'vim-scripts/HTML-AutoCloseTag', { 'for': [ 'html', 'php' ] }
@@ -330,6 +331,9 @@ endfunction
 " YouCompleteMe
 "--------------------------
 "{{{
+
+let g:ycm_min_num_of_chars_for_completion               = 2
+let g:ycm_allow_changing_updatetime                     = 1
 
 " Fix for esc and Autoclose
 let g:AutoClosePumvisible                               = {"ENTER": "<C-Y>", "ESC": "<ESC>"}
@@ -611,7 +615,7 @@ hi WildMenu ctermfg=16 ctermbg=12
 " Syntax Highlighting
 hi Statement ctermfg=9
 hi Constant ctermfg=11
-hi Folded ctermfg=4 ctermbg=0
+hi Folded ctermfg=7 ctermbg=0
 hi Title ctermfg=12
 hi TagbarIcon ctermfg=9
 hi TagbarHighlight ctermfg=9
