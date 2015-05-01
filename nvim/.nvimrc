@@ -96,6 +96,7 @@ Plug 'Valloric/YouCompleteMe'
 
 " Goyo, Vim Focus Mode
 Plug 'junegunn/goyo.vim', { 'on': 'Goyo' }
+Plug 'myusuf3/numbers.vim'
 
 " Vim Surround
 Plug 'tpope/vim-surround'

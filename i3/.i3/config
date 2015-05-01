@@ -215,7 +215,7 @@ bindsym $mod+$alt+r mode ""
 
 bar {
   font pango:Office Code Pro Medium, Icons 13
-  status_command py3status -c ~/.i3/i3status.conf
+  status_command i3status -c ~/.i3/i3status.conf
   strip_workspace_numbers yes
   height 25
   position top
