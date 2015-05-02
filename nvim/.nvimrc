@@ -200,7 +200,7 @@ set smartindent " Auto Indenting
 set autoindent
 
 set list          " Show Whitespace and Tabs
-set listchars=tab:⇒\ ,trail:•
+set listchars=tab:»\ ,trail:•
 
 "}}}
 
@@ -297,7 +297,7 @@ let g:fastfold_fold_command_suffixes          = ['x','X','a','A','o','O','c','C'
 let g:fastfold_fold_movement_commands         = [']z', '[z','zj','zk']
 
 " Goyo Settings
-let g:goyo_width                              = 90
+let g:goyo_width                              = 100
 let g:goyo_margin_top                         = 0
 let g:goyo_margin_bottom                      = 0
 let g:goyo_linenr                             = 1
@@ -606,7 +606,7 @@ hi Visual ctermbg=2 ctermfg=0
 hi Number ctermfg=11
 hi Error ctermfg=15 ctermbg=9
 hi ErrorMsg ctermbg=9 ctermfg=15
-hi ToDo ctermbg=11 ctermfg=7
+hi ToDo ctermbg=0 ctermfg=12
 
 " Menu Highlighting
 hi Pmenu ctermfg=15 ctermbg=4
@@ -789,10 +789,16 @@ if has("autocmd")
     augroup mdsettings
         au!
         au BufRead,BufNewFile *.md   setlocal filetype=ghmarkdown
-        au BufRead,BufNewFile *.txt  setlocal filetype=ghmarkdown
-        au BufRead,BufNewFile *.note setlocal filetype=ghmarkdown
-        au BufRead,BufNewFile *.todo setlocal filetype=ghmarkdown
-        au BufRead,BufNewFile vimp*.tmp setlocal filetype=ghmarkdown
+        au BufRead,BufNewFile *.txt  setlocal filetype=markdown
+        au BufRead,BufNewFile *.note setlocal filetype=markdown
+        au BufRead,BufNewFile *.todo setlocal filetype=markdown
+        au BufRead,BufNewFile vimp*.tmp setlocal filetype=markdown
+    augroup END
+
+    " SCSS Specific
+    augroup scsssettings
+        au!
+        au BufRead,BufNewFile,Filetype *.scss set commentstring=/*%s*/
     augroup END
 
     " Filetype Specific Mappings
@@ -811,6 +817,19 @@ if has("autocmd")
         au! User GoyoLeave
         au  User GoyoEnter nested call <SID>goyo_enter()
         au  User GoyoLeave nested call <SID>goyo_leave()
+    augroup END
+
+    " Global Formatting Options
+    augroup formatting
+        au!
+        au Filetype * setlocal formatoptions-=c
+        au Filetype * setlocal formatoptions-=r
+        au Filetype * setlocal formatoptions-=o
+    augroup END
+
+    augroup echo_clear
+        au!
+        au CursorMoved * echo ""
     augroup END
 
 endif

@@ -9,12 +9,12 @@
 set $mod       Mod4
 set $alt       Mod1
 set $run       exec python ~/.i3/runorfocus.py
-set $music    "spotify"
-set $browser  "firefox-developer"
-set $terminal "urxvtc"
+set $music     "spotify"
+set $browser   "firefox-developer"
+set $terminal  "urxvtc"
 
 set $default_gaps_inner 45
-set $default_gaps_outer 100
+set $default_gaps_outer 25
 
 set $red         #ff2e4c
 set $blue        #2eb9ff
@@ -43,9 +43,9 @@ set $ws5 "5:"
 set $col_width      "155px"
 set $col_height     "225px"
 set $drop_width     "600px"
-set $drop_height    "120px"
-set $scratch_width  "375px"
-set $scratch_height "525px"
+set $drop_height    "150px"
+set $scratch_width  "425px"
+set $scratch_height "600px"
 set $launcher       dmenu_run -i -l -fn 'Office Code Pro-10' 20 -p "^_" -sb "$blue" -nf "$green" -nb "$black"
 
 #}}}
@@ -58,6 +58,9 @@ font pango:Office Code Pro Medium, Icons 10
 
 # Smart Borders
 smart_borders on
+
+# Disable titlebar
+new_window pixel
 
 # Hotkeys
 #{{{
@@ -288,6 +291,7 @@ client.unfocused $black $black #888888 #292d2e
 client.urgent $red $red #ffffff #900000
 
 #}}}
+# }}}
 
 # vim:filetype=i3
 # vim:commentstring=#%s
