@@ -636,15 +636,15 @@ hi Identifier ctermfg=12
 "------------------------------------------
 "{{{
 
-hi User1 ctermbg=235 ctermfg=12
-hi User2 ctermbg=235 ctermfg=11
-hi User3 ctermfg=235 ctermbg=12
-hi User4 ctermbg=235 ctermfg=12
-hi User5 ctermbg=235 ctermfg=12
-hi User6 ctermfg=12 ctermbg=235
-hi User7 ctermbg=235 ctermfg=13
-hi User8 ctermbg=235 ctermfg=10
-hi User9 ctermbg=235 ctermfg=12
+hi User1 ctermbg=0 ctermfg=12
+hi User2 ctermbg=0 ctermfg=11
+hi User3 ctermfg=0 ctermbg=12
+hi User4 ctermbg=0 ctermfg=12
+hi User5 ctermbg=0 ctermfg=12
+hi User6 ctermfg=12  ctermbg=0
+hi User7 ctermbg=0 ctermfg=13
+hi User8 ctermbg=0 ctermfg=10
+hi User9 ctermbg=0 ctermfg=12
 
 " Left--------{{{
 
@@ -658,7 +658,7 @@ set statusline+=%-4{GetMode()}%6*▓▒░  " Set Mode name and color
 
 set statusline+=%1*\                  " Spacer
 
-set statusline+=%-t%m               " Tail of the file name and the modified tag
+set statusline+=%-t%m                 " Tail of the file name and the modified tag
 
 set statusline+=%1*\                  " Spacer
 
@@ -670,11 +670,11 @@ set statusline+=%= " Switch to the right side
 
 set statusline+=%9*                                " Set Color for clock
 
-set statusline+=%-7{CurrentTime()}                 " Get The Current Time
+set statusline+=%{CurrentTime()}                   " Get The Current Time
 
 set statusline+=%5*                                " Color scheme User5
 
-set statusline+=\ %5.5Y                            " Filetype
+set statusline+=\ %5.15Y                           " Filetype
 
 set statusline+=%-5.20{GetFileType()}              " Change color scheme based on filetype (just for some added pizzaz)
 
@@ -703,35 +703,35 @@ endfunction
 
 function! GetMode()
     if mode() ==# 'n' " Normal
-        hi! User3 ctermfg=235 ctermbg=12
+        hi! User3 ctermfg=15 ctermbg=12
         hi! User6 ctermfg=12 ctermbg=235
         return '  N '
     elseif mode() ==# 'i' " Insert
-        hi! User3 ctermfg=235 ctermbg=14
+        hi! User3 ctermfg=15 ctermbg=14
         hi! User6 ctermfg=14 ctermbg=235
         return '  I '
     elseif mode() ==# 'R' " Replace All
-        hi! User3 ctermfg=235 ctermbg=1
+        hi! User3 ctermfg=15 ctermbg=1
         hi! User6 ctermfg=1 ctermbg=235
         return '  R '
     elseif mode() ==# 'r' " Replace Selection
-        hi! User3 ctermfg=235 ctermbg=1
+        hi! User3 ctermfg=15 ctermbg=1
         hi! User6 ctermfg=1 ctermbg=235
         return '  r '
     elseif mode() ==# 'v' " Visual
-        hi! User3 ctermfg=235 ctermbg=10
+        hi! User3 ctermfg=12 ctermbg=10
         hi! User6 ctermfg=10 ctermbg=235
         return '  V '
     elseif mode() ==# 'V' " Visual Line
-        hi! User3 ctermfg=235 ctermbg=10
+        hi! User3 ctermfg=12 ctermbg=10
         hi! User6 ctermfg=10 ctermbg=235
         return '  -V- '
     elseif mode() ==# "" " Visual Block
-        hi! User3 ctermfg=235 ctermbg=10
+        hi! User3 ctermfg=12 ctermbg=10
         hi! User6 ctermfg=10 ctermbg=235
         return '  [V] '
     elseif mode() ==# 'c' " Search
-        hi! User3 ctermfg=235 ctermbg=13
+        hi! User3 ctermfg=12 ctermbg=13
         hi! User6 ctermfg=13  ctermbg=235
         return '  / '
     else
@@ -827,6 +827,7 @@ if has("autocmd")
         au Filetype * setlocal formatoptions-=o
     augroup END
 
+    " Clear Messages on Movement
     augroup echo_clear
         au!
         au CursorMoved * echo ""
