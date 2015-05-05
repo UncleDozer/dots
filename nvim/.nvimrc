@@ -223,8 +223,8 @@ set smartcase                  " Unless an Uppercase Character is Typed
 
 set backspace=indent,eol,start " Allow Deletion of Lines etc
 
-set timeoutlen=250             " Timeout for Commands
-set ttimeoutlen=250             " Timeout for Commands
+set timeoutlen=500             " Timeout for Commands
+set ttimeoutlen=125            " Timeout for Commands
 
 set history=1000               " Loads of History
 set undolevels=1000            " And Undo
@@ -510,14 +510,12 @@ endfunction
 " }}}
 
 "--------------------------
-" EX: Mappings
+" EX Mappings
 "--------------------------
 "{{{
 
 " Sudo Save
 command! W :execute ':silent w !sudo tee % > /dev/null'
-
-" 
 
 "}}}
 
@@ -534,6 +532,11 @@ vnoremap <Leader>y "+y
 
 " Exit Visual Mode
 vnoremap <CR> <ESC>
+
+" Pop Open Curly Braces / Paranthesis
+inoremap {<CR> {<CR>}<C-o>O<TAB>
+inoremap (<CR> (<CR>)<C-o>O<TAB>
+inoremap [<CR> [<CR>]<C-o>O<TAB>
 
 "}}}
 
@@ -804,8 +807,9 @@ if has("autocmd")
     " Filetype Specific Mappings
     augroup filemappings
         au!
-        au BufRead,BufNewFile *.php iabbrev <buffer> <?i <?php  ?><ESC>2hi
-        au BufRead,BufNewFile *.php iabbrev <buffer> <?o <?php<CR><CR>?><ESC>ki
+        " Quick PHP Tags (o for O and i for inline)
+        au BufRead,BufNewFile *.php inoremap <?po <?php<CR>?><C-o>O<TAB>
+        au BufRead,BufNewFile *.php inoremap <?pi <?php  ?><C-o>2h
         au BufRead,BufNewFile *.php noremap <buffer> <Leader>flo <ESC>i<?php<CR><CR>?><ESC>k
         au BufRead,BufNewFile *.php noremap <buffer> <Leader>fli <ESC>i<?php  ?><ESC>2hi
         au BufRead,BufNewFile *.php noremap <buffer> <Leader>ch <ESC>I<!--<ESC>A  --!><ESC>4h
