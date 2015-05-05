@@ -827,10 +827,11 @@ if has("autocmd")
         au Filetype * setlocal formatoptions-=o
     augroup END
 
-    " Clear Messages on Movement
+    " Clear Messages on Insert Movement or normal hold
     augroup echo_clear
         au!
-        au CursorMoved * echo ""
+        au CursorHold * echo ""
+        au CursorMovedI * echo ""
     augroup END
 
 endif
