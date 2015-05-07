@@ -223,7 +223,7 @@ set smartcase                  " Unless an Uppercase Character is Typed
 
 set backspace=indent,eol,start " Allow Deletion of Lines etc
 
-set timeoutlen=500             " Timeout for Commands
+set timeoutlen=250             " Timeout for Commands
 set ttimeoutlen=125            " Timeout for Commands
 
 set history=1000               " Loads of History
@@ -534,9 +534,10 @@ vnoremap <Leader>y "+y
 vnoremap <CR> <ESC>
 
 " Pop Open Curly Braces / Paranthesis
-inoremap {<CR> {<CR>}<C-o>O<TAB>
-inoremap (<CR> (<CR>)<C-o>O<TAB>
-inoremap [<CR> [<CR>]<C-o>O<TAB>
+inoremap {<CR> {<CR>}<C-o>O
+inoremap (<CR> (<CR>)<C-o>O
+inoremap [<CR> [<CR>]<C-o>O
+inoremap ><CR> ><CR><C-o>O
 
 "}}}
 
@@ -801,7 +802,7 @@ if has("autocmd")
     " SCSS Specific
     augroup scsssettings
         au!
-        au BufRead,BufNewFile,Filetype *.scss set commentstring=/*%s*/
+        au BufRead,BufNewFile,Filetype *.scss setlocal commentstring=/*%s*/
     augroup END
 
     " Filetype Specific Mappings
@@ -814,6 +815,12 @@ if has("autocmd")
         au BufRead,BufNewFile *.php noremap <buffer> <Leader>fli <ESC>i<?php  ?><ESC>2hi
         au BufRead,BufNewFile *.php noremap <buffer> <Leader>ch <ESC>I<!--<ESC>A  --!><ESC>4h
     augroup END
+
+    " Help Specific
+    augroup helpfiles
+        au Filetype *.help setlocal nonumber
+    augroup END
+
 
     " Goyo autos
     augroup Goyo
@@ -832,10 +839,13 @@ if has("autocmd")
     augroup END
 
     " Clear Messages on Insert Movement or normal hold
-    augroup echo_clear
+    augroup inserts
         au!
         au CursorHold * echo ""
         au CursorMovedI * echo ""
+
+        au InsertEnter * setlocal timeoutlen=500
+        au InsertLeave * setlocal timeoutlen=250
     augroup END
 
 endif
