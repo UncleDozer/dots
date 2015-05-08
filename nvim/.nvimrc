@@ -11,7 +11,7 @@
 "   \\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\|
 "    ---------------------------------------------------
 "
-"   ıllıllııllıllı    Out Of The Box    ıllıllııllıllııllı
+"   ıllıllııllıllı    Out Of The Box    ıllıllııllıllııl
 "
 "
 "---------------------------------------------------
@@ -28,7 +28,7 @@ syntax enable         " Enable Syntax Highlighting
 filetype plugin indent on
 
 "------------------------------------------
-" VIM-PLUG CONFIG
+" 1: VIM-PLUG CONFIG
 "------------------------------------------
 "{{{
 
@@ -36,7 +36,7 @@ filetype plugin indent on
 call plug#begin('~/.nvim/bundle')
 
 "--------------------------
-" Syntax Specific Plugins
+" 1.A: Syntax Specific Plugins
 "--------------------------
 "{{{
 
@@ -69,7 +69,7 @@ Plug 'jtratner/vim-flavored-markdown', { 'for' : [ 'markdown', 'md' ] }
 "}}}
 
 "--------------------------
-" Other Plugins
+" 1.A: Other Plugins
 "--------------------------
 "{{{
 
@@ -112,22 +112,20 @@ call plug#end()
 "}}}
 
 "------------------------------------------
-" GENERAL SETTINGS
+" 2: GENERAL SETTINGS
 "------------------------------------------
 "{{{
 
 set encoding=utf-8
 
 "--------------------------
-" UI Settings
+" 2.A: UI Settings
 "--------------------------
 "{{{
 
 set background=dark
 
-set ttyfast           " Faster Character Drawing
-
-" set lazyredraw      " Only Redraw When Needed
+set lazyredraw        " Only Redraw When Needed
 
 set number            " Line Numbering
 
@@ -135,7 +133,7 @@ set nowrap            " No Text Wrap
 
 set autoread          " Auto Reload File
 
-set autowriteall
+set autowriteall      " Auto Save File
 
 set laststatus=2      " Show Status Line
 
@@ -147,10 +145,8 @@ set showcmd           " Show The Last Command
 
 set showtabline=2     " Always Show Tab Line
 
-set scrolloff=5      " How Many Lines visible before scrolling of buffer
-
+set scrolloff=5       " How Many Lines visible before scrolling of buffer
 set sidescrolloff=5
-
 set sidescroll=1
 
 set showmatch         " Highlight Brackets
@@ -184,7 +180,7 @@ endif
 "}}}
 
 "--------------------------
-" Tab Stuff
+" 2.B: Tab Stuff
 "--------------------------
 "{{{
 
@@ -205,7 +201,7 @@ set listchars=tab:»\ ,trail:•
 "}}}
 
 "--------------------------
-" Search/Undo/ETC
+" 2.C: Search/Undo/ETC
 "--------------------------
 "{{{
 
@@ -241,7 +237,7 @@ set viminfo='10,\"100,:20,%,n~/.nviminfo'
 "}}}
 
 "--------------------------
-" Popup Menu Settings
+" 2.D: Popup Menu Settings
 "--------------------------
 "{{{
 
@@ -249,10 +245,6 @@ set wildmenu
 set wildchar=<TAB>
 
 set wildmode=list:full
-
-let g:ctrlp_show_hidden = 1
-
-let g:ctrlp_max_files = 2000
 
 " Auto Completion Vim Popup
 set completeopt=longest,menu,preview
@@ -264,13 +256,12 @@ set wildignore=*/.git/*,*/node_modules/*,*/dist/*
 "}}}
 
 "------------------------------------------
-" PLUGIN SETTINGS
+" 3: PLUGIN SETTINGS
 "------------------------------------------
 "{{{
 
 " Markdown
 let g:vim_mardown_folding_disabled=1
-
 
 " Jquery Syntax Highlighting
 let g:used_javascript_libs                    = 'jquery'
@@ -280,6 +271,8 @@ let g:NERDRemoveExtraSpaces                   = 1
 let g:NERDSpaceDelims                         = 1
 
 " CtrlP Settings
+let g:ctrlp_show_hidden = 1
+let g:ctrlp_max_files = 2000
 let g:ctrlp_switch_buffer                     = 1
 let g:ctrlp_working_path_mode                 = 0
 
@@ -288,8 +281,8 @@ let g:html5_event_handler_attributes_complete = 0
 let g:html5_rdfa_attributes_complete          = 0
 let g:html5_aria_attributes_complete          = 0
 
-let g:PHP_outdentphpescape                    = 0
-let g:PHP_BracesAtCodeLevel                   = 0
+let g:PHP_outdentphpescape                    = 1
+let g:PHP_BracesAtCodeLevel                   = 1
 
 " FastFold Settings
 let g:fastfold_savehook                       = 1
@@ -329,7 +322,7 @@ function! s:goyo_leave()
 endfunction
 
 "--------------------------
-" YouCompleteMe
+" 3.A: YouCompleteMe
 "--------------------------
 "{{{
 
@@ -355,7 +348,7 @@ let g:ycm_autoclose_preview_window_after_completion     = 1
 "}}}
 
 "------------------------------------------
-" KEY MAPPINGS
+" 4: KEY MAPPINGS
 "------------------------------------------
 "{{{
 
@@ -363,7 +356,7 @@ let g:ycm_autoclose_preview_window_after_completion     = 1
 let mapleader=","
 
 "--------------------------
-" Normal/Visual/Operator Mode
+" 4.A: Normal/Visual/Operator Mode
 "--------------------------
 "{{{
 
@@ -510,7 +503,7 @@ endfunction
 " }}}
 
 "--------------------------
-" EX Mappings
+" 4.B: EX Mappings
 "--------------------------
 "{{{
 
@@ -520,7 +513,7 @@ command! W :execute ':silent w !sudo tee % > /dev/null'
 "}}}
 
 "--------------------------
-" Insert Mode
+" 4.C: Insert Mode
 "--------------------------
 "{{{
 
@@ -542,12 +535,11 @@ inoremap ><CR> ><CR><C-o>O
 "}}}
 
 "--------------------------
-" Paste From Registers
+" 4.D: Paste From Registers
 "--------------------------
 "{{{
 
 " Paste from numbered registers
-noremap <Leader>4p "4p
 noremap <Leader>0p "0p
 noremap <Leader>1p "1p
 noremap <Leader>2p "2p
@@ -561,7 +553,7 @@ noremap <Leader>5p "5p
 "}}}
 
 "------------------------------------------
-" CURSOR SETTINGS
+" 5: CURSOR SETTINGS
 "------------------------------------------
 "{{{
 
@@ -581,11 +573,15 @@ let &t_EI .= "\<Esc>[2 q"
 "}}}
 
 "------------------------------------------
-" COLORS
+" 6: COLORS
 "------------------------------------------
 "{{{
 
-" Line Highlighting
+" Quick note about this colorscheme.
+" Unfortunately I created it before I knew about the 'set background=dark'
+" bug, so for it to appear correctly, background must be set to dark BEFORE the color scheme is called.
+
+" Clear All Highlighting
 hi clear
 
 " Kill the CursorLine Underline
@@ -636,7 +632,7 @@ hi Identifier ctermfg=12
 "}}}
 
 "------------------------------------------
-" STATUSLINE
+" 7: STATUSLINE
 "------------------------------------------
 "{{{
 
@@ -765,7 +761,7 @@ endfunction
 "}}}
 
 "------------------------------------------
-" AUTO COMMANDS
+" 8: AUTO COMMANDS
 "------------------------------------------
 "{{{
 
@@ -844,7 +840,7 @@ if has("autocmd")
         au CursorHold * echo ""
         au CursorMovedI * echo ""
 
-        au InsertEnter * setlocal timeoutlen=500
+        au InsertEnter * setlocal timeoutlen=1000
         au InsertLeave * setlocal timeoutlen=250
     augroup END
 
