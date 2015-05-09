@@ -297,7 +297,7 @@ assign      [class="(?i)spotify"] $ws3
 for_window  [class="(?i)speedcrunch"] floating enable;
 
 # Floaters
-for_window  [class="(?i)skype"] floating enable;
+# for_window  [class="(?i)skype"] floating enable;
 
 #Colors
 client.focused $blue $blue $green $red
