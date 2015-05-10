@@ -259,7 +259,7 @@ bar {
 #{{{
 
 # Remove titlebar unless in stacking or tabbed mode
-for_window  [class="^.*"] border pixel 1
+for_window  [class="^.*"] border pixel 2
 for_window  [class="(?i)urxvt"] border pixel 0
 for_window  [class="(?i)urxvtc"] border pixel 0
 

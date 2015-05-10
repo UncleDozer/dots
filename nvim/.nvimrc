@@ -125,37 +125,37 @@ set encoding=utf-8
 
 set background=dark
 
-set lazyredraw        " Only Redraw When Needed
+set lazyredraw      " Only Redraw When Needed
 
-set number            " Line Numbering
+set number          " Line Numbering
 
-set nowrap            " No Text Wrap
+set nowrap          " No Text Wrap
 
-set autoread          " Auto Reload File
+set autoread        " Auto Reload File
 
-set autowriteall      " Auto Save File
+set autowriteall    " Auto Save File
 
-set laststatus=2      " Show Status Line
+set laststatus=2    " Show Status Line
 
-set ruler             " Show Line and Column Position
+set ruler           " Show Line and Column Position
 
-set hidden            " UnHide Closed Buffers
+set hidden          " UnHide Closed Buffers
 
-set showcmd           " Show The Last Command
+set showcmd         " Show The Last Command
 
-set showtabline=2     " Always Show Tab Line
+set showtabline=2   " Always Show Tab Line
 
-set scrolloff=5       " How Many Lines visible before scrolling of buffer
+set scrolloff=5     " How Many Lines visible before scrolling of buffer
 set sidescrolloff=5
 set sidescroll=1
 
-set showmatch         " Highlight Brackets
+set showmatch       " Highlight Brackets
 
-set matchtime=2       " Tenths of a Second to Show the Matching Bracket
+set matchtime=2     " Tenths of a Second to Show the Matching Bracket
 
-set cursorline        " Enable Line Highlighting
+set cursorline      " Enable Line Highlighting
 
-set title             " Disable All Bells
+set title           " Disable All Bells
 set novisualbell
 set noerrorbells
 set t_vb=
@@ -184,18 +184,18 @@ endif
 "--------------------------
 "{{{
 
-set expandtab " Expand Tabs to Spaces
+set expandtab                 " Expand Tabs to Spaces
 set tabstop=4
 set softtabstop=4
 set shiftwidth=4
 set shiftround
 
-set breakindent " Visually Break Lines in Wrap Mode
+set breakindent               " Visually Break Lines in Wrap Mode
 
-set smartindent " Auto Indenting
+set smartindent               " Auto Indenting
 set autoindent
 
-set list          " Show Whitespace and Tabs
+set list                      " Show Whitespace and Tabs
 set listchars=tab:»\ ,trail:•
 
 "}}}
@@ -579,7 +579,8 @@ let &t_EI .= "\<Esc>[2 q"
 
 " Quick note about this colorscheme.
 " Unfortunately I created it before I knew about the 'set background=dark'
-" bug, so for it to appear correctly, background must be set to dark BEFORE the color scheme is called.
+" bug, so for it to appear correctly, background must be set to dark BEFORE
+" the color scheme is called.
 
 " Clear All Highlighting
 hi clear

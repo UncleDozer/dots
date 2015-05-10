@@ -41,9 +41,12 @@ inoremap <C-e> <C-i>
 
 " Colors
 hi! clear
+" Hints
 hi HintElem background-color: #1a1a1a; color: white;
 hi HintActive background-color: #ace594;
 hi Hint font-family: monospace; font-size: 10px; font-weight: bold; text-transform: uppercase; color: white; background-color: #5B92FA; border-color: ButtonShadow; border-width: 0px; border-style: solid; padding: 0px 3px 0px 3px; text-shadow: 0 2px rgba(0,0,0,.3);
+
+" CommandLine
 hi CmdLine background-color: #1a1a1a; color: #f1f3f4; font-weight: 500;
 hi CompGroup background-color: #1a1a1a; color: #f1f3f4; font-weight: 500;
 hi CompItem background-color: #1a1a1a; color: #f1f3f4; font-weight: 500;
@@ -58,7 +61,7 @@ hi LineNr color: #b3bdc2;
 hi ContentSeparator display:none;
 hi Message background-color: #1a1a1a
 
-" On startup, define my usermode stylesheet
+" On startup, define my readability stylesheet ( for use with usermode )
 style -name usermodestyle file:,file*,file:*,http*,https* body{ margin:40px auto; max-width:650px; line-height:1.6; font-size:1.3em; color:#F1F3F4; padding:0 10px; background: #1A1A1A; } a{ color:#2EB9FF !important; } a:visited{color:#31789C !important;} h1, h2, h3, h4, h5, h6{ line-height:1.2; } pre{max-width: 650px !important;}
 styledisable -name usermodestyle
 
