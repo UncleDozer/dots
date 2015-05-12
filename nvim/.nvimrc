@@ -44,10 +44,10 @@ call plug#begin('~/.nvim/bundle')
 Plug 'cakebaker/scss-syntax.vim', {'for': 'scss' }
 
 " Javascript Syntax Highlighting
-Plug 'jelera/vim-javascript-syntax', { 'for': 'js' }
+Plug 'jelera/vim-javascript-syntax', { 'for': 'javascript' }
 
 " Javascript Libraries Syntax
-Plug 'othree/javascript-libraries-syntax.vim', { 'for': 'js' }
+Plug 'othree/javascript-libraries-syntax.vim', { 'for': 'javascript' }
 
 " HTML and PHP
 Plug 'othree/html5.vim', { 'for': [ 'html', 'php' ] }
@@ -63,8 +63,8 @@ Plug 'PotatoesMaster/i3-vim-syntax'
 Plug 'dag/vim-fish', { 'for': 'fish' }
 
 " Markdown
-Plug 'tpope/vim-markdown', { 'for' : [ 'markdown', 'md' ] }
-Plug 'jtratner/vim-flavored-markdown', { 'for' : [ 'markdown', 'md' ] }
+Plug 'tpope/vim-markdown', { 'for' : 'markdown' }
+Plug 'jtratner/vim-flavored-markdown', { 'for' :  'markdown' }
 
 "}}}
 
@@ -125,7 +125,7 @@ set encoding=utf-8
 
 set background=dark
 
-set lazyredraw      " Only Redraw When Needed
+" set lazyredraw      " Only Redraw When Needed
 
 set number          " Line Numbering
 
@@ -264,7 +264,7 @@ set wildignore=*/.git/*,*/node_modules/*,*/dist/*
 let g:vim_mardown_folding_disabled=1
 
 " Jquery Syntax Highlighting
-let g:used_javascript_libs                    = 'jquery'
+" let g:used_javascript_libs                    = 'jquery'
 
 " Nerd Commenter
 let g:NERDRemoveExtraSpaces                   = 1
