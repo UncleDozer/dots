@@ -24,7 +24,7 @@ end
 
 # User Variables ---{{{
 set -x BROWSER 'firefox-developer'
-set -x TERMINAL 'urxvt'
+set -x TERMINAL 'urxvtc'
 set -x QT_X11_NO_MITSHM 1
 set -x EDITOR 'nvim'
 set -x SCRIPTS $HOME/.scripts
@@ -46,56 +46,31 @@ set -x fish_pager_color_prefix green --bold
 
 # Alias Functions ---{{{
 # Jump plugin
-function j
-    eval jump $argv
-end
+alias j='jump'
 
 # nextd
-function nd
-    eval nextd $argv
-end
+alias nd='nextd'
 
 # prevd
-function pd
-    eval prevd $argv
-end
+alias pd='prevd'
 
 # vim to nvim
-function vim
-    eval nvim $argv
-end
-
-# quick run terminal
-function terminal
-    eval urxvtc --hold $argv
-end
+alias vim='nvim'
 
 # I can never seem to remember yaourt
-function aur
-    eval yaourt $argv
-end
+alias aur='yaourt'
 
 # ls functions
-function ll
-    eval ls -A --format single-column $argv
-end
+alias ll='ls -A --format single-column'
 
-function la
-    eval ls -lhAogZX $argv
-end
+alias la='ls -lhAogZX'
 
 # Quick change directory
-function cd.
-    eval cd ../$argv
-end
+alias cd.='cd ../'
 
-function cd..
-    eval cd ../../$argv
-end
+alias cd..='cd ../../'
 
-function cd...
-    eval cd ../../../$argv
-end
+alias cd...='cd ../../../'
 # ---}}}
 
 # Functions ---{{{

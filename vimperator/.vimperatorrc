@@ -28,8 +28,8 @@ nnoremap x :tabclose<CR>
 nnoremap <S-x> :undo<CR>
 nnoremap <Leader>sov :source ~/.vimperatorrc<CR>
 nnoremap <Leader>/ :nohlsearch<CR>
-nnoremap <Leader>> ]]
-nnoremap <Leader>< [[
+nnoremap >> ]]
+nnoremap << [[
 nnoremap <Leader>t :set gui=invtabs<CR>
 nnoremap <C-t> :tabgroups switch<Space><TAB>
 nnoremap <Leader>ps :tabgroups switch<Space><TAB>
@@ -44,7 +44,7 @@ hi! clear
 " Hints
 hi HintElem background-color: #1a1a1a; color: white;
 hi HintActive background-color: #ace594;
-hi Hint font-family: monospace; font-size: 10px; font-weight: bold; text-transform: uppercase; color: white; background-color: #5B92FA; border-color: ButtonShadow; border-width: 0px; border-style: solid; padding: 0px 3px 0px 3px; text-shadow: 0 2px rgba(0,0,0,.3);
+hi Hint font-family: Office Code Pro; font-size: 14px; font-weight: bold; text-transform: uppercase; color: white; background-color: #5B92FA; border-color: ButtonShadow; border-width: 0px; border-style: solid; padding: 0px 3px 0px 3px; text-shadow: 0 2px rgba(0,0,0,.3);
 
 " CommandLine
 hi CmdLine background-color: #1a1a1a; color: #f1f3f4; font-weight: 500;

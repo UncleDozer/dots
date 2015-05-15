@@ -1,128 +1,128 @@
 :root{
-	--main-fg-color: #B5DAF9;
-	--sel-bg-color: #1976D2;
-	--sel-fg-color: #F7FAFD;
-	--norm-bg-color: #1976D2;
-	--norm-fg-color: #1976D2;
+    --main-fg-color: #B5DAF9;
+    --sel-bg-color: #1976D2;
+    --sel-fg-color: #F7FAFD;
+    --norm-bg-color: #1976D2;
+    --norm-fg-color: #1976D2;
 }
 
 #urlbar{
-   color: var(--sel-fg-color);
-   font-family: "lemon", "Terminus" !important;
-   font-size: 10px;
+    color: var(--sel-fg-color);
+    font-family: "lemon", "Terminus" !important;
+    font-size: 10px;
 }
 
 #PopupAutoCompleteRichResult{
-   color: var(--main-fg-color);
-   font-size: 10px;
-   font-family: "lemon", "Terminus";
-   /*font-style: regular;*/
+    color: var(--main-fg-color);
+    font-size: 10px;
+    font-family: "lemon", "Terminus";
+    /*font-style: regular;*/
 }
 
 .autocomplete-richlistitem[current], .autocomplete-richlistitem:active:hover, .autocomplete-richlistitem:active{
-   background: var(--sel-bg-color);
-   color: var(--sel-fg-color);
-   box-shadow: 0 0 5px 5px rgba(0,0,0,.5) !important;
+    background: var(--sel-bg-color);
+    color: var(--sel-fg-color);
+    box-shadow: 0 0 5px 5px rgba(0,0,0,.5) !important;
 }
 
 
 .tabbrowser-tab[active], .tabbrowser-tab[selected] > *{
-   box-shadow: none;
-   color: var(--sel-fg-color);
-   background-color: var(--sel-bg-color);
+    box-shadow: none;
+    color: var(--sel-fg-color);
+    background-color: var(--sel-bg-color);
 }
 
 
 .devtools-monospace, #editor-tools * {
-   font-family: "lemon" !important;
-   font-size: 10px !important;
+    font-family: "lemon" !important;
+    font-size: 10px !important;
 }
 
 .CodeMirror, #stylish-edit {
-   font-family: "Terminus" !important;
-/*    font-size: 12px !important; */
+    font-family: "Terminus" !important;
+    /*    font-size: 12px !important; */
 }
 
 #addons-page{
-   font-family: "Terminus";
-/*    font-size: 1em !important; */
+    font-family: "Terminus";
+    /*    font-size: 1em !important; */
 }
 
 richlistitem{
-/*    font-size: .8em !important; */
-   max-height: 50px !important;
-   background: var(--norm-bg-color);
-   color: var(--norm-fg-color);
+    /*    font-size: .8em !important; */
+    max-height: 50px !important;
+    background: var(--norm-bg-color);
+    color: var(--norm-fg-color);
 }
 
 .category[selected]{
-   background: var(--sel-bg-color);
-   color: var(--sel-fg-color);
+    background: var(--sel-bg-color);
+    color: var(--sel-fg-color);
 }
 
 .addon[selected]{
-   background: var(--sel-bg-color);
-   color: var(--sel-fg-color);
+    background: var(--sel-bg-color);
+    color: var(--sel-fg-color);
 }
 
 .category:hover{
-   color: var(--sel-fg-color);
+    color: var(--sel-fg-color);
 }
 
 #addon-list, #search-filter, richlistbox, #search-list{
-   background: var(--norm-bg-color);
-   color: var(--norm-fg-color);
+    background: var(--norm-bg-color);
+    color: var(--norm-fg-color);
 }
 
 .addon{
-   padding: 0px;
+    padding: 0px;
 }
 
 #urlbar::-moz-selection{
-   background: var(--sel-fg-color);
-/*    color: #0a0f14; */
-   color: var(--sel-bg-color) !important;
+    background: var(--sel-fg-color);
+    /*    color: #0a0f14; */
+    color: var(--sel-bg-color) !important;
 }
 
 .detail-view-container, .main-content, #tabsElement, #tabsElement > tab{
-   background: var(--norm-bg-color);
-   border-color: var(--norm-fg-color);
+    background: var(--norm-bg-color);
+    border-color: var(--norm-fg-color);
 }
 
 .main-content > *{
-   font-family: "lemon";
-   font-size: 10px;
+    font-family: "lemon";
+    font-size: 10px;
 }
 
 textbox, menulist, checkbox, radio, #browserStartupPage button{
-   border-color: var(--sel-fg-color);
-   background: var(--sel-bg-color);
+    border-color: var(--sel-fg-color);
+    background: var(--sel-bg-color);
 }
 
 #detail-view > hbox{
-   background: #14171a;
+    background: #14171a;
 }
 
 textbox{
-   color: var(--sel-fg-color) !important;
+    color: var(--sel-fg-color) !important;
 }
 
 treechildren, menuitem, menuitem>label{
-   color: var(--sel-bg-color) !important;
-   font-size: 10px;
+    color: var(--sel-bg-color) !important;
+    font-size: 10px;
 }
 
 label#sidebar-search-label, button#viewButton, label, toolbarbutton.subviewbutton{
-   color: var(--sel-fg-color);
-   font-family: "lemon";
-   font-size: 10px;
+    color: var(--sel-fg-color);
+    font-family: "lemon";
+    font-size: 10px;
 }
 
 radio.devtools-tab, hbox#toolbox-tab{
-   height: 20px !important;
+    height: 20px !important;
 }
 
 description{
-   color: var(--sel-fg-color);
+    color: var(--sel-fg-color);
 }
 
