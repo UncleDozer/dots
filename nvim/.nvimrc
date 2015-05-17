@@ -52,6 +52,7 @@ Plug 'othree/javascript-libraries-syntax.vim', { 'for': 'javascript' }
 " HTML and PHP
 Plug 'othree/html5.vim', { 'for': [ 'html', 'php' ] }
 Plug 'nicklasos/vimphphtml', { 'for': [ 'html', 'php' ] }
+Plug 'StanAngeloff/php.vim', { 'for': 'php' }
 
 " AutoClose HTML Tags
 Plug 'vim-scripts/HTML-AutoCloseTag', { 'for': [ 'html', 'php' ] }
@@ -261,20 +262,20 @@ set wildignore=*/.git/*,*/node_modules/*,*/dist/*
 "{{{
 
 " Markdown
-let g:vim_mardown_folding_disabled=1
+let g:vim_mardown_folding_disabled = 1
 
 " Jquery Syntax Highlighting
 " let g:used_javascript_libs                    = 'jquery'
 
 " Nerd Commenter
-let g:NERDRemoveExtraSpaces                   = 1
-let g:NERDSpaceDelims                         = 1
+let g:NERDRemoveExtraSpaces = 1
+let g:NERDSpaceDelims       = 1
 
 " CtrlP Settings
-let g:ctrlp_show_hidden = 1
-let g:ctrlp_max_files = 2000
-let g:ctrlp_switch_buffer                     = 1
-let g:ctrlp_working_path_mode                 = 0
+let g:ctrlp_show_hidden       = 1
+let g:ctrlp_max_files         = 2000
+let g:ctrlp_switch_buffer     = 1
+let g:ctrlp_working_path_mode = 0
 
 " HTML5 and PHP syntax settings
 let g:html5_event_handler_attributes_complete = 0
@@ -283,6 +284,11 @@ let g:html5_aria_attributes_complete          = 0
 
 let g:PHP_outdentphpescape                    = 1
 let g:PHP_BracesAtCodeLevel                   = 1
+
+function! PhpSyntaxOverride()
+    hi! def link phpDocTags phpDefine
+    hi! def link phpDocParam phpType
+endfunction
 
 " FastFold Settings
 let g:fastfold_savehook                       = 1
@@ -806,6 +812,7 @@ if has("autocmd")
     augroup filemappings
         au!
         " Quick PHP Tags (o for O and i for inline)
+        au FileType php call PhpSyntaxOverride()
         au BufRead,BufNewFile *.php inoremap <?po <?php<CR>?><C-o>O<TAB>
         au BufRead,BufNewFile *.php inoremap <?pi <?php  ?><C-o>2h
         au BufRead,BufNewFile *.php noremap <buffer> <Leader>flo <ESC>i<?php<CR><CR>?><ESC>k
