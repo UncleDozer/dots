@@ -304,7 +304,7 @@ for_window  [class="(?i)speedcrunch"] floating enable;
 # for_window  [class="(?i)skype"] floating enable;
 
 # Full Screen
-# for_window  [class="(?i)Mplayer"] fullscreen enable
+for_window  [class="(?i)Mplayer"] fullscreen enable
 
 #Colors
 client.focused $blue $blue $green $red

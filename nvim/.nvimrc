@@ -106,6 +106,9 @@ Plug 'tpope/vim-surround'
 Plug 'tpope/vim-obsession'
 Plug 'dhruvasagar/vim-prosession'
 
+" Vim Caps Lock
+Plug 'tpope/vim-capslock'
+
 "}}}
 
 call plug#end()
@@ -532,6 +535,10 @@ vnoremap <Leader>y "+y
 " Exit Visual Mode
 vnoremap <CR> <ESC>
 
+" CAPS-LOCK toggle
+imap <C-L> <C-O><Plug>CapsLockToggle
+inoremap <C-c> <C-O><Plug>CapsLockToggle
+
 " Pop Open Curly Braces / Paranthesis
 inoremap {<CR> {<CR>}<C-o>O
 inoremap (<CR> (<CR>)<C-o>O
@@ -714,9 +721,15 @@ function! GetMode()
         hi! User6 ctermfg=12 ctermbg=235
         return '  N '
     elseif mode() ==# 'i' " Insert
-        hi! User3 ctermfg=15 ctermbg=14
-        hi! User6 ctermfg=14 ctermbg=235
-        return '  I '
+        if CapsLockStatusline() ==# '[caps]'
+            hi! User3 ctermfg=15 ctermbg=9
+            hi! User6 ctermfg=9 ctermbg=235
+            return ' CAPS'
+        else
+            hi! User3 ctermfg=15 ctermbg=14
+            hi! User6 ctermfg=14 ctermbg=235
+            return '  I '
+        end
     elseif mode() ==# 'R' " Replace All
         hi! User3 ctermfg=15 ctermbg=1
         hi! User6 ctermfg=1 ctermbg=235
