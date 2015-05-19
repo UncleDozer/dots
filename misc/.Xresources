@@ -4,7 +4,7 @@
 !{{{
 
 *font                : -*-terminesspowerline-bold-*-*-*-14-*-*-*-*-*-*-*
-URxvt*font           : -*-terminesspowerline-bold-*-*-*-14-*-*-*-*-*-*-*
+URxvt*font           : xft:Office Code Pro:style=Medium:size=16
 URxvt*boldFont       :
 URxvt*italicFont     :
 URxvt*boldItalicFont :
@@ -65,7 +65,7 @@ URxvt*transparent       : false
 ! ROFI SETTINGS
 ! {{{
 
-rofi.font                : Office Code Pro Medium 16
+rofi.font                : Office Code Pro Bold 16
 rofi.fg-active           : #7ED65A
 rofi.hlbg                : #2EB9FF
 rofi.hlfg                : #1A1A1A
@@ -78,6 +78,10 @@ rofi.padding             : 15
 rofi.bgalt               : #2A2A2A
 rofi.kb-remove-word-back : Control+w
 rofi.bw                  : 1
+rofi.lazy-filter-limit   : 10000
+rofi.terminal            : urxvtc
+rofi.key-window          : mod4+shift+Tab
+rofi.key-run             : mod4+r
 
 ! }}}
 

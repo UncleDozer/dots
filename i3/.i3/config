@@ -68,7 +68,7 @@ set $launcher       dmenu_run -i -l -fn 'Office Code Pro-10' 20 -p "^_" -sb "$bl
 workspace_auto_back_and_forth yes
 
 # Font
-font pango:Office Code Pro Medium, Icons 10
+font pango:Office Code Pro Bold, Icons 10
 
 # Smart Borders
 smart_borders on
@@ -85,12 +85,6 @@ bindsym $mod+Return exec $terminal
 
 # Run Browser
 bindsym $mod+q exec $browser
-
-# start dmenu (a program launcher)
-# bindsym $mod+r exec dmenu_run -y 24 -q -i -l 10 -uh 2 -p "^_" -sb "$blue" -uc "$green" -nf "$white" -nb "$black" -sf "#fff" -fn 'Office Code Pro Medium-14'
-bindsym $mod+r exec rofi -show run
-bindsym $mod+Shift+Tab exec rofi -show window
-# bindsym $mod+r exec --no-startup-id i3-dmenu-desktop
 
 gaps inner $default_gaps_inner
 gaps outer $default_gaps_outer
@@ -234,7 +228,7 @@ bindsym $mod+$alt+r mode ""
 #{{{
 
 bar {
-  font pango:Office Code Pro Medium, Icons 13
+  font pango:Office Code Pro Bold, Icons 14
   status_command i3status -c ~/.i3/i3status.conf
   strip_workspace_numbers yes
   height 25
@@ -248,7 +242,7 @@ bar {
     separator  $green
     background $black
     statusline $blue
-#                    |  BG      | BORDER  |  FG
+# --------------------|    BG    | BORDER  |   FG    |------
 # ----------------------------------------------------------
     focused_workspace  $green    $green    $black
     active_workspace   $dim_grey $dim_grey $dim_blue
@@ -310,7 +304,7 @@ for_window  [class="(?i)Mplayer"] fullscreen enable
 client.focused $blue $blue $green $red
 client.focused_inactive $black $black #888888 #292d2e
 client.unfocused $black $black #888888 #292d2e
-client.urgent $red $red #ffffff #900000
+client.urgent $red $red $white #900000
 
 # }}}
 

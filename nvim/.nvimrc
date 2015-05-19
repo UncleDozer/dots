@@ -335,15 +335,15 @@ endfunction
 "--------------------------
 "{{{
 
-let g:ycm_min_num_of_chars_for_completion               = 2
-let g:ycm_allow_changing_updatetime                     = 1
+let g:ycm_min_num_of_chars_for_completion = 2
+let g:ycm_allow_changing_updatetime       = 1
 
 " Fix for esc and Autoclose
-let g:AutoClosePumvisible                               = {"ENTER": "<C-Y>", "ESC": "<ESC>"}
+let g:AutoClosePumvisible = {"ENTER": "<C-Y>", "ESC": "<ESC>"}
 
 " Allow YCM to Complete Inside Comments and Strings
-let g:ycm_complete_in_comments                          = 1
-let g:ycm_complete_in_strings                           = 1
+let g:ycm_complete_in_comments = 1
+let g:ycm_complete_in_strings  = 1
 let g:ycm_collect_identifiers_from_comments_and_strings = 1
 
 " Complete Identifiers With Syntax
@@ -357,7 +357,7 @@ let g:ycm_autoclose_preview_window_after_completion     = 1
 "}}}
 
 "------------------------------------------
-" 4: KEY MAPPINGS
+" 4: KEY MAPPINGS & COMMANDS
 "------------------------------------------
 "{{{
 
@@ -386,7 +386,7 @@ noremap <A-j> :m .+1<CR>==
 noremap <A-k> :m .-2<CR>==
 
 " Generate ComDoc
-nnoremap  <Leader>doc :set paste<CR>i/*{{{<CR> * @Author: Kristopher Watts <kristopher.a.watts@gmail.com><CR> * @Location: ""<CR> *<CR> * @Uses:<CR> * @Example:<CR> *<CR> *<CR>}}}*/<CR><Esc>:set nopaste<CR>
+nnoremap <Leader>doc :set paste<CR>i/**<CR> *<CR> *<CR> */<CR><ESC>:set nopaste<CR>
 
 " Fold Keys
 nnoremap <Leader>fm :AutoCloseToggle<CR>i{{{<ESC><plug>NERDComenterComment:AutoCloseToggle<CR>
@@ -429,7 +429,19 @@ nnoremap <S-h> :bp<CR>
 nnoremap <S-l> :bn<CR>
 
 " Close Buffer
-nnoremap <Leader>x :bd<CR>
+nnoremap <Leader>x :bp\|bd #<CR>
+
+" VSplit
+nnoremap <Leader>v :vsplit<CR>
+
+" HSplit
+nnoremap <Leader>h :split<CR>
+
+" Navigate Splits
+nnoremap <C-l> <C-w>l
+nnoremap <C-k> <C-w>k
+nnoremap <C-j> <C-w>j
+nnoremap <C-h> <C-w>h
 
 " Switch to Previous Buffer
 nnoremap <Leader>t <C-^>
@@ -463,61 +475,28 @@ nnoremap Ïc <nop>
 nnoremap <C-Left> <nop>
 nnoremap <C-Right> <nop>
 
-" Change Fonts and Font Sizes on The Fly
-" Urxvt Tested Only
-
-" Define The Default Font Style
-" Does not work
-function! FontChange()
-
-    let g:FontDefault = {
-                \ "name": 'terminesspowerline',
-                \ "size": 32,
-                \ "style": 'bold',
-                \ "xft": 0,
-                \ "xfont": 1,
-                \ }
-
-    function! GetFontString()
-        if (g:FontDefault.xft)
-            let g:FontString = join(['xft:',g:FontDefault.name,'pixelsize:',g:FontDefault,'style:',g:FontDefault.style],'')
-
-        elseif (g:FontDefault.xfont)
-            let l:FontString = join(['-*-',g:FontDefault.name,'-',g:FontDefault.style,'-*-*-*-',g:FontDefault.size,'-*-*-*-*-*-*-*'],'')
-
-        else " Default to xfont for safety
-            let l:FontString = join(['-*-',g:FontDefault.name,'-',g:FontDefault.style,'-*-*-*-',g:FontDefault.size,'-*-*-*-*-*-*-*'],'')
-        endif
-
-        let g:FontDefault.fontstring = l:FontString
-    endfunction
-
-    function! GetTermFontEsc()
-        call GetFontString()
-        let l:escst = '"\033]710;'
-        let l:esced = '\033\\"'
-        let l:termescape = join([l:escst,g:FontDefault.fontstring,l:esced],'')
-        let g:FontDefault.termescape = l:termescape
-    endfunction
-
-    call GetTermFontEsc()
-
-    "Echo the escape code in terminal
-    let g:EchoMe = join(['echo -e ',g:FontDefault.termescape],'')
-    let g:EchoMe = g:EchoMe
-    execute ':terminal ' . g:EchoMe
-
-endfunction
-
 " }}}
 
 "--------------------------
-" 4.B: EX Mappings
+" 4.B: Commands
 "--------------------------
 "{{{
 
 " Sudo Save
 command! W :execute ':silent w !sudo tee % > /dev/null'
+
+" Run Markdown Parser
+function! Markup()
+    let l:FileName = expand('%:p') . ''
+    if l:FileName =~? ".md"
+        :execute "!ghmd -o=\"" . l:FileName . ".html\" " . l:FileName
+        echo l:FileName . '.html has been created'
+    else
+        echo 'Not a markdown file'
+    endif
+endfunction
+
+command! MarkUp :execute ':call Markup()'
 
 "}}}
 
@@ -598,20 +577,21 @@ let &t_EI .= "\<Esc>[2 q"
 " Clear All Highlighting
 hi clear
 
-" Kill the CursorLine Underline
+" Kill the CursorLine Underline (I don't use an italic font so it just clears the style)
 hi CursorLine cterm=italic ctermbg=0
+" Highlight the current line number
 hi CursorLineNr ctermfg=9 ctermbg=0
-hi LineNr ctermfg=237
+hi LineNr ctermfg=7
 hi StatusLine cterm=none ctermfg=7 ctermbg=0
-hi StatusLineNC cterm=none ctermfg=7 ctermbg=0
+hi StatusLineNC cterm=none ctermfg=7 ctermbg=235
 hi TabLineFill ctermbg=none ctermfg=0
-hi TabLine ctermfg=2 ctermbg=235 cterm=none
+hi TabLine ctermfg=2 ctermbg=0 cterm=none
 hi TabLineSel ctermfg=10 ctermbg=0
 
 " UI Highlighting
 hi Search cterm=reverse ctermfg=none ctermbg=none
 hi MatchParen ctermfg=10
-hi VertSplit ctermfg=15 ctermbg=0
+hi VertSplit ctermfg=0 ctermbg=7
 hi Directory ctermfg=4
 hi SpecialKey ctermfg=7
 hi Special ctermfg=10
