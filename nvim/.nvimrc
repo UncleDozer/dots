@@ -109,6 +109,9 @@ Plug 'dhruvasagar/vim-prosession'
 " Vim Caps Lock
 Plug 'tpope/vim-capslock'
 
+" VIMMPC ( vim mpd client )
+" Plug 'gaving/vimmpc'
+
 "}}}
 
 call plug#end()

@@ -12,8 +12,8 @@ set $music     "spotify"
 set $browser   "firefox-developer"
 set $terminal  "urxvtc"
 
-set $default_gaps_inner 45
-set $default_gaps_outer 15
+set $default_gaps_inner 35
+set $default_gaps_outer 5
 
 set $red         #FF2E4C
 set $blue        #2EB9FF
