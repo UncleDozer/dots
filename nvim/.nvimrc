@@ -796,6 +796,8 @@ if has("autocmd")
         au BufRead,BufNewFile *.note setlocal filetype=markdown
         au BufRead,BufNewFile *.todo setlocal filetype=markdown
         au BufRead,BufNewFile vimp*.tmp setlocal filetype=markdown
+        " GHMarkdown only works after a filetype is declared as markdown on non .md files
+        au FileType markdown setlocal filetype=ghmarkdown
     augroup END
 
     " SCSS Specific
@@ -819,6 +821,7 @@ if has("autocmd")
     " Help Specific
     augroup helpfiles
         au Filetype *.help setlocal nonumber
+        au Filetype *.help nnoremap <buffer> q :bd<CR>
     augroup END
 
 
