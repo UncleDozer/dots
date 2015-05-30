@@ -67,6 +67,10 @@ Plug 'dag/vim-fish', { 'for': 'fish' }
 Plug 'tpope/vim-markdown', { 'for' : 'markdown' }
 Plug 'jtratner/vim-flavored-markdown', { 'for' :  'markdown' }
 
+" LaTeX
+Plug 'lervag/vimtex'
+Plug 'xuhdev/vim-latex-live-preview'
+
 "}}}
 
 "--------------------------
@@ -83,8 +87,9 @@ Plug 'The-NERD-Commenter'
 " Alignment
 Plug 'Align', { 'on': 'Align' }
 
-" CtrlP fuzzy file finder
-Plug 'ctrlpvim/ctrlp.vim'
+" FZF Replacement of CtrlP fuzzy file finder
+Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': 'yes \| ./install' }
+" Plug 'ctrlpvim/ctrlp.vim'
 
 " Fast Fold
 Plug 'Konfekt/FastFold'
@@ -271,17 +276,18 @@ set wildignore=*/.git/*,*/node_modules/*,*/dist/*
 let g:vim_mardown_folding_disabled = 1
 
 " Jquery Syntax Highlighting
-" let g:used_javascript_libs                    = 'jquery'
+" let g:used_javascript_libs = 'jquery'
 
 " Nerd Commenter
 let g:NERDRemoveExtraSpaces = 1
 let g:NERDSpaceDelims       = 1
 
 " CtrlP Settings
-let g:ctrlp_show_hidden       = 1
-let g:ctrlp_max_files         = 2000
-let g:ctrlp_switch_buffer     = 1
-let g:ctrlp_working_path_mode = 0
+" Replaced by FZF
+" let g:ctrlp_show_hidden       = 1
+" let g:ctrlp_max_files         = 2000
+" let g:ctrlp_switch_buffer     = 1
+" let g:ctrlp_working_path_mode = 0
 
 " HTML5 and PHP syntax settings
 let g:html5_event_handler_attributes_complete = 0
@@ -300,6 +306,9 @@ endfunction
 let g:fastfold_savehook                       = 1
 let g:fastfold_fold_command_suffixes          = ['x','X','a','A','o','O','c','C']
 let g:fastfold_fold_movement_commands         = [']z', '[z','zj','zk']
+
+" Live LaTeX
+let g:livepreivew_previewer = 'zathura'
 
 " Goyo Settings
 let g:goyo_width                              = 100
@@ -379,6 +388,9 @@ noremap ; :
 nnoremap <leader>en :echo @%<CR>
 
 nnoremap <leader>scr :e $HOME/.note/scratch.note<CR>ggVGdP
+
+" FZF Fuzzy Finder
+nnoremap <C-p> :FZF<CR>
 
 " Treat Linebreaks as Seperate Lines
 noremap k gk
@@ -563,7 +575,7 @@ noremap <Leader>5p "5p
 let &t_SI .= "\<Esc>[5 q"
 
 " Normal Mode
-let &t_EI .= "\<Esc>[2 q"
+let &t_EI .= "\<Esc>[4 q"
 
 "}}}
 
@@ -581,7 +593,7 @@ let &t_EI .= "\<Esc>[2 q"
 hi clear
 
 " Kill the CursorLine Underline (I don't use an italic font so it just clears the style)
-hi CursorLine cterm=italic ctermbg=0
+hi CursorLine cterm=none ctermbg=0
 " Highlight the current line number
 hi CursorLineNr ctermfg=9 ctermbg=0
 hi LineNr ctermfg=7
@@ -773,8 +785,8 @@ if has("autocmd")
     " Re-Source Vimrc on save
     augroup mynvimrchooks
         au!
-        autocmd BufWritePost .nvimrc source $MYVIMRC
-        autocmd BufWritePost .nvimrc silent YcmRestartServer
+        " autocmd BufWritePost .nvimrc source $MYVIMRC
+        " autocmd BufWritePost .nvimrc silent YcmRestartServer
     augroup END
 
     " Filetype Commands
@@ -810,7 +822,7 @@ if has("autocmd")
     augroup filemappings
         au!
         " Quick PHP Tags (o for O and i for inline)
-        au FileType php call PhpSyntaxOverride()
+        au FileType *.php call PhpSyntaxOverride()
         au BufRead,BufNewFile *.php inoremap <?po <?php<CR>?><C-o>O<TAB>
         au BufRead,BufNewFile *.php inoremap <?pi <?php  ?><C-o>2h
         au BufRead,BufNewFile *.php noremap <buffer> <Leader>flo <ESC>i<?php<CR><CR>?><ESC>k
@@ -846,7 +858,6 @@ if has("autocmd")
         au!
         au CursorHold * echo ""
         au CursorMovedI * echo ""
-
         au InsertEnter * setlocal timeoutlen=1000
         au InsertLeave * setlocal timeoutlen=250
     augroup END

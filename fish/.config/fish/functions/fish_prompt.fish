@@ -1,5 +1,7 @@
-# name: RobbyRussel
-# Modified by: Kristopher Watts <kristopher.a.watts@gmail.com>
+##
+ # @CoolFish Fish Prompt Theme
+ # @Author: Kristopher Watts <kristopher.a.watts@gmail.com>
+##
 
 function _git_branch_name
     echo (command git symbolic-ref HEAD ^/dev/null | sed -e 's|^refs/heads/||')
