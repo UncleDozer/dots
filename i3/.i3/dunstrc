@@ -24,7 +24,7 @@
     #   %I  iconname (without its path)
     #   %p  progress value if set ([  0%] to [100%]) or nothing
     # Markup is allowed
-    format = "<span color="#2EB9FF" font_weight="bold" font_size="larger">%a</span>\n<span color="#FF5724">%s</span>\n<span>%b</span>\n%p"
+    format = <span color="#2EB9FF" font_weight="bold" font_size="larger">%s</span>\n<span color="#FF5724">%b</span>\n<span>%p</span>
 
     # Sort messages by urgency.
     sort = no

@@ -5,12 +5,19 @@
 # Variables
 # {{{
 
+# Mod Keys
 set $mod       Mod4
 set $alt       Mod1
+
+# Programs
 set $run       exec python ~/.i3/runorfocus.py
-set $music     "spotify"
-set $browser   "firefox-developer"
-set $terminal  "urxvtc"
+set $music     amarok
+set $browser   firefox-developer
+set $terminal  urxvtc
+
+# Outputs
+set $output1 DVI-0
+set $output2 HDMI-0
 
 set $default_gaps_inner 35
 set $default_gaps_outer 5
@@ -66,9 +73,11 @@ set $launcher       dmenu_run -i -l -fn 'Office Code Pro-10' 20 -p "^_" -sb "$bl
 
 # Settings
 workspace_auto_back_and_forth yes
+popup_during_fullscreen smart
+force_display_urgency_hint 1000 ms
 
 # Font
-font pango:Office Code Pro Bold, Icons 10
+font pango:Office Code Pro Medium, Icons 10
 
 # Smart Borders
 smart_borders on
@@ -157,12 +166,12 @@ bindsym $mod+8 workspace $ws8
 bindsym $mod+9 workspace $ws9
 bindsym $mod+0 workspace $ws10
 bindsym $mod+Tab workspace back_and_forth
-workspace $ws5 output HDMI-0
-workspace $ws1 output DVI-0
-workspace $ws2 output DVI-0
-workspace $ws3 output DVI-0
-workspace $ws4 output DVI-0
-workspace $ws6 output DVI-0
+workspace $ws5 output $output1
+workspace $ws1 output $output2
+workspace $ws2 output $output2
+workspace $ws3 output $output2
+workspace $ws4 output $output2
+workspace $ws6 output $output2
 
 
 # move focused container to workspace
@@ -182,12 +191,12 @@ bindsym $mod+Shift+c reload
 # restart i3 inplace (preserves your layout/session, can be used to upgrade i3)
 bindsym $mod+Shift+r restart
 # exit i3 (logs you out of your X session)
-bindsym $mod+Shift+q exec "i3-nagbar -t warning -m 'You pressed the exit shortcut. Do you really want to exit i3? This will end your X session.' -b 'Yes, exit i3' 'i3-msg exit'"
+bindsym $mod+Shift+q exec "i3-msg exit"
 
 # Modes
 #{{{
 
-# resize window (you can also use the mouse for that)
+# resize mode (you can also use the mouse for that)
 mode "" {
         # These bindings trigger as soon as you enter the resize mode
 
@@ -228,12 +237,12 @@ bindsym $mod+$alt+r mode ""
 #{{{
 
 bar {
-  font pango:Office Code Pro Bold, Icons 14
+  font pango:Office Code Pro Medium, Icons 14
   status_command i3status -c ~/.i3/i3status.conf
   strip_workspace_numbers yes
   height 25
   position top
-  tray_output DVI-0
+  tray_output $output1
   id bar-1
   #tray_output nne
   mode dock
@@ -309,6 +318,15 @@ client.urgent $red $red $white #900000
 # }}}
 
 # }}}
+
+# AutoRun
+# {{{
+exec --no-startup-id i3-msg "workspace 3; exec $music; workspace 1"
+exec --no-startup-id i3-msg "workspace 2; append_layout /home/uncledozer/.i3/workspace2.json"
+exec --no-startup-id i3-msg "workspace 3; append_layout /home/uncledozer/.i3/workspace3.json"
+#}}}
+
+
 
 # vim:filetype=i3
 # vim:commentstring=#%s

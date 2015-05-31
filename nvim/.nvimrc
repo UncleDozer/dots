@@ -40,8 +40,9 @@ call plug#begin('~/.nvim/bundle')
 "--------------------------
 "{{{
 
-" Scss Syntax Highlighting
+" SCSS Syntax Highlighting & CSS3 Highlighting
 Plug 'cakebaker/scss-syntax.vim', {'for': 'scss' }
+Plug 'hail2u/vim-css3-syntax'
 
 " Javascript Syntax Highlighting
 Plug 'jelera/vim-javascript-syntax', { 'for': 'javascript' }
@@ -402,6 +403,9 @@ noremap <A-k> :m .-2<CR>==
 
 " Generate ComDoc
 nnoremap <Leader>doc :set paste<CR>i/**<CR> *<CR> *<CR> */<CR><ESC>:set nopaste<CR>
+
+" Generate Section
+nnoremap <Leader>fld :set paste<CR>i/* *----------------------------------------<CR> * {{{<CR> * *----------------------------------------<CR> */<CR><CR><CR> /* }}}<CR> * *----------------------------------------<CR> */<ESC>:set nopaste<CR>7ka
 
 " Fold Keys
 nnoremap <Leader>fm :AutoCloseToggle<CR>i{{{<ESC><plug>NERDComenterComment:AutoCloseToggle<CR>
