@@ -144,10 +144,33 @@ end
 # Multiple Terminals
 function multiterm
     switch (count $argv)
+        case 0
+            run 1 "urxvtc -hold -cd (pwd)"
         case 1
             run $argv "urxvtc -hold -cd (pwd)"
         case 2
             run $argv[1] "urxvtc -hold -cd $argv[2]"
     end
 end
+
+function autorefresh
+    switch ( count $argv )
+        case 0
+            ls **.css **.php **.js **.txt | entr reload-browser firefox ^^ /dev/null
+        case 2
+            ls $argv[ 1 ] | entr reload-browser $argv[ 2 ]
+    end
+end
+
+function compileScss
+    switch ( count $argv )
+        case 0
+            ls **.scss | entr sassc main.scss ../css/main.css
+        case 1
+            ls **.scss | entr sassc $argv.scss ../css/$argv.css
+        case 2
+            ls **.scss | entr sassc $argv[ 1 ] $argv[ 2 ]
+    end
+end
+
 # ---}}}

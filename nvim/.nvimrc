@@ -88,9 +88,8 @@ Plug 'The-NERD-Commenter'
 " Alignment
 Plug 'Align', { 'on': 'Align' }
 
-" FZF Replacement of CtrlP fuzzy file finder
+" FZF Fuzzy Finder
 Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': 'yes \| ./install' }
-" Plug 'ctrlpvim/ctrlp.vim'
 
 " Fast Fold
 Plug 'Konfekt/FastFold'
@@ -115,8 +114,8 @@ Plug 'dhruvasagar/vim-prosession'
 " Vim Caps Lock
 Plug 'tpope/vim-capslock'
 
-" VIMMPC ( vim mpd client )
-" Plug 'gaving/vimmpc'
+" Vim-Pad for note taking
+Plug 'fmoralesc/vim-pad'
 
 "}}}
 
@@ -273,6 +272,13 @@ set wildignore=*/.git/*,*/node_modules/*,*/dist/*
 "------------------------------------------
 "{{{
 
+" Vim Pad
+let g:pad#dir = "~/.notes/"
+let g:pad#window_height = 15
+let g:pad#default_file_extension = ".md"
+let g:pad#default_format = "ghmarkdown"
+let g:pad#title_first_line = 1
+
 " Markdown
 let g:vim_mardown_folding_disabled = 1
 
@@ -282,13 +288,6 @@ let g:vim_mardown_folding_disabled = 1
 " Nerd Commenter
 let g:NERDRemoveExtraSpaces = 1
 let g:NERDSpaceDelims       = 1
-
-" CtrlP Settings
-" Replaced by FZF
-" let g:ctrlp_show_hidden       = 1
-" let g:ctrlp_max_files         = 2000
-" let g:ctrlp_switch_buffer     = 1
-" let g:ctrlp_working_path_mode = 0
 
 " HTML5 and PHP syntax settings
 let g:html5_event_handler_attributes_complete = 0
@@ -316,7 +315,6 @@ let g:goyo_width                              = 100
 let g:goyo_margin_top                         = 0
 let g:goyo_margin_bottom                      = 0
 let g:goyo_linenr                             = 1
-
 
 function! s:goyo_enter()
     set noshowmode
@@ -802,6 +800,8 @@ if has("autocmd")
         au BufReadPost,BufNewFile *.php set filetype=php
         au BufReadPost,BufNewFile *.js set filetype=javascript
         au BufRead,BufNewFile *.vimperratorrc set filetype=vim
+        au BufRead,BufNewFile * let g:pad#position[ "list" ] = "top"
+        au BufRead,BufNewFile * let g:pad#position[ "pads" ] = "top"
     augroup END
 
     " Markdown Specific
@@ -836,8 +836,8 @@ if has("autocmd")
 
     " Help Specific
     augroup helpfiles
-        au Filetype *.help setlocal nonumber
-        au Filetype *.help nnoremap <buffer> q :bd<CR>
+        au Filetype help setlocal nonumber
+        au Filetype help nnoremap <buffer>q :bd<CR>
     augroup END
 
 

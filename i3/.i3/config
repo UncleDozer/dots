@@ -16,8 +16,8 @@ set $browser   firefox-developer
 set $terminal  urxvtc
 
 # Outputs
-set $output1 DVI-0
-set $output2 HDMI-0
+set $output1 HDMI-0
+set $output2 DVI-0
 
 set $default_gaps_inner 35
 set $default_gaps_outer 5
@@ -173,6 +173,10 @@ workspace $ws3 output $output2
 workspace $ws4 output $output2
 workspace $ws6 output $output2
 
+# Load Workspace Layout
+bindsym $mod+Ctrl+2 exec --no-startup-id i3-msg "$ws2; append_layout /home/uncledozer/.i3/workspace2.json"
+bindsym $mod+Ctrl+3 exec --no-startup-id i3-msg "$ws3; append_layout /home/uncledozer/.i3/workspace3.json"
+# bindsym $mod+Ctrl+4 exec --no-startup-id i3-msg "$ws4; append_layout /home/uncledozer/.i3/workspace3.json"
 
 # move focused container to workspace
 bindsym $mod+Shift+1 move container to workspace $ws1
@@ -242,7 +246,7 @@ bar {
   strip_workspace_numbers yes
   height 25
   position top
-  tray_output $output1
+  tray_output $output2
   id bar-1
   #tray_output nne
   mode dock
@@ -270,6 +274,15 @@ for_window  [class="^.*"] border pixel 2
 for_window  [class="(?i)urxvt"] border pixel 0
 for_window  [class="(?i)urxvtc"] border pixel 0
 
+# Send music application to workspace 3
+assign      [class="(?i)$music"] $ws3
+
+# Set speedcrunch (calculator) to floating
+for_window  [class="(?i)speedcrunch"] floating enable
+
+# Disable Amarok Floating
+# for_window [class="(?i)amarok"] floating disable
+
 # Scratchpad and Dropdown Config
 #{{{
 
@@ -296,18 +309,6 @@ bindsym     $mod+Shift+d exec "colorgrab"
 for_window  [instance="colorgrab"] move scratchpad; [instance="colorgrab"] scratchpad show; move position 75px 75px; resize shrink height 10000px; resize grow height $col_height; resize shrink width 10000px; resize grow width $col_width; move scratchpad
 bindsym     $mod+d [instance="colorgrab"] scratchpad show
 
-# Create a spotify window in tab 3
-bindsym     $mod+Shift+m $run "Spotify" spotify
-assign      [class="(?i)spotify"] $ws3
-
-# Set speedcrunch (calculator) to floating
-for_window  [class="(?i)speedcrunch"] floating enable;
-
-# Floaters
-# for_window  [class="(?i)skype"] floating enable;
-
-# Full Screen
-for_window  [class="(?i)Mplayer"] fullscreen enable
 
 #Colors
 client.focused $blue $blue $green $red
@@ -321,12 +322,7 @@ client.urgent $red $red $white #900000
 
 # AutoRun
 # {{{
-exec --no-startup-id i3-msg "workspace 3; exec $music; workspace 1"
-exec --no-startup-id i3-msg "workspace 2; append_layout /home/uncledozer/.i3/workspace2.json"
-exec --no-startup-id i3-msg "workspace 3; append_layout /home/uncledozer/.i3/workspace3.json"
 #}}}
-
-
 
 # vim:filetype=i3
 # vim:commentstring=#%s
