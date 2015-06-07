@@ -44,14 +44,14 @@ hi! clear
 " Hints
 hi HintElem background-color: #1a1a1a; color: white;
 hi HintActive background-color: #ace594;
-hi Hint font-family: Office Code Pro !important; font-size: 14px !important; font-weight: bold !important; text-transform: uppercase; color: white; background-color: #2EB9FF; border-color: #2EB9FF; border-width: 0px; border-style: solid; padding: 0px 3px 0px 3px; text-shadow: 0 2px rgba(0,0,0,.3), border-radius: 2px !important;
+hi Hint font-family: Office Code Pro !important; font-size: 14px !important; font-weight: bold; text-transform: uppercase; color: white; background-color: #5B92FA; border-color: ButtonShadow; border-width: 0px; border-style: solid; padding: 0px 3px 0px 3px;
 
 " CommandLine
 hi CmdLine background-color: #1a1a1a; color: #f1f3f4; font-weight: 500;
 hi CompGroup background-color: #1a1a1a; color: #f1f3f4; font-weight: 500;
 hi CompItem background-color: #1a1a1a; color: #f1f3f4; font-weight: 500;
 hi CompItem[selected] color: #2eb9ff !important;
-hi CompTitle background-color: #1a1a1a; color: #a1ff7a; font-weight: 800; text-shadow: 0 2px rgba(0,0,0,.3); border-width: 0px;
+hi CompTitle background-color: #1a1a1a; color: #a1ff7a; font-weight: 800; border-width: 0px;
 hi ErrorMsg background-color: #ff2e4c; color: #f1f3f4; font-weight: 800;
 hi Filter background-color: none; color: #2eb9ff;
 hi StatusLine background-color: #1a1a1a; color: #ace594; border-color: #1a1a1a; outline: 0;
