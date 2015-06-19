@@ -272,7 +272,9 @@ bar {
 # Remove titlebar unless in stacking or tabbed mode
 for_window  [class="^.*"] border pixel 2
 for_window  [class="(?i)urxvt"] border pixel 0
+for_window  [class="(?i)konsole"] border pixel 0
 for_window  [class="(?i)urxvtc"] border pixel 0
+for_window  [class="(?i)konsole"] border pixel 0
 
 # Send music application to workspace 3
 assign      [class="(?i)$music"] $ws3

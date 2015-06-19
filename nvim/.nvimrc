@@ -44,6 +44,9 @@ call plug#begin('~/.nvim/bundle')
 Plug 'cakebaker/scss-syntax.vim', {'for': 'scss' }
 Plug 'hail2u/vim-css3-syntax'
 
+" LESS Syntax Highlighting
+Plug 'groenewege/vim-less', { 'for': 'less' }
+
 " Javascript Syntax Highlighting
 Plug 'jelera/vim-javascript-syntax', { 'for': 'javascript' }
 
