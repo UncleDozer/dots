@@ -4,7 +4,7 @@
 !{{{
 
 *font                : -*-terminesspowerline-bold-*-*-*-16-*-*-*-*-*-*-*
-URxvt*font           : xft:Office Code Pro:style=Medium:size=16
+URxvt*font           : xft:Office Code Pro:style=Regular:size=14
 URxvt*boldFont       :
 URxvt*italicFont     :
 URxvt*boldItalicFont :

@@ -662,41 +662,41 @@ hi User9 ctermbg=0 ctermfg=12
 
 " Left--------{{{
 
-set statusline=                       " Clear Statusline
+set statusline=                   " Clear Statusline
 
-set statusline=%3*                    " Set Color
+set statusline=%3*                " Set Color
 
-set statusline+=%{GetModified()}      " If file has been modified, change color of file name
+set statusline+=%{GetModified()}  " If file has been modified, change color of file name
 
-set statusline+=%-4{GetMode()}%6*▓▒░  " Set Mode name and color
+set statusline+=%-4{GetMode()}%6* " Set Mode name and color
 
-set statusline+=%1*\                  " Spacer
+set statusline+=%1*\              " Spacer
 
-set statusline+=%-t%m                 " Tail of the file name and the modified tag
+set statusline+=%-t%m             " Tail of the file name and the modified tag
 
-set statusline+=%1*\                  " Spacer
+set statusline+=%1*\              " Spacer
 
 " ----------}}}
 
-set statusline+=%= " Switch to the right side
+set statusline+=%=                " Switch to the right side
 
 " Right--------{{{
 
-set statusline+=%9*                                " Set Color for clock
+set statusline+=%9*                   " Set Color for clock
 
-set statusline+=%{CurrentTime()}                   " Get The Current Time
+set statusline+=%{CurrentTime()}      " Get The Current Time
 
-set statusline+=%5*                                " Color scheme User5
+set statusline+=%5*                   " Color scheme User5
 
-set statusline+=\ %5.15Y                           " Filetype
+set statusline+=\ %5.15Y              " Filetype
 
-set statusline+=%-5.20{GetFileType()}              " Change color scheme based on filetype (just for some added pizzaz)
+set statusline+=%-5.20{GetFileType()} " Change color scheme based on filetype (just for some added pizzaz)
 
-set statusline+=%7*                                " Color Scheme User4
+set statusline+=%7*                   " Color Scheme User4
 
 set statusline+=%5{''}\ %8*%03.04l\ %7*%02.02c\ \ " Show line and column numbers
 
-set statusline+=%*                                 " Return to statusline colors
+set statusline+=%*                    " Return to statusline colors
 
 " ----------}}}
 
