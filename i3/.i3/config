@@ -19,8 +19,8 @@ set $terminal  urxvtc
 set $output1 HDMI-0
 set $output2 DVI-0
 
-set $default_gaps_inner 10
-set $default_gaps_outer 5
+set $default_gaps_inner 20
+set $default_gaps_outer 0
 
 set $red         #FF2E4C
 set $blue        #2EB9FF
