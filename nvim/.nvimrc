@@ -55,11 +55,14 @@ Plug 'othree/javascript-libraries-syntax.vim', { 'for': 'javascript' }
 
 " HTML and PHP
 Plug 'othree/html5.vim', { 'for': [ 'html', 'php' ] }
-Plug 'nicklasos/vimphphtml', { 'for': [ 'html', 'php' ] }
 Plug 'StanAngeloff/php.vim', { 'for': 'php' }
 
 " AutoClose HTML Tags
 Plug 'vim-scripts/HTML-AutoCloseTag', { 'for': [ 'html', 'php' ] }
+Plug 'vim-scripts/closetag.vim', { 'for': [ 'html', 'php' ] }
+
+" Match for tags
+Plug 'edsono/vim-matchit', { 'for': [ 'html', 'php' ] }
 
 " i3 Config Syntax
 Plug 'PotatoesMaster/i3-vim-syntax'
@@ -284,6 +287,9 @@ let g:pad#title_first_line = 1
 
 " Markdown
 let g:vim_mardown_folding_disabled = 1
+
+" CloseTag
+let g:closetag_html_style=1
 
 " Jquery Syntax Highlighting
 " let g:used_javascript_libs = 'jquery'
@@ -797,12 +803,9 @@ if has("autocmd")
     " Filetype Commands
     augroup autofiletypes
         au!
-        au BufRead,BufNewFile *.nvim set filetype=vim
-        au BufRead,BufNewFile *.nvimrc set filetype=vim
-        au BufReadPost,BufNewFile *.html set filetype=html
-        au BufReadPost,BufNewFile *.php set filetype=php
-        au BufReadPost,BufNewFile *.js set filetype=javascript
-        au BufRead,BufNewFile *.vimperratorrc set filetype=vim
+        au BufRead,BufNewFile *.nvim setlocal filetype=vim
+        au BufRead,BufNewFile *.nvimrc setlocal filetype=vim
+        au BufRead,BufNewFile *.vimperratorrc setlocal filetype=vim
         au BufRead,BufNewFile * let g:pad#position[ "list" ] = "top"
         au BufRead,BufNewFile * let g:pad#position[ "pads" ] = "top"
     augroup END
@@ -822,19 +825,19 @@ if has("autocmd")
     " SCSS Specific
     augroup scsssettings
         au!
-        au BufRead,BufNewFile,Filetype *.scss setlocal commentstring=/*%s*/
+        au Filetype scss setlocal commentstring=/*%s*/
     augroup END
 
     " Filetype Specific Mappings
     augroup filemappings
         au!
         " Quick PHP Tags (o for O and i for inline)
-        au FileType *.php call PhpSyntaxOverride()
         au BufRead,BufNewFile *.php inoremap <?po <?php<CR>?><C-o>O<TAB>
         au BufRead,BufNewFile *.php inoremap <?pi <?php  ?><C-o>2h
         au BufRead,BufNewFile *.php noremap <buffer> <Leader>flo <ESC>i<?php<CR><CR>?><ESC>k
         au BufRead,BufNewFile *.php noremap <buffer> <Leader>fli <ESC>i<?php  ?><ESC>2hi
         au BufRead,BufNewFile *.php noremap <buffer> <Leader>ch <ESC>I<!--<ESC>A  --!><ESC>4h
+        au FileType php call PhpSyntaxOverride()
     augroup END
 
     " Help Specific
