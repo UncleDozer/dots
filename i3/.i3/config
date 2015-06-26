@@ -19,7 +19,7 @@ set $terminal  urxvtc
 set $output1 HDMI-0
 set $output2 DVI-0
 
-set $default_gaps_inner 35
+set $default_gaps_inner 10
 set $default_gaps_outer 5
 
 set $red         #FF2E4C
@@ -270,11 +270,11 @@ bar {
 #{{{
 
 # Remove titlebar unless in stacking or tabbed mode
-for_window  [class="^.*"] border pixel 2
-for_window  [class="(?i)urxvt"] border pixel 0
-for_window  [class="(?i)konsole"] border pixel 0
-for_window  [class="(?i)urxvtc"] border pixel 0
-for_window  [class="(?i)konsole"] border pixel 0
+for_window  [class="^.*"] border pixel 1
+# for_window  [class="(?i)urxvt"] border pixel 1
+# for_window  [class="(?i)konsole"] border pixel 0
+# for_window  [class="(?i)urxvtc"] border pixel 0
+# for_window  [class="(?i)konsole"] border pixel 0
 
 # Send music application to workspace 3
 assign      [class="(?i)$music"] $ws3
