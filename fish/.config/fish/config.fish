@@ -173,4 +173,21 @@ function compileScss
     end
 end
 
+# Catalyst Controls
+# Get Clocks
+function atiClock
+    aticonfig --od-getclocks
+end
+
+# Get or set fan speed
+function atiFan
+    switch ( count $argv )
+        case 0
+            aticonfig --pplib-cmd "get fanspeed 0"
+        case 1
+            aticonfig --pplib-cmd "set fanspeed 0 $argv"
+    end
+end
+
+
 # ---}}}

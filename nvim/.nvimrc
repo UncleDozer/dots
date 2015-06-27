@@ -41,42 +41,42 @@ call plug#begin('~/.nvim/bundle')
 "{{{
 
 " SCSS Syntax Highlighting & CSS3 Highlighting
-Plug 'cakebaker/scss-syntax.vim', {'for': 'scss' }
+Plug 'cakebaker/scss-syntax.vim', {'for' : 'scss' }
 Plug 'hail2u/vim-css3-syntax'
 
 " LESS Syntax Highlighting
-Plug 'groenewege/vim-less', { 'for': 'less' }
+Plug 'groenewege/vim-less', { 'for' : 'less' }
 
 " Javascript Syntax Highlighting
-Plug 'jelera/vim-javascript-syntax', { 'for': 'javascript' }
+Plug 'jelera/vim-javascript-syntax', { 'for' : 'javascript' }
 
 " Javascript Libraries Syntax
-Plug 'othree/javascript-libraries-syntax.vim', { 'for': 'javascript' }
+Plug 'othree/javascript-libraries-syntax.vim', { 'for' : 'javascript' }
 
 " HTML and PHP
-Plug 'othree/html5.vim', { 'for': [ 'html', 'php' ] }
-Plug 'StanAngeloff/php.vim', { 'for': 'php' }
+Plug 'othree/html5.vim', { 'for' : [ 'html', 'php' ] }
+Plug 'StanAngeloff/php.vim', { 'for' : 'php' }
 
 " AutoClose HTML Tags
-Plug 'vim-scripts/HTML-AutoCloseTag', { 'for': [ 'html', 'php' ] }
-Plug 'vim-scripts/closetag.vim', { 'for': [ 'html', 'php' ] }
+Plug 'vim-scripts/HTML-AutoCloseTag', { 'for' : [ 'html', 'php' ] }
+Plug 'vim-scripts/closetag.vim', { 'for' : [ 'html', 'php' ] }
 
 " Match for tags
-Plug 'edsono/vim-matchit', { 'for': [ 'html', 'php' ] }
+Plug 'edsono/vim-matchit', { 'for' : [ 'html', 'php' ] }
 
 " i3 Config Syntax
 Plug 'PotatoesMaster/i3-vim-syntax'
 
 " Fish Syntax
-Plug 'dag/vim-fish', { 'for': 'fish' }
+Plug 'dag/vim-fish', { 'for' : 'fish' }
 
 " Markdown
 Plug 'tpope/vim-markdown', { 'for' : 'markdown' }
 Plug 'jtratner/vim-flavored-markdown', { 'for' :  'markdown' }
 
 " LaTeX
-Plug 'lervag/vimtex'
-Plug 'xuhdev/vim-latex-live-preview'
+Plug 'lervag/vimtex', { 'for' : [ 'tex', 'latex' ] }
+Plug 'xuhdev/vim-latex-live-preview', { 'for' : [ 'tex', 'latex' ] }
 
 "}}}
 
@@ -92,10 +92,10 @@ Plug 'Townk/vim-autoclose'
 Plug 'The-NERD-Commenter'
 
 " Alignment
-Plug 'Align', { 'on': 'Align' }
+Plug 'Align', { 'on' : 'Align' }
 
 " FZF Fuzzy Finder
-Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': 'yes \| ./install' }
+Plug 'junegunn/fzf', { 'dir' : '~/.fzf', 'do' : 'yes \| ./install' }
 
 " Fast Fold
 Plug 'Konfekt/FastFold'
@@ -107,7 +107,7 @@ Plug 'ap/vim-buftabline'
 Plug 'Valloric/YouCompleteMe'
 
 " Goyo, Vim Focus Mode
-Plug 'junegunn/goyo.vim', { 'on': 'Goyo' }
+Plug 'junegunn/goyo.vim', { 'on' : 'Goyo' }
 Plug 'myusuf3/numbers.vim'
 
 " Vim Surround
