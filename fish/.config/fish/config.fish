@@ -1,7 +1,7 @@
 # {{{
- # Author  : Kristopher Watts <kristopher.a.watts@gmail.com>
- # Website : http://Webtastic-Development.net
- # Github  : https://Github.com/UncleDozer
+ # @Author  Kristopher Watts <kristopher.a.watts@gmail.com>
+ # @Website http://Webtastic-Development.net
+ # @Github  https://Github.com/UncleDozer
 # }}}
 
 # Path to oh my fish
@@ -46,31 +46,48 @@ set -x fish_pager_color_prefix green --bold
 
 # Alias Functions ---{{{
 # Jump plugin
+# Keep alias for autocompletion
 alias j='jump'
 
 # nextd
-alias nd='nextd'
+function nd
+    nextd
+end
 
 # prevd
-alias pd='prevd'
+function pd
+    prevd
+end
 
 # vim to nvim
-alias vim='nvim'
+function vim
+    command nvim $argv
+end
 
 # I can never seem to remember yaourt
 alias aur='yaourt'
 
 # ls functions
-alias ll='ls -A --format single-column'
+function ll
+    command ls -A --format single-column --color=auto $argv
+end
 
-alias la='ls -lhAogZX'
+function la
+    command ls -lhAogZX --color=auto $argv
+end
 
 # Quick change directory
-alias cd.='cd ../'
+function cd.
+    cd ../
+end
 
-alias cd..='cd ../../'
+function cd..
+    cd ../../
+end
 
-alias cd...='cd ../../../'
+function cd...
+    cd ../../../
+end
 # ---}}}
 
 # Functions ---{{{
@@ -81,9 +98,7 @@ end
 
 # Google Chrome Unstable Fixes
 function chrome
-    set MESA_GL_VERSION_OVERRIDE 3.3
-    set MESA_GLSL_VERSION_OVERRIDE 330
-    google-chrome-unstable --force-device-scale-factor=1
+    env 'MESA_GL_VERSION_OVERRIDE=3.3' 'MESA_GLSL_VERSION_OVERRIDE=330' google-chrome-unstable --force-device-scale-factor=1
 end
 
 # Start Netflix Chrome App in FullScreen
@@ -172,22 +187,5 @@ function compileScss
             ls **.scss | entr sassc $argv[ 1 ] $argv[ 2 ]
     end
 end
-
-# Catalyst Controls
-# Get Clocks
-function atiClock
-    aticonfig --od-getclocks
-end
-
-# Get or set fan speed
-function atiFan
-    switch ( count $argv )
-        case 0
-            aticonfig --pplib-cmd "get fanspeed 0"
-        case 1
-            aticonfig --pplib-cmd "set fanspeed 0 $argv"
-    end
-end
-
 
 # ---}}}
