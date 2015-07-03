@@ -837,6 +837,7 @@ if has("autocmd")
         au BufRead,BufNewFile *.php noremap <buffer> <Leader>flo <ESC>i<?php<CR><CR>?><ESC>k
         au BufRead,BufNewFile *.php noremap <buffer> <Leader>fli <ESC>i<?php  ?><ESC>2hi
         au BufRead,BufNewFile *.php noremap <buffer> <Leader>ch <ESC>I<!--<ESC>A  --!><ESC>4h
+        au BufRead,BufNewFile *.php setlocal filetype=php.html
         au FileType php call PhpSyntaxOverride()
     augroup END
 
