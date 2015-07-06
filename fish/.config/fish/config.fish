@@ -171,9 +171,9 @@ end
 function autorefresh
     switch ( count $argv )
         case 0
-            ls **.less **.css **.php **.html **.js **.txt | entr reload-browser firefox
+            ls **.less **.css **.php **.html **.js **.txt | entr reload-browser iceweasel
         case 1
-            ls $argv[ 1 ] | entr reload-browser firefox
+            ls $argv[ 1 ] | entr reload-browser iceweasel
     end
 end
 
