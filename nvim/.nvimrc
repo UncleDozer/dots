@@ -143,7 +143,7 @@ set encoding=utf-8
 
 set background=dark
 
-" set lazyredraw      " Only Redraw When Needed
+set lazyredraw      " Only Redraw When Needed
 
 set number          " Line Numbering
 
@@ -171,7 +171,12 @@ set showmatch       " Highlight Brackets
 
 set matchtime=2     " Tenths of a Second to Show the Matching Bracket
 
-set cursorline      " Enable Line Highlighting
+" Speed tests
+set nocursorline
+set nocursorcolumn
+set synmaxcol=180
+" set scrolljump=10
+" set cursorline      " Enable Line Highlighting
 
 set title           " Disable All Bells
 set novisualbell

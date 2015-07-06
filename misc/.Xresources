@@ -65,7 +65,7 @@ URxvt*transparent       : false
 ! ROFI SETTINGS
 ! {{{
 
-rofi.font                : Office Code Pro Bold 16
+rofi.font                : Office Code Pro 16
 rofi.fg-active           : #7ED65A
 rofi.hlbg                : #2EB9FF
 rofi.hlfg                : #1A1A1A
