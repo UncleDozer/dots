@@ -96,7 +96,7 @@ Plug 'The-NERD-Commenter'
 Plug 'Align', { 'on' : 'Align' }
 
 " FZF Fuzzy Finder
-Plug 'junegunn/fzf', { 'dir' : '~/.fzf', 'do' : 'yes \| ./install', 'on' : 'FZF' }
+Plug 'junegunn/fzf', { 'dir' : '~/.fzf', 'do' : 'yes \| ./install' }
 
 " Fast Fold
 Plug 'Konfekt/FastFold'
@@ -843,7 +843,7 @@ if has("autocmd")
         au BufRead,BufNewFile *.php noremap <buffer> <Leader>flo <ESC>i<?php<CR><CR>?><ESC>k
         au BufRead,BufNewFile *.php noremap <buffer> <Leader>fli <ESC>i<?php  ?><ESC>2hi
         au BufRead,BufNewFile *.php noremap <buffer> <Leader>ch <ESC>I<!--<ESC>A  --!><ESC>4h
-        au BufRead,BufNewFile *.php setlocal filetype=php.html
+        au BufRead,BufNewFile *.php setlocal filetype=php
         au FileType php call PhpSyntaxOverride()
     augroup END
 
