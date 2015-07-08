@@ -41,8 +41,8 @@ call plug#begin('~/.nvim/bundle')
 "{{{
 
 " SCSS Syntax Highlighting & CSS3 Highlighting
-Plug 'cakebaker/scss-syntax.vim', {'for' : 'scss' }
-Plug 'hail2u/vim-css3-syntax'
+Plug 'cakebaker/scss-syntax.vim', { 'for' : 'scss' }
+Plug 'hail2u/vim-css3-syntax', { 'for' : [ 'css', 'scss', 'less' ] }
 
 " LESS Syntax Highlighting
 Plug 'groenewege/vim-less', { 'for' : 'less' }
@@ -56,6 +56,7 @@ Plug 'othree/javascript-libraries-syntax.vim', { 'for' : 'javascript' }
 " HTML and PHP
 Plug 'othree/html5.vim', { 'for' : [ 'html', 'php' ] }
 Plug 'StanAngeloff/php.vim', { 'for' : 'php' }
+Plug 'nicklasos/vimphphtml', { 'for' : 'php' }
 
 " AutoClose HTML Tags
 Plug 'vim-scripts/HTML-AutoCloseTag', { 'for' : [ 'html', 'php' ] }
@@ -95,7 +96,7 @@ Plug 'The-NERD-Commenter'
 Plug 'Align', { 'on' : 'Align' }
 
 " FZF Fuzzy Finder
-Plug 'junegunn/fzf', { 'dir' : '~/.fzf', 'do' : 'yes \| ./install' }
+Plug 'junegunn/fzf', { 'dir' : '~/.fzf', 'do' : 'yes \| ./install', 'on' : 'FZF' }
 
 " Fast Fold
 Plug 'Konfekt/FastFold'

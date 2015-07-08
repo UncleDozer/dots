@@ -65,23 +65,34 @@ URxvt*transparent       : false
 ! ROFI SETTINGS
 ! {{{
 
+! rofi.color-enabled       : true
+rofi.lines               : 5
+rofi.location            : 0
+
 rofi.font                : Office Code Pro 16
-rofi.fg-active           : #7ED65A
-rofi.hlbg                : #2EB9FF
+
 rofi.hlfg                : #1A1A1A
+rofi.fg-active           : #7ED65A
 rofi.hlfg-active         : #1A1A1A
-rofi.hlbg-active         : #7ED65A
-rofi.bg-active           : #1A1A1A
-rofi.bc                  : #2EB9FF
-rofi.width               : 50
-rofi.padding             : 15
+
+rofi.hlbg                : #2EB9FF
 rofi.bgalt               : #2A2A2A
-rofi.kb-remove-word-back : Control+w
+rofi.bg-active           : #1A1A1A
+rofi.hlbg-active         : #7ED65A
+
+rofi.bc                  : #2EB9FF
+
 rofi.bw                  : 1
-rofi.lazy-filter-limit   : 10000
+rofi.width               : 25
+rofi.padding             : 10
+
+rofi.lazy-filter-limit   : 100000
 rofi.terminal            : urxvtc
+rofi.fuzzy               : true
+
 rofi.key-window          : mod4+shift+Tab
 rofi.key-run             : mod4+r
+rofi.kb-remove-word-back : Control+w
 
 ! }}}
 
