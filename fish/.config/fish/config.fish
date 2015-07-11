@@ -183,11 +183,11 @@ end
 function compileScss
     switch ( count $argv )
         case 0
-            ls **.scss | entr sassc main.scss ../css/main.css
+            ls **.scss | entr sassc -m main.scss ../css/main.css
         case 1
-            ls **.scss | entr sassc $argv.scss ../css/$argv.css
+            ls **.scss | entr sassc -m $argv.scss ../css/$argv.css
         case 2
-            ls **.scss | entr sassc $argv[ 1 ] $argv[ 2 ]
+            ls **.scss | entr sassc -m $argv[ 1 ] $argv[ 2 ]
     end
 end
 

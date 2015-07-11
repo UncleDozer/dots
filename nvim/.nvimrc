@@ -26,6 +26,8 @@
 set nocompatible
 syntax enable         " Enable Syntax Highlighting
 filetype plugin indent on
+let g:python_host_prog = '/usr/bin/python2.7'
+let g:python3_host_prog = '/usr/bin/python3.4'
 
 "------------------------------------------
 " 1: VIM-PLUG CONFIG
@@ -95,8 +97,11 @@ Plug 'The-NERD-Commenter'
 " Alignment
 Plug 'Align', { 'on' : 'Align' }
 
-" FZF Fuzzy Finder
-Plug 'junegunn/fzf', { 'dir' : '~/.fzf', 'do' : 'yes \| ./install' }
+" FZF Fuzzy Finder Disabled until fixed on nvim
+" Plug 'junegunn/fzf', { 'dir' : '~/.fzf', 'do' : 'yes \| ./install' }
+
+" CtrlP until fzf is fixed
+Plug 'ctrlpvim/ctrlp.vim', { 'on' : 'CtrlP' }
 
 " Fast Fold
 Plug 'Konfekt/FastFold'
@@ -404,7 +409,10 @@ nnoremap <leader>en :echo @%<CR>
 nnoremap <leader>scr :e $HOME/.note/scratch.note<CR>ggVGdP
 
 " FZF Fuzzy Finder
-nnoremap <C-p> :FZF<CR>
+" nnoremap <C-p> :FZF<CR>
+
+" CtrlP Fuzzy Finder
+nnoremap <C-p> :CtrlP<CR>
 
 " Treat Linebreaks as Seperate Lines
 noremap k gk

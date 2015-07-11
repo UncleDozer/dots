@@ -69,7 +69,7 @@ URxvt*transparent       : false
 rofi.lines               : 5
 rofi.location            : 0
 
-rofi.font                : Office Code Pro 16
+rofi.font                : Office Code Pro 14
 
 rofi.hlfg                : #1A1A1A
 rofi.fg-active           : #7ED65A
@@ -93,6 +93,7 @@ rofi.fuzzy               : true
 rofi.key-window          : mod4+shift+Tab
 rofi.key-run             : mod4+r
 rofi.kb-remove-word-back : Control+w
+rofi.levenshtein-sort    : false
 
 ! }}}
 
