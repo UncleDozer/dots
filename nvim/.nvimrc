@@ -840,6 +840,8 @@ if has("autocmd")
     augroup scsssettings
         au!
         au Filetype scss setlocal commentstring=/*%s*/
+        " Function name highlighting
+        au FileType scss setlocal iskeyword+=-
     augroup END
 
     " Filetype Specific Mappings
@@ -858,7 +860,7 @@ if has("autocmd")
     " Help Specific
     augroup helpfiles
         au Filetype help setlocal nonumber
-        au Filetype help nnoremap <buffer>q :bd<CR>
+        " au Filetype help nnoremap <buffer>q :bd<CR>
     augroup END
 
 

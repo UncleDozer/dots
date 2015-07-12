@@ -93,7 +93,7 @@ rofi.fuzzy               : true
 rofi.key-window          : mod4+shift+Tab
 rofi.key-run             : mod4+r
 rofi.kb-remove-word-back : Control+w
-rofi.levenshtein-sort    : false
+rofi.levenshtein-sort    : true
 
 ! }}}
 

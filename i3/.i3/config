@@ -71,7 +71,7 @@ set $launcher       dmenu_run -i -l -fn 'Office Code Pro-10' 20 -p "^_" -sb "$bl
 
 # }}}
 
-# Settings
+# Settings {{{
 workspace_auto_back_and_forth yes
 popup_during_fullscreen smart
 force_display_urgency_hint 1000 ms
@@ -84,6 +84,7 @@ smart_borders on
 
 # Disable titlebar
 new_window pixel
+# }}}
 
 # Hotkeys
 #{{{
@@ -272,19 +273,15 @@ bar {
 
 # Remove titlebar unless in stacking or tabbed mode
 for_window  [class="^.*"] border pixel 1
-# for_window  [class="(?i)urxvt"] border pixel 1
-# for_window  [class="(?i)konsole"] border pixel 0
-# for_window  [class="(?i)urxvtc"] border pixel 0
-# for_window  [class="(?i)konsole"] border pixel 0
 
+# Default Workspaces
 # Send music application to workspace 3
 assign      [class="(?i)$music"] $ws3
+assign      [class="(?i)steam"] $ws7
+assign      [class="(?i)playonlinux"] $ws7
 
 # Set speedcrunch (calculator) to floating
 for_window  [class="(?i)speedcrunch"] floating enable
-
-# Disable Amarok Floating
-# for_window [class="(?i)amarok"] floating disable
 
 # Scratchpad and Dropdown Config
 #{{{
@@ -327,6 +324,7 @@ client.urgent $red $red $white #900000
 # {{{
 exec --no-startup-id urxvtc -name scratchpad
 exec --no-startup-id urxvtc -name dropdown
+# exec --no-startup-id rofi
 #}}}
 
 # vim:filetype=i3
