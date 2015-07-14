@@ -242,7 +242,7 @@ bindsym $mod+$alt+r mode ""
 #{{{
 
 bar {
-  font pango:Office Code Pro Medium, Icons 14
+  font pango:Office Code Pro, Icons 14
   status_command i3blocks -c ~/.i3/i3blocks.conf
   # status_command i3status -c ~/.i3/i3status.conf
   strip_workspace_numbers yes

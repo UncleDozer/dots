@@ -26,6 +26,8 @@
 set nocompatible
 syntax enable         " Enable Syntax Highlighting
 filetype plugin indent on
+
+" NeoVim Python Settings
 let g:python_host_prog = '/usr/bin/python2.7'
 let g:python3_host_prog = '/usr/bin/python3.4'
 
@@ -42,17 +44,13 @@ call plug#begin('~/.nvim/bundle')
 "--------------------------
 "{{{
 
-" SCSS Syntax Highlighting & CSS3 Highlighting
-Plug 'cakebaker/scss-syntax.vim', { 'for' : 'scss' }
-Plug 'hail2u/vim-css3-syntax', { 'for' : [ 'css', 'scss', 'less' ] }
-
-" LESS Syntax Highlighting
-Plug 'groenewege/vim-less', { 'for' : 'less' }
+" CSS & PreProcessors
+Plug 'cakebaker/scss-syntax.vim', { 'for' : 'scss' } " SCSS
+Plug 'hail2u/vim-css3-syntax', { 'for' : [ 'css', 'scss', 'less' ] } " CSS3
+Plug 'groenewege/vim-less', { 'for' : 'less' } " LESS
 
 " Javascript Syntax Highlighting
 Plug 'jelera/vim-javascript-syntax', { 'for' : 'javascript' }
-
-" Javascript Libraries Syntax
 Plug 'othree/javascript-libraries-syntax.vim', { 'for' : 'javascript' }
 
 " HTML and PHP
@@ -408,7 +406,7 @@ nnoremap <leader>en :echo @%<CR>
 
 nnoremap <leader>scr :e $HOME/.note/scratch.note<CR>ggVGdP
 
-" FZF Fuzzy Finder
+" FZF Fuzzy Finder -- Broken in NVim
 " nnoremap <C-p> :FZF<CR>
 
 " CtrlP Fuzzy Finder
@@ -609,10 +607,10 @@ let &t_EI .= "\<Esc>[4 q"
 "------------------------------------------
 "{{{
 
-" Quick note about this colorscheme.
-" Unfortunately I created it before I knew about the 'set background=dark'
-" bug, so for it to appear correctly, background must be set to dark BEFORE
-" the color scheme is called.
+" *NOTE*
+" Unfortunately I created this colorscheme before I knew about the
+" 'set background=dark' bug, so for it to appear correctly,
+" background must be set to dark BEFORE the color scheme is called.
 
 " Clear All Highlighting
 hi clear
@@ -825,19 +823,21 @@ if has("autocmd")
     augroup END
 
     " Markdown Specific
-    augroup mdsettings
+    augroup markDownSettings
         au!
         au BufRead,BufNewFile *.md   setlocal filetype=ghmarkdown
         au BufRead,BufNewFile *.txt  setlocal filetype=markdown
         au BufRead,BufNewFile *.note setlocal filetype=markdown
         au BufRead,BufNewFile *.todo setlocal filetype=markdown
         au BufRead,BufNewFile vimp*.tmp setlocal filetype=markdown
+        au FileType markdown setlocal set synmaxcol=1500
+
         " GHMarkdown only works after a filetype is declared as markdown on non .md files
         au FileType markdown setlocal filetype=ghmarkdown
     augroup END
 
     " SCSS Specific
-    augroup scsssettings
+    augroup sassSettings
         au!
         au Filetype scss setlocal commentstring=/*%s*/
         " Function name highlighting
@@ -858,9 +858,9 @@ if has("autocmd")
     augroup END
 
     " Help Specific
-    augroup helpfiles
+    augroup helpFiles
         au Filetype help setlocal nonumber
-        " au Filetype help nnoremap <buffer>q :bd<CR>
+        au Filetype help nnoremap <buffer>q :q<CR>
     augroup END
 
 
