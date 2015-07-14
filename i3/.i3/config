@@ -254,12 +254,12 @@ bar {
   mode dock
 
   colors {
-    separator  $green
+    separator  $dim_blue
     background $black
     statusline $blue
-# --------------------|    BG    | BORDER  |   FG    |------
+# --------------------|  BORDER  |   BG   |   FG    |------
 # ----------------------------------------------------------
-    focused_workspace  $green    $green    $black
+    focused_workspace  $dim_blue $black    $blue
     active_workspace   $dim_grey $dim_grey $dim_blue
     inactive_workspace $black    $black    $grey
     urgent_workspace   $red      $red      $black
