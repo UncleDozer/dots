@@ -830,7 +830,9 @@ if has("autocmd")
         au BufRead,BufNewFile *.note setlocal filetype=markdown
         au BufRead,BufNewFile *.todo setlocal filetype=markdown
         au BufRead,BufNewFile vimp*.tmp setlocal filetype=markdown
-        au FileType markdown setlocal set synmaxcol=1500
+
+        " Markdown synmax so highlighting doesn't end
+        au FileType markdown setlocal synmaxcol=1500
 
         " GHMarkdown only works after a filetype is declared as markdown on non .md files
         au FileType markdown setlocal filetype=ghmarkdown
