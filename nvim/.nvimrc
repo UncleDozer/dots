@@ -179,10 +179,9 @@ set matchtime=2     " Tenths of a Second to Show the Matching Bracket
 set nocursorline
 set nocursorcolumn
 set synmaxcol=180
-" set scrolljump=10
-" set cursorline      " Enable Line Highlighting
 
-set title           " Disable All Bells
+" Disable All Bells
+set title
 set novisualbell
 set noerrorbells
 set t_vb=
@@ -577,7 +576,6 @@ noremap <Leader>3p "3p
 noremap <Leader>4p "4p
 noremap <Leader>5p "5p
 
-
 "}}}
 
 "}}}
@@ -615,7 +613,7 @@ let &t_EI .= "\<Esc>[4 q"
 " Clear All Highlighting
 hi clear
 
-" Kill the CursorLine Underline (I don't use an italic font so it just clears the style)
+" Kill the CursorLine Underline
 hi CursorLine cterm=none ctermbg=0
 " Highlight the current line number
 hi CursorLineNr ctermfg=9 ctermbg=0

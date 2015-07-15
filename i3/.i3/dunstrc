@@ -1,5 +1,5 @@
 [global]
-    font = Office Code Pro Medium 12
+    font = Office Code Pro 12
 
     # Allow a small subset of html markup in notifications and formats:
     #   <b>bold</b>
@@ -14,7 +14,7 @@
     allow_markup = yes
 
     # Treat incoming notifications as plain text
-    plain_text = no
+    plain_text = yes
 
     # The format of the message.  Possible variables are:
     #   %a  appname
@@ -53,7 +53,6 @@
 
     # Ignore newlines '\n' in notifications.
     ignore_newline = no
-
 
     # The geometry of the window:
     #   [{width}]x{height}[+/-{x}+/-{y}]
@@ -121,7 +120,7 @@
     # Draw a line of "separator_height" pixel height between two
     # notifications.
     # Set to 0 to disable.
-    separator_height = 2
+    separator_height = 5
 
     # Padding between text and separator.
     padding = 15
