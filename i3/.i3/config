@@ -277,6 +277,7 @@ for_window  [class="^.*"] border pixel 1
 # Default Workspaces
 # Send music application to workspace 3
 assign      [class="(?i)$music"] $ws3
+assign      [class="(?i)spotify"] $ws3
 assign      [class="(?i)steam"] $ws7
 assign      [class="(?i)playonlinux"] $ws7
 

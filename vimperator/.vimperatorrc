@@ -32,8 +32,13 @@ nnoremap >> ]]
 nnoremap << [[
 nnoremap <Leader>t :set gui=invtabs<CR>
 nnoremap <C-t> :tabgroups switch<Space><TAB>
-nnoremap <Leader>ps :tabgroups switch<Space><TAB>
 nnoremap <Leader>us :set invusermode<CR>:styletoggle -name usermodestyle<CR>
+nnoremap <Leader>du :extdisable uBlock<CR>
+nnoremap <Leader>eu :extenable uBlock<CR>
+nnoremap <Leader>dr :extdisable Reddit Enhancement Suite<CR>
+nnoremap <Leader>er :extenable Reddit Enhancement Suite<CR>
+nnoremap <Leader>dl :extdisable LastPass<CR>
+nnoremap <Leader>el :extenable LastPass<CR>
 nnoremap h 15h
 nnoremap l 15l
 inoremap <C-e> <C-i>
@@ -44,7 +49,7 @@ hi! clear
 " Hints
 hi HintElem background-color: #1a1a1a; color: white;
 hi HintActive background-color: #ace594;
-hi Hint font-family: Office Code Pro !important; font-size: 14px !important; font-weight: bold; text-transform: uppercase; color: white; background-color: #5B92FA; border-color: ButtonShadow; border-width: 0px; border-style: solid; padding: 0px 3px 0px 3px;
+hi Hint font-family: Office Code Pro !important; font-size: 14px !important; font-weight: normal; text-transform: uppercase; color: white; background-color: #5B92FA; border-color: ButtonShadow; border-width: 0px; border-style: solid; padding: 0px 3px 0px 3px; box-shadow: 0 0 3px 1px rgba( 0,0,0,.25 );
 
 " CommandLine
 hi CmdLine background-color: #1a1a1a; color: #f1f3f4; font-weight: 500;

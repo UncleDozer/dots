@@ -4,19 +4,19 @@
 "      \ |   _ \   _ \ \ \   /  |  __ `__ \    __|  __|
 "    |\  |   __/  (   | \ \ /   |  |   |   |  |    (
 "   _| \_| \___| \___/   \_/   _| _|  _|  _| _|   \___|
-"  ___________________________________________________
+"   __________________________________________________
 "  |                                                  |\
 "  |   │█║▌║▌║▌║▌[          VIM         ]│█║▌║▌║▌║▌   |||
 "  |__________________________________________________|||
 "   \\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\|
-"    ---------------------------------------------------
+"     --------------------------------------------------
 "
 "   ıllıllııllıllı    Out Of The Box    ıllıllııllıllııl
 "
 "
 "---------------------------------------------------
 " Author              : Kristopher Watts (UncleDozer)
-" Email               : Kristopher.A.Watts@Gmail.com
+" Email               : Kristopher.A.Watts@gmail.com
 " Github              : https://github.com/UncleDozer/
 " Website             : http://www.webtastic-development.net
 " I'm new to VIM, so any suggestions or improvements would be greatly appreciated. Thanks!
@@ -126,6 +126,9 @@ Plug 'tpope/vim-capslock'
 
 " Vim-Pad for note taking
 Plug 'fmoralesc/vim-pad'
+
+" Vim NerdTree
+Plug 'scrooloose/nerdtree', { 'on' : [ 'NERDTree', 'NERDTreeToggle' ] }
 
 "}}}
 
@@ -407,6 +410,9 @@ nnoremap <leader>scr :e $HOME/.note/scratch.note<CR>ggVGdP
 
 " FZF Fuzzy Finder -- Broken in NVim
 " nnoremap <C-p> :FZF<CR>
+
+" NerdTree
+nnoremap <C-n> :NERDTreeToggle<CR>
 
 " CtrlP Fuzzy Finder
 nnoremap <C-p> :CtrlP<CR>
