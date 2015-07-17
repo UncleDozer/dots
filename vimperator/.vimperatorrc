@@ -49,17 +49,17 @@ hi! clear
 " Hints
 hi HintElem background-color: #1a1a1a; color: white;
 hi HintActive background-color: #ace594;
-hi Hint font-family: Office Code Pro !important; font-size: 14px !important; font-weight: normal; text-transform: uppercase; color: white; background-color: #5B92FA; border-color: ButtonShadow; border-width: 0px; border-style: solid; padding: 0px 3px 0px 3px; box-shadow: 0 0 3px 1px rgba( 0,0,0,.25 );
+hi Hint font-family: Office Code Pro !important; font-size: 14px !important; font-weight: 500; text-transform: uppercase; color: white; background-color: #5B92FA; border-color: ButtonShadow; border-width: 0px; border-style: solid; padding: 0px 3px 0px 3px; box-shadow: 0 0 3px 1px rgba( 0,0,0,.25 );
 
 " CommandLine
-hi CmdLine background-color: #1a1a1a; color: #f1f3f4; font-weight: 500;
-hi CompGroup background-color: #1a1a1a; color: #f1f3f4; font-weight: 500;
-hi CompItem background-color: #1a1a1a; color: #f1f3f4; font-weight: 500;
+hi CmdLine background-color: #1a1a1a; color: #f1f3f4; font-weight: 400;
+hi CompGroup background-color: #1a1a1a; color: #f1f3f4; font-weight: 400;
+hi CompItem background-color: #1a1a1a; color: #f1f3f4; font-weight: 400;
 hi CompItem[selected] color: #2eb9ff !important;
-hi CompTitle background-color: #1a1a1a; color: #a1ff7a; font-weight: 800; border-width: 0px;
-hi ErrorMsg background-color: #ff2e4c; color: #f1f3f4; font-weight: 800;
+hi CompTitle background-color: #1a1a1a; color: #a1ff7a; font-weight: 400; border-width: 0px; text-shadow: none !important;
+hi ErrorMsg background-color: #ff2e4c; color: #f1f3f4; font-weight: 400; text-shadow: none !important;
 hi Filter background-color: none; color: #2eb9ff;
-hi StatusLine background-color: #1a1a1a; color: #ace594; border-color: #1a1a1a; outline: 0;
+hi StatusLine background-color: #1a1a1a; color: #ace594; border-color: #1a1a1a; outline: 0; text-shadow: none !important;
 hi URL color: #ace594;
 hi Normal background-color: #1a1a1a; color: #ace594; border-top: 1px solid #1a1a1a;
 hi LineNr color: #b3bdc2;

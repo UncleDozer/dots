@@ -52,6 +52,10 @@ set -x fish_pager_color_prefix green --bold
 # Keep alias for autocompletion
 alias j='jump'
 
+function gvim
+    pynvim
+end
+
 # nextd
 function nd
     nextd
@@ -174,7 +178,7 @@ end
 function autorefresh
     switch ( count $argv )
         case 0
-            ls **.less **.css **.php **.html **.js **.txt | entr reload-browser iceweasel
+            ls **.less **.css **.php **.html **.js **.rb **.txt | entr reload-browser iceweasel
         case 1
             ls $argv[ 1 ] | entr reload-browser iceweasel
     end
