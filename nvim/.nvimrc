@@ -79,6 +79,9 @@ Plug 'jtratner/vim-flavored-markdown', { 'for' :  'markdown' }
 Plug 'lervag/vimtex', { 'for' : [ 'tex', 'latex' ] }
 Plug 'xuhdev/vim-latex-live-preview', { 'for' : [ 'tex', 'latex' ] }
 
+" Ruby
+Plug 'vim-ruby/vim-ruby'
+
 " Ruby On Rails
 Plug 'tpope/vim-rails'
 
