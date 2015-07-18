@@ -12,7 +12,7 @@ set animations
 set status=tabcount,input,location,bookmark,history,position
 set complete=slShbt
 set verbose=5
-set editor='urxvtc -e nvim'
+set editor='pynvim'
 
 let smoozie_scroll_interval="100"
 

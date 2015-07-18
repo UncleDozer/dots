@@ -1,6 +1,7 @@
 # i3 config file (v4)
 #
-# Author: UncleDozer
+# Author: Kristopher Watts
+# Modified from the default i3 config file
 
 # Variables
 # {{{
@@ -326,7 +327,7 @@ client.urgent $red $red $white #900000
 # {{{
 exec --no-startup-id urxvtc -name scratchpad
 exec --no-startup-id urxvtc -name dropdown
-# exec --no-startup-id rofi
+exec --no-startup-id rofi
 #}}}
 
 # vim:filetype=i3

@@ -531,6 +531,10 @@ nnoremap Ïc <nop>
 nnoremap <C-Left> <nop>
 nnoremap <C-Right> <nop>
 
+" Rails
+nnoremap <Leader>re i<%= %><ESC>2hi<SPACE>
+nnoremap <Leader>rr i<% %><ESC>2hi<SPACE>
+
 " }}}
 
 "--------------------------
@@ -913,7 +917,7 @@ if has("autocmd")
         au InsertLeave * setlocal timeoutlen=250
     augroup END
 
-    " Set Indentation for Ruby
+    " Rails Specific
     augroup rubyFiles
         au!
         au FileType ruby set tabstop=2
