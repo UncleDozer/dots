@@ -1,5 +1,5 @@
 [global]
-    font = Office Code Pro 12
+    font = Office Code Pro Medium 12
 
     # Allow a small subset of html markup in notifications and formats:
     #   <b>bold</b>
@@ -66,7 +66,7 @@
     # the top and down respectively.
     # The width can be negative.  In this case the actual width is the
     # screen width minus the width defined in within the geometry option.
-    geometry = "950x115-45+45"
+    geometry = "950x75-45+45"
 
     # Shrink window if it's smaller than the width.  Will be ignored if
     # width is 0.
@@ -139,19 +139,19 @@
     # Print a notification on startup.
     # This is mainly for error detection, since dbus (re-)starts dunst
     # automatically after a crash.
-    startup_notification = false
+    startup_notification = true
 
     # dmenu path.
     dmenu = /usr/bin/dmenu -p dunst:
 
     # Browser for opening urls in context menu.
-    browser = /usr/bin/firefox-developer -new-tab
+    browser = /usr/bin/iceweasel -new-tab
 
     # Align icons left/right/off
-    icon_position = left
+    icon_position = off
 
     # Paths to default icons.
-    icon_folders = /usr/share/icons/UltraFlatIcons/status/:/usr/share/icons/UltraFlatIcons/devices/
+    icon_folders = /usr/share/icons/UltraFlatIcons/status/scalable
 
 [frame]
     width = 0
