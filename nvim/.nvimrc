@@ -85,6 +85,9 @@ Plug 'vim-ruby/vim-ruby'
 " Ruby On Rails
 Plug 'tpope/vim-rails'
 
+" Endwise.vim
+Plug 'tpope/vim-endwise'
+
 "}}}
 
 "--------------------------
