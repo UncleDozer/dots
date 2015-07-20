@@ -47,9 +47,9 @@ inoremap <C-e> <C-i>
 " Colors
 hi! clear
 " Hints
-hi HintElem background-color: #1a1a1a; color: white;
-hi HintActive background-color: #7ed65a; color: white;
-hi Hint font-family: 'Monoid' !important; font-size: 15px !important; font-weight: 600; text-transform: uppercase; color: white; background-color: #5B92FA; border-color: ButtonShadow; border-width: 0px; border-style: solid; padding: 0px 3px 0px 3px; box-shadow: 0 0 3px 1px rgba( 0,0,0,.25 ); border-radius: 2px;
+hi HintElem background-color: #1a1a1a; color: white; box-shadow: 0 0 3px 1px rgba( 0,0,0,.25 ); border-radius: 2px;
+hi HintActive background-color: #7ed65a; color: white; box-shadow: 0 0 3px 1px rgba( 0,0,0,.25 ); border: none; border-radius: 2px;
+hi Hint font-family: 'Monoid' !important; font-size: 15px !important; font-weight: 600; text-transform: uppercase; color: white; background-color: #5B92FA; border-color: ButtonShadow; border-width: 0px; border-style: solid; padding: 0px 3px 0px 3px; box-shadow: 0 0 3px 1px rgba( 0,0,0,.25 ); border-radius: 1px;
 
 " CommandLine
 hi CmdLine background-color: #1a1a1a; color: #f1f3f4; font-weight: 400;
