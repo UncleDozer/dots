@@ -1,5 +1,6 @@
 [global]
-    font = Office Code Pro Medium 12
+    # font = Office Code Pro Medium 12
+    font = Monoid 15
 
     # Allow a small subset of html markup in notifications and formats:
     #   <b>bold</b>

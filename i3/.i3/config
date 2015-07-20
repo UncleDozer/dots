@@ -78,7 +78,7 @@ popup_during_fullscreen smart
 force_display_urgency_hint 1000 ms
 
 # Font
-font pango:Office Code Pro Medium, Icons 10
+font pango:Monoid 15, Icons 10
 
 # Smart Borders
 smart_borders on
@@ -273,18 +273,18 @@ bar {
 #{{{
 
 # Remove titlebar unless in stacking or tabbed mode
-for_window  [class="^.*"] border pixel 1
+for_window [class="^.*"] border pixel 1
 
 # Default Workspaces
 # Send music application to workspace 3
-assign      [class="(?i)$music"] $ws3
-assign      [class="(?i)spotify"] $ws3
-assign      [class="(?i)qbittorrent"] $ws6
-assign      [class="(?i)steam"] $ws7
-assign      [class="(?i)playonlinux"] $ws7
+assign [class="(?i)$music"] $ws3
+assign [class="(?i)spotify"] $ws3
+assign [class="(?i)qbittorrent"] $ws6
+assign [class="(?i)steam"] $ws7
+assign [class="(?i)playonlinux"] $ws7
 
 # Set speedcrunch (calculator) to floating
-for_window  [class="(?i)speedcrunch"] floating enable
+for_window [class="(?i)speedcrunch"] floating enable
 
 # Scratchpad and Dropdown Config
 #{{{

@@ -70,7 +70,7 @@ URxvt*transparent       : false
 rofi.lines               : 5
 rofi.location            : 0
 
-rofi.font                : Office Code Pro 14
+rofi.font                : Monoid 15
 
 rofi.hlfg                : #1A1A1A
 rofi.fg-active           : #7ED65A
