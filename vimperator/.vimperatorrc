@@ -49,7 +49,7 @@ hi! clear
 " Hints
 hi HintElem background-color: #1a1a1a; color: white; box-shadow: 0 0 3px 1px rgba( 0,0,0,.25 ); border-radius: 2px;
 hi HintActive background-color: #7ed65a; color: white; box-shadow: 0 0 3px 1px rgba( 0,0,0,.25 ); border: none; border-radius: 2px;
-hi Hint font-family: 'Monoid' !important; font-size: 15px !important; font-weight: 600; text-transform: uppercase; color: white; background-color: #5B92FA; border-color: ButtonShadow; border-width: 0px; border-style: solid; padding: 0px 3px 0px 3px; box-shadow: 0 0 3px 1px rgba( 0,0,0,.25 ); border-radius: 1px;
+hi Hint font-family: 'Monoid' !important; font-size: 15px !important; font-weight: 600; text-transform: uppercase; color: white; background-color: #5B92FA; border-color: ButtonShadow; border-width: 0px; border-style: solid; padding: 0px 3px 0px 3px; box-shadow: 0 0 3px 1px rgba( 0,0,0,.25 ); border-radius: 1px; z-index: 99999999;
 
 " CommandLine
 hi CmdLine background-color: #1a1a1a; color: #f1f3f4; font-weight: 400;
@@ -60,7 +60,7 @@ hi CompGroup background-color: #1a1a1a; color: #f1f3f4; font-weight: 400;
 hi CompItem background-color: #1a1a1a; color: #f1f3f4; font-weight: 400;
 hi CompItem[selected] color: #2eb9ff !important; background-color: rgb( 35,35,35 );
 
-hi CompTitle background-color: #1a1a1a; color: #a1ff7a; font-weight: 400; border-width: 0px; text-shadow: none !important; box-shadow: 0 -2px 3px 0px rgba( 0,0,0,.5 );
+hi CompTitle background-color: #1a1a1a; color: #a1ff7a; font-weight: 400; border-width: 0px; text-shadow: none !important; box-shadow: 0 -4px 5px 0px rgba( 0,0,0,.5 );
 hi CompTitle>* color: #2EB9FF; border: none; border-top: none; border-bottom: none; margin-left: 5px; height: 15px;
 
 hi ErrorMsg background-color: #ff2e4c; color: #f1f3f4; font-weight: 400; text-shadow: none !important;

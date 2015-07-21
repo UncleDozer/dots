@@ -244,7 +244,7 @@ set smartindent               " Auto Indenting
 set autoindent
 
 set list                      " Show Whitespace and Tabs
-set listchars=tab:»\ ,trail:•
+set listchars=tab:…\ ,trail:•
 
 "}}}
 
