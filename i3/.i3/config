@@ -1,4 +1,4 @@
-# i3 config file (v4)
+# i2 config file (v4)
 #
 # Author: Kristopher Watts
 # Modified from the default i3 config file
@@ -12,7 +12,7 @@ set $alt       Mod1
 
 # Programs
 set $run       exec python ~/.i3/runorfocus.py
-set $music     amarok
+set $music     clementine
 set $browser   iceweasel
 set $terminal  urxvtc
 

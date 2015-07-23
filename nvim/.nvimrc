@@ -402,6 +402,9 @@ let g:ycm_seed_identifiers_with_syntax                  = 1
 " Close YCM Menu After a Completion
 let g:ycm_autoclose_preview_window_after_completion     = 1
 
+" Collect Completions from tags files
+let g:ycm_collect_identifiers_from_tags_files = 1
+
 "}}}
 
 "}}}
@@ -932,6 +935,12 @@ if has("autocmd")
         au FileType eruby set tabstop=2
         au FileType eruby set softtabstop=2
         au FileType eruby set shiftwidth=2
+        au FileType yaml set tabstop=2
+        au FileType yaml set softtabstop=2
+        au FileType yaml set shiftwidth=2
+        au FileType yaml set tabstop=2
+        au FileType yaml set softtabstop=2
+        au FileType yaml set shiftwidth=2
     augroup END
 endif
 
