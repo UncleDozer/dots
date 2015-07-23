@@ -5,18 +5,20 @@
 # }}}
 
 # Path to oh my fish
-set fish_path $HOME/.oh-my-fish
+set fish_path ~/.oh-my-fish
+
+# Source outside config files
+. $fish_path/oh-my-fish.fish
+. ~/.profile
 
 # Plugins
-set fish_plugins jump extract
+Plugin "jump"
+Plugin "extract"
 
 # Clear Fish Title for Easier window management via i3
 function fish_title
 end
 
-# Source outside config files
-. $fish_path/oh-my-fish.fish
-. $HOME/.profile
 
 # Clear Fish Greeting
 function fish_greeting
@@ -31,8 +33,8 @@ set -x SCRIPTS $HOME/.scripts
 set -x STEAM_FRAME_FORCE_CLOSE 1
 set -x PATH $PATH /usr/local/bin /usr/bin /bin /usr/local/sbin /usr/sbin /sbin /usr/bin /home/uncledozer/.gem/ruby/2.2.0/bin /home/uncledozer/.config/bspwm /usr/share/awesome /home/uncledozer/.gem/ruby/2.1.0 /etc/php /home/uncledozer/public_html/webapps/phpMyAdmin /opt/android-sdk/platform-tools /usr/lib/python2.7 /usr/bin/core_perl /usr/bin/site_perl /usr/bin/vendor_perl /usr/lib /usr/lib/php /usr/lib/php/modules $SCRIPTS $SCRIPTS/colorscripts /usr/bin/perl
 set --global --export LC_CTYPE en_US.UTF-8
-set -Ux LC_ALL en_US.UTF-8
-set -Ux LANG en_US.UTF-8
+set -x LC_ALL en_US.UTF-8
+set -x LANG en_US.UTF-8
 # ---}}}
 
 # Fish Colors ---{{{
