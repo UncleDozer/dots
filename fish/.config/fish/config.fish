@@ -12,8 +12,11 @@ set fish_path ~/.oh-my-fish
 . ~/.profile
 
 # Plugins
-Plugin "jump"
-Plugin "extract"
+Plugin 'jump'
+Plugin 'extract'
+Plugin 'bundler'
+Plugin 'theme'
+Plugin 'gem'
 
 # Clear Fish Title for Easier window management via i3
 function fish_title

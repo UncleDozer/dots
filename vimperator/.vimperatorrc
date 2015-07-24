@@ -63,6 +63,20 @@ hi CompItem[selected] color: #2eb9ff !important; background-color: rgb( 35,35,35
 hi CompTitle background-color: #1a1a1a; color: #a1ff7a; font-weight: 400; border-width: 0px; text-shadow: none !important; box-shadow: 0 -4px 5px 0px rgba( 0,0,0,.5 );
 hi CompTitle>* color: #2EB9FF; border: none; border-top: none; border-bottom: none; margin-left: 5px; height: 15px;
 
+hi CompMsg font-style: bold; margin-left: 16px; background-color: #1A1A1A;
+
+hi HelpCode font-family: 'Monoid'
+hi WarningMsg color: #FF5724; background: #232323; background-color: #232323;
+hi Message background-color: #1a1a1a;
+hi Title color: #7462d4; background: #232323;
+hi TabNumber color: #2EB9FF !important;
+hi String color: #7ED65A;
+hi Question color: #FF5724; background: #232323;
+hi ModeMsg color: #F1F3F4; background: #232323;
+hi InfoMsg background: #232323; color: #7462d;
+hi Indicator color: #2DB9FF;
+hi HelpWarning color: #ff2d4c; background: #232323;
+
 hi ErrorMsg background-color: #ff2e4c; color: #f1f3f4; font-weight: 400; text-shadow: none !important;
 hi Filter background-color: none; color: #2eb9ff;
 hi StatusLine background-color: #1a1a1a; color: #7ed65a; border-color: #1a1a1a; outline: 0; text-shadow: none !important; font-family: 'Monoid'; font-size: 16px;
@@ -70,7 +84,6 @@ hi URL color: #ace594;
 hi Normal background-color: #1a1a1a; color: #ace594; border-top: 1px solid #1a1a1a;
 hi LineNr color: #b3bdc2;
 hi ContentSeparator display:none;
-hi Message background-color: #1a1a1a
 hi Bell border: none; background-color: #1A1A1A;
 hi Boolean color: #b63e50; background-color: #1A1A1A;
 

@@ -282,6 +282,9 @@ set formatoptions=qn1          " Text Formatting
 " Persistent Info
 set viminfo='10,\"100,:20,%,n~/.nviminfo'
 
+" Find tags files
+set tags+=tags
+
 "}}}
 
 "--------------------------
