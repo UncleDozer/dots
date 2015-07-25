@@ -1,6 +1,6 @@
 [global]
     # font = Office Code Pro Medium 12
-    font = Monoid 15
+    font = Monoid 14
 
     # Allow a small subset of html markup in notifications and formats:
     #   <b>bold</b>
@@ -121,13 +121,13 @@
     # Draw a line of "separator_height" pixel height between two
     # notifications.
     # Set to 0 to disable.
-    separator_height = 5
+    separator_height = 3
 
     # Padding between text and separator.
-    padding = 15
+    padding = 5
 
     # Horizontal padding.
-    horizontal_padding = 15
+    horizontal_padding = 10
 
     # Define a color for the separator.
     # possible values are:
@@ -215,6 +215,23 @@
 # to "".
 # NOTE: It might be helpful to run dunst -print in a terminal in order
 # to find fitting options for rules.
+
+# The format of the message.  Possible variables are:
+#   %a  appname
+#   %s  summary
+#   %b  body
+#   %i  iconname (including its path)
+#   %I  iconname (without its path)
+#   %p  progress value if set ([  0%] to [100%]) or nothing
+# Markup is allowed
+[mopidy]
+    icon_position = left
+    allow_markup = no
+    plain_text = yes
+    format = <span color="#2EB9FF" font_weight="bold" font_size="larger">%s</span>\n<span color="#FF5724">%a</span>\n<span color="#7ED65A">%b</span>
+
+[rake]
+    icon_position = off
 
 #[espeak]
 #    summary = "*"
