@@ -325,8 +325,8 @@ client.urgent $red $red $white #900000
 
 # AutoRun
 # {{{
-exec --no-startup-id urxvtc -name scratchpad
-exec --no-startup-id urxvtc -name dropdown
+# exec --no-startup-id urxvtc -name scratchpad
+# exec --no-startup-id urxvtc -name dropdown
 exec --no-startup-id rofi
 #}}}
 

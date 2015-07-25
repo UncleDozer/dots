@@ -139,11 +139,16 @@ Plug 'fmoralesc/vim-pad'
 " Vim NerdTree
 Plug 'scrooloose/nerdtree', { 'on' : [ 'NERDTree', 'NERDTreeToggle' ] }
 
-" Colorschemes
+" Colorschemes for pynvim
 Plug 'NLKNguyen/papercolor-theme'
 Plug 'trusktr/seti.vim'
 Plug 'kristijanhusak/vim-hybrid-material'
 
+" Targets
+Plug 'wellle/targets.vim'
+
+" Gutentags for tags files
+Plug 'ludovicchabant/vim-gutentags'
 
 "}}}
 
@@ -208,6 +213,8 @@ set tm=500
 let g:plug_window='top new' " Force Vim-Plug to split horizontally instead of Vertically
 
 set foldmethod=marker       " Use Default Fold Marker
+
+set omnifunc=syntaxcomplete#Complete
 
 " When Editing A File, Always Jump to the Last Known Cursor Position
 " Unless Cursor Position is Invalid or the First Line
@@ -358,6 +365,12 @@ let g:goyo_margin_top                         = 0
 let g:goyo_margin_bottom                      = 0
 let g:goyo_linenr                             = 1
 
+" CtrlP
+let g:ctrlp_show_hidden = 1
+
+" GutenTags
+let g:gutentags_generate_on_write = 0
+
 function! s:goyo_enter()
     set noshowmode
     set noshowcmd
@@ -427,6 +440,9 @@ let mapleader=","
 
 " Remap Command key for Faster Commands
 noremap ; :
+
+" Remap ;
+nnoremap <Leader>; ;
 
 " Get Filepath relative to working dir
 nnoremap <leader>en :echo @%<CR>
@@ -521,7 +537,7 @@ nnoremap <Leader>g :Goyo<CR>:e<CR>:set tabline:%!buftabline#render()<CR>
 noremap <CR> o<ESC>
 noremap <TAB> i<TAB><ESC>
 noremap <Leader><CR> O<ESC>
-noremap <SPACE> i<SPACE><ESC>
+noremap <Leader><Leader> i<SPACE><ESC>
 
 " Increment Interger Up
 nnoremap <C-j> <C-x>

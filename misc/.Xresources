@@ -10,6 +10,7 @@ URxvt*boldFont       :
 URxvt*italicFont     :
 URxvt*boldItalicFont :
 URxvt*letterSpace    : -2
+URxvt*lineSpace      : 2
 Xft.dpi              : 96
 Xft.antialias        : true
 Xft.rgba             : rgba
