@@ -52,7 +52,7 @@ hi HintActive background-color: #7ed65a; color: white; box-shadow: 0 0 3px 1px r
 hi Hint font-family: 'Monoid' !important; font-size: 15px !important; font-weight: 600; text-transform: uppercase; color: white; background-color: #5B92FA; border-color: ButtonShadow; border-width: 0px; border-style: solid; padding: 0px 3px 0px 3px; box-shadow: 0 0 3px 1px rgba( 0,0,0,.25 ); border-radius: 1px; z-index: 99999999;
 
 " CommandLine
-hi CmdLine background-color: #1a1a1a; color: #f1f3f4; font-weight: 400;
+hi CmdLine background-color: #1a1a1a; color: #f1f3f4; font-weight: 400; font-size: 13px;
 hi CmdLine>* font-family: 'Monoid'
 
 hi CompGroup background-color: #1a1a1a; color: #f1f3f4; font-weight: 400;
@@ -80,7 +80,7 @@ hi HelpWarning color: #ff2d4c; background: #232323;
 hi ErrorMsg background-color: #ff2e4c; color: #f1f3f4; font-weight: 400; text-shadow: none !important;
 hi Filter background-color: none; color: #2eb9ff;
 hi StatusLine background-color: #1a1a1a; color: #7ed65a; border-color: #1a1a1a; outline: 0; text-shadow: none !important; font-family: 'Monoid'; font-size: 16px;
-hi URL color: #ace594;
+hi URL color: #7ED65A; font-size: 15px;
 hi Normal background-color: #1a1a1a; color: #ace594; border-top: 1px solid #1a1a1a;
 hi LineNr color: #b3bdc2;
 hi ContentSeparator display:none;
