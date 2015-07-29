@@ -665,56 +665,56 @@ let &t_EI .= "\<Esc>[4 q"
 " background must be set to dark BEFORE the color scheme is called.
 
 " Clear All Highlighting
-hi clear
+" hi clear
 
-hi Normal guifg=#F1F3F4 guibg=#1A1A1A
+" hi Normal guifg=#F1F3F4 guibg=#1A1A1A
 
-" Kill the CursorLine Underline
-hi CursorLine cterm=none ctermbg=0 gui=none guibg=#1A1A1A
-" Highlight the current line number
-hi CursorLineNr ctermfg=9 ctermbg=0 guifg=#ff2e4c guibg=#1A1A1A
-hi LineNr ctermfg=7 guifg=#5b7785
-hi StatusLine cterm=none ctermfg=7 ctermbg=0 gui=none guifg=#5b7785 guibg=#1A1A1A
-hi StatusLineNC cterm=none ctermfg=7 ctermbg=235 gui=none guifg=#5b7785 guibg=#3A3A3A
-hi TabLineFill ctermbg=none ctermfg=0 gui=none guifg=#1A1A1A
-hi TabLine ctermfg=2 ctermbg=0 cterm=none gui=none guifg=#6e8b62 guibg=#1A1A1A
-hi TabLineSel ctermfg=10 ctermbg=0 guifg=#7ed65a guibg=#1A1A1A
+" " Kill the CursorLine Underline
+" hi CursorLine cterm=none ctermbg=0 gui=none guibg=#1A1A1A
+" " Highlight the current line number
+" hi CursorLineNr ctermfg=9 ctermbg=0 guifg=#ff2e4c guibg=#1A1A1A
+" hi LineNr ctermfg=7 guifg=#5b7785
+" hi StatusLine cterm=none ctermfg=7 ctermbg=0 gui=none guifg=#5b7785 guibg=#1A1A1A
+" hi StatusLineNC cterm=none ctermfg=7 ctermbg=235 gui=none guifg=#5b7785 guibg=#3A3A3A
+" hi TabLineFill ctermbg=none ctermfg=0 gui=none guifg=#1A1A1A
+" hi TabLine ctermfg=2 ctermbg=0 cterm=none gui=none guifg=#6e8b62 guibg=#1A1A1A
+" hi TabLineSel ctermfg=10 ctermbg=0 guifg=#7ed65a guibg=#1A1A1A
 
 
-" UI Highlighting
-hi Search cterm=reverse ctermfg=none ctermbg=none gui=reverse guifg=none
-hi MatchParen ctermfg=10 guifg=#7ed65a
-hi VertSplit ctermfg=0 ctermbg=7 guifg=#1A1A1A guibg=#5b7785
-hi Directory ctermfg=4 guifg=#31789c
-hi SpecialKey ctermfg=7 guifg=#5b7785
-hi Special ctermfg=10 guifg=#7ed65a
-hi Nontext ctermfg=7 guifg=#5b7785
-hi Visual ctermbg=2 ctermfg=0 guibg=#6e8b62 guifg=#1A1A1A
-hi Number ctermfg=11 guifg=#ff5724
-hi Error ctermfg=15 ctermbg=9 guifg=#F1F3F4 guibg=#ff2e4c
-hi ErrorMsg ctermbg=9 ctermfg=15 guibg=#ff2e4c guifg=#F1F3F4
-hi ToDo ctermbg=0 ctermfg=12 guibg=#1A1A1A guifg=#2eb9ff
+" " UI Highlighting
+" hi Search cterm=reverse ctermfg=none ctermbg=none gui=reverse guifg=none
+" hi MatchParen ctermfg=10 guifg=#7ed65a
+" hi VertSplit ctermfg=0 ctermbg=7 guifg=#1A1A1A guibg=#5b7785
+" hi Directory ctermfg=4 guifg=#31789c
+" hi SpecialKey ctermfg=7 guifg=#5b7785
+" hi Special ctermfg=10 guifg=#7ed65a
+" hi Nontext ctermfg=7 guifg=#5b7785
+" hi Visual ctermbg=2 ctermfg=0 guibg=#6e8b62 guifg=#1A1A1A
+" hi Number ctermfg=11 guifg=#ff5724
+" hi Error ctermfg=15 ctermbg=9 guifg=#F1F3F4 guibg=#ff2e4c
+" hi ErrorMsg ctermbg=9 ctermfg=15 guibg=#ff2e4c guifg=#F1F3F4
+" hi ToDo ctermbg=0 ctermfg=12 guibg=#1A1A1A guifg=#2eb9ff
 
-" Menu Highlighting
-hi Pmenu ctermfg=15 ctermbg=4 guifg=#F1F3F4
-hi Pmenusel ctermfg=15 ctermbg=12 guifg=#F1F3F4 guibg=#2eb9ff
-hi WildMenu ctermfg=16 ctermbg=12 guifg=#1A1A1A guibg=#2eb9ff
+" " Menu Highlighting
+" hi Pmenu ctermfg=15 ctermbg=4 guifg=#F1F3F4
+" hi Pmenusel ctermfg=15 ctermbg=12 guifg=#F1F3F4 guibg=#2eb9ff
+" hi WildMenu ctermfg=16 ctermbg=12 guifg=#1A1A1A guibg=#2eb9ff
 
-" Syntax Highlighting
-hi Statement ctermfg=9 guifg=#ff2e4c
-hi Constant ctermfg=11 guifg=#ff5724
-hi Folded ctermfg=7 ctermbg=0 guifg=#5b7785 guibg=#1A1A1A
-hi Title ctermfg=12 guifg=#2eb9ff
-hi TagbarIcon ctermfg=9 guifg=#ff2e4c
-hi TagbarHighlight ctermfg=9 guifg=#ff2e4c
-hi TagbarScope ctermfg=12 ctermbg=none cterm=none guifg=#2eb9ff guibg=none gui=none
-hi TagbarKind ctermfg=12 ctermbg=none cterm=none guifg=#2eb9ff guibg=none gui=none
-hi TagbarNestedKind ctermbg=12 ctermbg=none cterm=none guibg=none gui=none guibg=#2eb9ff
-hi Comment ctermfg=7 guifg=#5b7785
-hi String ctermfg=10 guifg=#7ed65a
-hi Type ctermfg=14 guifg=#38c5af
-hi PreProc ctermfg=11 guifg=#ff5724
-hi Identifier ctermfg=12 guifg=#2eb9ff
+" " Syntax Highlighting
+" hi Statement ctermfg=9 guifg=#ff2e4c
+" hi Constant ctermfg=11 guifg=#ff5724
+" hi Folded ctermfg=7 ctermbg=0 guifg=#5b7785 guibg=#1A1A1A
+" hi Title ctermfg=12 guifg=#2eb9ff
+" hi TagbarIcon ctermfg=9 guifg=#ff2e4c
+" hi TagbarHighlight ctermfg=9 guifg=#ff2e4c
+" hi TagbarScope ctermfg=12 ctermbg=none cterm=none guifg=#2eb9ff guibg=none gui=none
+" hi TagbarKind ctermfg=12 ctermbg=none cterm=none guifg=#2eb9ff guibg=none gui=none
+" hi TagbarNestedKind ctermbg=12 ctermbg=none cterm=none guibg=none gui=none guibg=#2eb9ff
+" hi Comment ctermfg=7 guifg=#5b7785
+" hi String ctermfg=10 guifg=#7ed65a
+" hi Type ctermfg=14 guifg=#38c5af
+" hi PreProc ctermfg=11 guifg=#ff5724
+" hi Identifier ctermfg=12 guifg=#2eb9ff
 
 colorscheme apprentice
 
