@@ -23,23 +23,23 @@ set $output2 DVI-0
 set $default_gaps_inner 20
 set $default_gaps_outer 0
 
-set $red         #FF2E4C
-set $blue        #2EB9FF
-set $cyan        #8FFFEE
-set $black       #1A1A1A
+set $red         #FF8700
+set $blue        #8FAFD7
+set $cyan        #5FAFAF
+set $black       #262626
 set $white       #F1F3F4
-set $green       #A1FF7A
-set $yellow      #FFA03D
-set $magenta     #FF91C9
+set $green       #87AF87
+set $yellow      #FFFFAF
+set $magenta     #8787AF
 
-set $grey        #B3BDC2
-set $dim_red     #B63E50
-set $dim_grey    #2A2A2A
-set $dim_blue    #60A8CD
-set $dim_cyan    #3AD9C2
-set $dim_green   #ACE594
-set $dim_yellow  #DB9F62
-set $dim_magenta #D3649D
+set $grey        #444444
+set $dim_red     #AF5F5F
+set $dim_grey    #1C1C1C
+set $dim_blue    #5F87AF
+set $dim_cyan    #5F8787
+set $dim_green   #5F875F
+set $dim_yellow  #87875F
+set $dim_magenta #5F5F87
 
 # Home
 set $ws1 "1:"
@@ -243,7 +243,7 @@ bindsym $mod+$alt+r mode ""
 #{{{
 
 bar {
-  font pango:Office Code Pro, Icons 14
+  font pango:Monoid, Icons 13
   status_command i3blocks -c ~/.i3/i3blocks.conf
   # status_command i3status -c ~/.i3/i3status.conf
   strip_workspace_numbers yes
@@ -257,13 +257,13 @@ bar {
   colors {
     separator  $dim_blue
     background $black
-    statusline $blue
+    statusline $dim_blue
 # --------------------|  BORDER  |   BG   |   FG    |------
 # ----------------------------------------------------------
-    focused_workspace  $dim_blue $black    $blue
-    active_workspace   $dim_grey $dim_grey $dim_blue
+    focused_workspace  $dim_blue $blue     $black
+    active_workspace   $grey     $grey     $black
     inactive_workspace $black    $black    $grey
-    urgent_workspace   $red      $red      $black
+    urgent_workspace   $black    $black    $red
   }
 }
 

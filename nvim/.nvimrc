@@ -54,7 +54,7 @@ Plug 'jelera/vim-javascript-syntax', { 'for' : 'javascript' }
 Plug 'othree/javascript-libraries-syntax.vim', { 'for' : 'javascript' }
 
 " HTML and PHP
-Plug 'othree/html5.vim', { 'for' : [ 'html', 'php' ] }
+Plug 'othree/html5.vim', { 'for' : [ 'html', 'php', 'eruby' ] }
 Plug 'StanAngeloff/php.vim', { 'for' : 'php' }
 Plug 'nicklasos/vimphphtml', { 'for' : 'php' }
 
@@ -143,6 +143,9 @@ Plug 'scrooloose/nerdtree', { 'on' : [ 'NERDTree', 'NERDTreeToggle' ] }
 Plug 'NLKNguyen/papercolor-theme'
 Plug 'trusktr/seti.vim'
 Plug 'kristijanhusak/vim-hybrid-material'
+Plug 'romainl/Apprentice'
+Plug 'flazz/vim-colorschemes' " Colorscheme pack
+Plug 'mhumeSF/one-dark.vim'
 
 " Targets
 Plug 'wellle/targets.vim'
@@ -712,6 +715,8 @@ hi String ctermfg=10 guifg=#7ed65a
 hi Type ctermfg=14 guifg=#38c5af
 hi PreProc ctermfg=11 guifg=#ff5724
 hi Identifier ctermfg=12 guifg=#2eb9ff
+
+colorscheme apprentice
 
 "}}}
 

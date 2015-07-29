@@ -88,7 +88,7 @@ hi Bell border: none; background-color: #1A1A1A;
 hi Boolean color: #b63e50; background-color: #1A1A1A;
 
 " On startup, define my readability stylesheet ( for use with usermode )
-style -name usermodestyle file:,file*,file:*,http*,https* body{ margin:40px auto; max-width:850px; line-height:1.6; font-size:1.3em; color:#F1F3F4; padding:0 10px; background: #1A1A1A; } a{ color:#2EB9FF !important; } a:visited{color:#31789C !important;} h1, h2, h3, h4, h5, h6{ line-height:1.2; } pre{max-width: 850px !important;}
+style -name usermodestyle file:,file*,file:*,http*,https* body{ margin:40px auto; max-width:1280px; line-height:1.6; font-size:1.3em; color:#F1F3F4; padding:0 40px; background: #1A1A1A; } a{ color:#2EB9FF !important; } a:visited{color:#31789C !important;} h1, h2, h3, h4, h5, h6{ line-height:1.2; } pre{max-width: 850px !important; font-family: 'Monoid'; background: #5d5d5d;} img { margin: auto }
 styledisable -name usermodestyle
 
 " vim:filetype=vim

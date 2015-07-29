@@ -5,7 +5,7 @@
 
 *font                : -*-terminesspowerline-bold-*-*-*-16-*-*-*-*-*-*-*
 ! URxvt*font           : xft:Office Code Pro:style=Regular:size=14
-URxvt*font           : xft:Monoid:style=Regular:size=15
+URxvt*font           : xft:Monoid:size=14
 URxvt*boldFont       :
 URxvt*italicFont     :
 URxvt*boldItalicFont :
@@ -101,43 +101,28 @@ rofi.levenshtein-sort    : true
 
 ! COLORS
 ! {{{
-!! BLACK
-*color0          : #1A1A1A
-*color8          : #7D7D7D
-
-!!! RED
-*color1          : #B63E50
-*color9          : #FF2E4C
-
-!! GREEN
-*color2          : #6E8B62
-*color10         : #7ED65A
-
-!! YELLOW/ORANGE
-*color3          : #9C4E37
-*color11         : #FF5724
-
-!! BLUE
-*color4          : #31789C
-*color12         : #2EB9FF
-
-!! PURPLE
-*color5          : #53497F
-*color13         : #7562D4
-
-!! CYAN
-*color6          : #316E64
-*color14         : #38C5AF
-
-!! WHITE
-*color7          : #5B7785
-*color15         : #F1F3F4
+*.color0:     #1C1C1C
+*.color8:     #444444
+*.color1:     #AF5F5F
+*.color9:     #FF8700
+*.color2:     #5F875F
+*.color10:    #87AF87
+*.color3:     #87875F
+*.color11:    #FFFFAF
+*.color4:     #5F87AF
+*.color12:    #8FAFD7
+*.color5:     #5F5F87
+*.color13:    #8787AF
+*.color6:     #5F8787
+*.color14:    #5FAFAF
+*.color7:     #6C6C6C
+*.color15:    #BCBCBC
 
 !! SPECIAL
-*borderColor     : #1A1A1A
-*background      : #1A1A1A
-*foreground      : #F1F3F4
-*cursorColor     : #FF2E4C
+*borderColor     : #262626
+*background      : #262626
+*foreground      : #BCBCBC
+*cursorColor     : #5FAFAF
 *internalBorder  : 10
 
 ! }}}
