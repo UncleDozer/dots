@@ -614,6 +614,8 @@ inoremap {<CR> {<CR>}<C-o>O
 inoremap (<CR> (<CR>)<C-o>O
 inoremap [<CR> [<CR>]<C-o>O
 inoremap ><CR> ><CR><C-o>O
+inoremap <C-a> <C-o>A
+inoremap <C-i> <C-o>I
 
 "}}}
 

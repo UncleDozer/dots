@@ -79,8 +79,8 @@ hi HelpWarning color: #ff2d4c; background: #232323;
 
 hi ErrorMsg background-color: #ff2e4c; color: #f1f3f4; font-weight: 400; text-shadow: none !important;
 hi Filter background-color: none; color: #2eb9ff;
-hi StatusLine background-color: #1a1a1a; color: #7ed65a; border-color: #1a1a1a; outline: 0; text-shadow: none !important; font-family: 'Monoid'; font-size: 16px;
-hi URL color: #7ED65A; font-size: 15px;
+hi StatusLine background-color: #1a1a1a; color: #7ed65a; border-color: #1a1a1a; outline: 0; text-shadow: none !important; font-family: 'Monoid'; font-size: 13px;
+hi URL color: #7ED65A; font-size: 13px;
 hi Normal background-color: #1a1a1a; color: #ace594; border-top: 1px solid #1a1a1a;
 hi LineNr color: #b3bdc2;
 hi ContentSeparator display:none;
