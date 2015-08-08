@@ -213,6 +213,8 @@ set noerrorbells
 set t_vb=
 set tm=500
 
+set guicursor=a:blinkon0
+
 let g:plug_window='top new' " Force Vim-Plug to split horizontally instead of Vertically
 
 set foldmethod=marker       " Use Default Fold Marker

@@ -245,13 +245,11 @@ bindsym $mod+$alt+r mode ""
 bar {
   font pango:Monoid, Icons 11
   status_command i3blocks -c ~/.i3/i3blocks.conf
-  # status_command i3status -c ~/.i3/i3status.conf
   strip_workspace_numbers yes
   height 25
   position top
   tray_output $output2
   id bar-1
-  #tray_output nne
   mode dock
 
   colors {
