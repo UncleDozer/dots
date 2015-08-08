@@ -28,7 +28,7 @@ function fish_greeting
 end
 
 # User Variables ---{{{
-set -x BROWSER 'firefox-developer'
+set -x BROWSER 'iceweasel'
 set -x TERMINAL 'urxvtc'
 set -x QT_X11_NO_MITSHM 1
 set -x EDITOR 'nvim'
@@ -201,4 +201,8 @@ function compileScss
     end
 end
 
+function rtv
+    set -lx BROWSER 'w3m'
+    command rtv
+end
 # ---}}}

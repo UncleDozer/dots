@@ -228,7 +228,6 @@
     icon_position = left
     allow_markup = no
     plain_text = yes
-    format = <span color="#2EB9FF" font_weight="bold" font_size="larger">%s</span>\n<span color="#FF5724">%a</span>\n<span color="#7ED65A">%b</span>
 
 [rake]
     icon_position = off
