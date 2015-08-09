@@ -295,7 +295,7 @@ set formatoptions=qn1          " Text Formatting
 set viminfo='10,\"100,:20,%,n~/.nviminfo'
 
 " Find tags files
-set tags+=tags
+set tags+="./.tags;,tags"
 
 "}}}
 
