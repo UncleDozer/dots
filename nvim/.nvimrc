@@ -245,9 +245,9 @@ endif
 "{{{
 
 set expandtab                 " Expand Tabs to Spaces
-set tabstop=4
-set softtabstop=4
-set shiftwidth=4
+set tabstop=2
+set softtabstop=2
+set shiftwidth=2
 set shiftround
 
 set breakindent               " Visually Break Lines in Wrap Mode
@@ -539,10 +539,10 @@ nnoremap <Leader>t <C-^>
 nnoremap <Leader>g :Goyo<CR>:e<CR>:set tabline:%!buftabline#render()<CR>
 
 " Use Enter, Tab, Space Keys in Normal Mode
-noremap <CR> o<ESC>
-noremap <TAB> i<TAB><ESC>
-noremap <Leader><CR> O<ESC>
-noremap <Leader><Leader> i<SPACE><ESC>
+nnoremap <CR> o<ESC>
+nnoremap <TAB> i<TAB><ESC>
+nnoremap <Leader><CR> O<ESC>
+nnoremap <SPACE> i<SPACE><ESC>
 
 " Increment Interger Up
 nnoremap <C-j> <C-x>
@@ -954,22 +954,6 @@ if has("autocmd")
         au InsertLeave * setlocal timeoutlen=250
     augroup END
 
-    " Rails Specific
-    augroup rubyFiles
-        au!
-        au FileType ruby set tabstop=2
-        au FileType ruby set softtabstop=2
-        au FileType ruby set shiftwidth=2
-        au FileType eruby set tabstop=2
-        au FileType eruby set softtabstop=2
-        au FileType eruby set shiftwidth=2
-        au FileType yaml set tabstop=2
-        au FileType yaml set softtabstop=2
-        au FileType yaml set shiftwidth=2
-        au FileType yaml set tabstop=2
-        au FileType yaml set softtabstop=2
-        au FileType yaml set shiftwidth=2
-    augroup END
 endif
 
 "}}}

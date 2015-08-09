@@ -72,7 +72,8 @@ set $launcher       dmenu_run -i -l -fn 'Office Code Pro-10' 20 -p "^_" -sb "$bl
 
 # }}}
 
-# Settings {{{
+# Settings
+# {{{
 workspace_auto_back_and_forth yes
 popup_during_fullscreen smart
 force_display_urgency_hint 1000 ms
@@ -277,7 +278,7 @@ for_window [class="^.*"] border pixel 1
 # Send music application to workspace 3
 assign [class="(?i)$music"] $ws3
 assign [class="(?i)spotify"] $ws3
-assign [class="(?i)messenger"] $ws3
+assign [class="(?i)messengerfordesktop"] $ws4
 assign [class="(?i)qbittorrent"] $ws6
 assign [class="(?i)steam"] $ws7
 assign [class="(?i)playonlinux"] $ws7
