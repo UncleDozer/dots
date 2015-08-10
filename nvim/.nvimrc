@@ -72,15 +72,24 @@ Plug 'PotatoesMaster/i3-vim-syntax'
 Plug 'dag/vim-fish', { 'for' : 'fish' }
 
 " Markdown
-Plug 'tpope/vim-markdown', { 'for' : 'markdown' }
-Plug 'jtratner/vim-flavored-markdown', { 'for' :  'markdown' }
+Plug 'tpope/vim-markdown', { 'for' : [ 'ghmarkdown', 'markdown' ] }
+Plug 'jtratner/vim-flavored-markdown', { 'for' :  [ 'ghmarkdown', 'markdown' ] }
+
+" Markdown Composer
+function! BuildComposer( info )
+    if a:info.status != 'unchanged' || a:info.force
+        !cargo build --release
+        UpdateRemotePlugins
+    endif
+endfunction
+Plug 'euclio/vim-markdown-composer', { 'do': function( 'BuildComposer' ), 'for' : [ 'markdown', 'ghmarkdown' ] }
 
 " LaTeX
 Plug 'lervag/vimtex', { 'for' : [ 'tex', 'latex' ] }
 Plug 'xuhdev/vim-latex-live-preview', { 'for' : [ 'tex', 'latex' ] }
 
 " Ruby
-Plug 'vim-ruby/vim-ruby'
+Plug 'vim-ruby/vim-ruby', { 'for' : 'ruby' }
 
 " Ruby On Rails
 Plug 'tpope/vim-rails'
@@ -247,7 +256,7 @@ endif
 set expandtab                 " Expand Tabs to Spaces
 set tabstop=2
 set softtabstop=2
-set shiftwidth=2
+set shiftwidth=1
 set shiftround
 
 set breakindent               " Visually Break Lines in Wrap Mode
@@ -332,6 +341,10 @@ let g:pad#title_first_line = 1
 
 " Markdown
 let g:vim_mardown_folding_disabled = 1
+
+" Markdown Composer
+let g:markdown_composer_syntax_theme = 'railscasts'
+let g:markdown_composer_browser = 'iceweasel'
 
 " CloseTag
 let g:closetag_html_style=1
@@ -888,17 +901,9 @@ if has("autocmd")
     " Markdown Specific
     augroup markDownSettings
         au!
-        au BufRead,BufNewFile *.md   setlocal filetype=ghmarkdown
-        au BufRead,BufNewFile *.txt  setlocal filetype=markdown
-        au BufRead,BufNewFile *.note setlocal filetype=markdown
-        au BufRead,BufNewFile *.todo setlocal filetype=markdown
-        au BufRead,BufNewFile vimp*.tmp setlocal filetype=markdown
-
+        au BufRead,BufNewFile *.markdown,*.md,*.txt,*.note,*.todo,*.tmp  setlocal filetype=ghmarkdown
         " Markdown synmax so highlighting doesn't end
-        au FileType markdown setlocal synmaxcol=1500
-
-        " GHMarkdown only works after a filetype is declared as markdown on non .md files
-        au FileType markdown setlocal filetype=ghmarkdown
+        au FileType ghmarkdown setlocal synmaxcol=1500
     augroup END
 
     " SCSS Specific

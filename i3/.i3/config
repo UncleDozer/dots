@@ -278,6 +278,7 @@ for_window [class="^.*"] border pixel 1
 # Send music application to workspace 3
 assign [class="(?i)$music"] $ws3
 assign [class="(?i)spotify"] $ws3
+assign [class="(?i)Messenger"] $ws4
 assign [class="(?i)messengerfordesktop"] $ws4
 assign [class="(?i)qbittorrent"] $ws6
 assign [class="(?i)steam"] $ws7
