@@ -10,7 +10,7 @@ URxvt*boldFont       :
 URxvt*italicFont     :
 URxvt*boldItalicFont :
 URxvt*letterSpace    : -2
-URxvt*lineSpace      : 2
+URxvt*lineSpace      : 0
 Xft.dpi              : 96
 Xft.antialias        : true
 Xft.rgba             : rgba
@@ -51,7 +51,7 @@ URxvt*scrollTtyOutput   : false
 URxvt*scrollTtyKeypress : true
 URxvt*scrollWithBuffer  : false
 URxvt*buffered          : true
-URxvt*saveLines         : 1500
+URxvt*saveLines         : 0
 URxvt*urgentOnBell      : false
 URxvt*cursorBlink       : 0
 URxvt*shadowColor       : #000

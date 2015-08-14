@@ -162,6 +162,9 @@ Plug 'wellle/targets.vim'
 " Gutentags for tags files
 Plug 'ludovicchabant/vim-gutentags'
 
+" Vim Chat
+Plug 'ironcamel/vimchat', { 'on': 'VimChat' }
+
 "}}}
 
 call plug#end()

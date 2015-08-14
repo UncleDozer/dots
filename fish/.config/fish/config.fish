@@ -57,6 +57,7 @@ set -x fish_pager_color_prefix green --bold
 # Jump plugin
 # Keep alias for autocompletion
 alias j='jump'
+alias mpv='mpv --hwdec=vdpau'
 
 function gvim
     pynvim
@@ -205,4 +206,5 @@ function rtv
     set -lx BROWSER 'w3m'
     command rtv
 end
+
 # ---}}}
