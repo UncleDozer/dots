@@ -23,7 +23,7 @@ set $output2 DVI-0
 set $default_gaps_inner 20
 set $default_gaps_outer 0
 
-set $border_width 2
+set $border_width 1
 
 set $red         #FF8700
 set $blue        #8FAFD7
@@ -316,7 +316,7 @@ bindsym     $mod+d [instance="colorgrab"] scratchpad show
 
 
 #Colors
-client.focused $blue $blue $green $red
+client.focused $red $red $green $red
 client.focused_inactive $black $black #888888 #292d2e
 client.unfocused $black $black #888888 #292d2e
 client.urgent $red $red $white #900000

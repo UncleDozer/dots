@@ -5,11 +5,11 @@
 
 *font                : -*-terminesspowerline-bold-*-*-*-16-*-*-*-*-*-*-*
 ! URxvt*font           : xft:Office Code Pro:style=Regular:size=14
-URxvt*font           : xft:Monoid:size=11
+URxvt*font           : xft:Monoid:size=10
 URxvt*boldFont       :
 URxvt*italicFont     :
 URxvt*boldItalicFont :
-URxvt*letterSpace    : -2
+URxvt*letterSpace    : 0
 URxvt*lineSpace      : 0
 Xft.dpi              : 96
 Xft.antialias        : true
