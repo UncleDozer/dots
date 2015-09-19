@@ -49,13 +49,13 @@ hi! clear
 " Hints
 hi HintElem background-color: #1a1a1a; color: white; box-shadow: 0 0 3px 1px rgba( 0,0,0,.25 ); border-radius: 2px;
 hi HintActive background-color: #7ed65a; color: white; box-shadow: 0 0 3px 1px rgba( 0,0,0,.25 ); border: none; border-radius: 2px;
-hi Hint font-family: 'Monoid' !important; font-size: 15px !important; font-weight: 600; text-transform: uppercase; color: white; background-color: #5B92FA; border-color: ButtonShadow; border-width: 0px; border-style: solid; padding: 0px 3px 0px 3px; box-shadow: 0 0 3px 1px rgba( 0,0,0,.25 ); border-radius: 1px; z-index: 99999999;
+hi Hint font-family: 'Terminess Powerline' !important; font-size: 16px !important; font-weight: 600; text-transform: uppercase; color: white; background-color: #5B92FA; border-color: ButtonShadow; border-width: 0px; border-style: solid; padding: 0px 3px 0px 3px; box-shadow: 0 0 3px 1px rgba( 0,0,0,.25 ); border-radius: 1px; z-index: 99999999;
 
 " CommandLine
-hi CmdLine background-color: #1a1a1a; color: #f1f3f4; font-weight: 400; font-size: 13px;
-hi CmdLine>* font-family: 'Monoid'
+hi CmdLine background-color: #1a1a1a; color: #f1f3f4; font-weight: 400; font-size: 16px; font-family: 'Terminess Powerline'
+hi CmdLine>* font-family: 'Terminess Powerline'; font-size: 16px;
 
-hi CompGroup background-color: #1a1a1a; color: #f1f3f4; font-weight: 400;
+hi CompGroup background-color: #1a1a1a; color: #f1f3f4; font-family: Terminess Powerline; font-size: 16px;
 
 hi CompItem background-color: #1a1a1a; color: #f1f3f4; font-weight: 400;
 hi CompItem[selected] color: #2eb9ff !important; background-color: rgb( 35,35,35 );
@@ -65,7 +65,7 @@ hi CompTitle>* color: #2EB9FF; border: none; border-top: none; border-bottom: no
 
 hi CompMsg font-style: bold; margin-left: 16px; background-color: #1A1A1A;
 
-hi HelpCode font-family: 'Monoid'
+hi HelpCode font-family: 'Terminess Powerline'
 hi WarningMsg color: #FF5724; background: #232323; background-color: #232323;
 hi Message background-color: #1a1a1a;
 hi Title color: #7462d4; background: #232323;
@@ -79,8 +79,8 @@ hi HelpWarning color: #ff2d4c; background: #232323;
 
 hi ErrorMsg background-color: #ff2e4c; color: #f1f3f4; font-weight: 400; text-shadow: none !important;
 hi Filter background-color: none; color: #2eb9ff;
-hi StatusLine background-color: #1a1a1a; color: #7ed65a; border-color: #1a1a1a; outline: 0; text-shadow: none !important; font-family: 'Monoid'; font-size: 13px;
-hi URL color: #7ED65A; font-size: 13px;
+hi StatusLine background-color: #1a1a1a; color: #7ed65a; border-color: #1a1a1a; outline: 0; text-shadow: none !important; font-family: 'Terminess Powerline'; font-size: 13px;
+hi URL color: #7ED65A; font-size: 16px;
 hi Normal background-color: #1a1a1a; color: #ace594; border-top: 1px solid #1a1a1a;
 hi LineNr color: #b3bdc2;
 hi ContentSeparator display:none;
@@ -88,7 +88,7 @@ hi Bell border: none; background-color: #1A1A1A;
 hi Boolean color: #b63e50; background-color: #1A1A1A;
 
 " On startup, define my readability stylesheet ( for use with usermode )
-style -name usermodestyle file:,file*,file:*,http*,https* body{ margin:40px auto; max-width:1280px; line-height:1.6; font-size:1.3em; color:#F1F3F4; padding:0 40px; background: #1A1A1A; } a{ color:#2EB9FF !important; } a:visited{color:#31789C !important;} h1, h2, h3, h4, h5, h6{ line-height:1.2; } pre{max-width: 850px !important; font-family: 'Monoid'; background: #5d5d5d;} img { margin: auto }
+style -name usermodestyle file:,file*,file:*,http*,https* body{ margin:40px auto; max-width:1280px; line-height:1.6; font-size:1.3em; color:#F1F3F4; padding:0 40px; background: #1A1A1A; } a{ color:#2EB9FF !important; } a:visited{color:#31789C !important;} h1, h2, h3, h4, h5, h6{ line-height:1.2; } pre{max-width: 850px !important; font-family: 'Terminess Powerline'; background: #5d5d5d;} img { margin: auto }
 styledisable -name usermodestyle
 
 " vim:filetype=vim

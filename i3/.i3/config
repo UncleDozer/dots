@@ -25,6 +25,7 @@ set $default_gaps_outer 0
 
 set $border_width 1
 
+# Colors
 set $red         #FF8700
 set $blue        #8FAFD7
 set $cyan        #5FAFAF
@@ -200,6 +201,8 @@ bindsym $mod+Shift+c reload
 bindsym $mod+Shift+r restart
 # exit i3 (logs you out of your X session)
 bindsym $mod+Shift+q exec "i3-msg exit"
+# New sticky windows
+bindsym $mod+Shift+s sticky toggle
 
 # Modes
 #{{{
@@ -245,25 +248,25 @@ bindsym $mod+$alt+r mode ""
 #{{{
 
 bar {
-  font pango:Monoid, Icons 11
+  font pango:Monoid, Icons 10
   status_command i3blocks -c ~/.i3/i3blocks.conf
   strip_workspace_numbers yes
-  height 25
+  height 20
   position top
   tray_output $output2
   id bar-1
   mode dock
 
   colors {
-    separator  $dim_blue
+    separator  $green
     background $black
     statusline $dim_blue
 # --------------------|  BORDER  |   BG   |   FG    |------
 # ----------------------------------------------------------
-    focused_workspace  $dim_blue $blue     $black
-    active_workspace   $grey     $grey     $black
-    inactive_workspace $black    $black    $grey
-    urgent_workspace   $black    $black    $red
+    focused_workspace  $dim_blue $dim_blue $black
+    active_workspace   $grey     $grey     $dim_blue
+    inactive_workspace $black    $black    $dim_blue
+    urgent_workspace   $grey     $grey     $red
   }
 }
 
@@ -279,8 +282,7 @@ for_window [class="^.*"] border pixel $border_width
 # Send music application to workspace 3
 assign [class="(?i)$music"] $ws3
 assign [class="(?i)spotify"] $ws3
-assign [class="(?i)Messenger"] $ws4
-assign [class="(?i)messengerfordesktop"] $ws4
+assign [class="(?i)pidgin"] $ws4
 assign [class="(?i)qbittorrent"] $ws6
 assign [class="(?i)steam"] $ws7
 assign [class="(?i)playonlinux"] $ws7
@@ -316,7 +318,7 @@ bindsym     $mod+d [instance="colorgrab"] scratchpad show
 
 
 #Colors
-client.focused $red $red $green $red
+client.focused $blue $blue $green $red
 client.focused_inactive $black $black #888888 #292d2e
 client.unfocused $black $black #888888 #292d2e
 client.urgent $red $red $white #900000
@@ -327,10 +329,10 @@ client.urgent $red $red $white #900000
 
 # AutoRun
 # {{{
-# exec --no-startup-id urxvtc -name scratchpad
-# exec --no-startup-id urxvtc -name dropdown
-exec --no-startup-id rofi
-exec --no-startup-id xrdb /home/uncledozer/.Xresources
+exec --no-startup-id xrdb -load /home/uncledozer/.Xresources
+exec --no-startup-id urxvtc -name scratchpad
+exec --no-startup-id urxvtc -name dropdown
+# exec rofi
 #}}}
 
 # vim:filetype=i3

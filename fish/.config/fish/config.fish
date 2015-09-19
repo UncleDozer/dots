@@ -34,7 +34,7 @@ set -x QT_X11_NO_MITSHM 1
 set -x EDITOR 'nvim'
 set -x SCRIPTS $HOME/.scripts
 set -x STEAM_FRAME_FORCE_CLOSE 1
-set -x PATH $PATH /usr/local/bin /usr/bin /bin /usr/local/sbin /usr/sbin /sbin /usr/bin /home/uncledozer/.gem/ruby/2.2.0/bin /home/uncledozer/.config/bspwm /usr/share/awesome /home/uncledozer/.gem/ruby/2.1.0 /etc/php /home/uncledozer/public_html/webapps/phpMyAdmin /opt/android-sdk/platform-tools /usr/lib/python2.7 /usr/bin/core_perl /usr/bin/site_perl /usr/bin/vendor_perl /usr/lib /usr/lib/php /usr/lib/php/modules $SCRIPTS $SCRIPTS/colorscripts /usr/bin/perl
+set -x PATH $PATH /usr/local/bin /usr/bin /bin /usr/local/sbin /usr/sbin /sbin /usr/bin /home/uncledozer/.gem/ruby/2.2.0/bin /home/uncledozer/.config/bspwm /usr/share/awesome /home/uncledozer/.gem/ruby/2.1.0 /etc/php /home/uncledozer/public_html/webapps/phpMyAdmin /opt/android-sdk/platform-tools /lib /lib64 /usr/lib/python2.7 /usr/bin/core_perl /usr/bin/site_perl /usr/bin/vendor_perl /usr/lib /usr/lib/php /usr/lib/php/modules $SCRIPTS $SCRIPTS/colorscripts /usr/bin/perl /usr/lib64/python2.7
 set --global --export LC_CTYPE en_US.UTF-8
 set -x LC_ALL en_US.UTF-8
 set -x LANG en_US.UTF-8
@@ -58,6 +58,10 @@ set -x fish_pager_color_prefix green --bold
 # Keep alias for autocompletion
 alias j='jump'
 alias mpv='mpv --hwdec=vdpau'
+
+function ncmpcpp
+    command ncmpcpp --config ~/.config/ncmpcpp/config
+end
 
 function gvim
     pynvim
@@ -108,6 +112,11 @@ end
 # Re-source fish profile
 function repro
     source ~/.config/fish/config.fish
+end
+
+# Run NetHack4 in sdl
+function nethack4
+    command nethack4 -U ~/.config/NetHack4 -H /usr/share/nethack4 --interface sdl
 end
 
 # Google Chrome Unstable Fixes

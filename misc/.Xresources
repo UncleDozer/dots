@@ -3,9 +3,9 @@
 ! FONT SETTINGS
 !{{{
 
-*font                : -*-terminesspowerline-bold-*-*-*-16-*-*-*-*-*-*-*
-! URxvt*font           : xft:Office Code Pro:style=Regular:size=14
-URxvt*font           : xft:Monoid:size=10
+*font                : -*-terminesspowerline-medium-*-*-*-16-*-*-*-*-*-*-*
+URxvt*font           : xft:Terminess Powerline:style=Regular:size=11
+! URxvt*font           : xft:Monoid:size=10
 URxvt*boldFont       :
 URxvt*italicFont     :
 URxvt*boldItalicFont :
@@ -36,8 +36,11 @@ URxvt.keysym.C-V           : perl:clipboard:paste
 URxvt.keysym.C-C           : perl:clipboard:copy
 
 ! <C-9>, <C-0>, <C-+> and <C-=> URxvt on the fly font change
-URxvt.keysym.C-0: command:\033]710;xft:Monoid:style=Regular:size=15\007
-URxvt.keysym.C-9: command:\033]710;-*-terminesspowerline-bold-*-*-*-16-*-*-*-*-*-*-*\007
+URxvt.keysym.C-0: command:\033]710;xft:Monoid:style=Regular:size=10\007
+URxvt.keysym.C-9: command:\033]710;-*-terminesspowerline-medium-*-*-*-16-*-*-*-*-*-*-*\007
+
+! For roguelikes
+URxvt.keysym.C-8: command:\033]710;-*-terminesspowerline-medium-*-*-*-18-*-*-*-*-*-*-*\007
 
 ! }}}
 
@@ -51,7 +54,7 @@ URxvt*scrollTtyOutput   : false
 URxvt*scrollTtyKeypress : true
 URxvt*scrollWithBuffer  : false
 URxvt*buffered          : true
-URxvt*saveLines         : 0
+URxvt*saveLines         : 1000
 URxvt*urgentOnBell      : false
 URxvt*cursorBlink       : 0
 URxvt*shadowColor       : #000
@@ -67,26 +70,34 @@ URxvt*transparent       : false
 ! ROFI SETTINGS
 ! {{{
 
-! rofi.color-enabled       : true
+rofi.hide-scrollbar      : true
 rofi.lines               : 5
 rofi.location            : 0
 
-rofi.font                : Monoid 15
+rofi.font                : Terminess Powerline 11
 
-rofi.hlfg                : #1A1A1A
-rofi.fg-active           : #7ED65A
-rofi.hlfg-active         : #1A1A1A
+! Foreground
+rofi.hlfg                : #262626
+rofi.fg-active           : #8FAFD7
+rofi.hlfg-active         : #262626
 
-rofi.hlbg                : #2EB9FF
+! Background
+! Alternating Rows
 rofi.bgalt               : #2A2A2A
-rofi.bg-active           : #1A1A1A
-rofi.hlbg-active         : #7ED65A
 
-rofi.bc                  : #2EB9FF
+rofi.bg-active           : #1C1C1C
+rofi.hlbg-active         : #444444
+rofi.hlbg                : #FF8700
 
+! Border Color
+rofi.bc                  : #8FAFD7
+
+! Border Width
 rofi.bw                  : 1
+
+! Width in Screen %
 rofi.width               : 25
-rofi.padding             : 10
+rofi.padding             : 15
 
 rofi.lazy-filter-limit   : 100000
 rofi.terminal            : urxvtc

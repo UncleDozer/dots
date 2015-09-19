@@ -97,6 +97,12 @@ Plug 'tpope/vim-rails'
 " Endwise.vim
 Plug 'tpope/vim-endwise'
 
+" GDscript
+Plug 'a-watson/vim-gdscript'
+
+" C++ better highlighting
+Plug 'octol/vim-cpp-enhanced-highlight', { 'for': [ 'cpp', 'c++', 'hpp' ] }
+
 "}}}
 
 "--------------------------
@@ -153,7 +159,7 @@ Plug 'NLKNguyen/papercolor-theme'
 Plug 'trusktr/seti.vim'
 Plug 'kristijanhusak/vim-hybrid-material'
 Plug 'romainl/Apprentice'
-Plug 'flazz/vim-colorschemes' " Colorscheme pack
+" Plug 'flazz/vim-colorschemes' " Colorscheme pack
 Plug 'mhumeSF/one-dark.vim'
 
 " Targets
@@ -391,6 +397,10 @@ let g:ctrlp_show_hidden = 1
 
 " GutenTags
 let g:gutentags_generate_on_write = 0
+
+" C++ function highlight
+let g:cpp_class_scope_highlight = 1
+let g:cpp_experimental_template_highlight = 1
 
 function! s:goyo_enter()
     set noshowmode
