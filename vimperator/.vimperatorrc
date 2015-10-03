@@ -57,11 +57,11 @@ hi CmdLine>* font-family: 'Terminess Powerline'; font-size: 16px;
 
 hi CompGroup background-color: #1a1a1a; color: #f1f3f4; font-family: Terminess Powerline; font-size: 16px;
 
-hi CompItem background-color: #1a1a1a; color: #f1f3f4; font-weight: 400;font-family: 'Terminess Powerline' !important; font-size: 13px;
+hi CompItem background-color: #1a1a1a; color: #f1f3f4; font-weight: 400;font-family: 'Terminess Powerline' !important;
 hi CompItem[selected] color: #2eb9ff !important; background-color: rgb( 35,35,35 );
 
-hi CompTitle background-color: #1a1a1a; color: #a1ff7a; font-weight: 400; border-width: 0px; text-shadow: none !important; box-shadow: 0 -4px 5px 0px rgba( 0,0,0,.5 );font-family: 'Terminess Powerline' !important; font-size: 13px;
-hi CompTitle>* color: #2EB9FF; border: none; border-top: none; border-bottom: none; margin-left: 5px; height: 15px;font-family: 'Terminess Powerline' !important; font-size: 13px;
+hi CompTitle background-color: #1a1a1a; color: #a1ff7a; font-weight: 400; border-width: 0px; text-shadow: none !important; box-shadow: 0 -4px 5px 0px rgba( 0,0,0,.5 );font-family: 'Terminess Powerline' !important; font-weight: bold; font-size: 18;
+hi CompTitle>* color: #2EB9FF; border: none; border-top: none; border-bottom: none; margin-left: 5px; height: 15px;font-family: 'Terminess Powerline' !important;
 
 hi CompMsg font-style: bold; margin-left: 16px; background-color: #1A1A1A;font-family: 'Terminess Powerline' !important; font-size: 13px;
 
