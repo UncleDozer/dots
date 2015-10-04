@@ -65,12 +65,12 @@ set $ws9 "9:"
 # Misc
 set $ws10 "10:"
 
-set $col_width      "155px"
-set $col_height     "225px"
-set $drop_width     "900px"
-set $drop_height    "200px"
-set $scratch_width  "500px"
-set $scratch_height "700px"
+set $col_width      155px
+set $col_height     225px
+set $drop_width     900px
+set $drop_height    200px
+set $scratch_width  500px
+set $scratch_height 700px
 
 # }}}
 
