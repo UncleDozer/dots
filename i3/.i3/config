@@ -94,6 +94,9 @@ new_window pixel
 #{{{
 floating_modifier $mod
 
+# Bind key to move mouse out of way
+bindsym $mod+i exec --no-startup-id xdotool mousemove 0 1080
+
 # Terminal
 bindsym $mod+Return exec $terminal
 
