@@ -45,8 +45,8 @@ call plug#begin('~/.nvim/bundle')
 "{{{
 
 " CSS & PreProcessors
-Plug 'cakebaker/scss-syntax.vim', { 'for' : 'scss' } " SCSS
 Plug 'hail2u/vim-css3-syntax', { 'for' : [ 'css', 'scss', 'less' ] } " CSS3
+Plug 'cakebaker/scss-syntax.vim', { 'for' : 'scss' } " SCSS
 Plug 'groenewege/vim-less', { 'for' : 'less' } " LESS
 
 " Javascript Syntax Highlighting
@@ -120,10 +120,10 @@ Plug 'The-NERD-Commenter'
 Plug 'Align', { 'on' : 'Align' }
 
 " FZF Fuzzy Finder Disabled until fixed on nvim
-" Plug 'junegunn/fzf', { 'dir' : '~/.fzf', 'do' : 'yes \| ./install' }
+Plug 'junegunn/fzf', { 'dir' : '~/.fzf', 'do' : 'yes \| ./install' }
 
 " CtrlP until fzf is fixed
-Plug 'ctrlpvim/ctrlp.vim', { 'on' : 'CtrlP' }
+" Plug 'ctrlpvim/ctrlp.vim', { 'on' : 'CtrlP' }
 
 " Fast Fold
 Plug 'Konfekt/FastFold'
@@ -133,10 +133,6 @@ Plug 'ap/vim-buftabline'
 
 " YouCompleteMe
 Plug 'Valloric/YouCompleteMe'
-
-" Goyo, Vim Focus Mode
-Plug 'junegunn/goyo.vim', { 'on' : 'Goyo' }
-Plug 'myusuf3/numbers.vim'
 
 " Vim Surround
 Plug 'tpope/vim-surround'
@@ -168,8 +164,8 @@ Plug 'wellle/targets.vim'
 " Gutentags for tags files
 Plug 'ludovicchabant/vim-gutentags'
 
-" Vim Chat
-Plug 'ironcamel/vimchat', { 'on': 'VimChat' }
+" Vim Numbers
+Plug 'myusuf3/numbers.vim'
 
 "}}}
 
@@ -361,6 +357,12 @@ let g:closetag_html_style=1
 " Jquery Syntax Highlighting
 " let g:used_javascript_libs = 'jquery'
 
+" FZF settings
+let g:fzf_height = '20%'
+
+" Numbers settings
+let g:numbers_exclue = [ 'tagbar', 'fzf', 'help' ]
+
 " Nerd Commenter
 let g:NERDRemoveExtraSpaces = 1
 let g:NERDSpaceDelims       = 1
@@ -386,12 +388,6 @@ let g:fastfold_fold_movement_commands         = [']z', '[z','zj','zk']
 " Live LaTeX
 let g:livepreivew_previewer = 'zathura'
 
-" Goyo Settings
-let g:goyo_width                              = 100
-let g:goyo_margin_top                         = 0
-let g:goyo_margin_bottom                      = 0
-let g:goyo_linenr                             = 1
-
 " CtrlP
 let g:ctrlp_show_hidden = 1
 
@@ -401,31 +397,6 @@ let g:gutentags_generate_on_write = 0
 " C++ function highlight
 let g:cpp_class_scope_highlight = 1
 let g:cpp_experimental_template_highlight = 1
-
-function! s:goyo_enter()
-    set noshowmode
-    set noshowcmd
-    set scrolloff=5
-    set linebreak
-    set wrap
-    set tabline = %!buftabline#render()
-    set numbers
-    noremap <Leader>e g$
-    noremap <Leader>b g0
-endfunction
-
-function! s:goyo_leave()
-    set nolinebreak
-    set nowrap
-    set showmode
-    set showcmd
-    set tabline
-    set scrolloff=20
-    highlight! clear
-    source $MYVIMRC
-    noremap <Leader>e g_
-    noremap <Leader>b _
-endfunction
 
 "--------------------------
 " 3.A: YouCompleteMe
@@ -481,13 +452,13 @@ nnoremap <leader>en :echo @%<CR>
 nnoremap <leader>scr :e $HOME/.note/scratch.note<CR>ggVGdP
 
 " FZF Fuzzy Finder -- Broken in NVim
-" nnoremap <C-p> :FZF<CR>
+nnoremap <C-p> :FZF<CR>
+
+" CtrlP Fuzzy Finder
+" nnoremap <C-p> :CtrlP<CR>
 
 " NerdTree
 nnoremap <C-n> :NERDTreeToggle<CR>
-
-" CtrlP Fuzzy Finder
-nnoremap <C-p> :CtrlP<CR>
 
 " Treat Linebreaks as Seperate Lines
 noremap k gk
@@ -561,9 +532,6 @@ nnoremap <C-h> <C-w>h
 " Switch to Previous Buffer
 nnoremap <Leader>t <C-^>
 
-" Toggle Goyo for Nice Reading
-nnoremap <Leader>g :Goyo<CR>:e<CR>:set tabline:%!buftabline#render()<CR>
-
 " Use Enter, Tab, Space Keys in Normal Mode
 nnoremap <CR> o<ESC>
 nnoremap <TAB> i<TAB><ESC>
@@ -602,7 +570,7 @@ nnoremap <Leader>rr i<% %><ESC>2hi<SPACE>
 "{{{
 
 " Sudo Save
-command! W :execute ':silent w !sudo tee % > /dev/null'
+command! W :execute ':silent w !sudo tee % > /dev/null' ':silent l'
 
 " Run Markdown Parser
 function! Markup()
@@ -642,6 +610,8 @@ inoremap {<CR> {<CR>}<C-o>O
 inoremap (<CR> (<CR>)<C-o>O
 inoremap [<CR> [<CR>]<C-o>O
 inoremap ><CR> ><CR><C-o>O
+
+" Jump to beginning or end of line from Insert mode
 inoremap <C-a> <C-o>A
 inoremap <C-i> <C-o>I
 
@@ -944,15 +914,6 @@ if has("autocmd")
     augroup helpFiles
         au Filetype help setlocal nonumber
         au Filetype help nnoremap <buffer>q :q<CR>
-    augroup END
-
-
-    " Goyo autos
-    augroup Goyo
-        au! User GoyoEnter
-        au! User GoyoLeave
-        au  User GoyoEnter nested call <SID>goyo_enter()
-        au  User GoyoLeave nested call <SID>goyo_leave()
     augroup END
 
     " Global Formatting Options

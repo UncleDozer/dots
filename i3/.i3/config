@@ -23,7 +23,7 @@ set $output2 DVI-0
 set $default_gaps_inner 20
 set $default_gaps_outer 0
 
-set $border_width 1
+set $border_width 2
 
 # Colors
 set $red         #FF8700
@@ -292,6 +292,9 @@ assign [class="(?i)playonlinux"] $ws7
 
 # Set speedcrunch (calculator) to floating
 for_window [class="(?i)speedcrunch"] floating enable
+
+# Set floating for Anomaly
+for_window [class="(?i)AnomalyWarzoneEarth"] floating enable
 
 # Scratchpad and Dropdown Config
 #{{{

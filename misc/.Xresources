@@ -112,20 +112,36 @@ rofi.levenshtein-sort    : true
 
 ! COLORS
 ! {{{
+
+! Black
 *.color0:     #1C1C1C
 *.color8:     #444444
+
+! Red
 *.color1:     #AF5F5F
 *.color9:     #FF8700
+
+! Green
 *.color2:     #5F875F
 *.color10:    #87AF87
+
+! Yellow
 *.color3:     #87875F
 *.color11:    #FFFFAF
+
+! Blue
 *.color4:     #5F87AF
 *.color12:    #8FAFD7
+
+! Magenta/Purple
 *.color5:     #5F5F87
 *.color13:    #8787AF
+
+! Cyan
 *.color6:     #5F8787
 *.color14:    #5FAFAF
+
+! White
 *.color7:     #6C6C6C
 *.color15:    #BCBCBC
 
