@@ -81,7 +81,7 @@ popup_during_fullscreen smart
 force_display_urgency_hint 1000 ms
 
 # Font
-font pango:Monoid 15, Icons 10
+font pango:Terminess Powerline 15, Icons 10
 
 # Smart Borders
 smart_borders on
@@ -174,12 +174,12 @@ bindsym $mod+8 workspace $ws8
 bindsym $mod+9 workspace $ws9
 bindsym $mod+0 workspace $ws10
 bindsym $mod+Tab workspace back_and_forth
-workspace $ws5 output $output1
-workspace $ws1 output $output2
-workspace $ws2 output $output2
-workspace $ws3 output $output2
-workspace $ws4 output $output2
-workspace $ws6 output $output2
+workspace $ws5 output $output2
+workspace $ws1 output $output1
+workspace $ws2 output $output1
+workspace $ws3 output $output1
+workspace $ws4 output $output1
+workspace $ws6 output $output1
 
 # Load Workspace Layout
 bindsym $mod+Ctrl+2 exec --no-startup-id i3-msg "$ws2; append_layout /home/uncledozer/.i3/workspace2.json"
@@ -324,7 +324,7 @@ bindsym     $mod+d [instance="colorgrab"] scratchpad show
 
 
 #Colors
-client.focused $blue $blue $green $red
+client.focused $blue $blue $black $red
 client.focused_inactive $black $black #888888 #292d2e
 client.unfocused $black $black #888888 #292d2e
 client.urgent $red $red $white #900000

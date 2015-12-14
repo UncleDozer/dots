@@ -163,8 +163,8 @@ end
 function xbright
     switch (count $argv)
         case 1
-            xrandr --output DVI-0 --brightness $argv &
-            xrandr --output HDMI-0 --brightness .9 &
+            xrandr --output HDMI-0 --brightness $argv &
+            xrandr --output DVI-0 --brightness .9 &
         case 2
             xrandr --output DVI-0 --brightness $argv[ 1 ] &
             xrandr --output HDMI-0 --brightness $argv[ 2 ] &

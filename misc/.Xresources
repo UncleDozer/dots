@@ -103,8 +103,8 @@ rofi.lazy-filter-limit   : 100000
 rofi.terminal            : urxvtc
 rofi.fuzzy               : true
 
-rofi.key-window          : mod4+shift+Tab
-rofi.key-run             : mod4+r
+rofi.key-window          : SuperL+shift+Tab
+rofi.key-run             : SuperL+r
 rofi.kb-remove-word-back : Control+w
 rofi.levenshtein-sort    : true
 

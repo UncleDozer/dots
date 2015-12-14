@@ -14,13 +14,13 @@
 "   ıllıllııllıllı    Out Of The Box    ıllıllııllıllııl
 "
 "
-"---------------------------------------------------
+" ---------------------------------------------------
 " Author              : Kristopher Watts (UncleDozer)
 " Email               : Kristopher.A.Watts@gmail.com
 " Github              : https://github.com/UncleDozer/
 " Website             : http://www.webtastic-development.net
 " I'm new to VIM, so any suggestions or improvements would be greatly appreciated. Thanks!
-"---------------------------------------------------
+" ---------------------------------------------------
 "}}}
 
 set nocompatible
@@ -103,6 +103,9 @@ Plug 'a-watson/vim-gdscript'
 " C++ better highlighting
 Plug 'octol/vim-cpp-enhanced-highlight', { 'for': [ 'cpp', 'c++', 'hpp' ] }
 
+" Enhanced Python Syntax
+Plug 'hdima/python-syntax', { 'for': [ 'python' ] }
+
 "}}}
 
 "--------------------------
@@ -121,9 +124,6 @@ Plug 'Align', { 'on' : 'Align' }
 
 " FZF Fuzzy Finder Disabled until fixed on nvim
 Plug 'junegunn/fzf', { 'dir' : '~/.fzf', 'do' : 'yes \| ./install' }
-
-" CtrlP until fzf is fixed
-" Plug 'ctrlpvim/ctrlp.vim', { 'on' : 'CtrlP' }
 
 " Fast Fold
 Plug 'Konfekt/FastFold'
@@ -306,7 +306,7 @@ set nobackup                   " Disable Vim Backup
 set formatoptions=qn1          " Text Formatting
 
 " Persistent Info
-set viminfo='10,\"100,:20,%,n~/.nviminfo'
+" set viminfo='10,\"100,:20'
 
 " Find tags files
 set tags+="./.tags;,tags"
@@ -337,6 +337,9 @@ set wildignore=*/.git/*,*/node_modules/*,*/dist/*
 "------------------------------------------
 "{{{
 
+" Enhanced Python Syntax Settings
+let python_hilight_all = 1
+
 " Vim Pad
 let g:pad#dir = "~/.notes/"
 let g:pad#window_height = 15
@@ -359,6 +362,7 @@ let g:closetag_html_style=1
 
 " FZF settings
 let g:fzf_height = '20%'
+
 
 " Numbers settings
 let g:numbers_exclue = [ 'tagbar', 'fzf', 'help' ]
