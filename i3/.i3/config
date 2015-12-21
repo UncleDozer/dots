@@ -256,7 +256,7 @@ bar {
   strip_workspace_numbers yes
   height 20
   position top
-  tray_output $output2
+  tray_output $output1
   id bar-1
   mode dock
 

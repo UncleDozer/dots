@@ -191,6 +191,7 @@ function multiterm
     end
 end
 
+# AutoRefresh
 function autorefresh
     switch ( count $argv )
         case 0
@@ -200,6 +201,7 @@ function autorefresh
     end
 end
 
+# AutoCompile SCSS
 function compileScss
     switch ( count $argv )
         case 0
@@ -211,6 +213,7 @@ function compileScss
     end
 end
 
+# Run RTV with browser set as w3m
 function rtv
     set -lx BROWSER 'w3m'
     command rtv
