@@ -1,0 +1,14 @@
+[primary]
+has_secondary = True
+brightness = 84
+red = 83
+green = 83
+blue = 84
+
+[secondary]
+brightness = 99
+red = 99
+green = 99
+blue = 99
+reversed = False
+
