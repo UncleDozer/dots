@@ -34,7 +34,7 @@ set -x QT_X11_NO_MITSHM 1
 set -x EDITOR 'nvim'
 set -x SCRIPTS $HOME/.scripts
 set -x STEAM_FRAME_FORCE_CLOSE 1
-set -x PATH $PATH /usr/local/bin /usr/bin /bin /usr/local/sbin /usr/sbin /sbin /usr/bin /home/uncledozer/.gem/ruby/2.2.0/bin /home/uncledozer/.config/bspwm /usr/share/awesome /home/uncledozer/.gem/ruby/2.1.0 /etc/php /home/uncledozer/public_html/webapps/phpMyAdmin /opt/android-sdk/platform-tools /lib /lib64 /usr/lib/python2.7 /usr/bin/core_perl /usr/bin/site_perl /usr/bin/vendor_perl /usr/lib /usr/lib/php /usr/lib/php/modules $SCRIPTS $SCRIPTS/colorscripts /usr/bin/perl /usr/lib64/python2.7
+set -x PATH $PATH /usr/local/bin /usr/bin /bin /usr/local/sbin /usr/sbin /sbin /usr/bin /home/uncledozer/.gem/ruby/2.2.0/bin /home/uncledozer/.config/bspwm /usr/share/awesome /home/uncledozer/.gem/ruby/2.1.0 /etc/php /home/uncledozer/public_html/webapps/phpMyAdmin /opt/android-sdk/platform-tools /lib /lib64 /usr/lib/python2.7 /usr/bin/core_perl /usr/bin/site_perl /usr/bin/vendor_perl /usr/lib /usr/lib/php /usr/lib/php/modules $SCRIPTS $SCRIPTS/colorscripts /usr/bin/perl /home/uncledozer/google_appengine
 set --global --export LC_CTYPE en_US.UTF-8
 set -x LC_ALL en_US.UTF-8
 set -x LANG en_US.UTF-8
