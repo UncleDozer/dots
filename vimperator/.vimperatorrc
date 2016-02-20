@@ -49,42 +49,42 @@ hi! clear
 " Hints
 hi HintElem background-color: #1a1a1a; color: white; box-shadow: 0 0 3px 1px rgba( 0,0,0,.25 ); border-radius: 2px;
 hi HintActive background-color: #7ed65a; color: white; box-shadow: 0 0 3px 1px rgba( 0,0,0,.25 ); border: none; border-radius: 2px;
-hi Hint font-family: 'Terminess Powerline' !important; font-size: 16px !important; font-weight: 600; text-transform: uppercase; color: white; background-color: #5B92FA; border-color: ButtonShadow; border-width: 0px; border-style: solid; padding: 0px 3px 0px 3px; box-shadow: 0 0 3px 1px rgba( 0,0,0,.25 ); border-radius: 1px; z-index: 99999999;
+hi Hint font-family: 'Terminess Powerline' !important; font-size: 14px !important; font-weight: 600; text-transform: uppercase; color: white; background-color: #5B92FA; border-color: ButtonShadow; border-width: 0px; border-style: solid; padding: 0px 3px 0px 3px; box-shadow: 0 0 3px 1px rgba( 0,0,0,.25 ); border-radius: 1px; z-index: 99999999;
 
 " CommandLine
-hi CmdLine background-color: #1a1a1a; color: #f1f3f4; font-weight: 400; font-size: 16px; font-family: 'Terminess Powerline'
+hi CmdLine background-color: #1a1a1a; color: #f1f3f4; font-weight: 400; font-size: 14px; font-family: 'Terminess Powerline'
 hi CmdLine>* font-family: 'Terminess Powerline'; font-size: 16px;
 
-hi CompGroup background-color: #1a1a1a; color: #f1f3f4; font-family: Terminess Powerline; font-size: 16px;
+hi CompGroup background-color: #1a1a1a; color: #f1f3f4; font-family: Terminess Powerline; font-size: 14px;
 
 hi CompItem background-color: #1a1a1a; color: #f1f3f4; font-weight: 400;font-family: 'Terminess Powerline' !important;
 hi CompItem[selected] color: #2eb9ff !important; background-color: rgb( 35,35,35 );
 
-hi CompTitle background-color: #1a1a1a; color: #a1ff7a; font-weight: 400; border-width: 0px; text-shadow: none !important; box-shadow: 0 -4px 5px 0px rgba( 0,0,0,.5 );font-family: 'Terminess Powerline' !important; font-weight: bold; font-size: 18;
+hi CompTitle background-color: #1a1a1a; color: #a1ff7a; font-weight: 400; border-width: 0px; text-shadow: none !important; box-shadow: 0 -4px 5px 0px rgba( 0,0,0,.5 );font-family: 'Terminess Powerline' !important; font-weight: bold; font-size: 16;
 hi CompTitle>* color: #2EB9FF; border: none; border-top: none; border-bottom: none; margin-left: 5px; height: 15px;font-family: 'Terminess Powerline' !important;
 
-hi CompMsg font-style: bold; margin-left: 16px; background-color: #1A1A1A;font-family: 'Terminess Powerline' !important; font-size: 13px;
+hi CompMsg font-style: bold; margin-left: 16px; background-color: #1A1A1A;font-family: 'Terminess Powerline' !important; font-size: 14px;
 
 hi HelpCode font-family: 'Terminess Powerline'
-hi WarningMsg color: #FF5724; background: #232323; background-color: #232323;font-family: 'Terminess Powerline' !important; font-size: 13px;
-hi Message background-color: #1a1a1a;font-family: 'Terminess Powerline' !important; font-size: 13px;
+hi WarningMsg color: #FF5724; background: #232323; background-color: #232323;font-family: 'Terminess Powerline' !important; font-size: 14px;
+hi Message background-color: #1a1a1a;font-family: 'Terminess Powerline' !important; font-size: 14px;
 hi Title color: #7462d4; background: #232323;
 hi TabNumber color: #2EB9FF !important;
 hi String color: #7ED65A;
-hi Question color: #FF5724; background: #232323;font-family: 'Terminess Powerline' !important; font-size: 13px;
-hi ModeMsg color: #F1F3F4; background: #232323;font-family: 'Terminess Powerline' !important; font-size: 13px;
-hi InfoMsg background: #232323; color: #7462d; font-family: 'Terminess Powerline' !important; font-size: 13px;
+hi Question color: #FF5724; background: #232323;font-family: 'Terminess Powerline' !important; font-size: 14px;
+hi ModeMsg color: #F1F3F4; background: #232323;font-family: 'Terminess Powerline' !important; font-size: 14px;
+hi InfoMsg background: #232323; color: #7462d; font-family: 'Terminess Powerline' !important; font-size: 14px;
 hi Indicator color: #2DB9FF;
 hi HelpWarning color: #ff2d4c; background: #232323;
 
-hi ErrorMsg background-color: #ff2e4c; color: #f1f3f4; font-weight: 400; text-shadow: none !important; font-family: 'Terminess Powerline' !important; font-size: 13px;
+hi ErrorMsg background-color: #ff2e4c; color: #f1f3f4; font-weight: 400; text-shadow: none !important; font-family: 'Terminess Powerline' !important; font-size: 14px;
 hi Filter background-color: none; color: #2eb9ff;
-hi StatusLine background-color: #1a1a1a; color: #7ed65a; border-color: #1a1a1a; outline: 0; text-shadow: none !important; font-family: 'Terminess Powerline'; font-size: 13px;
-hi URL color: #7ED65A; font-size: 16px;
+hi StatusLine background-color: #1a1a1a; color: #7ed65a; border-color: #1a1a1a; outline: 0; text-shadow: none !important; font-family: 'Terminess Powerline'; font-size: 14px;
+hi URL color: #7ED65A; font-size: 14px;
 hi Normal background-color: #1a1a1a; color: #ace594; border-top: 1px solid #1a1a1a;
 hi LineNr color: #b3bdc2;
 hi ContentSeparator display:none;
-hi Bell border: none; background-color: #1A1A1A;font-family: 'Terminess Powerline' !important; font-size: 13px;
+hi Bell border: none; background-color: #1A1A1A;font-family: 'Terminess Powerline' !important; font-size: 14px;
 hi Boolean color: #b63e50; background-color: #1A1A1A;
 
 " On startup, define my readability stylesheet ( for use with usermode )

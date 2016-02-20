@@ -1,6 +1,7 @@
 let g:netrw_dirhistmax  =10
-let g:netrw_dirhist_cnt =4
+let g:netrw_dirhist_cnt =5
 let g:netrw_dirhist_1='/home/uncledozer/public_html/work/shawncagle/starterkit'
 let g:netrw_dirhist_2='/etc/modprobe.d'
 let g:netrw_dirhist_3='/usr/share/stone-soup/data/docs'
 let g:netrw_dirhist_4='/home/uncledozer/projects/roguelike/venv/lib/python2.7/config'
+let g:netrw_dirhist_5='/home/uncledozer/.dots/.git'
