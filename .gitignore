@@ -16,7 +16,7 @@ Session.vim
 **[autoload]**
 **[tmp]**
 **[undo]**
-**/autoload/**
-**/bundle/**
-**/session/**
-**/undo/**
+/autoload/**
+/bundle/**
+/session/**
+/undo/**
