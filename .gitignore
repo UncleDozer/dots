@@ -13,6 +13,7 @@ Session.vim
 **[fish_history]
 **[bundle]**
 **.[info]
-**[autoload]
+**[autoload]**
 **[tmp]**
 **[undo]**
+[nvim/.config/nvim/bundle]*.
