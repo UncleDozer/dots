@@ -16,7 +16,7 @@ Session.vim
 **[autoload]**
 **[tmp]**
 **[undo]**
-nvim/\.config/nvim/autoload/**/**
-nvim/\.config/nvim/bundle/**/**
-nvim/\.config/nvim/session/**/**
-nvim/\.config/nvim/undo/**/**
+**/autoload/**
+**/bundle/**
+**/session/**
+**/undo/**
