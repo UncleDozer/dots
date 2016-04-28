@@ -57,7 +57,7 @@ set -x fish_pager_color_prefix green --bold
 # Jump plugin
 # Keep alias for autocompletion
 alias j='jump'
-alias mpv='mpv --hwdec=vdpau'
+# alias mpv='mpv --hwdec=vaapi'
 
 function ncmpcpp
     command ncmpcpp --config ~/.config/ncmpcpp/config

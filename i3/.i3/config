@@ -13,12 +13,12 @@ set $alt       Mod1
 # Programs
 set $run       exec python ~/.i3/runorfocus.py
 set $music     clementine
-set $browser   iceweasel
+set $browser   cyberfox
 set $terminal  urxvtc
 
 # Outputs
 set $output1 HDMI-0
-set $output2 DVI-0
+set $output2 DVI-I-0
 
 set $default_gaps_inner 20
 set $default_gaps_outer 0
@@ -96,6 +96,9 @@ floating_modifier $mod
 
 # Bind key to move mouse out of way
 bindsym $mod+i exec --no-startup-id xdotool mousemove 0 1080
+
+# Bind rofi hotkey
+bindsym $mod+r exec --no-startup-id rofi -show run
 
 # Terminal
 bindsym $mod+Return exec $terminal
