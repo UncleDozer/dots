@@ -12,7 +12,7 @@ set $alt       Mod1
 
 # Programs
 set $run       exec python ~/.i3/runorfocus.py
-set $music     clementine
+set $music     pithos
 set $browser   cyberfox
 set $terminal  urxvtc
 
