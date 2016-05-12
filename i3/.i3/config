@@ -69,7 +69,7 @@ set $col_width      155px
 set $col_height     225px
 set $drop_width     900px
 set $drop_height    200px
-set $scratch_width  500px
+set $scratch_width  700px
 set $scratch_height 700px
 
 # }}}
@@ -114,6 +114,7 @@ gaps outer $default_gaps_outer
 
 # Kill Window
 bindsym $mod+c kill
+# bindsym $mod+Shift+c kill -9
 
 # change focus
 bindsym $mod+j focus down
@@ -296,9 +297,6 @@ assign [class="(?i)playonlinux"] $ws7
 # Set speedcrunch (calculator) to floating
 for_window [class="(?i)speedcrunch"] floating enable
 
-# Set floating for Anomaly
-for_window [class="(?i)AnomalyWarzoneEarth"] floating enable
-
 # Scratchpad and Dropdown Config
 #{{{
 
@@ -311,7 +309,7 @@ bindsym     $mod+n scratchpad show
 # Create a scratchpad terminal
 bindsym     $mod+v exec "urxvtc -name scratchpad"
 for_window  [instance="scratchpad"] floating enable;
-for_window  [instance="scratchpad"] move scratchpad; [instance="scratchpad"] scratchpad show; move position 660px 275px; resize shrink height 10000px; resize grow height $scratch_height; resize shrink width 10000px; resize grow width $scratch_width; move scratchpad
+for_window  [instance="scratchpad"] move scratchpad; [instance="scratchpad"] scratchpad show; move position 560px 275px; resize shrink height 10000px; resize grow height $scratch_height; resize shrink width 10000px; resize grow width $scratch_width; move scratchpad
 bindsym     $mod+x [instance="scratchpad"] scratchpad show
 
 # Create a dropdown terminal

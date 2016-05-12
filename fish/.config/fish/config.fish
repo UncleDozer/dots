@@ -31,13 +31,13 @@ end
 set -x BROWSER 'iceweasel'
 set -x TERMINAL 'urxvtc'
 set -x QT_X11_NO_MITSHM 1
-set -x EDITOR 'nvim'
+set -x EDITOR 'vim'
 set -x SCRIPTS $HOME/.scripts
 set -x STEAM_FRAME_FORCE_CLOSE 1
-set -x PATH $PATH /usr/local/bin /usr/bin /bin /usr/local/sbin /usr/sbin /sbin /usr/bin /home/uncledozer/.gem/ruby/2.2.0/bin /home/uncledozer/.config/bspwm /usr/share/awesome /home/uncledozer/.gem/ruby/2.1.0 /etc/php /home/uncledozer/public_html/webapps/phpMyAdmin /opt/android-sdk/platform-tools /lib /lib64 /usr/lib/python2.7 /usr/bin/core_perl /usr/bin/site_perl /usr/bin/vendor_perl /usr/lib /usr/lib/php /usr/lib/php/modules $SCRIPTS $SCRIPTS/colorscripts /usr/bin/perl /home/uncledozer/google_appengine
+set -x PATH $PATH /usr/local/bin /usr/bin /bin /usr/local/sbin /usr/sbin /sbin /usr/bin /lib /lib64 /usr/lib/python2.7 /usr/bin/core_perl /usr/bin/site_perl /usr/bin/vendor_perl /usr/lib $SCRIPTS
 set --global --export LC_CTYPE en_US.UTF-8
-set -x LC_ALL en_US.UTF-8
-set -x LANG en_US.UTF-8
+# set -x LC_ALL en_US.UTF-8
+# set -x LANG en_US.UTF-8
 set -x TMP /tmp/
 # ---}}}
 
@@ -78,9 +78,9 @@ function pd
 end
 
 # vim to nvim
-function vim
-    command nvim $argv
-end
+# function vim
+    # command nvim $argv
+# end
 
 # I can never seem to remember yaourt
 alias aur='yaourt'
@@ -164,10 +164,10 @@ function xbright
     switch (count $argv)
         case 1
             xrandr --output HDMI-0 --brightness $argv &
-            xrandr --output DVI-0 --brightness .9 &
+            xrandr --output DVI-I-1 --brightness .9 &
         case 2
-            xrandr --output DVI-0 --brightness $argv[ 1 ] &
-            xrandr --output HDMI-0 --brightness $argv[ 2 ] &
+            xrandr --output HDMI-0 --brightness $argv[ 1 ] &
+            xrandr --output DVI-I-1 --brightness $argv[ 2 ] &
     end
 end
 
