@@ -97,7 +97,7 @@ Plug 'tpope/vim-rails'
 " Endwise.vim
 Plug 'tpope/vim-endwise'
 
-" GDscript
+" GDscript for Godot
 Plug 'a-watson/vim-gdscript'
 
 " C++ better highlighting
@@ -940,6 +940,15 @@ if has("autocmd")
         au CursorMovedI * echo ""
         au InsertEnter * setlocal timeoutlen=1000
         au InsertLeave * setlocal timeoutlen=250
+    augroup END
+
+    augroup godotformatting
+     au!
+     au BufRead,BufNewFile *.gd set noexpandtab
+     au BufRead,BufNewFile *.gd set tabstop=4
+     au BufRead,BufNewFile *.gd set softtabstop=4
+     au BufRead,BufNewFile *.gd set shiftwidth=4
+     au BufRead,BufNewFile *.gd set shiftround
     augroup END
 
 endif
