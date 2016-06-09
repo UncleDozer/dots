@@ -22,7 +22,6 @@ Plugin 'gem'
 function fish_title
 end
 
-
 # Clear Fish Greeting
 function fish_greeting
 end
@@ -30,6 +29,7 @@ end
 # User Variables ---{{{
 set -x BROWSER 'iceweasel'
 set -x TERMINAL 'urxvtc'
+set -U COLORTERM 'rxvt-unicode-256color'
 set -x QT_X11_NO_MITSHM 1
 set -x EDITOR 'vim'
 set -x SCRIPTS $HOME/.scripts
@@ -54,10 +54,10 @@ set -x fish_pager_color_prefix green --bold
 # ---}}}
 
 # Alias Functions ---{{{
+
 # Jump plugin
 # Keep alias for autocompletion
 alias j='jump'
-# alias mpv='mpv --hwdec=vaapi'
 
 function ncmpcpp
     command ncmpcpp --config ~/.config/ncmpcpp/config
@@ -109,6 +109,7 @@ end
 # ---}}}
 
 # Functions ---{{{
+
 # Re-source fish profile
 function repro
     source ~/.config/fish/config.fish
@@ -211,12 +212,6 @@ function compileScss
         case 2
             ls **.scss | entr sassc -m $argv[ 1 ] $argv[ 2 ]
     end
-end
-
-# Run RTV with browser set as w3m
-function rtv
-    set -lx BROWSER 'w3m'
-    command rtv
 end
 
 # ---}}}

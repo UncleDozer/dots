@@ -266,7 +266,7 @@ endif
 set expandtab                 " Expand Tabs to Spaces
 set tabstop=2
 set softtabstop=2
-set shiftwidth=1
+set shiftwidth=2
 set shiftround
 
 set breakindent               " Visually Break Lines in Wrap Mode
