@@ -29,7 +29,7 @@ end
 # User Variables ---{{{
 set -x BROWSER 'iceweasel'
 set -x TERMINAL 'urxvtc'
-set -U COLORTERM 'rxvt-unicode-256color'
+set -xg COLORTERM 'rxvt-unicode-256color'
 set -x QT_X11_NO_MITSHM 1
 set -x EDITOR 'vim'
 set -x SCRIPTS $HOME/.scripts
@@ -47,7 +47,7 @@ set -x fish_color_autosuggestion magenta
 set -x fish_color_redirection magenta --bold
 set -x fish_color_param green --bold
 
-set -x fish_color_search_match --background=blue --bold
+set -x fish_color_search_match --background=blue
 set -x fish_pager_color_progress magenta --bold
 set -x fish_pager_color_description green --bold
 set -x fish_pager_color_prefix green --bold

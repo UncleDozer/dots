@@ -1,11 +1,2 @@
 let g:netrw_dirhistmax  =10
-let g:netrw_dirhist_cnt =9
-let g:netrw_dirhist_1='/home/uncledozer/public_html/work/shawncagle/starterkit'
-let g:netrw_dirhist_2='/etc/modprobe.d'
-let g:netrw_dirhist_3='/usr/share/stone-soup/data/docs'
-let g:netrw_dirhist_4='/home/uncledozer/projects/roguelike/venv/lib/python2.7/config'
-let g:netrw_dirhist_5='/home/uncledozer/.dots/.git'
-let g:netrw_dirhist_6='/etc/modprobe.d'
-let g:netrw_dirhist_7='/home/uncledozer/.dots/fish'
-let g:netrw_dirhist_8='/home/uncledozer/.dots/fish/.config'
-let g:netrw_dirhist_9='/home/uncledozer/.dots/fish/.config/fish'
+let g:netrw_dirhist_cnt =0

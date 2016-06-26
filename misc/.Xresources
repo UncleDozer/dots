@@ -60,7 +60,7 @@ URxvt*cursorBlink       : 0
 URxvt*shadowColor       : #000
 URxvt.urlLauncher       : cyberfox
 URxvt.visualBell        : false
-URxvt.iso14755          : true
+URxvt.iso14755          : false
 
 URxvt*skipBuiltinGlyphs : true
 URxvt*transparent       : false
